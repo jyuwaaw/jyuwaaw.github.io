@@ -1,0 +1,29 @@
+<svg width="592" height="160" viewBox="0 0 592 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="592" height="160" rx="20" fill="#F4F4F4"/>
+  <g filter="url(#shadow)">
+    <circle cx="40" cy="40" r="16" fill="#6D9A2C"/>
+    <circle cx="68" cy="76" r="16" fill="#6D9A2C"/>
+    <circle cx="108" cy="76" r="16" fill="#6D9A2C"/>
+    <circle cx="40" cy="112" r="16" fill="#6D9A2C"/>
+    <circle cx="80" cy="112" r="16" fill="#6D9A2C"/>
+    <line x1="51" y1="50" x2="60" y2="64" stroke="#6D9A2C" stroke-width="6" stroke-linecap="round"/>
+    <line x1="84" y1="76" x2="92" y2="76" stroke="#6D9A2C" stroke-width="6" stroke-linecap="round"/>
+    <line x1="62" y1="89" x2="48" y2="102" stroke="#6D9A2C" stroke-width="6" stroke-linecap="round"/>
+    <line x1="73" y1="90" x2="78" y2="100" stroke="#6D9A2C" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <text x="158" y="82" font-family="Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="72" font-weight="400" fill="#000000">lexiBit</text>
+  <text x="158" y="82" font-family="Menlo, Monaco, Consolas, 'Courier New', monospace" font-size="72" font-weight="700" fill="#A61F2D">F</text>
+  <text x="171" y="136" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="600" fill="#666666">HW for Flexible Quantization</text>
+  <defs>
+    <filter id="shadow" x="10" y="18" width="124" height="124" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="4"/>
+      <feGaussianBlur stdDeviation="3"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+</svg>

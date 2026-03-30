@@ -1,0 +1,154 @@
+@import "../../_globalColor";
+
+.main {
+  width: 90%;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 4rem;
+}
+.greet-main {
+  width: 90%;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 2rem;
+}
+
+.greeting-main {
+  display: flex;
+}
+
+.subTitle {
+  color: $subTitle !important;
+}
+
+.greeting-main {
+  display: flex;
+}
+
+.greeting-main > * {
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.empty-div {
+  margin-bottom: 40px;
+}
+
+.button-greeting-div {
+  display: flex;
+  margin-top: 40px;
+}
+.download-link-button {
+  text-decoration: none;
+}
+
+.greeting-text {
+  font-size: 70px;
+  line-height: 1.1;
+  color: $textColor !important;
+}
+
+.greeting-text-p {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.greeting-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(17, 24, 39, 0.82));
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 24px 80px rgba(2, 6, 23, 0.35);
+}
+
+.chip-card-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.chip-card h2 {
+  margin: 0 0 16px;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #f8fafc;
+}
+
+.chip-card p {
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.chip-card-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #e2e8f0;
+}
+
+.chip-card-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .greeting-text {
+    font-size: 50px;
+  }
+  .greeting-text-p {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .button-greeting-div {
+    justify-content: space-around;
+  }
+  .greeting-text {
+    font-size: 30px;
+    text-align: center;
+  }
+  .greeting-text-p {
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+  }
+  .greeting-main {
+    display: block;
+  }
+  .greeting-image-div {
+    height: auto;
+  }
+  .chip-card {
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .chip-card h2 {
+    font-size: 24px;
+  }
+  .chip-card p,
+  .chip-card-list li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .main {
+    width: auto;
+  }
+}
