@@ -1,0 +1,151 @@
+@import "../../_globalColor";
+
+.blog-page-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+.blog-page-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: $titleColor;
+  margin-bottom: 8px;
+}
+
+.dark-mode .blog-page-title {
+  color: $textColorDark;
+}
+
+.blog-page-subtitle {
+  font-size: 1.1rem;
+  color: $subTitle;
+  margin-bottom: 48px;
+}
+
+.blog-page-empty {
+  color: $subTitle;
+  font-size: 1rem;
+  line-height: 1.7;
+
+  code {
+    background: $lightBackground3;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+}
+
+.dark-mode .blog-page-empty code {
+  background: $iconBackground;
+  color: $textColorDark;
+}
+
+.blog-page-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.blog-post-card {
+  border-left: 4px solid $buttonColor;
+  padding: 24px 28px;
+  background: $lightBackground2;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 12px $lightBoxShadow;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 24px $lightBoxShadowDark;
+  }
+}
+
+.dark-mode .blog-post-card {
+  background: lighten(#171c28, 5%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-post-date {
+  font-size: 0.85rem;
+  color: $subTitle;
+}
+
+.blog-post-tag {
+  font-size: 0.75rem;
+  background: $buttonColor;
+  color: $textColorDark;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.blog-post-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $titleColor;
+  margin: 0 0 10px;
+}
+
+.dark-mode .blog-post-title {
+  color: $textColorDark;
+}
+
+.blog-post-link {
+  color: $titleColor;
+  text-decoration: none;
+
+  &:hover {
+    color: $buttonColor;
+  }
+}
+
+.dark-mode .blog-post-link {
+  color: $textColorDark;
+
+  &:hover {
+    color: $buttonHover;
+  }
+}
+
+.blog-post-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: $cardSubtitle;
+  margin: 0 0 16px;
+}
+
+.dark-mode .blog-post-desc {
+  color: darken($textColorDark, 20%);
+}
+
+.blog-post-read-more {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $buttonColor;
+  text-decoration: none;
+
+  &:hover {
+    color: $buttonHover;
+  }
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .blog-page-title {
+    font-size: 32px;
+  }
+
+  .blog-post-card {
+    padding: 18px 20px;
+  }
+
+  .blog-post-title {
+    font-size: 1.2rem;
+  }
+}

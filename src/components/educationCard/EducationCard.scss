@@ -78,6 +78,57 @@
   margin-top: 0.5rem;
 }
 
+.course-assistant-section {
+  margin-top: 1rem;
+}
+
+.course-assistant-title {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.course-assistant-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.course-assistant-chip {
+  position: relative;
+  border-radius: 999px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  cursor: default;
+}
+
+.course-assistant-chip-course {
+  font-weight: 600;
+  display: inline-block;
+}
+
+.course-assistant-chip-stack {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  transition: opacity 0.2s ease, max-height 0.25s ease, margin-top 0.25s ease;
+}
+
+.course-assistant-chip:hover .course-assistant-chip-stack {
+  opacity: 1;
+  max-height: 120px;
+  margin-top: 10px;
+}
+
+.course-assistant-tech-pill {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 /* Media Query */
 
 @media (max-width: 1380px) {

@@ -64,6 +64,10 @@
   background-color: $kaggle;
 }
 
+.google-scholar i {
+  background-color: #4285f4;
+}
+
 .instagram i {
   background-color: $instagram;
 }
@@ -78,7 +82,8 @@
 .instagram i:hover,
 .stack-overflow i:hover,
 .kaggle i:hover,
-.medium i:hover {
+.medium i:hover,
+.google-scholar i:hover {
   background-color: $textColor;
 }
 

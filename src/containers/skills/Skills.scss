@@ -6,18 +6,22 @@
   overflow: hidden;
 }
 
+.skills-main-div-fullwidth {
+  display: block;
+}
+
 .skills-text-div {
   margin-left: 50px;
+}
+
+.skills-text-div-fullwidth {
+  margin-left: 0;
+  max-width: 100%;
 }
 
 .skills-main-div > * {
   flex: 1;
   margin-bottom: 30px;
-}
-
-.skills-image-div > img {
-  max-width: 100%;
-  height: auto;
 }
 
 .skills-heading {

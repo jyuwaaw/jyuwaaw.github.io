@@ -15,6 +15,29 @@ export default function EducationCard({school}) {
         ))
       : null;
   };
+
+  const GetCourseAssistantRoles = ({roles}) => {
+    return roles && roles.length ? (
+      <div className="course-assistant-section">
+        <p className="course-assistant-title">Course Assistant</p>
+        <div className="course-assistant-chip-list">
+          {roles.map((role, i) => (
+            <div key={i} className="course-assistant-chip">
+              <span className="course-assistant-chip-course">{role.course}</span>
+              <div className="course-assistant-chip-stack">
+                {role.techStack.map((tech, j) => (
+                  <span key={j} className="course-assistant-tech-pill">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : null;
+  };
+
   const {isDark} = useContext(StyleContext);
 
   if (!school.logo)
@@ -60,6 +83,7 @@ export default function EducationCard({school}) {
                   <GetDescBullets descBullets={school.descBullets} />
                 </ul>
               </div>
+              <GetCourseAssistantRoles roles={school.courseAssistantRoles} />
             </div>
           </div>
         </div>

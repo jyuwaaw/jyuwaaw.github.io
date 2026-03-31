@@ -1,0 +1,54 @@
+.garage-page-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+}
+
+.garage-page-title {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
+
+.garage-page-subtitle {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.garage-page-card {
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.garage-page-intro {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.garage-page-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.garage-page-list li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .garage-page-main {
+    padding: 48px 18px 40px;
+  }
+
+  .garage-page-title {
+    font-size: 34px;
+  }
+
+  .garage-page-subtitle,
+  .garage-page-intro,
+  .garage-page-list li {
+    font-size: 16px;
+  }
+}

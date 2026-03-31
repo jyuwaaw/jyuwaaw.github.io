@@ -25,8 +25,8 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Benji",
-  title: "Benji",
+  username: "Yuhua (Benji) Huang",
+  title: "Yuhua (Benji) Huang",
   subTitle:
     "ASIC and Design Verification engineer focused on RTL design, UVM-based verification, accelerator architectures, and repeatable RTL-to-GDS implementation flows. Building technically rigorous digital systems across verification, physical implementation, and automation.",
   resumeLink: "",
@@ -36,9 +36,11 @@ const greeting = {
 // Social Media Links
 
 const socialMediaLinks = {
-  github: "https://github.com/your-handle",
-  linkedin: "https://www.linkedin.com/in/your-handle",
-  gmail: "benji.asic@example.com",
+  github: "https://github.com/jyuwaaw",
+  linkedin: "https://www.linkedin.com/in/yuhua-benji/",
+  gmail: "yuhuah2@uci.edu",
+  googleScholar:
+    "https://scholar.google.com/citations?user=5VKP9mIAAAAJ&hl=en",
   gitlab: "",
   facebook: "",
   medium: "",
@@ -124,8 +126,22 @@ const educationInfo = {
       duration: "Graduated June 2025",
       desc: "Graduate work centered on computer architecture, SoC design, accelerator systems, and semiconductor implementation.",
       descBullets: [
-        "Coursework: Computer Architecture, SoC Design, Embedded Systems, Deep Learning Accelerator Design, Advanced Semiconductor, Broadband IC Design, Heterogeneous Integrated Systems",
+        "Coursework: Computer Architecture, SoC Design, Embedded Systems, DL Accelerator Design, Advanced Semiconductor, Broadband IC Design, Heterogeneous Integrated Systems",
         "Additional focus: Digital and Analog IC Design, VLSI Design, Low-Power Design, Layout Design, DFT, FPGA"
+      ],
+      courseAssistantRoles: [
+        {
+          course: "EECS 70A Network Analysis",
+          techStack: ["Circuit Analysis", "MATLAB", "Signals", "Linear Systems"]
+        },
+        {
+          course: "EECS 145 Electrical Engineering Analysis",
+          techStack: ["Circuit Theory", "Problem Solving", "Mathematical Modeling"]
+        },
+        {
+          course: "EECS 31 Introduction to Digital Systems",
+          techStack: ["Verilog", "FSM", "Digital Logic", "Simulation"]
+        }
       ]
     },
     {
@@ -138,6 +154,16 @@ const educationInfo = {
       descBullets: [
         "Built depth across RTL development, semiconductor fundamentals, and digital system integration",
         "Prepared for advanced ASIC and accelerator design through lab-driven design and implementation coursework"
+      ],
+      courseAssistantRoles: [
+        {
+          course: "Advanced Digital IC Design",
+          techStack: ["RTL Design", "Verilog", "Timing", "Synthesis"]
+        },
+        {
+          course: "Digital IC Verification",
+          techStack: ["SystemVerilog", "Testbench", "Assertions", "Verification"]
+        }
       ]
     }
   ]
@@ -225,7 +251,7 @@ const bigProjects = {
       ]
     },
     {
-      projectName: "AXI4 SRAM Controller with UVM Verification",
+      projectName: "AXI SRAM Controller with UVM Verification",
       projectDesc:
         "Built an AXI4-compliant SRAM controller with burst support up to 256 beats and a complete UVM environment including sequencers, monitors, scoreboards, constrained-random stimulus, and protocol coverage.",
       footerLink: [
@@ -278,6 +304,69 @@ const bigProjects = {
         {name: "IC Compiler", url: ""},
         {name: "Physical Design", url: ""}
       ]
+    },
+    {
+      projectName: "SRAM Controller Design and Verification on APB / AHB",
+      projectDesc:
+        "Designed an SRAM controller attached to APB and AHB buses, completed RTL design and foundational testbench validation, and built a simple UVM environment for controller verification. Strengthened hands-on SystemVerilog and C development through the project lifecycle.",
+      footerLink: [
+        {name: "SystemVerilog", url: ""},
+        {name: "UVM", url: ""},
+        {name: "APB / AHB", url: ""},
+        {name: "RTL Verification", url: ""}
+      ]
+    },
+    {
+      projectName: "Appliance Analysis and Identification Device",
+      projectDesc:
+        "Built for the NUEDC contest: designed the full electrical loop, used a current transformer to sense appliance parameters, sent data to an STM32 MCU for processing and control, and developed an Android upper-computer app for monitoring and simple device control. Also structured the Keil5 codebase and divided implementation work across teammates.",
+      footerLink: [
+        {name: "STM32", url: ""},
+        {name: "Keil5", url: ""},
+        {name: "Embedded Systems", url: ""},
+        {name: "Android", url: ""}
+      ]
+    },
+    {
+      projectName: "BCI Silent Speech Interface",
+      projectDesc:
+        "Explored silent-speech detection using EEG signals. Verified motivation with Cyton Board eye-blink detection, then used an OpenBCI Cyton board and targeted electrode placement to capture EEG activity for speech-pattern recognition experiments.",
+      footerLink: [
+        {name: "OpenBCI Cyton", url: ""},
+        {name: "EEG", url: ""},
+        {name: "Signal Acquisition", url: ""},
+        {name: "BCI", url: ""}
+      ]
+    },
+    {
+      projectName: "10 Gbps Transimpedance Amplifier in 45nm CMOS",
+      projectDesc:
+        "Designed a 10 Gbps TIA in 45nm CMOS and achieved a clear crossing eye diagram with integrated input-referred noise from 1 kHz to 10 GHz. Final performance included 564.3 Ω gain, 5.292 GHz bandwidth, 12.2 pA/√Hz input-referred noise, and 2.56 mW DC power.",
+      footerLink: [
+        {name: "45nm CMOS", url: ""},
+        {name: "Broadband IC Design", url: ""},
+        {name: "Analog", url: ""},
+        {name: "10 Gbps", url: ""}
+      ]
+    },
+    {
+      projectName: "Design and Layout of 256-bit SRAM",
+      projectDesc:
+        "Designed and laid out a 256-bit SRAM using 6T CMOS SRAM cells built from cross-coupled inverters and access transistors for low-power and stable operation. The resulting 16×16 SRAM block occupied approximately 14,700.89 μm².",
+      footerLink: [
+        {name: "6T SRAM", url: ""},
+        {name: "Layout Design", url: ""},
+        {name: "Memory Design", url: ""},
+        {name: "VLSI", url: ""}
+      ]
+    },
+    {
+      projectName: "NRG",
+      projectDesc:
+        "Additional project work published on GitHub. Repository available for review.",
+      footerLink: [
+        {name: "GitHub Repo", url: "https://github.com/jyuwaaw/NRG"}
+      ]
     }
   ],
   display: true
@@ -300,12 +389,42 @@ const achievementSection = {
   display: true
 };
 
+const garageSection = {
+  title: "Garage",
+  subtitle:
+    "Outside chips, I work on cars, hands-on mechanical problem solving, and the HMLS Auto Service LLC project.",
+  intro:
+    "This page is where I'll put my mechanic work, car projects, and the business side of HMLS Auto Service LLC.",
+  highlights: [
+    "Hands-on work on cars and mechanical troubleshooting",
+    "Building HMLS Auto Service",
+    "Combining technical discipline from engineering with real-world shop work"
+  ],
+  display: true
+};
+
 const blogSection = {
-  title: "Blogs",
-  subtitle: "",
+  title: "Blog",
+  subtitle: "Thoughts on ASIC design, verification, and accelerator architecture.",
   displayMediumBlogs: "false",
-  blogs: [],
-  display: false
+  blogs: [
+    // Add your posts here. Each entry supports:
+    //   title: "Post Title"          (required)
+    //   date: "March 2026"           (optional)
+    //   description: "..."           (optional)
+    //   url: "https://..."           (optional — makes the title/card clickable)
+    //   tags: ["UVM", "RTL"]        (optional)
+    //
+    // Example:
+    // {
+    //   title: "Building a UVM Scoreboard from Scratch",
+    //   date: "March 2026",
+    //   description: "A walkthrough of how I structure UVM scoreboards for AXI-based memory controllers, including tips for coverage closure.",
+    //   url: "",
+    //   tags: ["UVM", "SystemVerilog", "Verification"]
+    // }
+  ],
+  display: true
 };
 
 const talkSection = {
@@ -333,7 +452,7 @@ const contactInfo = {
   subtitle:
     "For ASIC, RTL, verification, and accelerator engineering opportunities, use the placeholder contacts below and replace them with personal details as needed.",
   number: "",
-  email_address: "benji.asic@example.com"
+  email_address: "jyuwaaw@gmail.com"
 };
 
 const twitterDetails = {
@@ -355,6 +474,7 @@ export {
   openSource,
   bigProjects,
   achievementSection,
+  garageSection,
   blogSection,
   talkSection,
   podcastSection,
