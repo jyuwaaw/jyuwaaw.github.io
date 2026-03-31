@@ -23,7 +23,10 @@ export default function EducationCard({school}) {
         <div className="course-assistant-chip-list">
           {roles.map((role, i) => (
             <div key={i} className="course-assistant-chip">
-              <span className="course-assistant-chip-course">{role.course}</span>
+              <div className="course-assistant-chip-header">
+                <span className="course-assistant-chip-course">{role.course}</span>
+                <span className="course-assistant-chip-cue">Hover to expand ▾</span>
+              </div>
               <div className="course-assistant-chip-stack">
                 {role.techStack.map((tech, j) => (
                   <span key={j} className="course-assistant-tech-pill">

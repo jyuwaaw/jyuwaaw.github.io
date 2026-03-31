@@ -95,15 +95,39 @@
 
 .course-assistant-chip {
   position: relative;
-  border-radius: 999px;
-  padding: 10px 14px;
+  min-width: 240px;
+  border-radius: 18px;
+  padding: 12px 14px;
+  border: 1px dashed rgba(148, 163, 184, 0.5);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   cursor: default;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.course-assistant-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+  border-color: rgba(59, 130, 246, 0.65);
+}
+
+.course-assistant-chip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .course-assistant-chip-course {
   font-weight: 600;
   display: inline-block;
+}
+
+.course-assistant-chip-cue {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  white-space: nowrap;
 }
 
 .course-assistant-chip-stack {
@@ -119,7 +143,11 @@
 .course-assistant-chip:hover .course-assistant-chip-stack {
   opacity: 1;
   max-height: 120px;
-  margin-top: 10px;
+  margin-top: 12px;
+}
+
+.course-assistant-chip:hover .course-assistant-chip-cue {
+  opacity: 1;
 }
 
 .course-assistant-tech-pill {
@@ -127,6 +155,7 @@
   padding: 4px 10px;
   font-size: 12px;
   line-height: 1.4;
+  background: rgba(59, 130, 246, 0.12);
 }
 
 /* Media Query */

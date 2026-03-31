@@ -4,6 +4,7 @@ import Footer from "../../components/footer/Footer";
 import {garageSection} from "../../portfolio";
 import {StyleProvider} from "../../contexts/StyleContext";
 import {useLocalStorage} from "../../hooks/useLocalStorage";
+import mechanicPhoto from "../../assets/images/me_as_mechanic_c63s.jpg";
 import "./GaragePage.scss";
 
 function GaragePage() {
@@ -28,13 +29,22 @@ function GaragePage() {
           <p className={isDark ? "dark-mode garage-page-subtitle" : "garage-page-subtitle"}>
             {garageSection.subtitle}
           </p>
-          <div className={isDark ? "dark-mode garage-page-card" : "garage-page-card"}>
-            <p className="garage-page-intro">{garageSection.intro}</p>
-            <ul className="garage-page-list">
-              {garageSection.highlights.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
+          <div className="garage-hero-wrap">
+            <div className="garage-photo-card">
+              <img
+                className="garage-photo"
+                src={mechanicPhoto}
+                alt="Benji working as a mechanic"
+              />
+            </div>
+            <div className={isDark ? "dark-mode garage-page-card" : "garage-page-card"}>
+              <p className="garage-page-intro">{garageSection.intro}</p>
+              <ul className="garage-page-list">
+                {garageSection.highlights.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         <Footer />

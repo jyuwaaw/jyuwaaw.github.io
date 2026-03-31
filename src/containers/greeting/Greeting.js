@@ -5,6 +5,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import {greeting} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
+import graduationPhoto from "../../assets/images/ucigraduation.jpg";
 
 export default function Greeting() {
   const {isDark} = useContext(StyleContext);
@@ -48,18 +49,12 @@ export default function Greeting() {
             </div>
           </div>
           <div className="greeting-image-div greeting-panel">
-            <div className={isDark ? "chip-card dark-mode" : "chip-card"}>
-              <div className="chip-card-label">Focus</div>
-              <h2>RTL • Verification • Physical Design</h2>
-              <p>
-                ASIC implementation and DV work across accelerator architecture,
-                UVM environments, timing-driven design, and lab automation.
-              </p>
-              <ul className="chip-card-list">
-                <li>Verilog / SystemVerilog / UVM</li>
-                <li>Design Compiler / PrimeTime / Innovus / ICC2</li>
-                <li>FPGA prototyping, coverage, and debug automation</li>
-              </ul>
+            <div className={isDark ? "hero-photo-card dark-mode" : "hero-photo-card"}>
+              <img
+                className="hero-photo"
+                src={graduationPhoto}
+                alt="Yuhua Benji Huang graduation portrait"
+              />
             </div>
           </div>
         </div>
