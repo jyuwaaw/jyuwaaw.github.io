@@ -25,8 +25,8 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Yuhua (Benji) Huang",
-  title: "Yuhua (Benji) Huang",
+  username: "Benji Huang",
+  title: "Benji Huang",
   subTitle:
     "ASIC and Design Verification engineer focused on RTL design, UVM-based verification, accelerator architectures, and repeatable RTL-to-GDS implementation flows. Building technically rigorous digital systems across verification, physical implementation, and automation.",
   resumeLink: "",
