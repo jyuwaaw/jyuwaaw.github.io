@@ -5,6 +5,20 @@ import { getAllPosts } from '@/lib/posts';
 
 const projects = [
   {
+    tag: 'AI Agent',
+    title: 'Fixo — AI Vehicle Diagnostics',
+    desc: 'Multimodal auto-diagnosis agent: analyzes photos, audio clips, OBD-II codes, and text descriptions to deliver severity ratings, cost estimates, and mechanic-ready reports in ~30 s. Covers 18+ brands and all 1996+ OBD-II vehicles.',
+    meta: ['AI Agent', 'TypeScript', 'Next.js', 'Deno'],
+    href: 'https://fixo.ink',
+  },
+  {
+    tag: 'Full-Stack',
+    title: 'HMLS — Mobile Mechanic Platform',
+    desc: 'End-to-end service platform for a mobile mechanic business in Orange County & San Jose: AI-powered chat → instant estimates → Stripe payments → provider scheduling. Built and maintained the full stack (Next.js, Deno/Hono, Supabase, Drizzle).',
+    meta: ['Next.js', 'Deno', 'Supabase', 'Stripe'],
+    href: 'https://hmls.autos',
+  },
+  {
     tag: 'Verification',
     title: 'AXI4-Compliant SRAM Controller with UVM',
     desc: 'Full UVM environment — AXI agents, self-checking scoreboard, constrained-random sequences — achieving 100% AXI4 protocol compliance across AW/W/B and AR/R channels with bursts up to 256 beats.',
@@ -41,11 +55,11 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="hero wrap">
-        <span className="eyebrow"><span className="spark">✦</span> Verification · RTL · SoC</span>
-        <h1>I verify silicon <span className="dim">and ship it.</span></h1>
+        <span className="eyebrow"><span className="spark">✦</span> Verification · RTL · AI Systems</span>
+        <h1>I build things <span className="dim">that actually ship.</span></h1>
         <p className="lede">
-          {site.role} — M.S. ECE, UC Irvine. I build UVM testbenches, design RTL, and take chips
-          from spec to GDSII. Currently seeking full-time roles in verification and digital design.
+          {site.role} — M.S. ECE, UC Irvine. I design RTL, build UVM testbenches, and ship full-stack
+          AI systems. From 14 nm ASIC tape-out to production AI agents — I like working the full stack.
         </p>
         <div className="cta-row">
           <a className="btn btn-primary" href={`mailto:${site.email}`}>Get in touch</a>
@@ -74,6 +88,7 @@ export default function Home() {
             <span className="out">→ UVM verification — constrained-random, scoreboards, SVA, coverage.</span>
             <span className="out">→ RTL design — AXI4, RISC-V SoC, AHB, CDC, DFT, low-power (UPF/DVFS).</span>
             <span className="out">→ Full RTL-to-GDSII: VCS, Design Compiler, Innovus, IC Compiler II.</span>
+            <span className="out">→ AI agent dev — shipped fixo.ink (multimodal auto-diagnosis) & hmls.autos platform.</span>
             <span className="out">→ Research paper "FlexiBit" under review — arbitrary mixed-precision AI accelerator.</span>
             <span className="prompt">$</span> <span className="cmd">echo $LANGUAGES</span>
             <span className="out">Mandarin · Cantonese · English</span>

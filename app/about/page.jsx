@@ -35,6 +35,12 @@ const timeline = [
   },
   {
     num: '06',
+    title: 'Electrical System R&D & AI Engineer — HMLS Auto Service LLC',
+    when: 'Jun 2025 – Jun 2026 · Orange County & San Jose, CA',
+    body: 'Researched and proposed improvements to automotive electrical systems across a range of vehicle makes and models. Led AI agent development — architected and shipped Fixo (fixo.ink), a multimodal auto-diagnosis agent that accepts photos, audio clips, OBD-II codes, and text descriptions to produce severity ratings, repair-cost estimates, and mechanic-ready PDF reports in ~30 seconds. Also built and maintained the full HMLS service platform (hmls.autos): Next.js frontend, Deno/Hono backend, Supabase (PostgreSQL + Drizzle ORM), Stripe payments, and provider-scheduling workflows — handling the complete order lifecycle from AI-generated estimates through booking and completion.',
+  },
+  {
+    num: '07',
     title: 'Independent Verification & RTL Projects',
     when: 'June 2025 – Present · San Jose, CA',
     body: 'Self-directed deep-dives: complete UVM environments for AXI4 SRAM controllers and RISC-V SoC accelerators, constrained-random stimulus, SVA assertions, and golden C++ models — all targeting 100% functional coverage.',
@@ -49,7 +55,7 @@ export default function About() {
         <h1>Hi, I'm Benji. <span className="dim">Nice to meet you.</span></h1>
         <p>
           Digital design & verification engineer with an M.S. in ECE from UC Irvine.
-          I build UVM testbenches, design RTL, and take chips from spec to GDSII.
+          I build UVM testbenches, design RTL, and ship production AI systems.
           Trilingual (Mandarin, Cantonese, English) — I learn fastest by shipping.
         </p>
       </section>
@@ -85,7 +91,7 @@ export default function About() {
           </div>
           <div className="skill-group">
             <h4>Languages & HDL</h4>
-            <p>Verilog, SystemVerilog, VHDL, C++, Python, TCL, Perl, Makefile, SystemC, SpecC, HLS</p>
+            <p>Verilog, SystemVerilog, VHDL, C++, Python, TypeScript, TCL, Perl, Makefile, SystemC, SpecC, HLS</p>
           </div>
           <div className="skill-group">
             <h4>Protocols & Methodology</h4>
@@ -94,6 +100,14 @@ export default function About() {
           <div className="skill-group">
             <h4>EDA Tools</h4>
             <p>VCS, Verdi, Verilator, Yosys, Design Compiler, PrimeTime, IC Compiler II, Innovus, Virtuoso, Vivado, Vitis HLS, MATLAB</p>
+          </div>
+          <div className="skill-group">
+            <h4>Software & AI</h4>
+            <p>Next.js, Deno, Hono, Supabase, Drizzle ORM, Stripe, AI agent development, multimodal LLM APIs, REST APIs, PostgreSQL</p>
+          </div>
+          <div className="skill-group">
+            <h4>Automotive</h4>
+            <p>OBD-II diagnostics, automotive electrical systems (ABS, CDC, power management), AXI-Lite FPGA bring-up, vehicle fault analysis</p>
           </div>
         </div>
       </section>
