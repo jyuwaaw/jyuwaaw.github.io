@@ -58,7 +58,7 @@ export default function Home() {
         <span className="eyebrow"><span className="spark">✦</span> Verification · RTL · AI Systems</span>
         <h1>Hardware, software, <span className="dim">shipped.</span></h1>
         <p className="lede">
-          {site.role} — Digital design & verification engineer (M.S. ECE, UC Irvine). 
+          Digital design & verification engineer (M.S. ECE, UC Irvine).
           I architect and verify RTL — flexible-precision AI accelerators, UVM testbenches, 
           full RTL-to-GDSII — then build and ship the AI products that run on top of it. 
           I work the whole vertical: from the arithmetic inside an accelerator to the agents it ends up serving.
