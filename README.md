@@ -16,7 +16,10 @@ npm run dev        # http://localhost:3000
 2. **`app/page.jsx`** — the `projects` array (homepage "Selected work").
 3. **`app/about/page.jsx`** — your bio and the `timeline` array.
 4. **`posts/*.md`** — blog posts. Add a `.md` file with frontmatter
-   (`title`, `date`, `tag`, `excerpt`) and it appears automatically.
+   (`title`, `date`, `category`, `excerpt`, plus optional `tags`, `series`,
+   `source`, and `title_zh`/`excerpt_zh` + an `<!-- zh -->` body marker for a
+   Chinese variant) and it appears automatically. `category` is one of
+   `learning` / `projects` / `meta`; tags get pages at `/blog/tag/<tag>/`.
 5. Optional: drop `resume.pdf` (and any images) into **`public/`**.
 
 ## Deploy to GitHub Pages

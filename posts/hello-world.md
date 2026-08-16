@@ -1,7 +1,8 @@
 ---
 title: Hello, world — and why I started this blog
 date: 2026-06-19
-tag: Meta
+category: meta
+tags: [writing]
 excerpt: A short note on what this site is for and what I plan to write about.
 ---
 
@@ -18,7 +19,3 @@ I work across hardware and software, so expect a mix:
 ## Why write at all
 
 Writing forces clarity. If I can't explain a thing simply, I probably don't understand it yet. So this blog is partly for you and partly for me.
-
-> The best way to learn is to build, then explain what you built.
-
-More soon.

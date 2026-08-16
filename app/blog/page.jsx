@@ -1,10 +1,11 @@
-import Link from 'next/link';
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts, CATEGORIES, CATEGORY_LABELS } from '@/lib/posts';
+import BlogIndex from '@/components/BlogIndex';
 
 export const metadata = { title: 'Blog' };
 
-export default function BlogIndex() {
+export default function BlogPage() {
   const posts = getAllPosts();
+  const categories = CATEGORIES.filter((c) => posts.some((p) => p.category === c));
   return (
     <>
       <section className="page-head wrap">
@@ -14,17 +15,7 @@ export default function BlogIndex() {
       </section>
 
       <section className="block wrap" style={{ paddingTop: 48 }}>
-        <div className="grid">
-          {posts.map((post) => (
-            <Link className="card" href={`/blog/${post.slug}`} key={post.slug}>
-              <span className="arrow">↗</span>
-              <span className="tag">{post.tag}</span>
-              <h3>{post.title}</h3>
-              <p>{post.excerpt}</p>
-              <div className="meta"><span>{post.date}</span></div>
-            </Link>
-          ))}
-        </div>
+        <BlogIndex posts={posts} categories={categories} labels={CATEGORY_LABELS} />
       </section>
     </>
   );
