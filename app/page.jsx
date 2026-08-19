@@ -27,12 +27,6 @@ export default function Home() {
           <a className="btn" href={site.linkedin}>LinkedIn ↗</a>
           <a className="btn" href={site.arxiv}>arXiv ↗</a>
         </div>
-        <div className="filters" style={{ marginTop: 22, marginBottom: 0 }} aria-label="Browse by focus">
-          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', alignSelf: 'center' }}>focus:</span>
-          {TRACKS.map((t) => (
-            <Link key={t.id} className="chip" href={`/focus/${t.id}`}>{t.label}</Link>
-          ))}
-        </div>
       </section>
 
       <Marquee />
@@ -69,6 +63,12 @@ export default function Home() {
         <div className="section-head">
           <span className="eyebrow"><span className="spark">✦</span> Selected work</span>
           <h2>Things I've <span className="dim">built.</span></h2>
+          <div className="filters" style={{ marginTop: 18, marginBottom: 0 }} aria-label="Browse by focus">
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', alignSelf: 'center' }}>by focus:</span>
+            {TRACKS.map((t) => (
+              <Link key={t.id} className="chip" href={`/focus/${t.id}`}>{t.label}</Link>
+            ))}
+          </div>
         </div>
         <div className="grid">
           {featuredProjects.map((p) => (

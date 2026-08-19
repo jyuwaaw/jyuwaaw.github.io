@@ -27,6 +27,8 @@ export default async function TrackPage({ params }) {
   return (
     <>
       <section className="page-head wrap">
+        <Link className="back-link" href="/">← Home</Link>
+        <br />
         <span className="eyebrow"><span className="spark">✦</span> Focus</span>
         <h1>{track.label}<span className="dim">.</span></h1>
         <p>{track.blurb}</p>
