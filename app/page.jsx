@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Marquee from '@/components/Marquee';
 import { site } from '@/lib/site';
 import { getAllPosts, CATEGORY_LABELS } from '@/lib/posts';
-import { featuredProjects } from '@/lib/projects';
+import { projects } from '@/lib/projects';
 import { TRACKS } from '@/lib/tracks';
+import ProjectGrid from '@/components/ProjectGrid';
 
 
 export default function Home() {
@@ -63,24 +64,8 @@ export default function Home() {
         <div className="section-head">
           <span className="eyebrow"><span className="spark">✦</span> Selected work</span>
           <h2>Things I've <span className="dim">built.</span></h2>
-          <div className="filters" style={{ marginTop: 18, marginBottom: 0 }} aria-label="Browse by focus">
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', alignSelf: 'center' }}>by focus:</span>
-            {TRACKS.map((t) => (
-              <Link key={t.id} className="chip" href={`/focus/${t.id}`}>{t.label}</Link>
-            ))}
-          </div>
         </div>
-        <div className="grid">
-          {featuredProjects.map((p) => (
-            <a className="card" href={p.href} key={p.title} target="_blank" rel="noopener noreferrer">
-              <span className="arrow">↗</span>
-              <span className="tag">{p.tag}</span>
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
-              <div className="meta">{p.meta.map((m) => <span key={m}>{m}</span>)}</div>
-            </a>
-          ))}
-        </div>
+        <ProjectGrid projects={projects} tracks={TRACKS} defaultFeatured />
         <div className="cta-row" style={{ marginTop: 28 }}>
           <Link className="btn" href="/projects">All projects →</Link>
         </div>
