@@ -1,52 +1,11 @@
 import Link from 'next/link';
 import Marquee from '@/components/Marquee';
 import { site } from '@/lib/site';
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts, CATEGORY_LABELS } from '@/lib/posts';
+import { projects } from '@/lib/projects';
+import { TRACKS } from '@/lib/tracks';
+import ProjectGrid from '@/components/ProjectGrid';
 
-const projects = [
-  {
-    tag: 'Research',
-    title: 'FlexiBit: Fully Flexible Precision Bit-parallel Accelerator',
-    desc: 'Novel architecture for arbitrary mixed-precision AI (FP6, FP5, INT3…) at near-full utilization. Designed in Verilog/SystemVerilog, verified in VCS, taped out RTL-to-layout at 14 nm (Design Compiler → Innovus). Paper in review.',
-    meta: ['Verilog', 'SystemVerilog', 'VCS', '14 nm'],
-    href: site.arxiv,
-  },
-  {
-    tag: 'Low Power',
-    title: 'Low-Power Accelerator via NN Error-Resilience',
-    desc: 'Data-reordering algorithm minimizing bit flips to exploit timing slack; combined with clock-gating, power-gating, and DVFS in a 3-domain UPF. Reduced clock from 1 GHz to 297 MHz at 85.7% accuracy.',
-    meta: ['Python', 'UPF', 'DVFS', 'ASIC'],
-    href: 'https://github.com/jyuwaaw/Low_Power_Accelerator_Design_based_on_Neural_Network_Error_Resilience',
-  },
-  {
-    tag: 'HLS / FPGA',
-    title: 'SoC-based MatMul & DNN Accelerator',
-    desc: 'HLS-based SoC accelerators on AMD KR260 (PYNQ) cutting DNN inference runtime from 4612 s to 44 s while maintaining 98% accuracy. Resources: 16K FFs, 11.9K LUTs, 80 DSPs.',
-    meta: ['Vitis HLS', 'FPGA', 'VHDL', 'C++'],
-    href: 'https://github.com/jyuwaaw/SoC-based-MatMul-Accelerator-and-DNN-Accelerator',
-  },
-  {
-    tag: 'Verification',
-    title: 'AXI4-Compliant SRAM Controller with UVM',
-    desc: 'Full UVM environment — AXI agents, self-checking scoreboard, constrained-random sequences — achieving 100% AXI4 protocol compliance across AW/W/B and AR/R channels with bursts up to 256 beats.',
-    meta: ['UVM', 'SystemVerilog', 'AXI4'],
-    href: 'https://github.com/jyuwaaw',
-  },
-  {
-    tag: 'Full-Stack',
-    title: 'HMLS — Mobile Mechanic Platform',
-    desc: 'End-to-end service platform for a mobile mechanic business in Orange County & San Jose: AI-powered chat → instant estimates → Stripe payments → provider scheduling. Built and maintained the full stack (Next.js, Deno/Hono, Supabase, Drizzle).',
-    meta: ['Next.js', 'Deno', 'Supabase', 'Stripe'],
-    href: 'https://hmls.autos',
-  },
-  {
-    tag: 'SoC Design',
-    title: 'Flexible-Bit AI Accelerator on RISC-V SoC',
-    desc: 'AXI4-integrated RISC-V accelerator verified with a UVM testbench. Supports FP6–FP8 and INT2–8 tensor ops with parameterized FBRT multipliers and flexible-bit adders over AXI4.',
-    meta: ['Verilog', 'UVM', 'RISC-V', 'AXI4'],
-    href: 'https://github.com/jyuwaaw',
-  },
-];
 
 export default function Home() {
   const posts = getAllPosts().slice(0, 2);
@@ -106,16 +65,9 @@ export default function Home() {
           <span className="eyebrow"><span className="spark">✦</span> Selected work</span>
           <h2>Things I've <span className="dim">built.</span></h2>
         </div>
-        <div className="grid">
-          {projects.map((p) => (
-            <a className="card" href={p.href} key={p.title} target="_blank" rel="noopener noreferrer">
-              <span className="arrow">↗</span>
-              <span className="tag">{p.tag}</span>
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
-              <div className="meta">{p.meta.map((m) => <span key={m}>{m}</span>)}</div>
-            </a>
-          ))}
+        <ProjectGrid projects={projects} tracks={TRACKS} defaultFeatured />
+        <div className="cta-row" style={{ marginTop: 28 }}>
+          <Link className="btn" href="/projects">All projects →</Link>
         </div>
       </section>
 
@@ -130,7 +82,7 @@ export default function Home() {
             {posts.map((post) => (
               <Link className="card" href={`/blog/${post.slug}`} key={post.slug}>
                 <span className="arrow">↗</span>
-                <span className="tag">{post.tag}</span>
+                <span className="tag">{CATEGORY_LABELS[post.category] ?? post.category}</span>
                 <h3>{post.title}</h3>
                 <p>{post.excerpt}</p>
                 <div className="meta"><span>{post.date}</span></div>

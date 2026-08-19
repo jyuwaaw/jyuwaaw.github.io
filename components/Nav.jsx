@@ -12,6 +12,7 @@ export default function Nav() {
           </Link>
           <div className="nav-links">
             <Link className="hide-sm" href="/">Home</Link>
+            <Link className="hide-sm" href="/projects">Projects</Link>
             <Link className="hide-sm" href="/blog">Blog</Link>
             <Link className="hide-sm" href="/about">About</Link>
             <a className="btn" href={`mailto:${site.email}`}>Contact</a>
