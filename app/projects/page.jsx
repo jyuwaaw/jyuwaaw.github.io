@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import { projectsByEra } from '@/lib/projects';
+import { TRACKS } from '@/lib/tracks';
 
 export const metadata = {
   title: 'Projects',
@@ -17,6 +19,12 @@ export default function ProjectsPage() {
           I used to make chips run AI; now I make AI run tools. Same instinct both
           times — find the interface everyone says doesn't exist.
         </p>
+        <div className="filters" style={{ marginTop: 20 }} aria-label="Browse by focus">
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', alignSelf: 'center' }}>focus:</span>
+          {TRACKS.map((t) => (
+            <Link key={t.id} className="chip" href={`/focus/${t.id}`}>{t.label}</Link>
+          ))}
+        </div>
       </section>
 
       {eras.map((era) => (

@@ -3,6 +3,7 @@ import Marquee from '@/components/Marquee';
 import { site } from '@/lib/site';
 import { getAllPosts, CATEGORY_LABELS } from '@/lib/posts';
 import { featuredProjects } from '@/lib/projects';
+import { TRACKS } from '@/lib/tracks';
 
 
 export default function Home() {
@@ -25,6 +26,12 @@ export default function Home() {
           <a className="btn" href={site.github}>GitHub ↗</a>
           <a className="btn" href={site.linkedin}>LinkedIn ↗</a>
           <a className="btn" href={site.arxiv}>arXiv ↗</a>
+        </div>
+        <div className="filters" style={{ marginTop: 22, marginBottom: 0 }} aria-label="Browse by focus">
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--faint)', alignSelf: 'center' }}>focus:</span>
+          {TRACKS.map((t) => (
+            <Link key={t.id} className="chip" href={`/focus/${t.id}`}>{t.label}</Link>
+          ))}
         </div>
       </section>
 
