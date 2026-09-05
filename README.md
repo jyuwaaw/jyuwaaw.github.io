@@ -12,7 +12,7 @@ npm run dev        # http://localhost:3000
 
 ## Make it yours
 
-1. **`lib/site.js`** — your name, role, email, GitHub, LinkedIn, résumé link, and avatar path. Replace `public/images/avatar.png` to change the avatar (currently the public GitHub avatar).
+1. **`lib/site.js`** — your name, role, email, GitHub, LinkedIn, résumé link, and avatar path. The avatar uses `public/images/portrait.png` with its head-and-shoulders framing set by `.avatar img` in `app/globals.css`. About uses the full `public/images/graduation.png` photo. Both files are the supplied original photos; CSS controls the avatar crop.
 2. **`lib/projects.js`** — project data for the homepage and Projects page.
 3. **`app/about/page.jsx`** — your bio and the `timeline` array.
 4. **`posts/*.md`** — blog posts. Add a `.md` file with frontmatter
