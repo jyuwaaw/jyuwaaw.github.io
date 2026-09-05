@@ -15,7 +15,8 @@
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
-html{ scroll-behavior:smooth; }
+/* Keep centered content stable when filtering removes the vertical scrollbar. */
+html{ scroll-behavior:smooth; scrollbar-gutter:stable; }
 
 body{
   background:var(--bg);
