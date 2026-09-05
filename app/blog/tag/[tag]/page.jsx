@@ -16,9 +16,9 @@ export default async function TagPage({ params }) {
   return (
     <>
       <section className="page-head wrap">
-        <Link className="back-link" href="/blog">← All posts</Link>
+        <div className="archive-links"><Link href="/blog">← Blog</Link><Link href="/writing">Writing →</Link></div>
         <h1><span className="dim">#</span>{tag}</h1>
-        <p>{posts.length} post{posts.length === 1 ? '' : 's'} with this tag.</p>
+        <p>{posts.length} post{posts.length === 1 ? '' : 's'} across Blog and Writing with this tag.</p>
       </section>
 
       <section className="block wrap" style={{ paddingTop: 48 }}>

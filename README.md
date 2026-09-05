@@ -1,6 +1,6 @@
 # Personal Site
 
-A Next.js (App Router) personal site + blog, styled after the dark Vercel/Geist
+A Next.js (App Router) personal site, casual blog, and curated Writing page, styled after the dark Vercel/Geist
 aesthetic. Static-exported for GitHub Pages.
 
 ## Quick start (local)
@@ -12,14 +12,18 @@ npm run dev        # http://localhost:3000
 
 ## Make it yours
 
-1. **`lib/site.js`** — your name, role, email, GitHub, LinkedIn, résumé link.
-2. **`app/page.jsx`** — the `projects` array (homepage "Selected work").
+1. **`lib/site.js`** — your name, role, email, GitHub, LinkedIn, résumé link, and avatar path. Replace `public/images/avatar.png` to change the avatar (currently the public GitHub avatar).
+2. **`lib/projects.js`** — project data for the homepage and Projects page.
 3. **`app/about/page.jsx`** — your bio and the `timeline` array.
 4. **`posts/*.md`** — blog posts. Add a `.md` file with frontmatter
-   (`title`, `date`, `category`, `excerpt`, plus optional `tags`, `series`,
+   (`title`, `date`, plus optional `category`, `excerpt`, `section`, `tags`, `series`,
    `source`, and `title_zh`/`excerpt_zh` + an `<!-- zh -->` body marker for a
-   Chinese variant) and it appears automatically. `category` is one of
-   `learning` / `projects` / `meta`; tags get pages at `/blog/tag/<tag>/`.
+   Chinese variant) and it appears automatically. New posts default to Blog;
+   add `section: writing` for a polished article on `/writing/` and the homepage.
+   `category` is one of `learning` / `projects` / `meta` (defaults to `meta`);
+   tags are unrestricted and get pages at `/blog/tag/<tag>/` across both sections.
+   All article permalinks remain `/blog/<slug>/`, so changing a section preserves
+   shared links. Each article's back link returns to its section.
 5. Optional: drop `resume.pdf` (and any images) into **`public/`**.
 
 ## Deploy to GitHub Pages

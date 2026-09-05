@@ -1,4 +1,5 @@
 import { site } from '@/lib/site';
+import Avatar from '@/components/Avatar';
 
 export const metadata = { title: 'About — Yuhua (Benji) Huang' };
 
@@ -51,6 +52,7 @@ export default function About() {
   return (
     <>
       <section className="page-head wrap">
+        <Avatar size={104} className="about-avatar" />
         <span className="eyebrow"><span className="spark">✦</span> About</span>
         <h1>Hi, I'm Benji. <span className="dim">Nice to meet you.</span></h1>
         <p>

@@ -8,33 +8,32 @@ export default function BlogIndex({ posts, categories, labels }) {
   const shown = cat === 'all' ? posts : posts.filter((p) => p.category === cat);
   return (
     <>
-      <div className="filters" role="group" aria-label="Filter posts by category">
+      {categories.length > 1 && <div className="filters" role="group" aria-label="Filter posts by category">
         {['all', ...categories].map((c) => (
           <button
             key={c}
             className={`chip${cat === c ? ' active' : ''}`}
+            aria-pressed={cat === c}
             onClick={() => setCat(c)}
           >
             {c === 'all' ? 'All' : labels[c] ?? c}
           </button>
         ))}
-      </div>
-      <div className="grid">
+      </div>}
+      <div className="note-list">
         {shown.map((post) => (
-          <Link className="card" href={`/blog/${post.slug}`} key={post.slug}>
-            <span className="arrow">↗</span>
-            <span className="tag">{labels[post.category] ?? post.category}</span>
-            <h3>{post.title}</h3>
-            <p>{post.excerpt}</p>
-            <div className="meta">
-              <span>{post.date}</span>
-              {post.tags.length > 0 && (
-                <span>{post.tags.map((t) => `#${t}`).join(' ')}</span>
-              )}
+          <Link className="note" href={`/blog/${post.slug}`} key={post.slug}>
+            <time dateTime={post.date}>{post.date}</time>
+            <div className="note-content">
+              <h2>{post.title}</h2>
+              {post.excerpt && <p>{post.excerpt}</p>}
+              {post.tags.length > 0 && <span className="note-tags">{post.tags.map((t) => `#${t}`).join(' ')}</span>}
             </div>
+            <span className="note-arrow" aria-hidden="true">↗</span>
           </Link>
         ))}
       </div>
+      {shown.length === 0 && <p className="empty-posts">No notes here yet.</p>}
     </>
   );
 }

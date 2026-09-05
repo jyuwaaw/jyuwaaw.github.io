@@ -6,7 +6,7 @@ tags: [writing, site]
 excerpt: Drop a markdown file in /posts and it shows up automatically. Here's the format.
 ---
 
-Adding a post takes about ten seconds. Create a new `.md` file in the `posts/` folder and give it frontmatter at the top:
+Create a new `.md` file in the `posts/` folder. It goes into Blog by default — quick notes, links, or anything worth keeping. For a polished article, add `section: writing` and it appears on the Writing page instead.
 
 ```md
 ---
@@ -22,8 +22,9 @@ Your content here, in plain markdown.
 
 ## The fields
 
-- **`title`**, **`date`**, **`excerpt`** — required. English by default.
-- **`category`** — exactly one of `learning` (daily learning notes), `projects` (things I built), or `meta` (about the site/writing itself). Shown as the card chip and filterable on the blog index.
+- **`title`**, **`date`** — the essentials. `excerpt` is an optional summary for the index.
+- **`section`** — defaults to `blog`. Use `writing` for essays and worked-through articles. Changing this never changes a post's URL.
+- **`category`** — optional: `learning`, `projects`, or `meta` (the default). Blog shows category filters when there is more than one category. Use tags for any other topic.
 - **`tags`** — optional open list, lowercase kebab-case (`[mcp, claude-code, rtl]`). Each tag gets its own page at `/blog/tag/<tag>/`.
 - **`series`** — optional string. Posts sharing a series show a reading-order box.
 - **`source`** — optional URL crediting the thread/repo/discussion the post came from.
