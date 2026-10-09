@@ -18,7 +18,9 @@ export default async function Post({ params }) {
   const seriesPosts = post.series ? getSeriesPosts(post.series) : [];
   return (
     <article className="post wrap">
-      <Link className="back-link" href="/blog">← All posts</Link>
+      <Link className="back-link" href={post.section === 'writing' ? '/writing' : '/blog'}>
+        {post.section === 'writing' ? '← Writing' : '← Blog'}
+      </Link>
       <div className="post-meta">
         {CATEGORY_LABELS[post.category] ?? post.category} · {post.date}
       </div>

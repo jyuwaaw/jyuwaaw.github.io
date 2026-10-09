@@ -1,0 +1,701 @@
+[
+  {
+    "filename": "IMG_1301.jpg",
+    "style": "Light & shadow",
+    "order": 0,
+    "light": "low",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW01225.jpg",
+    "style": "Light & shadow",
+    "order": 1,
+    "light": "sunlit",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW00747.jpg",
+    "style": "Light & shadow",
+    "order": 2,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW00626.jpg",
+    "style": "Light & shadow",
+    "order": 3,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW00701.jpg",
+    "style": "Light & shadow",
+    "order": 4,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW00708.jpg",
+    "style": "Light & shadow",
+    "order": 5,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW03798.jpg",
+    "style": "Light & shadow",
+    "order": 6,
+    "light": "low",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW02536.jpg",
+    "style": "Light & shadow",
+    "order": 7,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW02588.jpg",
+    "style": "Light & shadow",
+    "order": 8,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW03759.jpg",
+    "style": "Light & shadow",
+    "order": 9,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW07516.jpg",
+    "style": "Light & shadow",
+    "order": 10,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0252.JPG",
+    "style": "Light & shadow",
+    "order": 11,
+    "light": "night",
+    "camera": "Sony A7M3",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "DSC04282.jpg",
+    "style": "Light & shadow",
+    "order": 12,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1672.jpg",
+    "style": "Light & shadow",
+    "order": 13,
+    "light": "golden",
+    "location": "UC Irvine, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_3736.jpg",
+    "style": "Light & shadow",
+    "order": 14,
+    "light": "low",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_5319_jpg.jpg",
+    "style": "Light & shadow",
+    "order": 15,
+    "light": "night",
+    "location": "Jiangmen, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_9676.jpg",
+    "style": "Light & shadow",
+    "order": 16,
+    "light": "night",
+    "location": "Griffith Observatory, LA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0132.JPG",
+    "style": "Open skies",
+    "order": 18,
+    "light": "soft",
+    "camera": "Nikon 1 V2",
+    "location": "Highway 1",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0729.JPG",
+    "style": "Open skies",
+    "order": 19,
+    "light": "night",
+    "location": "Sky's The Limit, Joshua Tree",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_3481.jpg",
+    "style": "Open skies",
+    "order": 20,
+    "light": "soft",
+    "location": "Lake Crowley, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "DSC04366.jpg",
+    "style": "Open skies",
+    "order": 21,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1375.jpg",
+    "style": "Open skies",
+    "order": 22,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1418.jpg",
+    "style": "Open skies",
+    "order": 23,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "DSC02752.jpg",
+    "style": "Open skies",
+    "order": 24,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_4676.jpg",
+    "style": "Open skies",
+    "order": 25,
+    "light": "sunlit",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_5458.jpg",
+    "style": "Open skies",
+    "order": 26,
+    "light": "golden",
+    "location": "San Francisco, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1033.jpg",
+    "style": "Open skies",
+    "order": 27,
+    "light": "golden",
+    "location": "Santa Monica, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0137.jpg",
+    "style": "Open skies",
+    "order": 29,
+    "light": "golden",
+    "camera": "iPhone 13 Pro",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1646.jpg",
+    "style": "Open skies",
+    "order": 30,
+    "light": "golden",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1376.jpg",
+    "style": "Open skies",
+    "order": 31,
+    "light": "golden"
+  },
+  {
+    "filename": "IMG_4904.jpg",
+    "style": "Open skies",
+    "order": 32,
+    "light": "golden",
+    "location": "Orange, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_4600.jpg",
+    "style": "Everyday color",
+    "order": 33,
+    "light": "sunlit",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6869.jpg",
+    "style": "Everyday color",
+    "order": 34,
+    "light": "soft",
+    "location": "Kitchen in the Desert, Twentynine Palms, CA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6882.jpg",
+    "style": "Everyday color",
+    "order": 35,
+    "light": "sunlit",
+    "location": "Twentynine Palms, CA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6887.jpg",
+    "style": "Everyday color",
+    "order": 36,
+    "light": "sunlit",
+    "location": "Twentynine Palms, CA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6808.jpg",
+    "style": "Everyday color",
+    "order": 37,
+    "light": "sunlit",
+    "location": "Palm Springs, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_7136.jpg",
+    "style": "Everyday color",
+    "order": 38,
+    "light": "sunlit",
+    "location": "Kitchen in the Desert, Twentynine Palms, CA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_7145.jpg",
+    "style": "Everyday color",
+    "order": 39,
+    "light": "golden",
+    "location": "Kitchen in the Desert, Twentynine Palms, CA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_7150.jpg",
+    "style": "Everyday color",
+    "order": 40,
+    "light": "golden",
+    "location": "Kitchen in the Desert, Twentynine Palms, CA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6661.jpg",
+    "style": "Everyday color",
+    "order": 41,
+    "light": "low",
+    "location": "Universal Studios Hollywood",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6745.jpg",
+    "style": "Everyday color",
+    "order": 42,
+    "light": "sunlit",
+    "location": "Universal Studios Hollywood",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6879.jpg",
+    "style": "Everyday color",
+    "order": 43,
+    "light": "sunlit",
+    "location": "Twentynine Palms, CA",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_9623_jpg.jpg",
+    "style": "Everyday color",
+    "order": 44,
+    "light": "low",
+    "location": "Jiangmen, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1300.jpg",
+    "style": "Everyday color",
+    "order": 45,
+    "light": "low",
+    "location": "Palm Springs, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0791.jpg",
+    "style": "Everyday color",
+    "order": 46,
+    "light": "low",
+    "location": "Palm Springs, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "DSC04623.jpg",
+    "style": "Everyday color",
+    "order": 47,
+    "light": "night",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW08583.jpg",
+    "style": "Everyday color",
+    "order": 48,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW00780.jpg",
+    "style": "Everyday color",
+    "order": 49,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0941.jpg",
+    "style": "In passing",
+    "order": 50,
+    "light": "sunlit",
+    "location": "Santa Monica, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW00573.jpg",
+    "style": "In passing",
+    "order": 51,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "DSC02094.jpg",
+    "style": "In passing",
+    "order": 53,
+    "light": "golden",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW02503.jpg",
+    "style": "In passing",
+    "order": 54,
+    "light": "soft",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1030.jpeg",
+    "style": "In passing",
+    "order": 55,
+    "light": "sunlit",
+    "location": "Suzhou, China",
+    "locationSource": "User confirmed",
+    "camera": "Nikon 1 V2",
+    "capturedAt": "2022-09-12"
+  },
+  {
+    "filename": "IMG_4435.jpg",
+    "style": "In passing",
+    "order": 56,
+    "light": "sunlit",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0924.jpg",
+    "style": "In passing",
+    "order": 57,
+    "light": "sunlit",
+    "location": "UC Irvine, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_3146.jpg",
+    "style": "In passing",
+    "order": 58,
+    "light": "golden",
+    "location": "Mammoth Lakes, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_3225_jpg.jpg",
+    "style": "In passing",
+    "order": 59,
+    "light": "soft",
+    "location": "Mammoth Lakes, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "dji_mimo_20240617_202206_20240617202207_1718683032019_photo.jpg",
+    "style": "In passing",
+    "order": 60,
+    "light": "golden",
+    "location": "San Francisco, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "dji_mimo_20241229_152158_20241229152159_1735531739385_photo.jpg",
+    "style": "In passing",
+    "order": 61,
+    "light": "soft",
+    "location": "Mammoth Lakes, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "dji_mimo_20241229_161212_20241229161213_1735531738860_photo.jpg",
+    "style": "In passing",
+    "order": 62,
+    "light": "soft",
+    "location": "Mammoth Lakes, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "BJW03768.jpg",
+    "style": "Form & detail",
+    "order": 63,
+    "light": "night",
+    "location": "Софийский собор, Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "DSC00319.jpg",
+    "style": "Form & detail",
+    "order": 64,
+    "light": "low"
+  },
+  {
+    "filename": "DSC00322.jpg",
+    "style": "Form & detail",
+    "order": 65,
+    "light": "low"
+  },
+  {
+    "filename": "DSC00324.jpg",
+    "style": "Form & detail",
+    "order": 66,
+    "light": "low"
+  },
+  {
+    "filename": "DSC00328.jpg",
+    "style": "Form & detail",
+    "order": 67,
+    "light": "low"
+  },
+  {
+    "filename": "DSC00338.jpg",
+    "style": "Form & detail",
+    "order": 68,
+    "light": "low"
+  },
+  {
+    "filename": "IMG_0571.jpg",
+    "style": "Form & detail",
+    "order": 71,
+    "light": "sunlit",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_4153.jpg",
+    "style": "Form & detail",
+    "order": 72,
+    "light": "sunlit",
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_5692.jpg",
+    "style": "Form & detail",
+    "order": 73,
+    "light": "low",
+    "location": "PKX, Beijing, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_0321.jpg",
+    "style": "Form & detail",
+    "order": 74,
+    "light": "low",
+    "location": "FT3 Tatical, Stanton, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6094.jpg",
+    "style": "Form & detail",
+    "order": 75,
+    "light": "low",
+    "location": "FT3 Tatical, Stanton, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6161.jpg",
+    "style": "Form & detail",
+    "order": 76,
+    "light": "low",
+    "location": "Orange, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_5921.jpg",
+    "style": "Form & detail",
+    "order": 77,
+    "light": "low",
+    "location": "Orange, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_1059.jpeg",
+    "style": "Form & detail",
+    "order": 78,
+    "light": "soft",
+    "location": "Suzhou, China",
+    "locationSource": "User confirmed",
+    "camera": "Nikon 1 V2",
+    "capturedAt": "2022-09-12"
+  },
+  {
+    "filename": "Canada.JPG",
+    "light": "sunlit",
+    "style": "Open skies",
+    "order": 79,
+    "location": "Canada",
+    "locationSource": "User-provided filename"
+  },
+  {
+    "filename": "San Diego.JPG",
+    "light": "golden",
+    "style": "In passing",
+    "order": 80,
+    "location": "San Diego, California",
+    "locationSource": "User-provided filename"
+  },
+  {
+    "filename": "IMG_3925.jpeg",
+    "light": "sunlit",
+    "style": "Everyday color",
+    "order": 81,
+    "location": "Irvine, California",
+    "locationSource": "Embedded GPS; offline nearest-locality lookup, displayed at city level"
+  },
+  {
+    "filename": "IMG_6488.JPG",
+    "light": "golden",
+    "style": "Open skies",
+    "order": 82,
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6534.JPG",
+    "light": "low",
+    "style": "Everyday color",
+    "order": 83,
+    "location": "Dalian, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_6683.JPG",
+    "light": "golden",
+    "style": "Open skies",
+    "order": 84,
+    "location": "Harbin, China",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_8163.jpg",
+    "light": "golden",
+    "style": "Everyday color",
+    "order": 85,
+    "location": "Irvine, US",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_9012.jpeg",
+    "light": "night",
+    "style": "Form & detail",
+    "order": 86,
+    "location": "Irvine, California",
+    "locationSource": "Embedded GPS; offline nearest-locality lookup, displayed at city level"
+  },
+  {
+    "filename": "09b01bd1dta6b5ef72bc09425de6df33.JPG",
+    "location": "Banff National Park, Canada",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "f256e8bd1i77f33d32cbd9e98d3fe68a.jpg",
+    "location": "Mariner's Cove Marina, Australia",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "1eaeb2371ka1b3a39e9bad52803ee2c4.JPG",
+    "location": "San Francisco, US",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "IMG_3100.jpg",
+    "location": "Mammoth Lakes, California",
+    "locationSource": "User confirmed"
+  },
+  {
+    "filename": "2a48d4f9fid479189f1f71bd8b2e6068.JPG",
+    "style": "Open skies",
+    "order": 17,
+    "light": "sunlit",
+    "exclude": true
+  },
+  {
+    "filename": "9e6686a8d5fec973eb54845bb0d412cb.JPG",
+    "style": "In passing",
+    "order": 52,
+    "light": "golden",
+    "exclude": true
+  },
+  {
+    "filename": "DSC02684.jpg",
+    "style": "Form & detail",
+    "order": 69,
+    "light": "sunlit",
+    "exclude": true
+  },
+  {
+    "filename": "IMG_0571 2.jpg",
+    "style": "Form & detail",
+    "order": 70,
+    "light": "sunlit",
+    "exclude": true
+  }
+]

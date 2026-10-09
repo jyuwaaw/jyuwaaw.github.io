@@ -1,20 +1,23 @@
 import Link from 'next/link';
 import { site } from '@/lib/site';
+import Avatar from '@/components/Avatar';
 
 export default function Nav() {
   return (
     <header>
       <div className="wrap">
-        <nav>
+        <nav aria-label="Main navigation">
           <Link className="logo" href="/">
-            <span className="spark">✦</span>
+            <Avatar size={30} />
             {site.name}
           </Link>
           <div className="nav-links">
-            <Link className="hide-sm" href="/">Home</Link>
-            <Link className="hide-sm" href="/projects">Projects</Link>
-            <Link className="hide-sm" href="/blog">Blog</Link>
-            <Link className="hide-sm" href="/about">About</Link>
+            <Link href="/projects">Projects</Link>
+            <Link href="/writing">Writing</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/photography">Photography</Link>
+            <Link href="/mechanic">Mechanic</Link>
+            <Link href="/about">About</Link>
             <a className="btn" href={`mailto:${site.email}`}>Contact</a>
           </div>
         </nav>

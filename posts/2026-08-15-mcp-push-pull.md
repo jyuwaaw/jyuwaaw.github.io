@@ -1,4 +1,5 @@
 ---
+section: writing
 title: Why the model never calls your MCP tools — pull vs. push
 title_zh: MCP 工具没人调?Push 与 Pull 的心智模型
 date: 2026-08-15

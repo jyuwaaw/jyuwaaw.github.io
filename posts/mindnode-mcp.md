@@ -1,4 +1,5 @@
 ---
+section: writing
 title: The app has no API — so the local store is the API
 title_zh: 没有 API 的应用，本地存储就是 API
 date: 2026-08-19

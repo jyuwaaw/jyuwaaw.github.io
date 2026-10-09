@@ -5,15 +5,17 @@ import { getAllPosts, CATEGORY_LABELS } from '@/lib/posts';
 import { projects } from '@/lib/projects';
 import { TRACKS } from '@/lib/tracks';
 import ProjectGrid from '@/components/ProjectGrid';
+import Avatar from '@/components/Avatar';
 
 
 export default function Home() {
-  const posts = getAllPosts().slice(0, 2);
+  const posts = getAllPosts('writing').slice(0, 2);
 
   return (
     <>
       {/* HERO */}
       <section className="hero wrap">
+        <div className="hero-identity"><Avatar size={72} /><span>Hi, I'm Benji.</span></div>
         <span className="eyebrow"><span className="spark">✦</span> Verification · RTL · AI Systems</span>
         <h1>Hardware, software, <span className="dim">shipped.</span></h1>
         <p className="lede">
@@ -76,7 +78,7 @@ export default function Home() {
         <section className="block wrap">
           <div className="section-head">
             <span className="eyebrow"><span className="spark">✦</span> Latest writing</span>
-            <h2>From the <span className="dim">blog.</span></h2>
+            <h2>Ideas, <span className="dim">worked through.</span></h2>
           </div>
           <div className="grid">
             {posts.map((post) => (
@@ -89,6 +91,7 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <div className="archive-links"><Link href="/writing">All writing →</Link><Link href="/blog">Quick notes & everything else → Blog</Link></div>
         </section>
       )}
 

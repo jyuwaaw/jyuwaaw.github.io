@@ -6,14 +6,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gallery:prepare": "node scripts/prepare-galleries.mjs",
+    "prebuild": "npm run gallery:prepare",
+    "postbuild": "node scripts/clean-gallery-export.mjs",
+    "test": "node --test lib/*.test.mjs",
+    "avatar:prepare": "node scripts/prepare-avatar.mjs"
   },
   "dependencies": {
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/jost": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "exifr": "^7.1.3",
+    "geist": "1.3.1",
+    "gray-matter": "4.0.3",
+    "marked": "12.0.2",
     "next": "15.5.19",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "geist": "1.3.1",
-    "gray-matter": "4.0.3",
-    "marked": "12.0.2"
+    "sharp": "^0.34.5"
   }
 }

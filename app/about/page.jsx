@@ -1,4 +1,5 @@
 import { site } from '@/lib/site';
+import Image from 'next/image';
 
 export const metadata = { title: 'About — Yuhua (Benji) Huang' };
 
@@ -50,14 +51,25 @@ const timeline = [
 export default function About() {
   return (
     <>
-      <section className="page-head wrap">
-        <span className="eyebrow"><span className="spark">✦</span> About</span>
-        <h1>Hi, I'm Benji. <span className="dim">Nice to meet you.</span></h1>
-        <p>
-          Digital design & verification engineer with an M.S. in ECE from UC Irvine.
-          I build UVM testbenches, design RTL, and ship production AI systems.
-          Trilingual (Mandarin, Cantonese, English) — I learn fastest by shipping.
-        </p>
+      <section className="page-head wrap about-intro">
+        <div>
+          <span className="eyebrow"><span className="spark">✦</span> About</span>
+          <h1>Hi, I'm Benji. <span className="dim">Nice to meet you.</span></h1>
+          <p>
+            Digital design & verification engineer with an M.S. in ECE from UC Irvine.
+            I build UVM testbenches, design RTL, and ship production AI systems.
+            Trilingual (Mandarin, Cantonese, English) — I learn fastest by shipping.
+          </p>
+        </div>
+        <figure className="graduation-portrait">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/graduation.png`}
+            alt="Benji in graduation regalia at UC Irvine"
+            width={1086}
+            height={1448}
+          />
+          <figcaption>UC Irvine · Class of 2025</figcaption>
+        </figure>
       </section>
 
       <section className="block wrap" style={{ paddingTop: 56 }}>
