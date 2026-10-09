@@ -92,7 +92,7 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
         </div>
         <figcaption className="workshop-caption">
           {position === 0 && <span className="workshop-feature-label">From the garage</span>}
-          <h2>{item.label || item.title}</h2>
+          <h2>{item.label || 'Garage notes'}</h2>
           {position === 0 && <p>Maintenance, parts, and the work in between.</p>}
           <span className="workshop-date">{item.date || 'Garage notes'}</span>
         </figcaption>

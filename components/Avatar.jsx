@@ -7,8 +7,8 @@ export default function Avatar({ size = 80, className = '' }) {
       <Image
         src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}${site.avatar}`}
         alt={site.name}
-        width={1086}
-        height={1448}
+        width={192}
+        height={192}
       />
     </span>
   );

@@ -137,12 +137,6 @@
     "locationSource": "User confirmed"
   },
   {
-    "filename": "2a48d4f9fid479189f1f71bd8b2e6068.JPG",
-    "style": "Open skies",
-    "order": 17,
-    "light": "sunlit"
-  },
-  {
     "filename": "IMG_0132.JPG",
     "style": "Open skies",
     "order": 18,
@@ -407,12 +401,6 @@
     "locationSource": "User confirmed"
   },
   {
-    "filename": "9e6686a8d5fec973eb54845bb0d412cb.JPG",
-    "style": "In passing",
-    "order": 52,
-    "light": "golden"
-  },
-  {
     "filename": "DSC02094.jpg",
     "style": "In passing",
     "order": 53,
@@ -531,18 +519,6 @@
     "style": "Form & detail",
     "order": 68,
     "light": "low"
-  },
-  {
-    "filename": "DSC02684.jpg",
-    "style": "Form & detail",
-    "order": 69,
-    "light": "sunlit"
-  },
-  {
-    "filename": "IMG_0571 2.jpg",
-    "style": "Form & detail",
-    "order": 70,
-    "light": "sunlit"
   },
   {
     "filename": "IMG_0571.jpg",
@@ -693,5 +669,33 @@
     "filename": "IMG_3100.jpg",
     "location": "Mammoth Lakes, California",
     "locationSource": "User confirmed"
+  },
+  {
+    "filename": "2a48d4f9fid479189f1f71bd8b2e6068.JPG",
+    "style": "Open skies",
+    "order": 17,
+    "light": "sunlit",
+    "exclude": true
+  },
+  {
+    "filename": "9e6686a8d5fec973eb54845bb0d412cb.JPG",
+    "style": "In passing",
+    "order": 52,
+    "light": "golden",
+    "exclude": true
+  },
+  {
+    "filename": "DSC02684.jpg",
+    "style": "Form & detail",
+    "order": 69,
+    "light": "sunlit",
+    "exclude": true
+  },
+  {
+    "filename": "IMG_0571 2.jpg",
+    "style": "Form & detail",
+    "order": 70,
+    "light": "sunlit",
+    "exclude": true
   }
 ]

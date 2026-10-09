@@ -16,6 +16,7 @@ const basePath = ''; // e.g. '/my-site' for a project repo. '' for <username>.gi
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir: process.env.NODE_ENV === 'development' ? '.next-dev' : '.next',
   output: 'export',          // produce a static ./out folder
   trailingSlash: true,       // makes GitHub Pages routing work cleanly
   images: { unoptimized: true }, // GitHub Pages can't run Next's image optimizer

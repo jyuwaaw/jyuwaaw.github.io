@@ -9,3 +9,9 @@ out/
 
 /public/Mechanic/*
 !/public/Mechanic/_web/
+
+/public/photography/_web/*.tmp
+/public/Mechanic/_web/*.tmp
+/lib/generated/*.tmp
+/public/images/portrait.png
+.next-dev/

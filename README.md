@@ -12,7 +12,7 @@ npm run dev        # http://localhost:3000
 
 ## Make it yours
 
-1. **`lib/site.js`** — your name, role, email, GitHub, LinkedIn, résumé link, and avatar path. The avatar uses `public/images/graduation.png` with its head-and-shoulders framing set by `.avatar img` in `app/globals.css`. About uses the full `public/images/graduation.png` photo. The supplied original photo is unchanged; CSS controls the avatar crop.
+1. **`lib/site.js`** — your name, role, email, GitHub, LinkedIn, résumé link, and avatar path. The avatar uses the 192px `public/images/avatar.webp` derivative. `npm run avatar:prepare` recreates the approved head-and-shoulders crop from the unchanged `public/images/graduation.png`, which About displays in full.
 2. **`lib/projects.js`** — project data for the homepage and Projects page.
 3. **`app/about/page.jsx`** — your bio and the `timeline` array.
 4. **`posts/*.md`** — blog posts. Add a `.md` file with frontmatter
@@ -42,8 +42,39 @@ previews and a GPS-free source manifest in `lib/generated/` are committed.
 Originals stay local and are ignored by Git; `postbuild` removes original-image
 copies from `out/` so deployment contains only the web versions. A clean checkout
 builds from the manifest; caption edits still apply. Run `npm run gallery:prepare`
-after changing the local photo selection, then commit its manifests and `_web/`
-assets. To remove every photo, also clear that collection’s manifest.
+after adding photos, then commit its manifests and `_web/` assets.
+
+### Add, replace, or remove photos
+
+Use one PR per batch, starting from current `main`:
+
+1. Create a branch (`git switch -c photos/autumn-trip`) and export the selected
+   photos into `public/photography/` or `public/Mechanic/`. A fresh checkout only
+   needs the **new** originals: existing manifest entries are preserved.
+2. Add optional location, camera, date, alt text, and light/style overrides in
+   `lib/photography.json` or `lib/mechanic.json`. Unknown values can stay blank.
+3. Run `npm run gallery:prepare`, `npm test`, and `npm run build`. Check locally
+   with `npm run dev`. Development and production use separate Next.js caches.
+4. Commit the changed caption JSON, generated manifests, and `_web/` assets.
+   Originals and temporary image files are ignored. Open a PR; check the diff
+   and CI before merging. Merge to `main` publishes the site through Actions.
+
+**Adding** merges by exact filename and never removes existing published photos.
+Use distinct filenames for different images (phone cameras often reuse names).
+**Replacing** uses the same filename with new image bytes; only that photo updates.
+Preview identity uses a content hash, so changing a timestamp does not regenerate
+an entire album. Existing preview URLs are adopted during the initial migration.
+**Removing** is explicit: set `"exclude": true` on that filename in the caption
+JSON, then run `gallery:prepare`. This removes its published entry and unused
+previews but leaves the original intact; the exclusion also prevents accidental
+re-import. Do not remove a photo merely by deleting its local original. To restore,
+remove the exclusion and supply its original again, or revert the deletion commit.
+To empty a collection, mark each published filename excluded and prepare it.
+
+Only the compressed public versions belong in Git. Keep original/master files
+in your photo library or backup. Replacing images repeatedly grows Git history;
+if the gallery grows substantially, move image storage to an object store/CDN
+and keep metadata and website code in Git. A PR remains useful in either setup.
 
 Optional captions go in `lib/photography.json`, matched by filename:
 
@@ -79,15 +110,15 @@ Images retain their original proportions in compact justified rows. Capture meta
 the gallery and the large-image viewer; hover gently zooms within the frame.
 Mobile uses a single column, and reduced-motion preferences disable the zoom. Click a photo to view it larger, browse with arrow keys or Previous/Next,
 and press Escape to close. The gallery never reads the Photos library directly.
-An empty folder shows a coming-soon message. Development refreshes after files are
+A collection with no published or new non-excluded photos shows a coming-soon message. Development refreshes after files are
 added; the static preview needs `npm run build` to show new exports.
 
 ## Mechanic
 
 Drop garage photos into **`public/Mechanic/`** (capital M). They appear on
-`/mechanic/` in a dark American garage journal with painted-sign typography with a featured image and asymmetric
+`/mechanic/` in a dark American garage journal with painted-sign typography, a featured image and asymmetric
 photo sequence. It shares image previews, metadata, and the large-image viewer
-with Photography. Optional `label` fields set the journal captions.
+with Photography. Optional `label` fields set the journal captions; uncaptioned photos show “Garage notes” rather than filenames.
 Optional captions, camera overrides, and ordering go in `lib/mechanic.json`, with
 the same fields as Photography. Generated previews in `public/Mechanic/_web/`
 are committed alongside its generated manifest, just like Photography.

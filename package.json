@@ -10,7 +10,8 @@
     "gallery:prepare": "node scripts/prepare-galleries.mjs",
     "prebuild": "npm run gallery:prepare",
     "postbuild": "node scripts/clean-gallery-export.mjs",
-    "test": "node --test lib/*.test.mjs"
+    "test": "node --test lib/*.test.mjs",
+    "avatar:prepare": "node scripts/prepare-avatar.mjs"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.3.0",
