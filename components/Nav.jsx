@@ -15,6 +15,8 @@ export default function Nav() {
             <Link href="/projects">Projects</Link>
             <Link href="/writing">Writing</Link>
             <Link href="/blog">Blog</Link>
+            <Link href="/photography">Photography</Link>
+            <Link href="/mechanic">Mechanic</Link>
             <Link href="/about">About</Link>
             <a className="btn" href={`mailto:${site.email}`}>Contact</a>
           </div>

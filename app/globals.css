@@ -76,8 +76,8 @@ nav{ display:flex; align-items:center; justify-content:space-between; height:60p
 
 /* Personal identity */
 .avatar{ display:inline-block; position:relative; overflow:hidden; flex-shrink:0; border-radius:50%; border:1px solid var(--border-2); }
-/* Frame the 400px head-and-shoulders region at (704, 144) in the original 1536px portrait. */
-.avatar img{ position:absolute; width:384%; max-width:none; height:auto; left:-176%; top:-36%; }
+/* Frame a 440px head-and-shoulders square at (280, 130) in the 1086px graduation photo. */
+.avatar img{ position:absolute; width:246.8182%; max-width:none; height:auto; left:-63.6364%; top:-29.5455%; }
 .hero-identity{ display:flex; align-items:center; gap:18px; margin-bottom:32px; font-family:var(--mono); font-size:15px; }
 .hero-identity .avatar{ border-radius:20px; }
 .about-intro{ display:grid; grid-template-columns:minmax(0,1fr) 300px; align-items:center; gap:64px; }
@@ -333,4 +333,163 @@ footer{ border-top:1px solid var(--border); padding:32px 0; margin-top:40px; }
 }
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; scroll-behavior:auto; transition:none !important; }
+}
+
+/* Photography keeps the frame quiet and the original compositions intact. */
+.photography-page{ --sans:var(--photography-font, "Jost", sans-serif); background:var(--bg); font-family:var(--sans); }
+.photography-page .wrap{ max-width:1440px; padding-left:40px; padding-right:40px; }
+.photo-heading{ padding-top:56px; padding-bottom:40px; display:grid; grid-template-columns:1fr auto; align-items:end; column-gap:40px; }
+.photo-heading .section-label{ grid-column:1 / -1; font-family:var(--sans); }
+.photo-heading h1{ margin-top:16px; font-size:clamp(36px,5vw,60px); font-weight:500; line-height:1.08; letter-spacing:-.045em; }
+.photo-heading h1 span{ color:var(--muted); }
+.photo-heading p{ max-width:280px; padding-bottom:4px; color:var(--muted); font-size:14px; line-height:1.7; }
+.photo-collection{ padding-bottom:96px; }
+.photo-toolbar{ display:flex; justify-content:space-between; align-items:center; gap:16px; border-top:1px solid var(--border); padding:16px 0; font:11px/1.5 var(--sans); color:var(--muted); }
+.photo-sort{ display:flex; align-items:center; gap:20px; }
+.photo-sort button{ border:0; border-bottom:1px solid transparent; padding:5px 0; background:transparent; color:var(--muted); cursor:pointer; font:inherit; }
+.photo-sort button[aria-pressed="true"]{ border-color:var(--text); color:var(--text); }
+.photo-sort button:hover{ color:var(--text); }
+.photo-sort button:focus-visible,.photo-open:focus-visible{ outline:2px solid var(--text); outline-offset:4px; }
+.photo-groups{ display:flex; flex-direction:column; gap:48px; }
+.photo-group-heading{ display:flex; align-items:baseline; justify-content:space-between; padding:10px 0 16px; }
+.photo-group-heading h2{ font:12px/1.5 var(--sans); font-weight:400; letter-spacing:.03em; }
+.photo-group-heading>span{ color:var(--muted); font:10px var(--sans); }
+.photo-grid{ display:flex; flex-direction:column; gap:12px; }
+.photo-row{ display:flex; align-items:flex-start; gap:12px; }
+.photo-row figure{ position:relative; flex:var(--photo-ratio) 1 0; min-width:0; isolation:isolate; }
+.photo-row-single>figure{ flex:none; width:min(100%,calc(380px * var(--photo-ratio))); }
+.photo-open{ display:block; position:relative; overflow:hidden; width:100%; padding:0; border:0; background:var(--surface); cursor:zoom-in; }
+.photo-open img{ display:block; width:100%; height:auto; transition:transform .65s cubic-bezier(.2,.65,.3,1); }
+.photo-metadata{ position:absolute; bottom:0; left:0; right:0; pointer-events:none; display:flex; flex-direction:column; gap:3px; padding:42px 16px 14px; color:#fff; background:linear-gradient(transparent,rgba(0,0,0,.65)); text-shadow:0 1px 4px rgba(0,0,0,.5); font:10px/1.5 var(--sans); }
+.photo-filename{ overflow:hidden; white-space:nowrap; text-overflow:ellipsis; letter-spacing:.025em; }
+.photo-capture{ color:rgba(255,255,255,.78); }
+.photo-capture:empty{ display:none; }
+.photo-settings{ color:rgba(255,255,255,.75); }
+.photo-grid .photo-settings{ display:none; }
+@media(hover:hover) and (pointer:fine){
+  .photo-open:hover img{ transform:scale(1.025); }
+}
+.photo-open:focus-visible img{ transform:scale(1.025); }
+.photo-empty{ padding:80px 0; border-top:1px solid var(--border); color:var(--muted); }
+.photo-viewer{ position:fixed; inset:0; width:100%; max-width:none; height:100dvh; max-height:none; margin:0; padding:72px 32px 88px; border:0; background:rgba(10,10,10,.98); color:var(--text); }
+.photo-viewer[open]{ display:flex; align-items:center; justify-content:center; }
+.photo-viewer::backdrop{ background:rgba(0,0,0,.9); }
+.photo-viewer-content{ position:relative; max-width:100%; }
+.photo-viewer-content img{ display:block; width:auto; height:auto; max-width:100%; max-height:calc(100dvh - 180px); margin:auto; object-fit:contain; }
+.photo-viewer-content .photo-metadata{ font-size:11px; padding:56px 20px 18px; }
+.photo-viewer button{ font:13px var(--sans); background:transparent; color:var(--text); border:1px solid var(--border-2); border-radius:6px; padding:12px 16px; cursor:pointer; }
+.photo-viewer button:hover{ border-color:var(--muted); }
+.photo-viewer button:disabled{ opacity:.35; cursor:default; }
+.photo-close{ position:absolute; top:20px; right:24px; }
+.photo-close span{ margin-left:16px; }
+.photo-controls{ position:absolute; left:24px; right:24px; bottom:20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.photo-controls>span{ color:var(--muted); font:12px var(--sans); }
+@media(max-width:960px){
+  nav{height:auto;min-height:60px;padding:14px 0;flex-wrap:wrap;gap:14px;}
+  .nav-links{width:100%;justify-content:space-between;flex-wrap:wrap;gap:12px 18px;}
+  .photography-page .wrap{ padding-left:24px; padding-right:24px; }
+  .photo-metadata{ padding:32px 10px 10px; font-size:9px; }
+}
+@media(max-width:600px){
+  .photo-heading{ padding-top:36px; padding-bottom:28px; display:block; }
+  .photo-heading p{ margin-top:14px; max-width:none; }
+  .photo-toolbar{ font-size:10px; }
+  .photo-sort{ gap:14px; }
+  .photo-sort>span{ display:none; }
+  .photo-groups{ gap:32px; }
+  .photo-grid,.photo-row{ gap:12px; }
+  .photo-row{ flex-direction:column; }
+  .photo-row figure,.photo-row-single>figure{ width:100%; max-width:none; flex:auto; }
+  .photo-metadata{ padding:36px 14px 12px; font-size:10px; }
+  .photo-viewer{ padding:72px 16px 88px; }
+  .photo-close{ right:16px; }
+  .photo-controls{ left:16px; right:16px; }
+}
+@media(prefers-reduced-motion:reduce){
+  .photo-open:hover img,.photo-open:focus-visible img{ transform:none; }
+}
+
+
+/* A dark, painted-steel garage sign anchors the workshop journal. */
+.mechanic-page{
+  --text:#e2d6bb; --muted:#a29f93; --border:#383c35; --border-2:#626657;
+  --surface:#1b1e1a; --accent:#c4a36b; --workshop-red:#aa4534;
+  --workshop-display:"Barlow Condensed", Impact, sans-serif;
+  background:#121412; color:var(--text); padding-bottom:32px;
+}
+.mechanic-page .wrap{ max-width:1360px; padding-left:48px; padding-right:48px; }
+.mechanic-heading{ padding-top:32px; padding-bottom:32px; }
+.mechanic-kicker{ display:flex; justify-content:space-between; gap:20px; color:var(--muted); font:10px/1.5 var(--mono); letter-spacing:.09em; text-transform:uppercase; margin-bottom:22px; }
+.mechanic-kicker>span:first-child{ color:var(--text); }
+.mechanic-sign{ position:relative; padding:26px 40px 28px; text-align:center; border:1px solid #626657; outline:1px solid #383c35; outline-offset:-9px; border-radius:4px; background:repeating-linear-gradient(0deg,transparent 0 3px,#ffffff02 3px 4px),#20241f; box-shadow:0 10px 28px #0004; }
+.mechanic-sign-top{ display:flex; justify-content:center; align-items:center; gap:22px; color:#c4a36b; font:600 14px/1.4 var(--workshop-display); text-transform:uppercase; letter-spacing:.19em; }
+.mechanic-sign-top>span{ font-size:12px; }
+.mechanic-heading h1{ font:800 clamp(76px,16vw,204px)/.95 var(--workshop-display); text-transform:uppercase; letter-spacing:.005em; margin:4px 0 22px; text-shadow:2px 2px #20241f,5px 5px var(--workshop-red); }
+.mechanic-sign-bottom{ display:flex; justify-content:center; gap:0; border-top:1px solid #626657; padding-top:16px; max-width:620px; margin:auto; color:#c7c1ad; font:600 14px/1.3 var(--workshop-display); letter-spacing:.23em; text-transform:uppercase; }
+.mechanic-sign-bottom>span{ flex:1; }
+.mechanic-sign-bottom>span+span{ border-left:1px solid #626657; }
+.mechanic-bolt{ position:absolute; width:7px; height:7px; border-radius:50%; background:linear-gradient(135deg,#6c7061 43%,#161915 44% 57%,#6c7061 58%); box-shadow:0 1px 2px #000; }
+.mechanic-bolt-tl{ top:17px; left:17px; }.mechanic-bolt-tr{ top:17px; right:17px; }.mechanic-bolt-bl{ bottom:17px; left:17px; }.mechanic-bolt-br{ bottom:17px; right:17px; }
+.mechanic-intro{ padding-top:26px; display:flex; justify-content:space-between; align-items:center; gap:32px; }
+.mechanic-intro .mechanic-motto{ font:600 clamp(26px,3vw,40px)/1.1 var(--workshop-display); color:var(--text); text-transform:uppercase; }
+.mechanic-motto em{ font-style:normal; color:#b97862; }
+.mechanic-intro>p:last-child{ font-size:13px; line-height:1.7; color:var(--muted); }
+.mechanic-page .photo-toolbar{ border-top:1px solid var(--border); padding:18px 0 24px; font:11px/1.5 var(--mono); }
+.mechanic-page .photo-sort button[aria-pressed="true"]{ color:var(--text); border-color:var(--workshop-red); }
+.workshop-grid{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:56px 32px; }
+.workshop-entry{ grid-column:span 6; min-width:0; }
+.workshop-frame{ position:relative; border:1px solid var(--border); }
+.workshop-frame .photo-settings{ display:none; }
+.workshop-caption{ padding-top:16px; display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.workshop-caption h2{ font:600 clamp(22px,2.4vw,32px)/1.1 var(--workshop-display); text-transform:uppercase; letter-spacing:.02em; }
+.workshop-date{ font:10px/1.5 var(--mono); color:var(--muted); flex-shrink:0; }
+.workshop-entry:first-child{ grid-column:1/-1; display:grid; grid-template-columns:2fr 1fr; align-items:stretch; gap:0; margin-bottom:12px; background:#1b1e1a; border:1px solid var(--border); }
+.workshop-entry:first-child .workshop-frame{ border:0; }
+.workshop-entry:first-child .workshop-caption{ padding:32px; flex-direction:column; align-items:flex-start; justify-content:flex-start; border-top:4px solid var(--workshop-red); }
+.workshop-feature-label{ font:10px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.08em; color:#c4a36b; }
+.workshop-entry:first-child h2{ font-size:clamp(32px,4.5vw,60px); line-height:.98; margin:18px 0 12px; }
+.workshop-entry:first-child .workshop-caption p{ font-size:13px; color:var(--muted); max-width:190px; }
+.workshop-entry:first-child .workshop-date{ margin-top:auto; padding-top:28px; }
+.workshop-entry:nth-child(4n+2){ grid-column:1/span 5; }
+.workshop-entry:nth-child(4n+3){ grid-column:7/span 6; margin-top:72px; }
+.workshop-entry:nth-child(4n+4){ grid-column:1/span 6; }
+.workshop-entry:nth-child(4n+5):not(:first-child){ grid-column:8/span 5; margin-top:72px; }
+.mechanic-page .photo-viewer{ --text:#e2d6bb; --muted:#a29f93; --border-2:#626657; }
+@media(max-width:900px){
+  .mechanic-page .wrap{ padding-left:24px; padding-right:24px; }
+  .workshop-grid{ gap:40px 24px; }
+  .workshop-entry:first-child{ grid-template-columns:3fr 2fr; }
+  .workshop-entry:first-child .workshop-caption{ padding:22px; }
+  .workshop-caption{ flex-wrap:wrap; }
+}
+@media(max-width:600px){
+  .mechanic-heading{ padding-top:24px; padding-bottom:24px; }
+  .mechanic-kicker{ font-size:9px; letter-spacing:0; gap:12px; }
+  .mechanic-kicker>span:last-child{ text-align:right; max-width:130px; }
+  .mechanic-sign{ padding:28px 16px 24px; }
+  .mechanic-sign-top{ font-size:10px; letter-spacing:.08em; gap:10px; }
+  .mechanic-sign-top>span{ font-size:8px; }
+  .mechanic-heading h1{ font-size:clamp(52px,17vw,102px); margin:12px 0 20px; text-shadow:1px 1px #20241f,3px 3px var(--workshop-red); }
+  .mechanic-sign-bottom{ font-size:11px; letter-spacing:.08em; padding-top:12px; }
+  .mechanic-intro{ flex-direction:column; align-items:flex-start; gap:12px; padding-top:22px; }
+  .mechanic-page .photo-toolbar{ font-size:10px; }
+  .workshop-grid{ display:flex; flex-direction:column; gap:36px; }
+  .workshop-entry:nth-child(n){ margin:0; }
+  .workshop-entry:first-child{ display:flex; flex-direction:column; }
+  .workshop-entry:first-child .workshop-caption{ gap:8px; padding:24px; }
+  .workshop-entry:first-child h2{ margin:4px 0; font-size:38px; }
+  .workshop-entry:first-child .workshop-caption p{ max-width:none; }
+  .workshop-entry:first-child .workshop-date{ padding-top:12px; }
+}
+
+/* The selected photography typography; the garage retains its own treatment. */
+.photography-page .photo-heading h1,
+.photography-page .photo-group-heading h2{ font-weight:var(--preview-weight,300); }
+.photography-page .photo-metadata{ font-size:12px; font-weight:var(--preview-weight,300); }
+.photo-context{ display:flex; align-items:center; flex-wrap:wrap; gap:4px 14px; }
+.photo-daypart{ color:var(--text); }
+.photo-daypart::before{ content:'·'; margin-right:14px; color:var(--muted); }
+@media(max-width:600px){
+  .photo-toolbar{ flex-wrap:wrap; gap:8px 16px; }
+  .photo-context{ font-size:11px; }
 }

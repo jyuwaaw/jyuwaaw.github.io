@@ -1,0 +1,44 @@
+[
+  {
+    "filename": "IMG_1102.jpeg",
+    "order": 0,
+    "alt": "A car with its hood open and wheels removed in a garage",
+    "label": "Hood up. Tools out."
+  },
+  {
+    "filename": "IMG_1107.jpeg",
+    "order": 1,
+    "alt": "Gloved hands holding parts beside an open engine bay",
+    "label": "Under the hood"
+  },
+  {
+    "filename": "IMG_1328.jpeg",
+    "order": 2,
+    "alt": "An exposed assembly on the underside of a vehicle",
+    "label": "A closer look underneath"
+  },
+  {
+    "filename": "IMG_1289.jpeg",
+    "order": 3,
+    "alt": "A red coilover resting on pavement",
+    "label": "Suspension, off the car"
+  },
+  {
+    "filename": "IMG_7285.JPG",
+    "order": 4,
+    "alt": "Working beside the exposed brake assembly of a car",
+    "label": "At the wheel"
+  },
+  {
+    "filename": "16DA1953-B47B-4FE8-A42A-BAE56681C434.jpg",
+    "order": 5,
+    "alt": "Working at the front wheel of a yellow car",
+    "label": "Hands on"
+  },
+  {
+    "filename": "IMG_1408.jpeg",
+    "order": 6,
+    "alt": "A white car in a garage with maintenance supplies in front",
+    "label": "Back in the garage"
+  }
+]

@@ -3,3 +3,9 @@ node_modules/
 out/
 .DS_Store
 *.local
+
+/public/photography/*
+!/public/photography/_web/
+
+/public/Mechanic/*
+!/public/Mechanic/_web/
