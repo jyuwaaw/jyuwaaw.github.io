@@ -1,11 +1,6 @@
 import Photography from '../page';
-import PhotographyTypePreview from '@/components/PhotographyTypePreview';
-
-export const metadata = {
-  title: 'Photography — Font preview',
-  robots: { index: false, follow: false },
-};
-
+import { TypeStudio } from '@/components/Appearance';
+export const metadata = { title: 'Photography — Type studio', robots: { index: false, follow: false } };
 export default function PhotographyTypePage() {
-  return <PhotographyTypePreview><Photography /></PhotographyTypePreview>;
+  return <><TypeStudio /><Photography /></>;
 }

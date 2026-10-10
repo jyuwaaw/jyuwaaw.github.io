@@ -40,5 +40,17 @@
     "order": 6,
     "alt": "A white car in a garage with maintenance supplies in front",
     "label": "Back in the garage"
+  },
+  {
+    "filename": "IMG_9171.jpeg",
+    "order": 7,
+    "alt": "An open engine with exposed camshafts and timing chain",
+    "label": "Inside the engine"
+  },
+  {
+    "filename": "IMG_9475.jpeg",
+    "order": 8,
+    "alt": "A diagnostic scan tool connected inside a car",
+    "label": "Chasing a code"
   }
 ]
