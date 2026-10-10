@@ -26,6 +26,18 @@ export function AppearanceProvider({ children }) {
     window.addEventListener('storage', sync);
     return () => window.removeEventListener('storage', sync);
   }, []);
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const updateChrome = () => {
+      const dark = value.theme === 'dark' || (value.theme === 'system' && media.matches);
+      for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+        meta.content = dark ? '#101210' : '#f6f7f5';
+      }
+    };
+    updateChrome();
+    media.addEventListener('change', updateChrome);
+    return () => media.removeEventListener('change', updateChrome);
+  }, [value.theme]);
   function choose(patch) {
     const next = normalizeAppearance({ ...value, ...patch });
     apply(next);

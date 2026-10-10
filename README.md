@@ -30,7 +30,7 @@ npm run dev        # http://localhost:3000
 
 Export selected photos into **`public/photography/`**. JPEG, PNG, WebP, and AVIF
 files appear automatically on `/photography/` when the site rebuilds; no code edits
-are needed. Photography uses Jost Light. The default Style view follows the visitor’s local
+are needed. Photography follows the site’s IBM Plex Sans typography. The default Style view follows the visitor’s local
 time at page load: 06:00–10:59 favors soft light, 11:00–17:59 sunlight, and
 18:00–05:59 night scenes and quiet shadows. It reorders all photos without hiding
 any, and stays stable while browsing. Light groups are curated from the image
