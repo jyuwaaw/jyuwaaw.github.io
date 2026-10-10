@@ -1066,6 +1066,23 @@
     }
   },
   {
+    "filename": "IMG_3801.jpg",
+    "sourceHash": "d2d07d2e332c8b5b3fb95f94f221e8502d8c6dc54c64d3ff7eeff8c8153c7357",
+    "src": "/photography/_web/409e30c0fa050d43-preview.webp",
+    "fullSrc": "/photography/_web/409e30c0fa050d43-full.webp",
+    "width": 4032,
+    "height": 3024,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.002857142857142857,
+      "FNumber": 2.8,
+      "ISO": 32,
+      "DateTimeOriginal": "2023:02:23 15:55:39",
+      "CreateDate": "2023:02:23 15:55:39",
+      "FocalLength": 9
+    }
+  },
+  {
     "filename": "IMG_3925.jpeg",
     "sourceHash": "83fea717c0246dc9bcfebbab2de859245fc269765d39f3b4f040066ddc011468",
     "src": "/photography/_web/a24b0fddddd67df1-preview.webp",
@@ -1338,6 +1355,23 @@
     }
   },
   {
+    "filename": "IMG_6720.jpg",
+    "sourceHash": "742220bcf25e53dd308c4498b4afeb7beab19ba74e0d26eacbd2849acf093597",
+    "src": "/photography/_web/314284584776773c-preview.webp",
+    "fullSrc": "/photography/_web/314284584776773c-full.webp",
+    "width": 3024,
+    "height": 3869,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.007692307692307693,
+      "FNumber": 2.8,
+      "ISO": 125,
+      "DateTimeOriginal": "2022:02:26 18:27:26",
+      "CreateDate": "2022:02:26 18:27:26",
+      "FocalLength": 9
+    }
+  },
+  {
     "filename": "IMG_6745.jpg",
     "sourceHash": "7a5ab8b05a122c0d3f92312238a7f4f8830beb3c20ad0e3516432d9dca5fd005",
     "src": "/photography/_web/09218abc8160d236-preview.webp",
@@ -1488,6 +1522,23 @@
       "DateTimeOriginal": "2024:07:28 20:17:18",
       "CreateDate": "2024:07:28 20:17:18",
       "FocalLength": 5.7
+    }
+  },
+  {
+    "filename": "IMG_7723.jpg",
+    "sourceHash": "3002f974ff09285db704005779c118b3299d7df844cdd3fdece75af45021cfdb",
+    "src": "/photography/_web/ade952f54e341f57-preview.webp",
+    "fullSrc": "/photography/_web/ade952f54e341f57-full.webp",
+    "width": 4032,
+    "height": 3024,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.04,
+      "FNumber": 2.8,
+      "ISO": 1250,
+      "DateTimeOriginal": "2023:09:17 20:51:08",
+      "CreateDate": "2023:09:17 20:51:08",
+      "FocalLength": 9
     }
   },
   {

@@ -30,7 +30,7 @@ npm run dev        # http://localhost:3000
 
 Export selected photos into **`public/photography/`**. JPEG, PNG, WebP, and AVIF
 files appear automatically on `/photography/` when the site rebuilds; no code edits
-are needed. Photography uses Jost Light. The default Style view follows the visitor’s local
+are needed. Photography follows the site’s IBM Plex Sans typography. The default Style view follows the visitor’s local
 time at page load: 06:00–10:59 favors soft light, 11:00–17:59 sunlight, and
 18:00–05:59 night scenes and quiet shadows. It reorders all photos without hiding
 any, and stays stable while browsing. Light groups are curated from the image
@@ -113,11 +113,10 @@ and press Escape to close. The gallery never reads the Photos library directly.
 A collection with no published or new non-excluded photos shows a coming-soon message. Development refreshes after files are
 added; the static preview needs `npm run build` to show new exports.
 
-## Mechanic
+## Benji’s Garage
 
 Drop garage photos into **`public/Mechanic/`** (capital M). They appear on
-`/mechanic/` in a dark American garage journal with painted-sign typography, a featured image and asymmetric
-photo sequence. It shares image previews, metadata, and the large-image viewer
+`/mechanic/` in a light/dark garage journal with IBM Plex Sans typography and aligned photo rows. It shares image previews, metadata, and the large-image viewer
 with Photography. Optional `label` fields set the journal captions; uncaptioned photos show “Garage notes” rather than filenames.
 Optional captions, camera overrides, and ordering go in `lib/mechanic.json`, with
 the same fields as Photography. Generated previews in `public/Mechanic/_web/`
@@ -157,3 +156,11 @@ before pushing, or just `git push -u origin main --force` on a fresh repo.)
 - Built static (`output: 'export'`) — no server needed, works anywhere.
 - `trailingSlash: true` and `images.unoptimized` are set for Pages compatibility.
 - The workflow adds `.nojekyll` so GitHub doesn't strip the `_next` folder.
+
+## Appearance and typography
+
+The site defaults to the system color scheme. The header appearance menu provides System, Light, and Dark choices. The browser remembers explicit choices in `benji-appearance-v2`; System continues to follow operating-system changes through CSS. A small validated bootstrap restores preferences before first paint, with safe defaults if storage is unavailable.
+
+Visit `/type/` to compare Geist, Jost, Manrope, Barlow Condensed, and IBM Plex Sans across the real homepage, then follow links to compare other pages. Light and Regular adjust text weights while preserving a heading hierarchy. Choices apply across navigation and reloads in that browser; the site's selected default is IBM Plex Sans Regular. `/photography/type/` also uses these shared controls. Code blocks retain their monospace face; other interface text and article diagrams follow the site sans. Theme tokens and font roles live in `app/globals.css`.
+
+The v2 appearance bootstrap preserves the v1 theme choice but resets earlier font trials to IBM Plex Sans. The page and navigation label are Benji’s Garage; `/mechanic/` and the existing photo folders remain stable.

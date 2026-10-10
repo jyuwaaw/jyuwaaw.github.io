@@ -83,20 +83,19 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
       </div>
     </div>
     {layout === 'workshop' ? <div className="workshop-grid">
-      {ordered.map((item, position) => <figure className="workshop-entry" key={item.id}>
-        <div className="workshop-frame">
-          <button className="photo-open" onClick={() => setActive(item.id)} aria-label={`View photograph: ${item.title}`}>
-            <Image src={imagePath(item.src)} alt={item.alt} width={item.width} height={item.height} />
-          </button>
-          <div className="photo-metadata"><PhotoMetadata photo={item} /></div>
-        </div>
-        <figcaption className="workshop-caption">
-          {position === 0 && <span className="workshop-feature-label">From the garage</span>}
-          <h2>{item.label || 'Garage notes'}</h2>
-          {position === 0 && <p>Maintenance, parts, and the work in between.</p>}
-          <span className="workshop-date">{item.date || 'Garage notes'}</span>
-        </figcaption>
-      </figure>)}
+      {makeRows(ordered).map((row) => <div className="workshop-row" key={row[0].id}>
+        {row.map((item) => <figure className="workshop-entry" style={{ '--photo-ratio': item.width / item.height }} key={item.id}>
+          <div className="workshop-frame">
+            <button className="photo-open" onClick={() => setActive(item.id)} aria-label={`View photograph: ${item.title}`}>
+              <Image src={imagePath(item.src)} alt={item.alt} width={item.width} height={item.height} />
+            </button>
+          </div>
+          <figcaption className="workshop-caption">
+            <h2>{item.label || 'Garage notes'}</h2>
+            <div className="workshop-details"><PhotoMetadata photo={item} /></div>
+          </figcaption>
+        </figure>)}
+      </div>)}
     </div> : <div className="photo-groups">
       {groups.map((group) => <section className="photo-group" aria-label={group.label} key={group.label}>
         <div className="photo-group-heading"><h2>{group.label}</h2><span>{String(group.photos.length).padStart(2, '0')}</span></div>
