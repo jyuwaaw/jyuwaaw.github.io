@@ -555,3 +555,24 @@ nav{ gap:22px; }
   .mechanic-intro .mechanic-motto{ font-size:19px; }
   .workshop-caption h2{ font-size:20px; }
 }
+
+/* Photo likes sit apart from the image-opening control, including on touch. */
+.photo-like,.photo-viewer .photo-like{ display:inline-flex; align-items:center; justify-content:center; gap:7px; min-width:44px; min-height:44px; padding:9px 12px; border:1px solid #ffffff40; border-radius:999px; background:rgba(16,18,16,.72); color:#fff; backdrop-filter:blur(12px); font:12px/1 var(--sans); font-variant-numeric:tabular-nums; cursor:pointer; transition:background .18s ease,color .18s ease; }
+.photo-like svg{ width:18px; height:18px; flex:none; transition:transform .18s ease; }
+.photo-like[aria-pressed="true"]{ color:#ffd2d9; }
+.photo-like:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+.photo-like:disabled{ opacity:.55; cursor:wait; }
+.photo-like-corner{ position:absolute; z-index:2; top:10px; right:10px; }
+.photo-viewer-like{ position:absolute; top:20px; left:24px; }
+@media(hover:hover){
+  .photo-like:hover:not(:disabled){ background:rgba(16,18,16,.9); }
+  .photo-like:hover:not(:disabled) svg{ transform:scale(1.1); }
+}
+@media(prefers-reduced-motion:reduce){ .photo-like svg{ transform:none !important; } }
+.photo-like-status{ color:var(--muted); font:13px/1.5 var(--sans); }
+.photo-like-status:empty{ display:none; }
+.photo-like-status:not(:empty){ margin:0 0 20px; }
+.photo-like-status button{ margin-left:10px; border:0; background:none; color:inherit; text-decoration:underline; cursor:pointer; }
+.photo-viewer-like-status{ position:absolute; left:24px; right:24px; bottom:72px; text-align:center; }
+.photo-viewer-like-status .photo-like-status{ margin:0; color:var(--text); }
+.photo-viewer-like-status .photo-like-status button{ padding:4px 8px; }

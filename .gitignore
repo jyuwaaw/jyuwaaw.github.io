@@ -15,3 +15,7 @@ out/
 /lib/generated/*.tmp
 /public/images/portrait.png
 .next-dev/
+
+# Local photo-likes database and secrets
+.wrangler/
+.dev.vars*

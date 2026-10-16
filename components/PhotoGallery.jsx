@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import PhotoLikeButton from './PhotoLikeButton';
+import usePhotoLikes from './usePhotoLikes';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { getDaypart, orderPhotographs, photographGroup, DAYPART_LABELS } from '@/lib/gallery-order.mjs';
 
@@ -32,6 +34,14 @@ function PhotoMetadata({ photo }) {
 }
 
 export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'gallery', adaptToTime = false }) {
+  const photoLikes = usePhotoLikes(photos, layout === 'gallery');
+  const likeButton = (item, className) => photoLikes.available && photoLikes.likes[item.likeId] && <PhotoLikeButton
+    {...photoLikes.likes[item.likeId]} disabled={Boolean(photoLikes.pending[item.likeId])}
+    description={item.alt} className={className} onToggle={() => photoLikes.toggle(item.likeId)} />;
+  const likeStatus = photoLikes.available && <div className="photo-like-status" role="status">
+    {photoLikes.error}
+    {photoLikes.error && <button type="button" onClick={photoLikes.retry} disabled={Object.values(photoLikes.pending).some(Boolean)}>Retry</button>}
+  </div>;
   const [sort, setSort] = useState('style');
   const [active, setActive] = useState(null);
   const dialog = useRef(null);
@@ -82,6 +92,7 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
         <button aria-label="Date: oldest first" aria-pressed={sort === 'date-asc'} onClick={() => setSort('date-asc')}>Date <span aria-hidden="true">↑</span></button>
       </div>
     </div>
+    {likeStatus}
     {layout === 'workshop' ? <div className="workshop-grid">
       {makeRows(ordered).map((row) => <div className="workshop-row" key={row[0].id}>
         {row.map((item) => <figure className="workshop-entry" style={{ '--photo-ratio': item.width / item.height }} key={item.id}>
@@ -106,6 +117,7 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
                 <Image src={imagePath(item.src)} alt={item.alt} width={item.width} height={item.height} />
               </button>
               <figcaption className="photo-metadata"><PhotoMetadata photo={item} /></figcaption>
+              {likeButton(item, 'photo-like-corner')}
             </figure>)}
           </div>)}
         </div>
@@ -122,10 +134,12 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
         }
       }}>
       <button className="photo-close" onClick={() => dialog.current.close()} aria-label="Close photograph">Close <span aria-hidden="true">×</span></button>
+      {photo && likeButton(photo, 'photo-viewer-like')}
       {photo && <figure className="photo-viewer-content">
         <Image src={imagePath(photo.fullSrc ?? photo.src)} alt={photo.alt} width={photo.width} height={photo.height} />
         <figcaption className="photo-metadata" aria-live="polite"><PhotoMetadata photo={photo} /></figcaption>
       </figure>}
+      <div className="photo-viewer-like-status">{likeStatus}</div>
       <div className="photo-controls">
         <button onClick={() => move(-1)} disabled={photos.length < 2} aria-label="Previous photograph">← Previous</button>
         <span>{index + 1} / {photos.length}</span>

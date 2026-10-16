@@ -164,3 +164,7 @@ The site defaults to the system color scheme. The header appearance menu provide
 Visit `/type/` to compare Geist, Jost, Manrope, Barlow Condensed, and IBM Plex Sans across the real homepage, then follow links to compare other pages. Light and Regular adjust text weights while preserving a heading hierarchy. Choices apply across navigation and reloads in that browser; the site's selected default is IBM Plex Sans Regular. `/photography/type/` also uses these shared controls. Code blocks retain their monospace face; other interface text and article diagrams follow the site sans. Theme tokens and font roles live in `app/globals.css`.
 
 The v2 appearance bootstrap preserves the v1 theme choice but resets earlier font trials to IBM Plex Sans. The page and navigation label are Benji’s Garage; `/mechanic/` and the existing photo folders remain stable.
+
+### Photography likes
+
+Optional shared likes are implemented with a separate personal Cloudflare Worker + D1 database. They stay hidden until the backend URL is configured. See [setup, verification and adding future photos](docs/photo-likes.md). Use Node 22.13+ for development and tests.
