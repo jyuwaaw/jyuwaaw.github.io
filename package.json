@@ -7,11 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "gallery:prepare": "node scripts/prepare-galleries.mjs",
+    "gallery:prepare": "node scripts/prepare-galleries.mjs && npm run likes:catalog",
     "prebuild": "npm run gallery:prepare",
     "postbuild": "node scripts/clean-gallery-export.mjs",
     "test": "node --test lib/*.test.mjs",
-    "avatar:prepare": "node scripts/prepare-avatar.mjs"
+    "avatar:prepare": "node scripts/prepare-avatar.mjs",
+    "likes:catalog": "node scripts/prepare-photo-likes.mjs",
+    "likes:check": "wrangler deploy --dry-run --config workers/photo-likes/wrangler.jsonc"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.3.0",
@@ -26,5 +28,8 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.1"
   }
 }
