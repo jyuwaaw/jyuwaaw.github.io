@@ -5,7 +5,7 @@ import { getPhotoSources } from '../lib/gallery-sources.mjs';
 await fs.mkdir('lib/generated', { recursive: true });
 for (const folder of ['photography', 'Mechanic']) {
   const captions = JSON.parse(await fs.readFile(`lib/${folder.toLowerCase()}.json`, 'utf8'));
-  const sources = await getPhotoSources(folder, { exclude: captions.filter(photo => photo.exclude).map(photo => photo.filename) });
+  const sources = await getPhotoSources(folder, { publishedOnly: false, exclude: captions.filter(photo => photo.exclude).map(photo => photo.filename) });
   const keep = new Set(sources.flatMap(p => [path.basename(p.src), path.basename(p.fullSrc)]));
   for (const photo of sources) for (const src of [photo.src, photo.fullSrc]) {
     await fs.access(path.join('public', src));
