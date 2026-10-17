@@ -36,13 +36,16 @@ time at page load: 06:00–10:59 favors soft light, 11:00–17:59 sunlight, and
 any, and stays stable while browsing. Light groups are curated from the image
 content, not inferred from capture timestamps. Date ↓ and Date ↑ sort by embedded
 capture time, newest or oldest first, always with undated photos last. Export dates are never used.
-The page automatically generates cached WebP previews (1440px) and large views
+The preparation command generates cached WebP previews (1440px) and large views
 (2560px) in `public/photography/_web/`. Originals are unchanged. The generated
 previews and a GPS-free source manifest in `lib/generated/` are committed.
 Originals stay local and are ignored by Git; `postbuild` removes original-image
 copies from `out/` so deployment contains only the web versions. A clean checkout
 builds from the manifest; caption edits still apply. Run `npm run gallery:prepare`
-after adding photos, then commit its manifests and `_web/` assets.
+after adding or replacing photos, then commit its manifests and `_web/` assets.
+Page requests, including in development, read only this prepared catalog; they
+never scan or decode local originals. If dev is already running, run the preparation
+command and refresh to see new photos. `npm run build` also runs preparation automatically.
 
 ### Add, replace, or remove photos
 
@@ -164,3 +167,7 @@ The site defaults to the system color scheme. The header appearance menu provide
 Visit `/type/` to compare Geist, Jost, Manrope, Barlow Condensed, and IBM Plex Sans across the real homepage, then follow links to compare other pages. Light and Regular adjust text weights while preserving a heading hierarchy. Choices apply across navigation and reloads in that browser; the site's selected default is IBM Plex Sans Regular. `/photography/type/` also uses these shared controls. Code blocks retain their monospace face; other interface text and article diagrams follow the site sans. Theme tokens and font roles live in `app/globals.css`.
 
 The v2 appearance bootstrap preserves the v1 theme choice but resets earlier font trials to IBM Plex Sans. The page and navigation label are Benji’s Garage; `/mechanic/` and the existing photo folders remain stable.
+
+### Share a photograph
+
+Opening a photograph updates the URL to `/photography/?photo=<stable-id>` (also supported by Garage). Opening that URL directly restores the full-size viewer. IDs depend on the collection and source filename, so reordering, metadata edits and image re-encoding do not break links; renaming or removing a source photo does. Next/Previous replace the current viewer URL, while browser Back returns to the wall and Forward restores the last frame. A directly opened shared link closes in place. The viewer's Copy link button copies the current URL, with a selectable-link fallback when clipboard access is blocked. These query URLs work with GitHub Pages static hosting; social previews still use the gallery page metadata.
