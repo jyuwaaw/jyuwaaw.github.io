@@ -77,6 +77,14 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    // On mobile, navigation sits below the photograph in a scrolling dialog.
+    // Reveal each new frame (including reopened/shared frames) without scrolling
+    // the underlying gallery or moving keyboard focus away from its controls.
+    dialog.current.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [active, isOpen]);
+
   const move = (step) => openPhoto(ordered[(index + step + ordered.length) % ordered.length].id);
 
   const copyLink = async () => {
