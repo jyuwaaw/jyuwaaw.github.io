@@ -2,6 +2,19 @@
 .page h1 { font-size:clamp(40px,7vw,76px); line-height:1.1; letter-spacing:-.06em }
 .page h1 span { color:#8270df }
 .intro { margin:18px 0 36px; color:var(--muted); max-width:36em }
+.panelTabs { display:flex; gap:8px; margin-bottom:24px; border-bottom:1px solid var(--border) }
+.page .panelTabs button { color:var(--muted); border:0; border-radius:0; border-bottom:3px solid transparent; background:transparent }
+.page .panelTabs button[aria-selected=true] { border-bottom-color:#8270df; color:var(--text); font-weight:650 }
+.privacy { max-width:44em; color:var(--text) }
+.privacy p { color:var(--muted); margin-top:6px }
+.privacy h3 { margin-top:20px; font-size:1rem }
+.privacy a { text-decoration:underline; text-underline-offset:3px }
+.ratings { margin-top:25px }
+.ratings dl { margin-top:8px }
+.ratings dl > div { padding:8px 0; display:grid; grid-template-columns:minmax(6.5em, .8fr) 2fr; gap:12px; border-bottom:1px solid #ded9e7 }
+.ratings dt { font-size:.88rem; font-weight:650 }
+.ratings dt strong { color:#5842a6; margin-inline-start:.4em; font-variant-numeric:tabular-nums }
+.ratings dd { color:#514b60; font-size:.88rem; line-height:1.55 }
 .spread { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:clamp(20px,5vw,70px); align-items:flex-start }
 .inputs,.card { min-width:0 }
 .row,.tools,.controls,.tabs { display:flex; align-items:center; gap:10px; flex-wrap:wrap }
@@ -59,8 +72,10 @@
 .modes { display:flex; gap:4px; background:#1c1d1b; border-radius:12px; padding:4px; margin:16px 0 }
 .modes button { flex:1; border:0; color:#aaa; background:transparent }
 .modes button[aria-pressed=true] { background:#383c35; color:#eff7e9 }
-.thumbs { display:flex; gap:8px; justify-content:center; align-items:flex-start; margin-top:18px }
-.thumbs img { min-width:0; max-width:30%; max-height:200px; object-fit:contain }
+.thumbs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:flex-start; margin-top:18px }
+.thumbs img { width:calc((100% - 16px) / 3); max-height:200px; object-fit:contain }
+.thumbs[data-count="4"] img,.thumbs[data-count="2"] img { width:calc((100% - 8px) / 2) }
+.thumbs[data-count="1"] img { width:auto; max-width:100% }
 @media(max-width:700px) {
   .page[data-has-shots="true"] { padding-bottom:calc(100px + env(safe-area-inset-bottom,0px)) }
   .page[data-has-shots="true"] .actionBar { position:fixed; bottom:0; inset-inline:0; z-index:48; display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:18px; align-items:center; padding:9px max(16px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left)); background:var(--surface); border-top:1px solid var(--border); box-shadow:0 -4px 14px #2314350a }

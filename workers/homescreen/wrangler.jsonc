@@ -4,7 +4,7 @@
   "compatibility_date": "2026-06-01",
   "vars": {
     "ALLOWED_ORIGINS": "https://jyuwaaw.github.io",
-    "OPENAI_MODEL": "gpt-4.1-mini"
+    "OPENAI_MODEL": "gpt-5.4-mini"
   },
   "ratelimits": [
     { "name": "REVIEW_LIMIT", "namespace_id": "1849", "simple": { "limit": 5, "period": 60 } }

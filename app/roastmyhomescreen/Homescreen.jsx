@@ -2,14 +2,16 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { flattenImage, prepareImage, saveReview } from './images';
+import { MAX_SCREENSHOTS, scoreDimensions } from '@/lib/homescreen-review.mjs';
 import MaskEditor from './MaskEditor';
+import Privacy from './Privacy';
 import styles from './screen.module.css';
 
 const endpoint = process.env.NEXT_PUBLIC_HOMESCREEN_API_URL;
 function revealOnPhone(ref) {
   if (!window.matchMedia('(max-width: 700px)').matches) return;
   requestAnimationFrame(() => {
-    if (!ref.current) return;
+    if (!ref.current?.getClientRects().length) return;
     const navHeight = document.querySelector('header')?.getBoundingClientRect().height || 0;
     window.scrollBy({ top: ref.current.getBoundingClientRect().top - navHeight - 12, behavior: 'instant' });
   });
@@ -26,14 +28,20 @@ async function getReview(images) {
 }
 
 const example = {
-  title: '三个 AI，还差一位收信人',
-  roast: '给一道难题留了三个 AI 席位，给 307 封邮件安排的处理方式是把数字显示出来。',
+  title: '客服排班表',
+  roast: '三个 AI 排排坐，307 封邮件愣是没轮上一个客服。',
+  scores: {
+    aesthetics: { value: 7, evidence: '同类图标排成一行，邮箱的大红点最抢眼。' },
+    function: { value: 8, evidence: '三个 AI 工具并排，方便就同一问题比较回答。' },
+    efficiency: { value: 6, evidence: '助手都能直接点开，三个相似入口也多了一步选择。' },
+  },
   mbti: 'ENTP？', reason: '把三个 AI 并排放，让人想到碰上一个问题就想多问几种答案的桌面风格。',
   traits: [{ name: '爱比较', evidence: '同类工具摆成一排，换个答案只隔一个图标。' },
     { name: '有自己的优先级', evidence: '高未读数照样留在显眼处，红点也可以只是背景。' }],
 };
 
 export default function Homescreen() {
+  const [panel, setPanel] = useState('review');
   const [shots, setShots] = useState([]);
   const [active, setActive] = useState(0);
   const [busy, setBusy] = useState('');
@@ -62,11 +70,15 @@ export default function Homescreen() {
   const count = shots.length;
   const addFiles = useCallback(async (files) => {
     if (!files.length || lock.current) return;
-    if (files.length + count > 3) { setError('最多三张。先移除一张，或少选几张。'); return; }
+    if (files.length + count > MAX_SCREENSHOTS) {
+      setError(`最多 ${MAX_SCREENSHOTS} 张。请移除一张，或少选几张。`);
+      return;
+    }
     lock.current = true;
     setBusy('reading'); setError('');
     try {
-      const added = await Promise.all(files.map(prepareImage));
+      const added = [];
+      for (const file of files) added.push(await prepareImage(file));
       clearReview(); setShots(current => [...current, ...added]); setActive(count);
       revealOnPhone(upload);
     } catch (err) { setError(err.message); }
@@ -78,8 +90,9 @@ export default function Homescreen() {
     function over(event) {
       if (!isFileDrag(event)) return;
       event.preventDefault();
-      event.dataTransfer.dropEffect = lock.current ? 'none' : 'copy';
-      setDraggingFiles(!lock.current);
+      const acceptsDrop = panel === 'review' && !lock.current;
+      event.dataTransfer.dropEffect = acceptsDrop ? 'copy' : 'none';
+      setDraggingFiles(acceptsDrop);
     }
     function leave(event) {
       if (!event.relatedTarget) setDraggingFiles(false);
@@ -88,9 +101,10 @@ export default function Homescreen() {
       setDraggingFiles(false);
       if (!isFileDrag(event)) return;
       event.preventDefault();
-      addFiles(Array.from(event.dataTransfer.files));
+      if (panel === 'review') addFiles(Array.from(event.dataTransfer.files));
     }
     function paste(event) {
+      if (panel !== 'review') return;
       if (event.target.closest?.('input, textarea, [contenteditable="true"]')) return;
       const images = Array.from(event.clipboardData?.files || []).filter(file => file.type.startsWith('image/'));
       if (!images.length) return;
@@ -107,7 +121,7 @@ export default function Homescreen() {
       window.removeEventListener('drop', drop);
       window.removeEventListener('paste', paste);
     };
-  }, [addFiles]);
+  }, [addFiles, panel]);
   function maskUpdate(masks) {
     if (lock.current) return;
     setShared(null); setError('');
@@ -122,7 +136,8 @@ export default function Homescreen() {
     setBusy(sharing ? 'share' : 'review'); setError('');
     try {
       if (sharing) {
-        const images = await Promise.all(shots.map(flattenImage));
+        const images = [];
+        for (const shot of shots) images.push(shot.masks.length ? await flattenImage(shot) : shot.url);
         const safeReview = !hasMasks && review ? review : await getReview(images);
         setShared({ images, review: safeReview });
         if (!hasMasks) setReview(safeReview);
@@ -147,13 +162,29 @@ export default function Homescreen() {
     if (next) revealOnPhone(upload);
   }
 
-  return <section lang="zh-CN" className={'wrap ' + styles.page} data-has-shots={Boolean(shot)}>
+  return <section lang="zh-CN" className={'wrap ' + styles.page} data-has-shots={panel === 'review' && Boolean(shot)}>
     {draggingFiles && <div className={styles.dropOverlay} aria-hidden="true"><strong>松开即可添加截图</strong></div>}
     <h1 lang="en">Roast My Homescreen<span>.</span></h1>
     <p className={styles.intro}>放上你的手机主屏，猜猜桌面的 MBTI，看看哪个细节最抢戏。</p>
+    <div className={styles.panelTabs} role="tablist" aria-label="桌面锐评">
+      {['review', 'privacy'].map(id => <button key={id} type="button" role="tab" id={id + '-tab'}
+        aria-selected={panel === id} aria-controls={id + '-panel'} tabIndex={panel === id ? 0 : -1}
+        onClick={() => setPanel(id)} onKeyDown={event => {
+          let next;
+          if (event.key === 'Home') next = 'review';
+          if (event.key === 'End') next = 'privacy';
+          if (['ArrowLeft', 'ArrowRight'].includes(event.key)) next = id === 'review' ? 'privacy' : 'review';
+          if (!next) return;
+          event.preventDefault();
+          setPanel(next);
+          document.getElementById(next + '-tab')?.focus();
+        }}>{id === 'review' ? '桌面锐评' : '隐私说明'}</button>)}
+    </div>
+    <div id="privacy-panel" role="tabpanel" aria-labelledby="privacy-tab" hidden={panel !== 'privacy'}><Privacy /></div>
+    <div id="review-panel" role="tabpanel" aria-labelledby="review-tab" hidden={panel !== 'review'}>
     <div className={styles.spread}>
       <section ref={upload} className={styles.inputs}>
-        <div className={styles.row}><h2>你的桌面</h2><span>{shots.length} / 3</span></div>
+        <div className={styles.row}><h2>你的桌面</h2><span>{shots.length} / {MAX_SCREENSHOTS}</span></div>
         <input ref={input} type="file" accept="image/jpeg,image/png,image/webp" multiple hidden onChange={event => {
           const files = Array.from(event.target.files);
           event.target.value = '';
@@ -161,11 +192,11 @@ export default function Homescreen() {
         }} />
         {!shot ? <button type="button" className={styles.drop} disabled={!!busy} onClick={() => input.current.click()}>
           <span className={styles.plus} aria-hidden="true">＋</span>
-          <strong>{busy ? '正在读取…' : '选择桌面截图'}</strong><small>也可以直接拖入或粘贴截图</small><small>最多 3 张 · PNG / JPEG / WebP</small>
+          <strong>{busy ? '正在读取…' : '选择桌面截图'}</strong><small>也可以直接拖入或粘贴截图</small><small>最多 {MAX_SCREENSHOTS} 张 · PNG / JPEG / WebP</small>
         </button> : <>
           <div className={styles.tabs}>{shots.map((s, i) => <button key={s.id} aria-pressed={active === i}
             onClick={() => setActive(i)}>第 {i + 1} 页</button>)}
-            {shots.length < 3 && <button disabled={!!busy} onClick={() => input.current.click()}>＋ 添加</button>}
+            {shots.length < MAX_SCREENSHOTS && <button disabled={!!busy} onClick={() => input.current.click()}>＋ 添加</button>}
           </div>
           <div className={styles.modes} aria-label="预览模式">
             <button disabled={!!busy} aria-pressed={!sharing} onClick={() => switchMode(false)}>自己看</button>
@@ -203,12 +234,19 @@ export default function Homescreen() {
           <h2>{cardHeading}</h2><span className={styles.brand} lang="en">Roast My Homescreen</span></div>
         {sharing && shot && !card ? <p>确认每一页的遮挡后，点「生成分享版点评」预览朋友会看到的文字。</p> : <>
           <div className={styles.bubble}><h3>{display.title}</h3><p>{display.roast}</p></div>
+          {display.scores && <div className={styles.ratings}><h4>桌面评分</h4>
+            <dl>{scoreDimensions.map(({ key, label }) => {
+              const rating = display.scores[key];
+              return <div key={key}><dt>{label}<strong>{rating.value === null ? '线索不足' : rating.value + '/10'}</strong></dt>
+                <dd>{rating.evidence}</dd></div>;
+            })}</dl>
+          </div>}
           <div className={styles.reading}><div className={styles.readingTitle}><h4>MBTI 趣猜</h4><strong className={styles.type}>{display.mbti}</strong></div><p>{display.reason}</p></div>
           <div className={styles.signals}><h4>性格印象</h4>
             <dl>{display.traits.map((t, i) => <div key={i}><dt>{t.name}</dt><dd>{t.evidence}</dd></div>)}</dl>
           </div>
         </>}
-        {sharing && card && <div className={styles.thumbs}>
+        {sharing && card && <div className={styles.thumbs} data-count={count}>
           {(shared?.images || shots.map(s => s.url)).map((url, i) => <img key={i} src={url} alt={'分享卡第 ' + (i + 1) + ' 页'} />)}
         </div>}
         {!sharing && review && <div className={styles.controls}>
@@ -218,6 +256,7 @@ export default function Homescreen() {
           }}>{showPoints ? '收起标注' : '圈出笑点'}</button>}
         </div>}
       </section>
+    </div>
     </div>
   </section>;
 }
