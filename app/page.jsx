@@ -28,6 +28,7 @@ export default function Home() {
           <a className="btn btn-primary" href={`mailto:${site.email}`}>Get in touch</a>
           <a className="btn" href={site.github}>GitHub ↗</a>
           <a className="btn" href={site.linkedin}>LinkedIn ↗</a>
+          <a className="btn" href={site.googleScholar}>Google Scholar ↗</a>
           <a className="btn" href={site.arxiv}>arXiv ↗</a>
         </div>
       </section>
@@ -104,6 +105,7 @@ export default function Home() {
           <a className="btn btn-primary" href={`mailto:${site.email}`}>Email me</a>
           <a className="btn" href={site.github}>GitHub ↗</a>
           <a className="btn" href={site.linkedin}>LinkedIn ↗</a>
+          <a className="btn" href={site.googleScholar}>Google Scholar ↗</a>
           <a className="btn" href={site.arxiv}>arXiv ↗</a>
         </div>
       </section>

@@ -8,6 +8,7 @@ export default function Footer() {
         <div className="foot-links">
           <a href={site.github}>GitHub</a>
           <a href={site.linkedin}>LinkedIn</a>
+          <a href={site.googleScholar}>Google Scholar</a>
           <a href={`mailto:${site.email}`}>Email</a>
         </div>
       </div>
