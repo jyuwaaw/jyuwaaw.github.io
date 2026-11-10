@@ -1,0 +1,16 @@
+import styles from './screen.module.css';
+
+export default function Privacy() {
+  return <article className={styles.privacy}>
+    <h2>谁能看到我的截图？</h2>
+    <p>选择、拖入或粘贴截图时，图片只在当前页面预览。刷新或关闭页面会清除这次预览和点评。</p>
+    <h3>点「锐评我的桌面」时</h3>
+    <p>浏览器会压缩你选的所有截图，经本站的 Cloudflare Worker 发给 OpenAI。完整截图里看得见的通知、姓名和组件内容也会一起发送。</p>
+    <h3>想先藏住几个 App？</h3>
+    <p>选图后可以直接切到「分享给朋友」，逐页遮好，再点「生成分享版点评」。这次只会发送遮挡后的画面，吐槽和评分也按这份画面重算。如果此前已点过完整点评，后来加的遮挡只对之后的请求生效。</p>
+    <h3>数据会保存多久？</h3>
+    <p>本站没有截图相册或点评历史，也不会把截图写入数据库。服务端按 IP 限流，并在请求 OpenAI 时关闭结果存储。OpenAI 的滥用监测日志默认最多保留 30 天，法律或安全原因可能延长。<a href="https://developers.openai.com/api/docs/guides/your-data">查看 OpenAI 数据政策 ↗</a></p>
+    <h3>朋友会看到什么？</h3>
+    <p>「保存分享卡 PNG」会把当前分享预览的截图、吐槽、评分和性格趣猜存到你的设备。由你决定把这张图片发给谁。评分和 MBTI 都是基于可见桌面的娱乐性解读。</p>
+  </article>;
+}

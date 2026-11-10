@@ -1,3 +1,5 @@
+import { IMAGE_URL_BUDGET, scoreDimensions } from '@/lib/homescreen-review.mjs';
+
 export function loadImage(url) {
   return new Promise((resolve, reject) => {
     const image = new Image();
@@ -5,6 +7,21 @@ export function loadImage(url) {
     image.onerror = () => reject(new Error('图片打不开，请选 PNG、JPEG 或 WebP 截图。'));
     image.src = url;
   });
+}
+
+function encodeScreenshot(canvas) {
+  let url = canvas.toDataURL('image/jpeg', 0.85);
+  if (url.length <= IMAGE_URL_BUDGET) return url;
+  url = canvas.toDataURL('image/jpeg', 0.68);
+  while (url.length > IMAGE_URL_BUDGET) {
+    const smaller = document.createElement('canvas');
+    smaller.width = Math.max(1, Math.round(canvas.width * 0.8));
+    smaller.height = Math.max(1, Math.round(canvas.height * 0.8));
+    smaller.getContext('2d').drawImage(canvas, 0, 0, smaller.width, smaller.height);
+    canvas = smaller;
+    url = canvas.toDataURL('image/jpeg', 0.68);
+  }
+  return url;
 }
 
 export async function prepareImage(file) {
@@ -21,7 +38,7 @@ export async function prepareImage(file) {
     ctx.fillStyle = '#111';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    return { id: crypto.randomUUID(), url: canvas.toDataURL('image/jpeg', 0.85), masks: [] };
+    return { id: crypto.randomUUID(), url: encodeScreenshot(canvas), masks: [] };
   } finally {
     URL.revokeObjectURL(url);
   }
@@ -40,7 +57,7 @@ export async function flattenImage({ url, masks }) {
     const top = Math.floor(mask.y * img.height);
     ctx.fillRect(left, top, Math.ceil((mask.x + mask.w) * img.width) - left, Math.ceil((mask.y + mask.h) * img.height) - top);
   }
-  return canvas.toDataURL('image/jpeg', 0.86);
+  return encodeScreenshot(canvas);
 }
 
 export async function saveReview(review, images) {
@@ -81,6 +98,19 @@ export async function saveReview(review, images) {
   paragraph(review.roast, inset + 32, content - 64, 32, 48, ink);
   const bubbleBottom = y + 25;
   y = bubbleBottom + 60;
+  if (review.scores) {
+    paragraph('桌面评分', inset, content, 25, 45, ink, 650);
+    for (const { key, label: name } of scoreDimensions) {
+      const { value, evidence } = review.scores[key];
+      const top = y;
+      paragraph(name + '  ' + (value === null ? '线索不足' : value + '/10'), inset, 224, 24, 38, violet, 650);
+      const leftBottom = y;
+      y = top;
+      paragraph(evidence, inset + 238, content - 238, 24, 38, muted);
+      y = Math.max(y, leftBottom) + 8;
+    }
+    y += 18;
+  }
   label('MBTI 趣猜', inset, y + 29, 25, ink, 650);
   ctx.font = font(28, 650);
   const badgeWidth = Math.min(content - 160, ctx.measureText(review.mbti).width + 28);
@@ -101,14 +131,24 @@ export async function saveReview(review, images) {
     y = Math.max(leftBottom, y);
   }
   const gap = 16;
-  const cell = (content - (screenshots.length - 1) * gap) / screenshots.length;
-  const thumbs = screenshots.map(img => {
-    const scale = Math.min(cell / img.width, 560 / img.height);
-    return { img, w: img.width * scale, h: img.height * scale };
-  });
-  const thumbTop = y + 38;
+  const columns = screenshots.length === 4 ? 2 : Math.min(3, screenshots.length);
+  const cell = (content - (columns - 1) * gap) / columns;
+  const thumbs = [];
+  let thumbY = y + 38;
+  for (let i = 0; i < screenshots.length; i += columns) {
+    const row = screenshots.slice(i, i + columns);
+    const rowLeft = inset + (columns - row.length) * (cell + gap) / 2;
+    let rowHeight = 0;
+    row.forEach((img, column) => {
+      const scale = Math.min(cell / img.width, 560 / img.height);
+      const w = img.width * scale, h = img.height * scale;
+      thumbs.push({ img, x: rowLeft + column * (cell + gap) + (cell - w) / 2, y: thumbY, w, h });
+      rowHeight = Math.max(rowHeight, h);
+    });
+    thumbY += rowHeight + gap;
+  }
   canvas.width = width;
-  canvas.height = Math.ceil(thumbTop + Math.max(0, ...thumbs.map(t => t.h)) + inset);
+  canvas.height = Math.ceil(thumbY - gap + inset);
   function box(x, top, w, h, radius, color) {
     ctx.fillStyle = color;
     ctx.beginPath(); ctx.roundRect(x, top, w, h, radius); ctx.fill();
@@ -125,7 +165,7 @@ export async function saveReview(review, images) {
     ctx.font = t.font; ctx.fillStyle = t.color;
     ctx.fillText(t.text, t.x, t.baseline);
   }
-  thumbs.forEach((t, i) => ctx.drawImage(t.img, inset + (cell + gap) * i + (cell - t.w) / 2, thumbTop, t.w, t.h));
+  thumbs.forEach(t => ctx.drawImage(t.img, t.x, t.y, t.w, t.h));
   const link = document.createElement('a');
   link.href = canvas.toDataURL('image/png');
   link.download = 'roastmyhomescreen.png';
