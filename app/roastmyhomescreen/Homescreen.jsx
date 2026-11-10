@@ -31,13 +31,12 @@ const example = {
   title: '客服排班表',
   roast: '三个 AI 排排坐，307 封邮件愣是没轮上一个客服。',
   scores: {
-    aesthetics: { value: 7, evidence: '同类图标排成一行，邮箱的大红点最抢眼。' },
+    aesthetics: { value: 7, evidence: '三个助手排成一条横线，视线却先被隔壁邮箱的红点截走了。' },
     function: { value: 8, evidence: '三个 AI 工具并排，方便就同一问题比较回答。' },
     efficiency: { value: 6, evidence: '助手都能直接点开，三个相似入口也多了一步选择。' },
   },
-  mbti: 'ENTP？', reason: '把三个 AI 并排放，让人想到碰上一个问题就想多问几种答案的桌面风格。',
-  traits: [{ name: '爱比较', evidence: '同类工具摆成一排，换个答案只隔一个图标。' },
-    { name: '有自己的优先级', evidence: '高未读数照样留在显眼处，红点也可以只是背景。' }],
+  mbti: '线索不足', reason: '',
+  traits: [{ name: '按下一步摆', evidence: '微信挨着地图，像是朋友刚发来一个地址，下一步要点的东西已经放在旁边了。' }],
 };
 
 export default function Homescreen() {
@@ -241,10 +240,10 @@ export default function Homescreen() {
                 <dd>{rating.evidence}</dd></div>;
             })}</dl>
           </div>}
-          <div className={styles.reading}><div className={styles.readingTitle}><h4>MBTI 趣猜</h4><strong className={styles.type}>{display.mbti}</strong></div><p>{display.reason}</p></div>
-          <div className={styles.signals}><h4>性格印象</h4>
+          <div className={styles.reading}><div className={styles.readingTitle}><h4>MBTI 趣猜</h4><strong className={styles.type}>{display.mbti}</strong></div>{display.reason && <p>{display.reason}</p>}</div>
+          {display.traits.length > 0 && <div className={styles.signals}><h4>性格印象</h4>
             <dl>{display.traits.map((t, i) => <div key={i}><dt>{t.name}</dt><dd>{t.evidence}</dd></div>)}</dl>
-          </div>
+          </div>}
         </>}
         {sharing && card && <div className={styles.thumbs} data-count={count}>
           {(shared?.images || shots.map(s => s.url)).map((url, i) => <img key={i} src={url} alt={'分享卡第 ' + (i + 1) + ' 页'} />)}
