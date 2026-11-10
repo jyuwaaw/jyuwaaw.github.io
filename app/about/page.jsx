@@ -130,6 +130,7 @@ export default function About() {
           <a className="btn btn-primary" href={`mailto:${site.email}`}>Email me</a>
           <a className="btn" href={site.github}>GitHub ↗</a>
           <a className="btn" href={site.linkedin}>LinkedIn ↗</a>
+          <a className="btn" href={site.googleScholar}>Google Scholar ↗</a>
         </div>
       </section>
     </>
