@@ -171,3 +171,18 @@ The v2 appearance bootstrap preserves the v1 theme choice but resets earlier fon
 ### Share a photograph
 
 Opening a photograph updates the URL to `/photography/?photo=<stable-id>` (also supported by Garage). Opening that URL directly restores the full-size viewer. IDs depend on the collection and source filename, so reordering, metadata edits and image re-encoding do not break links; renaming or removing a source photo does. Next/Previous replace the current viewer URL, while browser Back returns to the wall and Forward restores the last frame. A directly opened shared link closes in place. The viewer's Copy link button copies the current URL, with a selectable-link fallback when clipboard access is blocked. These query URLs work with GitHub Pages static hosting; social previews still use the gallery page metadata.
+
+## Home screen reviews
+
+Open `/play/homescreen/` for the local redaction editor and sample review.
+Private reviews send the full resized screenshots to OpenAI. Masks apply only in share mode.
+A masked share card uses a separate review of the flattened redacted images. The PNG is
+rendered locally from that review and those same images.
+
+The review endpoint is a Cloudflare Worker in `workers/homescreen/`. From that directory,
+use `npx wrangler secret put OPENAI_API_KEY` with the key for your API project and
+`npx wrangler deploy`. Set `ALLOWED_ORIGINS` in its configuration to the site's exact origin.
+Set the GitHub Actions repository variable `HOMESCREEN_API_URL` to the Worker's full HTTPS
+URL ending in `/review` and rebuild Pages. For local development, set the same URL in the
+Next.js environment variable `NEXT_PUBLIC_HOMESCREEN_API_URL` and include your local
+site origin in the development Worker's `ALLOWED_ORIGINS`. Each new analysis calls OpenAI once; repeated downloads of the same share card reuse its review.
