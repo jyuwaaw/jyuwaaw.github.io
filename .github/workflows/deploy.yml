@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          NEXT_PUBLIC_HOMESCREEN_API_URL: ${{ vars.HOMESCREEN_API_URL }}
       - name: Add .nojekyll
         run: touch ./out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
