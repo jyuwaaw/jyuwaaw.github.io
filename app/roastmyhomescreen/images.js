@@ -117,10 +117,12 @@ export async function saveReview(review, images) {
   const badgeTop = y - 4;
   label(review.mbti, inset + 161, y + 29, 28, '#fff', 650);
   y += 61;
-  paragraph(review.reason, inset, content, 28, 43, muted);
+  if (review.reason) paragraph(review.reason, inset, content, 28, 43, muted);
   const divider = y + 24;
-  y = divider + 25;
-  paragraph('性格印象', inset, content, 25, 39, ink, 650);
+  if (review.traits.length) {
+    y = divider + 25;
+    paragraph('性格印象', inset, content, 25, 39, ink, 650);
+  }
   for (const trait of review.traits) {
     y += 8;
     const top = y;
@@ -160,7 +162,9 @@ export async function saveReview(review, images) {
   ctx.beginPath(); ctx.moveTo(inset, bubbleBottom - 9); ctx.lineTo(inset + 30, bubbleBottom - 2);
   ctx.lineTo(inset, bubbleBottom + 15); ctx.fill();
   box(inset + 147, badgeTop, badgeWidth, 46, 9, violet);
-  ctx.fillStyle = '#ded9e7'; ctx.fillRect(inset, divider, content, 2);
+  if (review.traits.length) {
+    ctx.fillStyle = '#ded9e7'; ctx.fillRect(inset, divider, content, 2);
+  }
   for (const t of textRuns) {
     ctx.font = t.font; ctx.fillStyle = t.color;
     ctx.fillText(t.text, t.x, t.baseline);
