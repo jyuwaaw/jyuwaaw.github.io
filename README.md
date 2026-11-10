@@ -174,7 +174,7 @@ Opening a photograph updates the URL to `/photography/?photo=<stable-id>` (also 
 
 ## Home screen reviews
 
-Open `/play/homescreen/` for the local redaction editor and sample review.
+Open `/roastmyhomescreen/` for Roast My Homescreen. Choose screenshots or drop them on the page. The old `/play/homescreen/` link forwards here.
 Private reviews send the full resized screenshots to OpenAI. Masks apply only in share mode.
 A masked share card uses a separate review of the flattened redacted images. The PNG is
 rendered locally from that review and those same images.
