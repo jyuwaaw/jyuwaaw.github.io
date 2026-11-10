@@ -100,6 +100,9 @@ export default {
       if (!review.usable) return reply(422, { error: '可见的桌面线索太少，请选一张能看清主屏布局的截图。' });
       review.points = review.points.filter(p => p.page >= 1 && p.page <= images.length && p.x >= 0 && p.x <= 1 && p.y >= 0 && p.y <= 1).slice(0, 2);
       if (!hasLayoutChoices) {
+        review.title = '还差一页';
+        review.roast = '光看这页，猜不出你怎么摆 App。把平时找东西的那一页也放进来？';
+        review.points = [];
         review.traits = [];
         review.mbti = '线索不足';
       }
