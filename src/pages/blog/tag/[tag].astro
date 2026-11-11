@@ -1,0 +1,25 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PostList from '../../../components/PostList.astro';
+import { getPosts, getTags } from '../../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return (await getTags()).map((tag) => ({
+    params: { tag },
+    props: { posts: posts.filter((p) => p.data.tags.includes(tag)) },
+  }));
+}
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+<Base title={`#${tag}`} description={`Posts tagged ${tag}.`}>
+  <section class="page-head wrap">
+    <h1 class="display">#{tag}</h1>
+    <p class="lede">{posts.length} post{posts.length === 1 ? '' : 's'} with this tag. <a class="inline-link" href="/blog/">All writing →</a></p>
+  </section>
+  <section class="band wrap row" aria-labelledby="tagged-title">
+    <h2 class="section-title" id="tagged-title">Posts</h2>
+    <PostList posts={posts} variant="note" showMeta />
+  </section>
+</Base>

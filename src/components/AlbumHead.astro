@@ -1,0 +1,30 @@
+---
+// Shared head for the two photo albums. The album names are the tabs, set in
+// the display face, so switching between them is the most visible thing here
+// and both pages keep the same frame.
+import { getPhotographs } from '@/lib/photography.js';
+import garageCaptions from '@/lib/mechanic.json';
+
+interface Props { current: 'photography' | 'mechanic' }
+const { current } = Astro.props;
+const albums = [
+  { id: 'photography', label: 'Photography', href: '/photography/', count: (await getPhotographs()).length },
+  {
+    id: 'mechanic', label: 'Benji’s Garage', href: '/mechanic/',
+    count: (await getPhotographs({ folder: 'Mechanic', captions: garageCaptions })).length,
+  },
+];
+---
+<section class="album-head wrap">
+  <nav class="album-tabs" aria-label="Photo albums">
+    {albums.map((album) => {
+      const link = (
+        <a href={album.href} aria-current={album.id === current ? 'page' : undefined}>
+          {album.label}<sup aria-label={`${album.count} photographs`}>{album.count}</sup>
+        </a>
+      );
+      return album.id === current ? <h1>{link}</h1> : link;
+    })}
+  </nav>
+  <p class="album-tagline"><slot /></p>
+</section>

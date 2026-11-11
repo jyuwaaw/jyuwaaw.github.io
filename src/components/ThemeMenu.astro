@@ -1,0 +1,54 @@
+---
+import { APPEARANCE_KEY, THEME_COLORS } from '@/lib/appearance.mjs';
+---
+<details class="theme-menu" data-key={APPEARANCE_KEY} data-light={THEME_COLORS.light} data-dark={THEME_COLORS.dark}>
+  <summary aria-label="Color theme">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/></svg>
+  </summary>
+  <div class="theme-popover" role="group" aria-label="Color theme">
+    <button type="button" data-theme-choice="system">System</button>
+    <button type="button" data-theme-choice="light">Light</button>
+    <button type="button" data-theme-choice="dark">Dark</button>
+  </div>
+</details>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.theme-menu')!;
+  const root = document.documentElement;
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  const buttons = [...menu.querySelectorAll<HTMLButtonElement>('[data-theme-choice]')];
+
+  function paint() {
+    const theme = root.dataset.theme || 'system';
+    for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.themeChoice === theme));
+    // Browser chrome follows the chosen theme, not just the system one.
+    const dark = theme === 'dark' || (theme === 'system' && media.matches);
+    for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) {
+      meta.content = dark ? menu.dataset.dark! : menu.dataset.light!;
+    }
+  }
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      root.dataset.theme = button.dataset.themeChoice;
+      try { localStorage.setItem(menu.dataset.key!, JSON.stringify({ theme: root.dataset.theme })); } catch {}
+      paint();
+      menu.open = false;
+    });
+  }
+  // Another tab changed the theme.
+  window.addEventListener('storage', (event) => {
+    if (event.key !== menu.dataset.key) return;
+    try { root.dataset.theme = JSON.parse(event.newValue ?? 'null')?.theme ?? 'system'; } catch { root.dataset.theme = 'system'; }
+    paint();
+  });
+  media.addEventListener('change', paint);
+  menu.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    menu.open = false;
+    menu.querySelector('summary')!.focus();
+  });
+  document.addEventListener('click', (event) => {
+    if (menu.open && !menu.contains(event.target as Node)) menu.open = false;
+  });
+  paint();
+</script>

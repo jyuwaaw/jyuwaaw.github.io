@@ -1,0 +1,162 @@
+---
+// The path so far, drawn the way a waveform viewer would show it: one signal
+// per line of work, high while it was active. Data lives in data/timeline.ts.
+import { signals, WAVE_START } from '../data/timeline';
+
+const month = (ym: string) => {
+  const [y, m = 1] = ym.split('-').map(Number);
+  return Date.UTC(y, m - 1, 1);
+};
+const start = month(WAVE_START);
+const today = new Date();
+// The axis ends at the close of the current month.
+const end = Date.UTC(today.getUTCFullYear(), today.getUTCMonth() + 1, 1);
+const W = 1000, H = 38, HI = 2, LO = 36, SLOPE = 3;
+const frac = (t: number) => (t - start) / (end - start);
+const x = (ym: string) => +(frac(month(ym)) * W).toFixed(1);
+const pct = (ym: string) => `${(frac(month(ym)) * 100).toFixed(2)}%`;
+const yearOnly = (ym: string) => !ym.includes('-');
+const human = (ym: string) =>
+  yearOnly(ym) ? ym : new Date(month(ym)).toLocaleString('en', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+const years: number[] = [];
+for (let y = new Date(start).getUTCFullYear(); Date.UTC(y, 0, 1) < end; y++) years.push(y);
+
+function trace(spans: { from: string; to: string | null }[]) {
+  let d = `M0,${LO}`;
+  const ticks: number[] = [];
+  const unknown: [number, number][] = [];
+  // Filled regions under each high stretch give the diagram its weight.
+  const areas: string[] = [];
+  let open: number | null = null;
+  spans.forEach((span, i) => {
+    const joined = i > 0 && spans[i - 1].to === span.from;
+    if (joined) ticks.push(x(span.from));
+    else if (yearOnly(span.from)) {
+      // Started some time that year: low until January, known-high by the next.
+      const a = x(span.from), b = x(`${Number(span.from) + 1}`);
+      unknown.push([a, b]);
+      d += ` H${a} M${b},${HI}`;
+      open = b;
+      areas.push(`M${b},${LO} V${HI}`);
+    } else {
+      d += ` H${x(span.from) - SLOPE} L${x(span.from) + SLOPE},${HI}`;
+      areas.push(`M${x(span.from) - SLOPE},${LO} L${x(span.from) + SLOPE},${HI}`);
+    }
+    const next = spans[i + 1];
+    if (span.to === null) { d += ` H${W}`; areas[areas.length - 1] += ` H${W} V${LO} Z`; }
+    else if (next && next.from === span.to) d += ` H${x(span.to)}`;
+    else {
+      d += ` H${x(span.to) - SLOPE} L${x(span.to) + SLOPE},${LO}`;
+      areas[areas.length - 1] += ` H${x(span.to) - SLOPE} L${x(span.to) + SLOPE},${LO} Z`;
+    }
+  });
+  if (spans.at(-1)?.to !== null) d += ` H${W}`;
+  return { d, ticks, unknown, areas };
+}
+---
+<figure class="wave" data-start={start} data-end={end} role="group" aria-label={`Timeline of work, ${years[0]} to now`}>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <pattern id="wave-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="7" stroke="var(--accent)" stroke-width="1.6" opacity=".55" />
+      </pattern>
+    </defs>
+  </svg>
+  <div class="wave-scroll">
+    <div class="wave-inner">
+      <div class="wave-axis" aria-hidden="true">
+        <span class="wave-name">time</span>
+        <div class="wave-track">
+          {years.map((y) => <span class="wave-year" style={`left:${pct(String(y))}`}>{y}</span>)}
+          <span class="wave-now">now</span>
+          <output class="wave-readout"></output>
+        </div>
+      </div>
+      {signals.map((signal) => {
+        const shape = signal.kind === 'level' ? trace(signal.spans) : null;
+        return (
+          <div class="wave-signal">
+            <span class="wave-name">{signal.name}</span>
+            <div class="wave-track">
+              <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
+                {signal.kind === 'events' && <line class="wave-rail" x1="0" y1={LO} x2={W} y2={LO} />}
+                {signal.kind === 'events' && signal.events.map((e) => <line x1={x(e.at)} y1={LO} x2={x(e.at)} y2={HI} />)}
+                {shape?.unknown.map(([a, b]) => <rect class="wave-unknown" x={a} y={HI} width={b - a} height={LO - HI} />)}
+                {shape?.unknown.map(([a, b]) => <path d={`M${a},${HI} H${b} M${a},${LO} H${b}`} />)}
+                {shape?.areas.map((a) => <path class="wave-area" d={a} />)}
+                {shape && <path d={shape.d} />}
+                {shape?.ticks.map((t) => <line class="wave-tick" x1={t} y1={HI - 5} x2={t} y2={HI + 7} />)}
+              </svg>
+              {signal.kind === 'level' && signal.spans.map((span) => (
+                <span class="wave-label" style={`left:${pct(span.from)};--at:${frac(month(span.from)).toFixed(3)}`}
+                  data-from={month(span.from)} data-to={span.to ? month(span.to) : ''}>
+                  {span.label}
+                  <span class="sr-only">, {yearOnly(span.from) ? `since ${span.from}` : `${human(span.from)} to ${span.to ? human(span.to) : 'now'}`}</span>
+                </span>
+              ))}
+              {signal.kind === 'events' && signal.events.map((e) => (
+                <span class="wave-label" style={`left:calc(${pct(e.at)} + 9px);--at:${frac(month(e.at)).toFixed(3)}`}
+                  data-from={month(e.at)} data-to={month(e.at) + 31 * 864e5}>
+                  {e.label}<span class="sr-only">, {human(e.at)}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+      <div class="wave-grid" aria-hidden="true">
+        {years.slice(1).map((y) => <i style={`left:${pct(String(y))}`} />)}
+        <div class="wave-cursor"></div>
+      </div>
+    </div>
+  </div>
+  <figcaption class="wave-note"><slot /></figcaption>
+</figure>
+<script is:inline>document.currentScript.previousElementSibling.classList.add('is-armed');</script>
+
+<script>
+  for (const wave of document.querySelectorAll<HTMLElement>('.wave')) {
+    const scroll = wave.querySelector<HTMLElement>('.wave-scroll')!;
+    const grid = wave.querySelector<HTMLElement>('.wave-grid')!;
+    const cursor = wave.querySelector<HTMLElement>('.wave-cursor')!;
+    const readout = wave.querySelector<HTMLElement>('.wave-readout')!;
+    const labels = [...wave.querySelectorAll<HTMLElement>('.wave-label')];
+    const start = Number(wave.dataset.start), end = Number(wave.dataset.end);
+    // On a narrow screen the diagram scrolls; open on the present.
+    scroll.scrollLeft = scroll.scrollWidth;
+    // Start the sweep once about a third of the diagram is on screen. A plain
+    // position check, so it cannot be left blank by an observer that never fires.
+    const reveal = () => {
+      const box = wave.getBoundingClientRect();
+      if (box.top > window.innerHeight - box.height * 0.35 || box.bottom < 0) return;
+      wave.classList.add('is-in');
+      window.removeEventListener('scroll', reveal);
+      window.removeEventListener('resize', reveal);
+    };
+    window.addEventListener('scroll', reveal, { passive: true });
+    window.addEventListener('resize', reveal);
+    reveal();
+
+    function probe(event: PointerEvent) {
+      const box = grid.getBoundingClientRect();
+      const f = (event.clientX - box.left) / box.width;
+      if (f < 0 || f > 1) return clear();
+      const t = start + f * (end - start);
+      wave.classList.add('is-live');
+      cursor.style.left = readout.style.left = `${f * 100}%`;
+      readout.textContent = new Date(t).toISOString().slice(0, 7);
+      for (const label of labels) {
+        const from = Number(label.dataset.from), to = label.dataset.to ? Number(label.dataset.to) : Infinity;
+        label.classList.toggle('on', t >= from && t < to);
+      }
+    }
+    function clear() {
+      wave.classList.remove('is-live');
+      for (const label of labels) label.classList.remove('on');
+    }
+    scroll.addEventListener('pointermove', probe);
+    scroll.addEventListener('pointerdown', probe);
+    scroll.addEventListener('pointerleave', clear);
+  }
+</script>

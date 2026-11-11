@@ -1,6 +1,6 @@
 node_modules/
-.next/
-out/
+dist/
+.astro/
 .DS_Store
 *.local
 
@@ -14,4 +14,8 @@ out/
 /public/Mechanic/_web/*.tmp
 /lib/generated/*.tmp
 /public/images/portrait.png
+
+# Old Next.js build outputs, still produced when working on a pre-Astro branch.
+.next/
 .next-dev/
+out/

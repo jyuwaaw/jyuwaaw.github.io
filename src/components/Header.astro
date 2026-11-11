@@ -1,0 +1,29 @@
+---
+import { site } from '../data/site';
+import ThemeMenu from './ThemeMenu.astro';
+
+// Four destinations. Garage lives under Photos; contact lives on About.
+const nav = [
+  { label: 'Projects', href: '/projects/', match: ['/projects/', '/roastmyhomescreen/'] },
+  { label: 'Writing', href: '/blog/', match: ['/blog/', '/zh/blog/'] },
+  { label: 'Photos', href: '/photography/', match: ['/photography/', '/mechanic/'] },
+  { label: 'About', href: '/about/', match: ['/about/'] },
+];
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="wrap">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label={`${site.name} — home`}>
+        <img src={site.avatar} alt="" width="56" height="56" />
+        <span>{site.name}</span>
+      </a>
+      <div class="nav-links">
+        {nav.map((item) => (
+          <a href={item.href} aria-current={item.match.some((m) => path.startsWith(m)) ? 'page' : undefined}>{item.label}</a>
+        ))}
+      </div>
+      <ThemeMenu />
+    </nav>
+  </div>
+</header>
