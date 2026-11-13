@@ -697,5 +697,41 @@
     "order": 70,
     "light": "sunlit",
     "exclude": true
+  },
+  {
+    "filename": "IMG_1369.jpeg",
+    "style": "Open skies",
+    "light": "golden",
+    "alt": "An orange streak crosses a pink sky above a cloud bank and a dark ridge."
+  },
+  {
+    "filename": "IMG_2660.jpeg",
+    "style": "Light & shadow",
+    "light": "soft",
+    "alt": "A pair of glasses rests on a table beside a window in a black-and-white winter scene."
+  },
+  {
+    "filename": "IMG_3343.jpeg",
+    "style": "In passing",
+    "light": "sunlit",
+    "alt": "A snowboarder sits in the shade below a chairlift overlooking a sunlit valley."
+  },
+  {
+    "filename": "IMG_3488.jpeg",
+    "style": "Form & detail",
+    "light": "soft",
+    "alt": "Two pale shapes stand out against a blue-gray bed of pebbles."
+  },
+  {
+    "filename": "IMG_3941.jpeg",
+    "style": "Light & shadow",
+    "light": "low",
+    "alt": "Two figures in silhouette lean on a railing beneath a break in the clouds."
+  },
+  {
+    "filename": "IMG_4336.jpeg",
+    "style": "Open skies",
+    "light": "sunlit",
+    "alt": "An aircraft trails a curved plume above a building in a clear blue sky."
   }
 ]
