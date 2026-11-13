@@ -1,36 +1,70 @@
 # Personal Site
 
-A Next.js (App Router) personal site, casual blog, and curated Writing page, styled after the dark Vercel/Geist
-aesthetic. Static-exported for GitHub Pages.
+An [Astro](https://astro.build) personal site: projects, writing (essays and
+notes, English with optional Chinese variants), two photo albums, and a small
+toy. Fully static, deployed to GitHub Pages.
 
 ## Quick start (local)
+
+Needs Node 22 or newer.
 
 ```bash
 npm install
 npm run dev        # http://localhost:3000
+npm test           # unit tests for the gallery pipeline and theme bootstrap
+npm run build      # static site in dist/
 ```
 
-## Make it yours
+## Where things live
 
-1. **`lib/site.js`** — your name, role, email, GitHub, LinkedIn, résumé link, and avatar path. The avatar uses the 192px `public/images/avatar.webp` derivative. `npm run avatar:prepare` recreates the approved head-and-shoulders crop from the unchanged `public/images/graduation.png`, which About displays in full.
-2. **`lib/projects.js`** — project data for the homepage and Projects page.
-3. **`app/about/page.jsx`** — your bio and the `timeline` array.
-4. **`posts/*.md`** — blog posts. Add a `.md` file with frontmatter
-   (`title`, `date`, plus optional `category`, `excerpt`, `section`, `tags`, `series`,
-   `source`, and `title_zh`/`excerpt_zh` + an `<!-- zh -->` body marker for a
-   Chinese variant) and it appears automatically. New posts default to Blog;
-   add `section: writing` for a polished article on `/writing/` and the homepage.
-   `category` is one of `learning` / `projects` / `meta` (defaults to `meta`);
-   tags are unrestricted and get pages at `/blog/tag/<tag>/` across both sections.
-   All article permalinks remain `/blog/<slug>/`, so changing a section preserves
-   shared links. Each article's back link returns to its section.
-5. Optional: drop `resume.pdf` (and any images) into **`public/`**.
+| Path | What it is |
+|---|---|
+| `posts/*.md` | Posts. Format is documented in `posts/add-a-post.md`. |
+| `src/data/site.ts` | Name, role, email and profile links. |
+| `src/data/projects.ts` | Projects for the home page and `/projects/`, grouped by shelf, filterable by track. |
+| `src/data/timeline.ts` | The About timeline, the skills list, and the `signals` behind the timing diagram. |
+| `src/content.config.ts` | Post schema. A misspelled `category` or malformed tag fails the build. |
+| `src/lib/posts-loader.ts` | Reads `posts/`, splits each file at its `<!-- zh -->` marker into an English and a Chinese entry. |
+| `src/pages/` | One file per route. |
+| `src/components/` | Astro components, plus two React islands: `PhotoGallery.jsx` and `roast/`. |
+| `src/styles/global.css` | Design tokens and all shared styles. `gallery.css` is loaded only by the two albums. |
+| `lib/`, `scripts/` | Framework-independent gallery pipeline, theme bootstrap and their tests. |
+| `workers/homescreen/` | Cloudflare Worker behind Roast My Homescreen. |
+
+## Posts
+
+Add a `.md` file to `posts/` with frontmatter (`title`, `date`, plus optional
+`category`, `excerpt`, `section`, `tags`, `series`, `source`, and
+`title_zh`/`excerpt_zh` + an `<!-- zh -->` body marker for a Chinese variant)
+and it appears automatically. New posts are listed under Notes on `/blog/`;
+`section: writing` lists a post under Essays and on the home page. `category`
+is one of `learning` / `projects` / `meta` (defaults to `meta`); tags are
+lowercase kebab-case and get pages at `/blog/tag/<tag>/`.
+
+Permalinks are `/blog/<slug>/`, whatever the section. A post with a Chinese
+variant also gets `/zh/blog/<slug>/`; the two pages link to each other and
+declare each other as `hreflang` alternates. The marker has to be on its own
+line, outside a code fence. `/writing/` redirects to `/blog/`. `/rss.xml` lists
+the English posts.
+
+Inline SVG diagrams in posts are styled with the site's CSS variables
+(`--accent`, `--surface`, `--text`, `--muted`, `--faint`, `--border-2`,
+`--accent-dim`, `--sans`, `--mono`). Those names are part of the content
+contract: renaming one in `global.css` breaks existing diagrams.
+
+## The timing diagram
+
+The home and About pages draw the career path as a waveform: one signal per
+line of work, high while it was active. It is generated at build time from
+`signals` in `src/data/timeline.ts`; edit the dates there. A year-only start
+(`from: '2024'`) is drawn as a hatched "started some time that year" stretch,
+and `to: null` keeps the signal high up to the build date.
 
 ## Photography
 
 Export selected photos into **`public/photography/`**. JPEG, PNG, WebP, and AVIF
 files appear automatically on `/photography/` when the site rebuilds; no code edits
-are needed. Photography follows the site’s IBM Plex Sans typography. The default Style view follows the visitor’s local
+are needed. The default Style view follows the visitor’s local
 time at page load: 06:00–10:59 favors soft light, 11:00–17:59 sunlight, and
 18:00–05:59 night scenes and quiet shadows. It reorders all photos without hiding
 any, and stays stable while browsing. Light groups are curated from the image
@@ -40,7 +74,7 @@ The preparation command generates cached WebP previews (1440px) and large views
 (2560px) in `public/photography/_web/`. Originals are unchanged. The generated
 previews and a GPS-free source manifest in `lib/generated/` are committed.
 Originals stay local and are ignored by Git; `postbuild` removes original-image
-copies from `out/` so deployment contains only the web versions. A clean checkout
+copies from `dist/` so deployment contains only the web versions. A clean checkout
 builds from the manifest; caption edits still apply. Run `npm run gallery:prepare`
 after adding or replacing photos, then commit its manifests and `_web/` assets.
 Page requests, including in development, read only this prepared catalog; they
@@ -57,7 +91,7 @@ Use one PR per batch, starting from current `main`:
 2. Add optional location, camera, date, alt text, and light/style overrides in
    `lib/photography.json` or `lib/mechanic.json`. Unknown values can stay blank.
 3. Run `npm run gallery:prepare`, `npm test`, and `npm run build`. Check locally
-   with `npm run dev`. Development and production use separate Next.js caches.
+   with `npm run dev`.
 4. Commit the changed caption JSON, generated manifests, and `_web/` assets.
    Originals and temporary image files are ignored. Open a PR; check the diff
    and CI before merging. Merge to `main` publishes the site through Actions.
@@ -119,7 +153,7 @@ added; the static preview needs `npm run build` to show new exports.
 ## Benji’s Garage
 
 Drop garage photos into **`public/Mechanic/`** (capital M). They appear on
-`/mechanic/` in a light/dark garage journal with IBM Plex Sans typography and aligned photo rows. It shares image previews, metadata, and the large-image viewer
+`/mechanic/` in a light/dark garage journal with aligned photo rows. It shares image previews, metadata, and the large-image viewer
 with Photography. Optional `label` fields set the journal captions; uncaptioned photos show “Garage notes” rather than filenames.
 Optional captions, camera overrides, and ordering go in `lib/mechanic.json`, with
 the same fields as Photography. Generated previews in `public/Mechanic/_web/`
@@ -127,46 +161,28 @@ are committed alongside its generated manifest, just like Photography.
 
 ## Deploy to GitHub Pages
 
-### One-time setup
+Every push to `main` runs `.github/workflows/deploy.yml`: it installs with
+Node 22, runs `npm run build`, and publishes `dist/`. Pull requests run
+`validate.yml` (tests + build). In the repo settings, **Pages → Build and
+deployment → Source** must be "GitHub Actions".
 
-1. **Set the base path** in `next.config.mjs`:
-   - Repo named `<username>.github.io` → leave `basePath = ''`.
-   - Any other repo name → set `basePath = '/your-repo-name'`.
-2. Push this project to your repo's `main` branch (see commands below).
-3. In your repo on GitHub: **Settings → Pages → Build and deployment →
-   Source → "GitHub Actions"**.
+`astro.config.mjs` sets `site` to `https://jyuwaaw.github.io` and
+`trailingSlash: 'always'`. This is a user site (`<username>.github.io`), so no
+`base` is set; a project site would need one.
 
-That's it. Every push to `main` triggers `.github/workflows/deploy.yml`,
-which builds the static site and publishes it. First deploy takes ~1–2 min;
-watch progress under the repo's **Actions** tab.
-
-### Push commands
-
-```bash
-git init
-git add .
-git commit -m "Initial site"
-git branch -M main
-git remote add origin https://github.com/<username>/<repo>.git
-git push -u origin main
-```
-
-(If you already created the repo with a README, run `git pull origin main --rebase`
-before pushing, or just `git push -u origin main --force` on a fresh repo.)
-
-## Notes
-
-- Built static (`output: 'export'`) — no server needed, works anywhere.
-- `trailingSlash: true` and `images.unoptimized` are set for Pages compatibility.
-- The workflow adds `.nojekyll` so GitHub doesn't strip the `_next` folder.
+`npm run build` runs `gallery:prepare` first and `clean-gallery-export`
+afterwards, so the deployed site contains only the prepared web images.
 
 ## Appearance and typography
 
-The site defaults to the system color scheme. The header appearance menu provides System, Light, and Dark choices. The browser remembers explicit choices in `benji-appearance-v2`; System continues to follow operating-system changes through CSS. A small validated bootstrap restores preferences before first paint, with safe defaults if storage is unavailable.
+The site follows the system color scheme by default. The header menu offers
+System, Light and Dark; an explicit choice is remembered in
+`benji-appearance-v2`, and a small validated script restores it before first
+paint. Colors are defined once in `global.css` with `light-dark()`. Every page uses the same container width (`--maxw`), so the header sits in the same place on all of them.
 
-Visit `/type/` to compare Geist, Jost, Manrope, Barlow Condensed, and IBM Plex Sans across the real homepage, then follow links to compare other pages. Light and Regular adjust text weights while preserving a heading hierarchy. Choices apply across navigation and reloads in that browser; the site's selected default is IBM Plex Sans Regular. `/photography/type/` also uses these shared controls. Code blocks retain their monospace face; other interface text and article diagrams follow the site sans. Theme tokens and font roles live in `app/globals.css`.
-
-The v2 appearance bootstrap preserves the v1 theme choice but resets earlier font trials to IBM Plex Sans. The page and navigation label are Benji’s Garage; `/mechanic/` and the existing photo folders remain stable.
+Type is the IBM Plex family, self-hosted through Astro's Fonts API: Plex Sans
+for reading, Plex Sans Condensed for page titles, Plex Mono for dates, labels
+and code.
 
 ### Share a photograph
 
@@ -184,5 +200,5 @@ use `npx wrangler secret put OPENAI_API_KEY` with the key for your API project a
 `npx wrangler deploy`. Set `ALLOWED_ORIGINS` in its configuration to the site's exact origin.
 Set the GitHub Actions repository variable `HOMESCREEN_API_URL` to the Worker's full HTTPS
 URL ending in `/review` and rebuild Pages. For local development, set the same URL in the
-Next.js environment variable `NEXT_PUBLIC_HOMESCREEN_API_URL` and include your local
+environment variable `PUBLIC_HOMESCREEN_API_URL` (for example in `.env.local`) and include your local
 site origin in the development Worker's `ALLOWED_ORIGINS`. Each new analysis calls OpenAI once; repeated downloads of the same share card reuse its review.

@@ -1,0 +1,21 @@
+---
+import { CATEGORY_LABELS, fmtDate, postUrl, type Post } from '../lib/posts';
+interface Props { posts: Post[]; variant?: 'essay' | 'note'; showMeta?: boolean }
+const { posts, variant = 'note', showMeta = false } = Astro.props;
+---
+<ul class="list">
+  {posts.map((post) => (
+    <li>
+      <a class={`entry entry-${variant}`} href={postUrl(post)}>
+        <time datetime={fmtDate(post.data.date)}>{fmtDate(post.data.date)}</time>
+        <div>
+          <h3>{post.data.title}</h3>
+          {post.data.excerpt && <p>{post.data.excerpt}</p>}
+          {showMeta && (
+            <p class="meta">{[CATEGORY_LABELS[post.data.category], post.data.bilingual ? 'English / 中文' : ''].filter(Boolean).join(' · ')}</p>
+          )}
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>

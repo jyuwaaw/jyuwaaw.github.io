@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Waveform from '../components/Waveform.astro';
+import { site, links } from '../data/site';
+import { timeline, skills } from '../data/timeline';
+import graduation from '../assets/graduation.png';
+---
+<Base title="About">
+  <section class="page-head wrap about-head">
+    <div>
+      <h1 class="display">Hi, I'm Benji. Nice to meet you.</h1>
+      <p class="lede">
+        Digital design &amp; verification engineer with an M.S. in ECE from UC Irvine.
+        I build UVM testbenches, design RTL, and ship production AI systems.
+        Trilingual (Mandarin, Cantonese, English) — I learn fastest by shipping.
+      </p>
+    </div>
+    <figure>
+      <Image src={graduation} alt="Benji in graduation regalia at UC Irvine" width={560} widths={[280, 560]} sizes="280px" />
+      <figcaption>UC Irvine · Class of 2025</figcaption>
+    </figure>
+  </section>
+
+  <section class="band wrap row" aria-labelledby="path-title">
+    <h2 class="section-title" id="path-title">Path so far</h2>
+    <div>
+      <Waveform>Each line is high while that work was active. The hatched stretch means it started some time that year.</Waveform>
+      <ol class="list" role="list" style="margin-top:48px">
+        {timeline.map((t) => (
+          <li>
+            <div class="step">
+              <div>
+                <h3>{t.title}</h3>
+                <span class="when">{t.when}</span>
+              </div>
+              <p>{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band wrap row" aria-labelledby="skills-title">
+    <h2 class="section-title" id="skills-title">Toolbox</h2>
+    <dl class="skills">
+      {skills.map((s) => (
+        <>
+          <dt>{s.group}</dt>
+          <dd>{s.items}</dd>
+        </>
+      ))}
+    </dl>
+  </section>
+
+  <section class="band wrap row contact" aria-labelledby="contact-title">
+    <h2 class="section-title" id="contact-title">Contact</h2>
+    <div>
+      <p class="lede">Open to verification and digital design roles, research collaborations, and good conversations. Fastest way to reach me is email.</p>
+      <ul class="link-row">
+        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        {links.slice(1).map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>

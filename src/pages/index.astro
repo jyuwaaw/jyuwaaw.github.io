@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Waveform from '../components/Waveform.astro';
+import ProjectList from '../components/ProjectList.astro';
+import PostList from '../components/PostList.astro';
+import { site, links } from '../data/site';
+import { featuredProjects } from '../data/projects';
+import { getPosts } from '../lib/posts';
+import { getPhotographs } from '@/lib/photography.js';
+import { orderPhotographs } from '@/lib/gallery-order.mjs';
+
+const all = await getPosts();
+const essays = all.filter((p) => p.data.section === 'writing');
+const posts = (essays.length ? essays : all).slice(0, 3);
+const photos = orderPhotographs(await getPhotographs(), 'style').slice(0, 4);
+---
+<Base>
+  <section class="hero wrap">
+    <p class="hello"><img src={site.avatar} alt="" width="192" height="192" /> Hi, I'm Benji.</p>
+    <h1 class="display display-xl"><span>I used to make chips run AI.</span> <span>Now I make AI run tools.</span></h1>
+    <div class="hero-body">
+      <p class="lede">
+        Digital design &amp; verification engineer (M.S. ECE, UC Irvine).
+        I architect and verify RTL — flexible-precision AI accelerators, UVM testbenches,
+        full RTL-to-GDSII — then build and ship the AI products that run on top of it.
+        I work the whole vertical: from the arithmetic inside an accelerator to the agents it ends up serving.
+      </p>
+      <ul class="link-row">
+        {links.slice(0, 3).map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </div>
+    <Waveform>
+      The path so far, as a timing diagram: each line is high while that work was active.
+      <a class="inline-link" href="/about/">The long version →</a>
+    </Waveform>
+  </section>
+
+  <section class="band wrap row" aria-labelledby="projects-title">
+    <h2 class="section-title" id="projects-title">Selected projects</h2>
+    <div>
+      <ProjectList projects={featuredProjects} />
+      <a class="more" href="/projects/">All projects →</a>
+    </div>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="band wrap row" aria-labelledby="writing-title">
+      <h2 class="section-title" id="writing-title">Latest writing</h2>
+      <div>
+        <PostList posts={posts} variant="essay" />
+        <a class="more" href="/blog/">All writing →</a>
+      </div>
+    </section>
+  )}
+
+  {photos.length > 0 && (
+    <section class="band wrap row" aria-labelledby="photos-title">
+      <h2 class="section-title" id="photos-title">Photos</h2>
+      <div>
+        <div class="strip">
+          {photos.map((photo) => (
+            <a href={`/photography/?photo=${photo.shareId}`} style={`--ratio:${(photo.width / photo.height).toFixed(3)}`}>
+              <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+            </a>
+          ))}
+        </div>
+        <a class="more" href="/photography/">Photography →</a>
+        <a class="more" href="/mechanic/">Benji’s Garage →</a>
+      </div>
+    </section>
+  )}
+</Base>

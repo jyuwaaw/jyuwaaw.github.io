@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import { projectsByShelf, TRACKS } from '../../data/projects';
+const shelves = projectsByShelf();
+---
+<Base
+  title="Projects"
+  description="Things I built — MCP servers, Claude Code skills, and agent tooling on one shelf; RTL, UVM verification, and accelerator research on the other."
+>
+  <section class="page-head wrap">
+    <h1 class="display">Two shelves, one vertical.</h1>
+    <p class="lede">
+      I used to make chips run AI; now I make AI run tools. Same instinct both
+      times — find the interface everyone says doesn't exist.
+    </p>
+    <div class="filters" role="group" aria-label="Filter projects by focus" data-filters>
+      <button type="button" data-track="" aria-pressed="true">All</button>
+      {TRACKS.map((t) => <button type="button" data-track={t.id} aria-pressed="false">{t.label}</button>)}
+    </div>
+  </section>
+
+  {shelves.map((shelf) => (
+    <section class="band wrap row" data-shelf aria-labelledby={`shelf-${shelf.id}`}>
+      <h2 class="section-title" id={`shelf-${shelf.id}`}>{shelf.label}</h2>
+      <div>
+        <p class="shelf-blurb">{shelf.blurb}</p>
+        <ProjectList projects={shelf.projects} showMeta />
+      </div>
+    </section>
+  ))}
+</Base>
+
+<script>
+  // Narrow the shelves in place; a shelf with no match hides. The choice is
+  // kept in the URL so a filtered view can be shared.
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filters] button')];
+  const shelves = [...document.querySelectorAll<HTMLElement>('[data-shelf]')];
+  function apply(track: string) {
+    for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.track === track));
+    for (const shelf of shelves) {
+      let shown = 0;
+      for (const item of shelf.querySelectorAll<HTMLElement>('li[data-tracks]')) {
+        const match = !track || item.dataset.tracks!.split(' ').includes(track);
+        item.hidden = !match;
+        if (match) shown++;
+      }
+      shelf.hidden = shown === 0;
+    }
+  }
+  const known = new Set(buttons.map((b) => b.dataset.track));
+  const initial = new URLSearchParams(location.search).get('track') ?? '';
+  if (initial && known.has(initial)) apply(initial);
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      const track = button.dataset.track!;
+      apply(track);
+      const url = new URL(location.href);
+      if (track) url.searchParams.set('track', track); else url.searchParams.delete('track');
+      history.replaceState(history.state, '', url);
+    });
+  }
+</script>

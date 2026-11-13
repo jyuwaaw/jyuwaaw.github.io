@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import AlbumHead from '../../components/AlbumHead.astro';
+import PhotoGallery from '../../components/PhotoGallery.jsx';
+import '../../styles/gallery.css';
+import { getPhotographs } from '@/lib/photography.js';
+import captions from '@/lib/mechanic.json';
+const photos = await getPhotographs({ folder: 'Mechanic', captions, defaultStyle: 'In the garage' });
+---
+<Base title="Benji’s Garage" description="Time in the garage: hands-on work, maintenance, and the details in between.">
+  <div class="mechanic-page">
+    <AlbumHead current="mechanic">
+      <strong>Hood up. Hands dirty.</strong>
+      Weekend wrenching, parts on the floor, and figuring it out along the way.
+    </AlbumHead>
+    <section class="photo-collection wrap" aria-label="Garage photographs">
+      <PhotoGallery client:load photos={photos} styleLabel="Journal" layout="workshop" />
+    </section>
+  </div>
+</Base>

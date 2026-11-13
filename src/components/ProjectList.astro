@@ -1,0 +1,30 @@
+---
+import type { Project } from '../data/projects';
+interface Props { projects: Project[]; showMeta?: boolean }
+const { projects, showMeta = false } = Astro.props;
+const external = (href: string) => /^https?:/.test(href);
+// "name — what it is": the name carries the weight, the gloss stays quiet.
+const split = (title: string) => {
+  const i = title.indexOf(' — ');
+  return i < 0 ? [title, ''] : [title.slice(0, i), title.slice(i)];
+};
+---
+<ul class="list">
+  {projects.map((p) => {
+    const [name, gloss] = split(p.title);
+    return (
+      <li data-tracks={p.tracks.join(' ')}>
+        <a class="project" href={p.href} target={external(p.href) ? '_blank' : undefined} rel={external(p.href) ? 'noopener noreferrer' : undefined}>
+          <div>
+            <h3>{name}<span>{gloss}</span></h3>
+            <span class="kind">{p.tag}{external(p.href) ? ' ↗' : ' →'}</span>
+          </div>
+          <div>
+            <p>{p.desc}</p>
+            {showMeta && <p class="meta">{p.meta.join(' · ')}</p>}
+          </div>
+        </a>
+      </li>
+    );
+  })}
+</ul>

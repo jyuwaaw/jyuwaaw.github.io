@@ -6,7 +6,7 @@ tags: [writing, site]
 excerpt: Drop a markdown file in /posts and it shows up automatically. Here's the format.
 ---
 
-Create a new `.md` file in the `posts/` folder. It goes into Blog by default — quick notes, links, or anything worth keeping. For a polished article, add `section: writing` and it appears on the Writing page instead.
+Create a new `.md` file in the `posts/` folder. It lands under Notes on the Writing page by default — quick notes, links, or anything worth keeping. For a polished article, add `section: writing` and it is listed under Essays, and on the home page.
 
 ```md
 ---
@@ -24,7 +24,7 @@ Your content here, in plain markdown.
 
 - **`title`**, **`date`** — the essentials. `excerpt` is an optional summary for the index.
 - **`section`** — defaults to `blog`. Use `writing` for essays and worked-through articles. Changing this never changes a post's URL.
-- **`category`** — optional: `learning`, `projects`, or `meta` (the default). Blog shows category filters when there is more than one category. Use tags for any other topic.
+- **`category`** — optional: `learning`, `projects`, or `meta` (the default). It shows as a label on the index. Any other value fails the build, so use tags for any other topic.
 - **`tags`** — optional open list, lowercase kebab-case (`[mcp, claude-code, rtl]`). Each tag gets its own page at `/blog/tag/<tag>/`.
 - **`series`** — optional string. Posts sharing a series show a reading-order box.
 - **`source`** — optional URL crediting the thread/repo/discussion the post came from.
@@ -49,4 +49,4 @@ English body…
 中文正文…
 ```
 
-Readers get an EN / 中文 toggle on the post page; both variants ship in the static HTML.
+The marker must sit on its own line. The Chinese variant gets its own page at `/zh/blog/<slug>/`, and each page links to the other.
