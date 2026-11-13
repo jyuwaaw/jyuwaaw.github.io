@@ -18,4 +18,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: npm run likes:check
       - run: npm run build
+        env:
+          PUBLIC_PHOTO_LIKES_API: ${{ vars.PHOTO_LIKES_API_URL }}

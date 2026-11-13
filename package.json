@@ -6,11 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "gallery:prepare": "node scripts/prepare-galleries.mjs",
+    "gallery:prepare": "node scripts/prepare-galleries.mjs && npm run likes:catalog",
     "prebuild": "npm run gallery:prepare",
     "postbuild": "node scripts/clean-gallery-export.mjs",
     "test": "node --test lib/*.test.mjs",
-    "avatar:prepare": "node scripts/prepare-avatar.mjs"
+    "avatar:prepare": "node scripts/prepare-avatar.mjs",
+    "likes:catalog": "node scripts/prepare-photo-likes.mjs",
+    "likes:check": "wrangler deploy --dry-run --config workers/photo-likes/wrangler.jsonc"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.7",
@@ -26,5 +28,8 @@
   "type": "module",
   "engines": {
     "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.1"
   }
 }
