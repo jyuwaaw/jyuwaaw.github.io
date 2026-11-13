@@ -51,6 +51,23 @@
     }
   },
   {
+    "filename": "A1F5EB8B-CC1B-4AC7-A1E6-B28D26A0AFD2.jpeg",
+    "sourceHash": "d51f98c4861114444a6d58a2155f0a11071af2a06733caaf8481fea64344f098",
+    "src": "/photography/_web/419f565d49b0fe8e-preview.webp",
+    "fullSrc": "/photography/_web/419f565d49b0fe8e-full.webp",
+    "width": 3074,
+    "height": 3074,
+    "exif": {
+      "Model": "ILCE-7M3",
+      "ExposureTime": 0.0004,
+      "FNumber": 2.2,
+      "ISO": 100,
+      "DateTimeOriginal": "2019:12:17 01:55:12",
+      "CreateDate": "2019:12:17 01:55:12",
+      "FocalLength": 50
+    }
+  },
+  {
     "filename": "a82827e0dm6be716507b1555202164d2 2.jpg",
     "sourceHash": "a29744b2abf529f19f3dd3815a59c1f0b71f1cc69ec47035e47312cd3a46029e",
     "src": "/photography/_web/d2ee113a080220ff-preview.webp",
@@ -201,6 +218,23 @@
       "DateTimeOriginal": "2021:07:12 17:53:48",
       "CreateDate": "2021:07:12 17:53:48",
       "FocalLength": 44
+    }
+  },
+  {
+    "filename": "BJW02464.jpg",
+    "sourceHash": "a624e1fcad112f50299b6fd5d73ee70f477ce8a489dad9e92ca3f381fd17ca76",
+    "src": "/photography/_web/e14621bb80b1521b-preview.webp",
+    "fullSrc": "/photography/_web/e14621bb80b1521b-full.webp",
+    "width": 3593,
+    "height": 5389,
+    "exif": {
+      "Model": "ILCE-7M3",
+      "ExposureTime": 0.0125,
+      "FNumber": 2.8,
+      "ISO": 4000,
+      "DateTimeOriginal": "2021:11:08 19:41:50",
+      "CreateDate": "2021:11:08 19:41:50",
+      "FocalLength": 75
     }
   },
   {
@@ -853,6 +887,23 @@
     }
   },
   {
+    "filename": "IMG_1369.jpeg",
+    "sourceHash": "bf42649d534fc6989d26310c9e8c689e819e81d5ad9259ff9f854e1ab66cc9b1",
+    "src": "/photography/_web/83a21cdae7e0db2c-preview.webp",
+    "fullSrc": "/photography/_web/83a21cdae7e0db2c-full.webp",
+    "width": 3024,
+    "height": 4032,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.016666666666666666,
+      "FNumber": 2.8,
+      "ISO": 200,
+      "DateTimeOriginal": "2024:10:17 18:34:03",
+      "CreateDate": "2024:10:17 18:34:03",
+      "FocalLength": 9
+    }
+  },
+  {
     "filename": "IMG_1375.jpg",
     "sourceHash": "130475b96763474abaf7b78e1e354b0018bc33787e213025807be02914dc5c0d",
     "src": "/photography/_web/106cc9911b78127d-preview.webp",
@@ -964,6 +1015,23 @@
     "exif": {}
   },
   {
+    "filename": "IMG_2660.jpeg",
+    "sourceHash": "638eb1442f45bd089a8ebc545822613330e520094eccbe0ac7f45cd22b15bdbc",
+    "src": "/photography/_web/aeaa2a59bbd791df-preview.webp",
+    "fullSrc": "/photography/_web/aeaa2a59bbd791df-full.webp",
+    "width": 3020,
+    "height": 4028,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.0033333333333333335,
+      "FNumber": 2.8,
+      "ISO": 32,
+      "DateTimeOriginal": "2024:12:26 09:25:52",
+      "CreateDate": "2024:12:26 09:25:52",
+      "FocalLength": 9
+    }
+  },
+  {
     "filename": "IMG_3100.jpg",
     "sourceHash": "f6de2f789435e9c86a2becf1bd90633338f5bc76d337610d15a2c39face5569f",
     "src": "/photography/_web/2645993980035d17-preview.webp",
@@ -1015,6 +1083,23 @@
     }
   },
   {
+    "filename": "IMG_3343.jpeg",
+    "sourceHash": "cb22c6d110b2731cd3726d3902b87a58500b55f18818a09a3cf1bd0a6b6c57de",
+    "src": "/photography/_web/f30be6f7474ce45f-preview.webp",
+    "fullSrc": "/photography/_web/f30be6f7474ce45f-full.webp",
+    "width": 3024,
+    "height": 4032,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.0010515247108307045,
+      "FNumber": 2.8,
+      "ISO": 32,
+      "DateTimeOriginal": "2024:12:30 15:27:13",
+      "CreateDate": "2024:12:30 15:27:13",
+      "FocalLength": 9
+    }
+  },
+  {
     "filename": "IMG_3481.jpg",
     "sourceHash": "bd691c11dda4930a83bbe90a54a63d48e6d6dfebd99aa1ca3e0bb328343ed04c",
     "src": "/photography/_web/242e03765f1edfd4-preview.webp",
@@ -1028,6 +1113,23 @@
       "ISO": 32,
       "DateTimeOriginal": "2024:12:31 16:19:39",
       "CreateDate": "2024:12:31 16:19:39",
+      "FocalLength": 9
+    }
+  },
+  {
+    "filename": "IMG_3488.jpeg",
+    "sourceHash": "e1b9819b16158bae5053c002f4037620115cff977b49e6c33469cbf9f05016df",
+    "src": "/photography/_web/28015c93311134eb-preview.webp",
+    "fullSrc": "/photography/_web/28015c93311134eb-full.webp",
+    "width": 3024,
+    "height": 4032,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.010101010101010102,
+      "FNumber": 2.8,
+      "ISO": 80,
+      "DateTimeOriginal": "2024:12:31 16:20:48",
+      "CreateDate": "2024:12:31 16:20:48",
       "FocalLength": 9
     }
   },
@@ -1100,6 +1202,23 @@
     }
   },
   {
+    "filename": "IMG_3941.jpeg",
+    "sourceHash": "f5233d6ab5662582485df9c78459025718a3ed32f9158a3d7a15a0b688138b96",
+    "src": "/photography/_web/13f6a459cc4e6cfe-preview.webp",
+    "fullSrc": "/photography/_web/13f6a459cc4e6cfe-full.webp",
+    "width": 2966,
+    "height": 3955,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.00014400921658986175,
+      "FNumber": 2.8,
+      "ISO": 20,
+      "DateTimeOriginal": "2024:04:25 18:33:10",
+      "CreateDate": "2024:04:25 18:33:10",
+      "FocalLength": 9
+    }
+  },
+  {
     "filename": "IMG_4153.jpg",
     "sourceHash": "71e72e4b2b4c5d3943320bf3f0dc42f2a4ab08ec9cfa5ecb5523461d08d8496c",
     "src": "/photography/_web/bd9292ec68f57773-preview.webp",
@@ -1114,6 +1233,40 @@
       "DateTimeOriginal": "2021:07:02 16:48:39",
       "CreateDate": "2021:07:02 16:48:39",
       "FocalLength": 1.55
+    }
+  },
+  {
+    "filename": "IMG_4227.jpeg",
+    "sourceHash": "ceec0522d03bc89b5dc795b303afe6abc295fe79e8db013f4068d79db119c796",
+    "src": "/photography/_web/1963910daea96c01-preview.webp",
+    "fullSrc": "/photography/_web/1963910daea96c01-full.webp",
+    "width": 3024,
+    "height": 3024,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.016666666666666666,
+      "FNumber": 2.8,
+      "ISO": 200,
+      "DateTimeOriginal": "2025:02:14 22:16:37",
+      "CreateDate": "2025:02:14 22:16:37",
+      "FocalLength": 9
+    }
+  },
+  {
+    "filename": "IMG_4336.jpeg",
+    "sourceHash": "6eb57180726aceb2bc878083e3e95615288fceeea6eefb0431e4c397661654c3",
+    "src": "/photography/_web/65f755c01aa44198-preview.webp",
+    "fullSrc": "/photography/_web/65f755c01aa44198-full.webp",
+    "width": 5656,
+    "height": 7542,
+    "exif": {
+      "Model": "iPhone 17 Pro",
+      "ExposureTime": 0.00510204081632653,
+      "FNumber": 2.798828125,
+      "ISO": 40,
+      "DateTimeOriginal": "2026:10:08 16:36:24",
+      "CreateDate": "2026:10:08 16:36:24",
+      "FocalLength": 16.890625
     }
   },
   {
@@ -1470,6 +1623,23 @@
       "ISO": 32,
       "DateTimeOriginal": "2024:07:28 17:04:18",
       "CreateDate": "2024:07:28 17:04:18",
+      "FocalLength": 9
+    }
+  },
+  {
+    "filename": "IMG_6937.jpeg",
+    "sourceHash": "892b83938b06e1031361a980d20b0381de9fd98e743d25dcd35c1d55b6a9e12a",
+    "src": "/photography/_web/93ac2e0fc9059700-preview.webp",
+    "fullSrc": "/photography/_web/93ac2e0fc9059700-full.webp",
+    "width": 3024,
+    "height": 3869,
+    "exif": {
+      "Model": "iPhone 13 Pro",
+      "ExposureTime": 0.008928571428571428,
+      "FNumber": 2.8,
+      "ISO": 32,
+      "DateTimeOriginal": "2025:06:14 19:58:36",
+      "CreateDate": "2025:06:14 19:58:36",
       "FocalLength": 9
     }
   },
