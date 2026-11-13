@@ -51,6 +51,23 @@
     }
   },
   {
+    "filename": "A1F5EB8B-CC1B-4AC7-A1E6-B28D26A0AFD2.jpeg",
+    "sourceHash": "d51f98c4861114444a6d58a2155f0a11071af2a06733caaf8481fea64344f098",
+    "src": "/photography/_web/419f565d49b0fe8e-preview.webp",
+    "fullSrc": "/photography/_web/419f565d49b0fe8e-full.webp",
+    "width": 3074,
+    "height": 3074,
+    "exif": {
+      "Model": "ILCE-7M3",
+      "ExposureTime": 0.0004,
+      "FNumber": 2.2,
+      "ISO": 100,
+      "DateTimeOriginal": "2019:12:17 01:55:12",
+      "CreateDate": "2019:12:17 01:55:12",
+      "FocalLength": 50
+    }
+  },
+  {
     "filename": "a82827e0dm6be716507b1555202164d2 2.jpg",
     "sourceHash": "a29744b2abf529f19f3dd3815a59c1f0b71f1cc69ec47035e47312cd3a46029e",
     "src": "/photography/_web/d2ee113a080220ff-preview.webp",
