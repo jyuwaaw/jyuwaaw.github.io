@@ -1,4 +1,6 @@
 import { createGalleryNavigation } from '@/lib/gallery-link.mjs';
+import PhotoLikeButton from './PhotoLikeButton.jsx';
+import usePhotoLikes from './usePhotoLikes.js';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { getDaypart, orderPhotographs, photographGroup, DAYPART_LABELS } from '@/lib/gallery-order.mjs';
 
@@ -28,6 +30,16 @@ function PhotoMetadata({ photo }) {
 }
 
 export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'gallery', adaptToTime = false }) {
+  // Likes are a Photography feature; Garage never asks for them. Buttons only
+  // appear for photos the likes service has confirmed.
+  const photoLikes = usePhotoLikes(photos, layout === 'gallery');
+  const likeButton = (item, className) => photoLikes.available && photoLikes.likes[item.likeId] && <PhotoLikeButton
+    {...photoLikes.likes[item.likeId]} disabled={Boolean(photoLikes.pending[item.likeId])}
+    description={item.alt} className={className} onToggle={() => photoLikes.toggle(item.likeId)} />;
+  const likeStatus = photoLikes.available && <div className="photo-like-status" role="status">
+    {photoLikes.error}
+    {photoLikes.error && <button type="button" onClick={photoLikes.retry} disabled={Object.values(photoLikes.pending).some(Boolean)}>Retry</button>}
+  </div>;
   const [sort, setSort] = useState('style');
   const [active, setActive] = useState(null);
   const dialog = useRef(null);
@@ -106,6 +118,7 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
         <button aria-label="Date: oldest first" aria-pressed={sort === 'date-asc'} onClick={() => setSort('date-asc')}>Date <span aria-hidden="true">↑</span></button>
       </div>
     </div>
+    {likeStatus}
     {layout === 'workshop' ? <div className="workshop-grid">
       {makeRows(ordered).map((row) => <div className="workshop-row" key={row[0].id}>
         {row.map((item) => <figure className="workshop-entry" style={{ '--photo-ratio': item.width / item.height }} key={item.id}>
@@ -130,6 +143,7 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
                 <img src={item.src} alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" />
               </button>
               <figcaption className="photo-metadata"><PhotoMetadata photo={item} /></figcaption>
+              {likeButton(item, 'photo-like-corner')}
             </figure>)}
           </div>)}
         </div>
@@ -172,6 +186,7 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
           </div>
           <div className="photo-viewer-navigation">
             <div className="photo-share">
+              {likeButton(photo, 'photo-viewer-like')}
               <button type="button" onClick={copyLink} aria-label="Copy link to this photograph">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m10 13 4-4m-6 6-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 2 1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0" /></svg>
                 <span>Copy link</span>
@@ -179,6 +194,7 @@ export default function PhotoGallery({ photos, styleLabel = 'Style', layout = 'g
               <span role="status">{shareStatus?.photoId === photo.id ? shareStatus.message : ''}</span>
               {shareStatus?.photoId === photo.id && shareStatus.url && <input aria-label="Photograph share link" readOnly value={shareStatus.url} onFocus={(event) => event.target.select()} />}
             </div>
+            {likeStatus}
             <div className="photo-controls">
               <button onClick={() => move(-1)} disabled={photos.length < 2} aria-label="Previous photograph">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7" /></svg><span>Previous</span>

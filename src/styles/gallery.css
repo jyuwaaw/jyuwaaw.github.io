@@ -181,3 +181,41 @@
   .album-tagline{ min-height:3.2em; }
 }
 @media(max-width:480px){ .album-tagline{ min-height:4.8em; } }
+
+/* ── Likes (Photography only) ───────────────────────────────────────
+   On a thumbnail the button sits in the corner, apart from the control that
+   opens the photo. In the viewer it joins the share row. */
+.photo-like{
+  display:inline-flex; align-items:center; justify-content:center; gap:7px; min-width:44px; min-height:44px; padding:9px 12px;
+  border:1px solid #ffffff40; border-radius:999px; background:rgba(16,18,16,.72); color:#fff; backdrop-filter:blur(12px);
+  font:13px/1 var(--sans); font-variant-numeric:tabular-nums; cursor:pointer; transition:background .18s ease,color .18s ease;
+}
+.photo-like svg{ width:18px; height:18px; flex:none; transition:transform .18s ease; }
+.photo-like[aria-pressed="true"]{ color:#ffd2d9; }
+.photo-like:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+.photo-like:disabled{ opacity:.55; cursor:wait; }
+.photo-like-corner{ position:absolute; z-index:2; top:10px; right:10px; }
+.photo-viewer .photo-like{
+  padding:8px 14px; border-color:var(--border-2); background:transparent; color:var(--text); backdrop-filter:none; font:13px/1.4 var(--sans);
+}
+.photo-viewer .photo-like svg{ width:18px; height:18px; }
+.photo-viewer .photo-like[aria-pressed="true"]{ color:var(--workshop-red); border-color:currentColor; }
+@media(hover:hover){
+  .photo-like:hover:not(:disabled){ background:rgba(16,18,16,.9); }
+  .photo-viewer .photo-like:hover:not(:disabled){ background:var(--surface-2); }
+  .photo-like:hover:not(:disabled) svg{ transform:scale(1.1); }
+}
+@media(prefers-reduced-motion:reduce){ .photo-like svg{ transform:none !important; } }
+/* With a mouse, an unliked photo stays quiet until you point at it. Liked
+   photos, photos with a count, and every photo on touch keep the button. */
+@media(hover:hover) and (pointer:fine){
+  .photo-like-corner{ opacity:0; transition:opacity .18s ease,background .18s ease,color .18s ease; }
+  figure:hover > .photo-like-corner,
+  .photo-like-corner:focus-visible,
+  .photo-like-corner[aria-pressed="true"],
+  .photo-like-corner[data-count]:not([data-count="0"]){ opacity:1; }
+}
+.photo-like-status{ color:var(--muted); font:14px/1.5 var(--sans); }
+.photo-like-status:empty{ display:none; }
+.photo-like-status:not(:empty){ margin:0 0 20px; }
+.photo-like-status button{ margin-left:10px; padding:0; border:0; background:none; color:var(--text); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }

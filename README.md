@@ -30,6 +30,7 @@ npm run build      # static site in dist/
 | `src/styles/global.css` | Design tokens and all shared styles. `gallery.css` is loaded only by the two albums. |
 | `lib/`, `scripts/` | Framework-independent gallery pipeline, theme bootstrap and their tests. |
 | `workers/homescreen/` | Cloudflare Worker behind Roast My Homescreen. |
+| `workers/photo-likes/` | Cloudflare Worker + D1 migration behind Photography likes. |
 
 ## Posts
 
@@ -183,6 +184,10 @@ paint. Colors are defined once in `global.css` with `light-dark()`. Every page u
 Type is the IBM Plex family, self-hosted through Astro's Fonts API: Plex Sans
 for reading, Plex Sans Condensed for page titles, Plex Mono for dates, labels
 and code.
+
+### Photography likes
+
+Photography has anonymous shared likes on thumbnails and in the viewer, backed by a separate personal Cloudflare Worker + D1 database. They stay hidden if the backend URL is not set at build time; Garage never shows them. See [setup, verification and adding future photos](docs/photo-likes.md).
 
 ### Share a photograph
 
