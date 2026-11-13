@@ -1,0 +1,32 @@
+---
+// One toy: what it is, a still of what it makes, and how it is doing.
+import ToyStats from './ToyStats.jsx';
+import RoastPreview from './roast/RoastPreview.astro';
+import { toyStatsId } from '@/lib/toys.mjs';
+
+interface Props {
+  toy: { id: string; title: string; blurb: string; href: string; language?: string; preview?: string };
+  /** Heading level for the title: 2 on the Play page, 3 inside a home section. */
+  level?: 2 | 3;
+  /** Load the stats with the page (Play) instead of when scrolled to (home). */
+  eager?: boolean;
+}
+const { toy, level = 2, eager = false } = Astro.props;
+const statsId = toyStatsId(toy.id);
+// Without a likes service the card has no stats row at all.
+const hasStats = Boolean((import.meta.env.PUBLIC_PHOTO_LIKES_API || '').trim());
+const Heading = `h${level}` as 'h2' | 'h3';
+---
+<article class="toy-card">
+  <a class="toy-main" href={toy.href}>
+    <div class="toy-text">
+      <Heading class="toy-title">{toy.title}</Heading>
+      <p>{toy.blurb}</p>
+      <span class="toy-open">Try it →{toy.language && <small lang="zh-CN">{toy.language}</small>}</span>
+    </div>
+    {toy.preview === 'roast' && <div class="toy-preview"><RoastPreview /></div>}
+  </a>
+  {hasStats && (eager
+    ? <ToyStats client:load statsId={statsId} title={toy.title} />
+    : <ToyStats client:visible statsId={statsId} title={toy.title} />)}
+</article>

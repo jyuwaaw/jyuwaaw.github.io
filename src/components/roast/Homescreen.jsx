@@ -3,6 +3,8 @@ import { flattenImage, prepareImage, saveReview } from './images';
 import { MAX_SCREENSHOTS, scoreDimensions } from '@/lib/homescreen-review.mjs';
 import MaskEditor from './MaskEditor';
 import Privacy from './Privacy';
+import ToyStats from '../ToyStats.jsx';
+import { example } from './example.js';
 import styles from './screen.module.css';
 
 const endpoint = import.meta.env.PUBLIC_HOMESCREEN_API_URL;
@@ -25,19 +27,7 @@ async function getReview(images) {
   return data;
 }
 
-const example = {
-  title: '客服排班表',
-  roast: '三个 AI 排排坐，307 封邮件愣是没轮上一个客服。',
-  scores: {
-    aesthetics: { value: 7, evidence: '三个助手排成一条横线，视线却先被隔壁邮箱的红点截走了。' },
-    function: { value: 8, evidence: '三个 AI 工具并排，方便就同一问题比较回答。' },
-    efficiency: { value: 6, evidence: '助手都能直接点开，三个相似入口也多了一步选择。' },
-  },
-  mbti: 'ENTP', reason: '三个 AI 并排，像是这页问完一个还要转头问隔壁：“你同意他说的吗？”',
-  traits: [{ name: '按下一步摆', evidence: '微信挨着地图，像是朋友刚发来一个地址，下一步要点的东西已经放在旁边了。' }],
-};
-
-export default function Homescreen() {
+export default function Homescreen({ statsId }) {
   const [panel, setPanel] = useState('review');
   const [shots, setShots] = useState([]);
   const [active, setActive] = useState(0);
@@ -163,6 +153,7 @@ export default function Homescreen() {
     {draggingFiles && <div className={styles.dropOverlay} aria-hidden="true"><strong>松开即可添加截图</strong></div>}
     <h1 lang="en">Roast My Homescreen<span>.</span></h1>
     <p className={styles.intro}>放上你的手机主屏，猜猜桌面的 MBTI，看看哪个细节最抢戏。</p>
+    {statsId && <ToyStats statsId={statsId} title="Roast My Homescreen" countVisit viewsLabel="{n} 次访问" className={styles.stats} />}
     <div className={styles.panelTabs} role="tablist" aria-label="桌面锐评">
       {['review', 'privacy'].map(id => <button key={id} type="button" role="tab" id={id + '-tab'}
         aria-selected={panel === id} aria-controls={id + '-panel'} tabIndex={panel === id ? 0 : -1}

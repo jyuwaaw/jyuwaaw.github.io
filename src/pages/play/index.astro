@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import ToyCard from '../../components/ToyCard.astro';
+import { toys } from '@/lib/toys.mjs';
+---
+<Base title="Play" description="Small things that run in your browser.">
+  <section class="page-head wrap">
+    <h1 class="display">Play</h1>
+    <p class="lede">Small things that run in your browser. Nothing to install, nothing to sign up for.</p>
+  </section>
+  <section class="wrap toy-list" aria-label="Toys">
+    {toys.map((toy) => <ToyCard toy={toy} eager />)}
+  </section>
+</Base>
