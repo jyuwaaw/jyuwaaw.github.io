@@ -85,3 +85,6 @@
   .editor img { max-height:min(54svh,440px) }
   .page .action { min-height:46px }
 }
+
+/* Like button and visit count, between the intro and the tabs. */
+.stats { margin:-14px 0 26px }

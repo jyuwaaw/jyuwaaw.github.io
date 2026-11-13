@@ -6,6 +6,8 @@ import PostList from '../components/PostList.astro';
 import { site, links } from '../data/site';
 import { featuredProjects } from '../data/projects';
 import { getPosts } from '../lib/posts';
+import ToyCard from '../components/ToyCard.astro';
+import { toys } from '@/lib/toys.mjs';
 import { getPhotographs } from '@/lib/photography.js';
 import { orderPhotographs } from '@/lib/gallery-order.mjs';
 
@@ -42,6 +44,16 @@ const photos = orderPhotographs(await getPhotographs(), 'style').slice(0, 4);
       <a class="more" href="/projects/">All projects →</a>
     </div>
   </section>
+
+  {toys.length > 0 && (
+    <section class="band wrap row" aria-labelledby="play-title">
+      <h2 class="section-title" id="play-title">Play</h2>
+      <div>
+        <div class="toy-list">{toys.slice(0, 2).map((toy) => <ToyCard toy={toy} level={3} />)}</div>
+        {toys.length > 2 && <a class="more" href="/play/">All toys →</a>}
+      </div>
+    </section>
+  )}
 
   {posts.length > 0 && (
     <section class="band wrap row" aria-labelledby="writing-title">

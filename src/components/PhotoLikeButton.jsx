@@ -1,10 +1,10 @@
-export default function PhotoLikeButton({ liked, count, disabled, onToggle, description, className = '' }) {
+export default function PhotoLikeButton({ liked, count, disabled, onToggle, description, className = '', noun = 'photograph' }) {
   return (
     <button
       type="button"
       className={`photo-like ${className}`}
       aria-pressed={liked}
-      aria-label={`${liked ? 'Unlike' : 'Like'} photograph${description ? `: ${description}` : ''}${typeof count === 'number' ? `, ${count} likes` : ''}`}
+      aria-label={`${liked ? 'Unlike' : 'Like'} ${noun}${description ? `: ${description}` : ''}${typeof count === 'number' ? `, ${count} likes` : ''}`}
       data-count={typeof count === 'number' ? count : undefined}
       disabled={disabled}
       onClick={onToggle}

@@ -1,0 +1,35 @@
+---
+// A still of the toy's output: the sample review card, cut down to its
+// headline, the MBTI guess and the three scores.
+import { example } from './example.js';
+import { scoreDimensions } from '@/lib/homescreen-review.mjs';
+---
+<div class="roast-preview" lang="zh-CN" aria-hidden="true">
+  <div class="bubble">
+    <strong>{example.title}</strong>
+    <p>{example.roast}</p>
+  </div>
+  <div class="row">
+    <span class="type">{example.mbti}</span>
+    <ul>
+      {scoreDimensions.map((d) => <li>{d.label} <b>{example.scores[d.key].value}/10</b></li>)}
+    </ul>
+  </div>
+</div>
+
+<style>
+  /* The toy's own palette, the same in light and dark like the card itself. */
+  .roast-preview{
+    --ink:#2d2543; --violet:#5842a6; --bubble:#e7e0ff;
+    background:#fcfaff; color:var(--ink); border:1px solid #dcd6e8; border-radius:20px;
+    padding:22px; box-shadow:0 8px 30px #2314350a; transform:rotate(-1.5deg); transition:transform .3s cubic-bezier(.2,.65,.3,1);
+  }
+  .bubble{ position:relative; background:var(--bubble); border-radius:18px 18px 18px 5px; padding:18px 20px; }
+  .bubble::after{ content:""; position:absolute; left:0; bottom:-8px; width:15px; height:10px; background:var(--bubble); clip-path:polygon(0 0,100% 0,0 100%); }
+  .bubble strong{ display:block; font-size:22px; font-weight:600; line-height:1.25; }
+  .bubble p{ margin-top:6px; font-size:15px; line-height:1.55; }
+  .row{ display:flex; align-items:center; gap:14px; margin-top:22px; }
+  .type{ flex:none; padding:4px 10px; border-radius:7px; background:var(--violet); color:#fff; font-weight:600; font-size:15px; }
+  ul{ display:flex; flex-wrap:wrap; gap:4px 14px; list-style:none; font-size:14px; }
+  b{ font-weight:600; color:var(--violet); }
+</style>

@@ -30,7 +30,8 @@ npm run build      # static site in dist/
 | `src/styles/global.css` | Design tokens and all shared styles. `gallery.css` is loaded only by the two albums. |
 | `lib/`, `scripts/` | Framework-independent gallery pipeline, theme bootstrap and their tests. |
 | `workers/homescreen/` | Cloudflare Worker behind Roast My Homescreen. |
-| `workers/photo-likes/` | Cloudflare Worker + D1 migration behind Photography likes. |
+| `workers/photo-likes/` | Cloudflare Worker + D1 migrations behind Photography likes, and likes and view counts for toys. |
+| `lib/toys.mjs` | The toys on `/play/`. One entry gives a toy its card, like button and view count. |
 
 ## Posts
 
@@ -188,6 +189,12 @@ and code.
 ### Photography likes
 
 Photography has anonymous shared likes on thumbnails and in the viewer, backed by a separate personal Cloudflare Worker + D1 database. They stay hidden if the backend URL is not set at build time; Garage never shows them. See [setup, verification and adding future photos](docs/photo-likes.md).
+
+## Play
+
+`/play/` lists the small in-browser toys; the home page shows the first two. Each is one entry in `lib/toys.mjs` (`id`, `title`, `blurb`, `href`, optional `language` and `preview`). The card's still image comes from `preview`: `'roast'` renders `src/components/roast/RoastPreview.astro`; a new toy needs its own preview component and a line for it in `src/components/ToyCard.astro`.
+
+A toy's like button and view count come from the likes Worker. After adding a toy, run `npm run likes:catalog` and redeploy the Worker; see [docs/photo-likes.md](docs/photo-likes.md).
 
 ### Share a photograph
 
