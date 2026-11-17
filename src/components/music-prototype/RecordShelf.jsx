@@ -4,7 +4,7 @@ import './record-shelf.css';
 
 const variants = [
   { key: 'A', name: '唱片墙', title: '随手抽一张，听几首。' },
-  { key: 'B', name: '主题唱片箱', title: '喜欢的声音，装在这几箱。' },
+  { key: 'B', name: '主题唱片箱', title: '翻一箱喜欢的声音。' },
   { key: 'C', name: '聆听角', title: '这一面，留给今天。' },
 ];
 const categoryOrder = ['开车与旅行', '放松与情绪', '风格选集', '华语与粤语', '日韩', '歌手与影视游戏', '日常与运动', '收藏与发现', '年代与节日'];
