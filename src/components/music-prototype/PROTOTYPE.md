@@ -1,0 +1,17 @@
+# Record shelf prototype
+
+Question: how should all 119 playlists feel like physical vinyl records on shelves, while each opens a small selection of songs?
+
+Run `npm run dev` and open `/music-prototype/`. This route has no navigation entry and is marked noindex. It is a local visual prototype, not a published Music page.
+
+- A: front-facing sleeves on a full wooden cabinet; selecting one opens its inner sleeve and track picks.
+- B: nine thematic record crates, each browsed sideways.
+- C: dense spine-facing shelves beside an always-visible listening desk.
+
+The development-only bottom switcher and left/right keys cycle layouts. `?variant=A`, `?variant=B`, and `?variant=C` preserve the choice in the URL.
+
+Content: all 119 actual playlist names, their existing custom covers, and 343 draft song selections. Each selection was chosen from tracks in the library backup and keeps its actual Apple Music song URL and recording version. Short playlists retain their actual one or two songs. This is an initial editorial selection, not a claim that the owner has approved every pick. No account identifiers, private library URLs, Apple credentials, or audio files are included.
+
+Choosing a song opens its public Apple Music page. Audio streaming and complete-playlist sharing are outside this visual prototype. Production integration needs verified public links for the jyuwaaw playlists.
+
+The data is a snapshot from 2026-11-17. Preview state stays in memory and URL parameters only; it never changes Apple Music or a remote service.

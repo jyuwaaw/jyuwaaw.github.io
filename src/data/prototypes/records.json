@@ -1,0 +1,3937 @@
+{
+  "createdAt": "2026-11-17",
+  "records": [
+    {
+      "id": 1,
+      "name": "~~ChillWave~~",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/001.webp",
+      "trackCount": 50,
+      "picks": [
+        {
+          "title": "LIMBO",
+          "artist": "keshi",
+          "duration": "3:32",
+          "url": "https://music.apple.com/us/song/limbo/1610442906"
+        },
+        {
+          "title": "Morning Coffee (bubble ver.)",
+          "artist": "Chevy, Nalba, Luxid",
+          "duration": "2:43",
+          "url": "https://music.apple.com/us/song/morning-coffee-bubble-ver/1545866310"
+        },
+        {
+          "title": "Mood",
+          "artist": "Kartell",
+          "duration": "4:19",
+          "url": "https://music.apple.com/us/song/mood/1130434649"
+        }
+      ],
+      "tags": [
+        "咖啡馆",
+        "R&B",
+        "放松"
+      ],
+      "note": "咖啡放凉之前，慢慢听。",
+      "featuredRank": 101,
+      "color": "#c8c8c8"
+    },
+    {
+      "id": 2,
+      "name": "🇯🇵pop",
+      "category": "日韩",
+      "cover": "/music-prototype/covers/002.webp",
+      "trackCount": 73,
+      "picks": [
+        {
+          "title": "IRIS OUT",
+          "artist": "Kenshi Yonezu",
+          "duration": "2:31",
+          "url": "https://music.apple.com/us/song/iris-out/1837658529"
+        },
+        {
+          "title": "odoriko",
+          "artist": "VAUNDY",
+          "duration": "3:49",
+          "url": "https://music.apple.com/us/song/odoriko/1714599984"
+        },
+        {
+          "title": "Matasaburo",
+          "artist": "Yorushika",
+          "duration": "3:47",
+          "url": "https://music.apple.com/us/song/matasaburo/1568980896"
+        }
+      ],
+      "tags": [
+        "日系"
+      ],
+      "note": "从米津玄师到 VAUNDY 的日常循环。",
+      "featuredRank": 102,
+      "color": "#e81808"
+    },
+    {
+      "id": 3,
+      "name": "98.7FM",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/003.webp",
+      "trackCount": 10,
+      "picks": [
+        {
+          "title": "Night City (R E L 's Version)",
+          "artist": "R E L",
+          "duration": "3:13",
+          "url": "https://music.apple.com/us/song/night-city-r-e-l-s-version/1647976222"
+        },
+        {
+          "title": "Who's Ready for Tomorrow",
+          "artist": "RAT BOY, IBDY",
+          "duration": "1:56",
+          "url": "https://music.apple.com/us/song/whos-ready-for-tomorrow/1540793076"
+        },
+        {
+          "title": "Phantom Liberty",
+          "artist": "Dawid Podsiadło, P.T. Adamczyk",
+          "duration": "5:48",
+          "url": "https://music.apple.com/us/song/phantom-liberty/1740786338"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "史诗"
+      ],
+      "note": "把收音机调到夜之城。",
+      "featuredRank": 103,
+      "color": "#080808"
+    },
+    {
+      "id": 4,
+      "name": "A-List Pop",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/004.webp",
+      "trackCount": 50,
+      "picks": [
+        {
+          "title": "Angel Of My Dreams",
+          "artist": "JADE",
+          "duration": "3:17",
+          "url": "https://music.apple.com/us/song/angel-of-my-dreams/1754238414"
+        },
+        {
+          "title": "Blue Moon",
+          "artist": "Zara Larsson",
+          "duration": "2:57",
+          "url": "https://music.apple.com/us/song/blue-moon/6819412034"
+        },
+        {
+          "title": "Nicole Kidman",
+          "artist": "ADÉLA",
+          "duration": "3:01",
+          "url": "https://music.apple.com/us/song/nicole-kidman/6792884088"
+        }
+      ],
+      "tags": [],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 104,
+      "color": "#f838a8"
+    },
+    {
+      "id": 5,
+      "name": "Am I in LOVE?",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/005.webp",
+      "trackCount": 12,
+      "picks": [
+        {
+          "title": "ILYSB",
+          "artist": "WOOSUNG, DPOLE, Mellow Kitchen, 김형우",
+          "duration": "3:53",
+          "url": "https://music.apple.com/us/song/ilysb/1649547684"
+        },
+        {
+          "title": "Be More",
+          "artist": "Stephen Sanchez",
+          "duration": "3:51",
+          "url": "https://music.apple.com/us/song/be-more/1699291619"
+        },
+        {
+          "title": "The Sweetest Love",
+          "artist": "Robin Thicke",
+          "duration": "3:55",
+          "url": "https://music.apple.com/us/song/the-sweetest-love/1443314513"
+        }
+      ],
+      "tags": [
+        "心动"
+      ],
+      "note": "有点心动，又不想说得太明白。",
+      "featuredRank": 10,
+      "color": "#583828"
+    },
+    {
+      "id": 6,
+      "name": "As Heard on TV",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/006.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "August Underground",
+          "artist": "Ethel Cain",
+          "duration": "3:40",
+          "url": "https://music.apple.com/us/song/august-underground/1619405942"
+        },
+        {
+          "title": "Sweet Jane",
+          "artist": "Cowboy Junkies",
+          "duration": "3:34",
+          "url": "https://music.apple.com/us/song/sweet-jane/456805007"
+        },
+        {
+          "title": "Only You",
+          "artist": "Yaz",
+          "duration": "3:15",
+          "url": "https://music.apple.com/us/song/only-you/62442859"
+        }
+      ],
+      "tags": [],
+      "note": "记得这个声音，也记得当时的画面。",
+      "featuredRank": 106,
+      "color": "#081818"
+    },
+    {
+      "id": 7,
+      "name": "BEATstrumentals",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/007.webp",
+      "trackCount": 250,
+      "picks": [
+        {
+          "title": "Glory",
+          "artist": "Ervin Sprinkles",
+          "duration": "2:28",
+          "url": "https://music.apple.com/us/song/glory/1893464615"
+        },
+        {
+          "title": "Denim",
+          "artist": "FLKS",
+          "duration": "1:51",
+          "url": "https://music.apple.com/us/song/denim/6796714339"
+        },
+        {
+          "title": "Palm Breeze (feat. FLKS)",
+          "artist": "Rudy Raw",
+          "duration": "2:04",
+          "url": "https://music.apple.com/us/song/palm-breeze-feat-flks/1818596902"
+        }
+      ],
+      "tags": [
+        "专注",
+        "放松"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 107,
+      "color": "#182838"
+    },
+    {
+      "id": 8,
+      "name": "Beneath the Stars",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/008.webp",
+      "trackCount": 199,
+      "picks": [
+        {
+          "title": "Say Yes To Heaven",
+          "artist": "Lana Del Rey",
+          "duration": "3:29",
+          "url": "https://music.apple.com/us/song/say-yes-to-heaven/1688315813"
+        },
+        {
+          "title": "Heaven or Las Vegas",
+          "artist": "Cocteau Twins",
+          "duration": "4:58",
+          "url": "https://music.apple.com/us/song/heaven-or-las-vegas/258200075"
+        },
+        {
+          "title": "Tears Are in Your Eyes",
+          "artist": "Yo La Tengo",
+          "duration": "4:35",
+          "url": "https://music.apple.com/us/song/tears-are-in-your-eyes/1589242773"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "独立"
+      ],
+      "note": "灯熄掉以后，把耳机留着。",
+      "featuredRank": 2,
+      "color": "#181838"
+    },
+    {
+      "id": 9,
+      "name": "Benji’s Phonk",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/009.webp",
+      "trackCount": 57,
+      "picks": [
+        {
+          "title": "METAMORPHOSIS",
+          "artist": "INTERWORLD",
+          "duration": "2:22",
+          "url": "https://music.apple.com/us/song/metamorphosis/1610017784"
+        },
+        {
+          "title": "Murder In My Mind",
+          "artist": "Kordhell",
+          "duration": "2:25",
+          "url": "https://music.apple.com/us/song/murder-in-my-mind/1604263038"
+        },
+        {
+          "title": "Titans",
+          "artist": "Razihel, Aero Chord",
+          "duration": "4:10",
+          "url": "https://music.apple.com/us/song/titans/1008765103"
+        }
+      ],
+      "tags": [
+        "运动",
+        "电子"
+      ],
+      "note": "低频落下来，速度提上去。",
+      "featuredRank": 7,
+      "color": "#080808"
+    },
+    {
+      "id": 10,
+      "name": "Best Canton",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/010.webp",
+      "trackCount": 10,
+      "picks": [
+        {
+          "title": "深愛着你",
+          "artist": "Eason Chan",
+          "duration": "4:14",
+          "url": "https://music.apple.com/us/song/%E6%B7%B1%E6%84%9B%E7%9D%80%E4%BD%A0/1434282956"
+        },
+        {
+          "title": "藍田金婚",
+          "artist": "Pong Nan",
+          "duration": "4:21",
+          "url": "https://music.apple.com/us/song/%E8%97%8D%E7%94%B0%E9%87%91%E5%A9%9A/1446015971"
+        },
+        {
+          "title": "City~Lonely Night~",
+          "artist": "Delta T 蛋撻頭, Uka Yeung",
+          "duration": "4:01",
+          "url": "https://music.apple.com/us/song/city-lonely-night/1548245858"
+        }
+      ],
+      "tags": [
+        "粤语"
+      ],
+      "note": "老旋律和新声音，都用粤语说。",
+      "featuredRank": 4,
+      "color": "#383838"
+    },
+    {
+      "id": 11,
+      "name": "Blossom",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/011.webp",
+      "trackCount": 101,
+      "picks": [
+        {
+          "title": "Hover",
+          "artist": "You Are Here",
+          "duration": "3:01",
+          "url": "https://music.apple.com/us/song/hover/6763431175"
+        },
+        {
+          "title": "Repetition Is A Kind Of Hope",
+          "artist": "Aur",
+          "duration": "3:29",
+          "url": "https://music.apple.com/us/song/repetition-is-a-kind-of-hope/1871470992"
+        },
+        {
+          "title": "Fountain",
+          "artist": "Haruhisa Tanaka",
+          "duration": "1:26",
+          "url": "https://music.apple.com/us/song/fountain/1784598643"
+        }
+      ],
+      "tags": [
+        "放松"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 111,
+      "color": "#485828"
+    },
+    {
+      "id": 12,
+      "name": "Bluegrass Essentials",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/012.webp",
+      "trackCount": 98,
+      "picks": [
+        {
+          "title": "Blue Moon of Kentucky",
+          "artist": "Bill Monroe and His Bluegrass Boys",
+          "duration": "2:07",
+          "url": "https://music.apple.com/us/song/blue-moon-of-kentucky/1425223217"
+        },
+        {
+          "title": "Foggy Mountain Breakdown (with The Foggy Mountain Boys) [Single Version]",
+          "artist": "Lester Flatt, Earl Scruggs",
+          "duration": "2:39",
+          "url": "https://music.apple.com/us/song/foggy-mountain-breakdown-with-the-foggy-mountain/1467439385"
+        },
+        {
+          "title": "Little Maggie",
+          "artist": "Ralph Stanley",
+          "duration": "2:44",
+          "url": "https://music.apple.com/us/song/little-maggie/1766165191"
+        }
+      ],
+      "tags": [],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 112,
+      "color": "#180808"
+    },
+    {
+      "id": 13,
+      "name": "Breakup Songs Essentials",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/013.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "you broke me first",
+          "artist": "Tate McRae",
+          "duration": "2:49",
+          "url": "https://music.apple.com/us/song/you-broke-me-first/1507810181"
+        },
+        {
+          "title": "Easy On Me",
+          "artist": "Adele",
+          "duration": "3:44",
+          "url": "https://music.apple.com/us/song/easy-on-me/1590036021"
+        },
+        {
+          "title": "I Know It's Over",
+          "artist": "The Smiths",
+          "duration": "5:49",
+          "url": "https://music.apple.com/us/song/i-know-its-over/800117452"
+        }
+      ],
+      "tags": [
+        "EMO"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 113,
+      "color": "#180808"
+    },
+    {
+      "id": 14,
+      "name": "BTS Essentials",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/014.webp",
+      "trackCount": 37,
+      "picks": [
+        {
+          "title": "Permission to Dance",
+          "artist": "BTS",
+          "duration": "3:07",
+          "url": "https://music.apple.com/us/song/permission-to-dance/1598666360"
+        },
+        {
+          "title": "Make It Right",
+          "artist": "BTS",
+          "duration": "3:46",
+          "url": "https://music.apple.com/us/song/make-it-right/1599362625"
+        },
+        {
+          "title": "Not Today",
+          "artist": "BTS",
+          "duration": "3:51",
+          "url": "https://music.apple.com/us/song/not-today/1596529383"
+        }
+      ],
+      "tags": [
+        "明亮"
+      ],
+      "note": "记得这个声音，也记得当时的画面。",
+      "featuredRank": 114,
+      "color": "#a888c8"
+    },
+    {
+      "id": 15,
+      "name": "C-Pop Karaoke",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/015.webp",
+      "trackCount": 74,
+      "picks": [
+        {
+          "title": "Bubble (G.E.M. Version)",
+          "artist": "G.E.M.",
+          "duration": "4:18",
+          "url": "https://music.apple.com/us/song/bubble-g-e-m-version/1818539839"
+        },
+        {
+          "title": "找自己",
+          "artist": "David Tao",
+          "duration": "5:04",
+          "url": "https://music.apple.com/us/song/%E6%89%BE%E8%87%AA%E5%B7%B1/905206476"
+        },
+        {
+          "title": "死了都要愛",
+          "artist": "Shin Band",
+          "duration": "4:29",
+          "url": "https://music.apple.com/us/song/%E6%AD%BB%E4%BA%86%E9%83%BD%E8%A6%81%E6%84%9B/829586710"
+        }
+      ],
+      "tags": [],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 115,
+      "color": "#480808"
+    },
+    {
+      "id": 16,
+      "name": "Calm",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/016.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "Developments 4: The Shape of Leaving",
+          "artist": "Six Missing, Patrik Berg Almkvisth",
+          "duration": "3:14",
+          "url": "https://music.apple.com/us/song/developments-4-the-shape-of-leaving/1838825485"
+        },
+        {
+          "title": "Blurstate",
+          "artist": "YAMØ",
+          "duration": "2:24",
+          "url": "https://music.apple.com/us/song/blurstate/1868557123"
+        },
+        {
+          "title": "Time",
+          "artist": "Hideyuki Hashimoto",
+          "duration": "2:11",
+          "url": "https://music.apple.com/us/song/time/1785843911"
+        }
+      ],
+      "tags": [
+        "专注",
+        "放松"
+      ],
+      "note": "把今天调低一点音量。",
+      "featuredRank": 116,
+      "color": "#d8d8d8"
+    },
+    {
+      "id": 17,
+      "name": "Canton R&B",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/017.webp",
+      "trackCount": 1,
+      "picks": [
+        {
+          "title": "Biased Towards U",
+          "artist": "于梓貝",
+          "duration": "3:51",
+          "url": "https://music.apple.com/us/song/biased-towards-u/6797448775"
+        }
+      ],
+      "tags": [
+        "R&B",
+        "粤语"
+      ],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 117,
+      "color": "#180808"
+    },
+    {
+      "id": 18,
+      "name": "Cantonese A",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/018.webp",
+      "trackCount": 136,
+      "picks": [
+        {
+          "title": "boyfriend material",
+          "artist": "Gareth.T",
+          "duration": "2:30",
+          "url": "https://music.apple.com/us/song/boyfriend-material/1556257026"
+        },
+        {
+          "title": "國際孤獨等級",
+          "artist": "Gareth.T",
+          "duration": "3:13",
+          "url": "https://music.apple.com/us/song/%E5%9C%8B%E9%9A%9B%E5%AD%A4%E7%8D%A8%E7%AD%89%E7%B4%9A/1674509617"
+        },
+        {
+          "title": "有人共鳴",
+          "artist": "Phil Lam",
+          "duration": "3:38",
+          "url": "https://music.apple.com/us/song/%E6%9C%89%E4%BA%BA%E5%85%B1%E9%B3%B4/1053002437"
+        }
+      ],
+      "tags": [
+        "R&B",
+        "粤语"
+      ],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 118,
+      "color": "#181808"
+    },
+    {
+      "id": 19,
+      "name": "Cantopop Love Songs",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/019.webp",
+      "trackCount": 98,
+      "picks": [
+        {
+          "title": "那就繼續感情用事",
+          "artist": "Serrini",
+          "duration": "4:27",
+          "url": "https://music.apple.com/us/song/%E9%82%A3%E5%B0%B1%E7%B9%BC%E7%BA%8C%E6%84%9F%E6%83%85%E7%94%A8%E4%BA%8B/6824842648"
+        },
+        {
+          "title": "理智與感情",
+          "artist": "Endy Chow",
+          "duration": "4:22",
+          "url": "https://music.apple.com/us/song/%E7%90%86%E6%99%BA%E8%88%87%E6%84%9F%E6%83%85/201546350"
+        },
+        {
+          "title": "秋甜",
+          "artist": "Anthony Wong",
+          "duration": "3:23",
+          "url": "https://music.apple.com/us/song/%E7%A7%8B%E7%94%9C/1070078403"
+        }
+      ],
+      "tags": [
+        "粤语",
+        "心动"
+      ],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 119,
+      "color": "#281818"
+    },
+    {
+      "id": 20,
+      "name": "CarPlay 60s-80s",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/020.webp",
+      "trackCount": 2,
+      "picks": [
+        {
+          "title": "There's a Moon Out Tonight (Digitally Remastered)",
+          "artist": "The Capris",
+          "duration": "2:15",
+          "url": "https://music.apple.com/us/song/theres-a-moon-out-tonight-digitally-remastered/489479218"
+        },
+        {
+          "title": "This Place Hotel",
+          "artist": "The Jacksons",
+          "duration": "5:43",
+          "url": "https://music.apple.com/us/song/this-place-hotel/192484484"
+        }
+      ],
+      "tags": [
+        "驾车"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 120,
+      "color": "#281808"
+    },
+    {
+      "id": 21,
+      "name": "Carplay Blue",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/021.webp",
+      "trackCount": 29,
+      "picks": [
+        {
+          "title": "Glimpse of Us",
+          "artist": "Joji",
+          "duration": "3:53",
+          "url": "https://music.apple.com/us/song/glimpse-of-us/1776748883"
+        },
+        {
+          "title": "Die For You",
+          "artist": "Joji",
+          "duration": "3:31",
+          "url": "https://music.apple.com/us/song/die-for-you/1776748892"
+        },
+        {
+          "title": "EYE(S)",
+          "artist": "LÜCY",
+          "duration": "4:02",
+          "url": "https://music.apple.com/us/song/eye-s/1628728898"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "夜晚",
+        "R&B",
+        "EMO"
+      ],
+      "note": "夜里的车窗，慢下来的低音。",
+      "featuredRank": 0,
+      "color": "#080808"
+    },
+    {
+      "id": 22,
+      "name": "CarPlay Cafe",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/022.webp",
+      "trackCount": 348,
+      "picks": [
+        {
+          "title": "You Never Can Tell",
+          "artist": "Chuck Berry",
+          "duration": "2:41",
+          "url": "https://music.apple.com/us/song/you-never-can-tell/1469583520"
+        },
+        {
+          "title": "Habits (feat. Haley Reinhart)",
+          "artist": "Postmodern Jukebox, Scott Bradlee's Postmodern Jukebox",
+          "duration": "3:35",
+          "url": "https://music.apple.com/us/song/habits-feat-haley-reinhart/956922156"
+        },
+        {
+          "title": "Like A Fish",
+          "artist": "Matt Maltese",
+          "duration": "3:21",
+          "url": "https://music.apple.com/us/song/like-a-fish/1572999785"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "咖啡馆"
+      ],
+      "note": "拐过街角，找一间咖啡馆。",
+      "featuredRank": 122,
+      "color": "#281808"
+    },
+    {
+      "id": 23,
+      "name": "CarPlay Cafe 一起律动",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/023.webp",
+      "trackCount": 32,
+      "picks": [
+        {
+          "title": "Keep It Gold",
+          "artist": "Surfaces",
+          "duration": "4:13",
+          "url": "https://music.apple.com/us/song/keep-it-gold/1711407839"
+        },
+        {
+          "title": "Probably Up",
+          "artist": "Lawrence",
+          "duration": "4:14",
+          "url": "https://music.apple.com/us/song/probably-up/1857031040"
+        },
+        {
+          "title": "The Light",
+          "artist": "Jordan Rakei",
+          "duration": "4:00",
+          "url": "https://music.apple.com/us/song/the-light/1540037375"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "明亮"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 123,
+      "color": "#f8a808"
+    },
+    {
+      "id": 24,
+      "name": "CarPlay Cafe 雨夜狂飙",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/024.webp",
+      "trackCount": 2,
+      "picks": [
+        {
+          "title": "WILDFLOWER",
+          "artist": "Billie Eilish",
+          "duration": "4:21",
+          "url": "https://music.apple.com/us/song/wildflower/1739659144"
+        },
+        {
+          "title": "Raye",
+          "artist": "John Splithoff",
+          "duration": "4:29",
+          "url": "https://music.apple.com/us/song/raye/1399059239"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "夜晚"
+      ],
+      "note": "雨落在车窗上，路还很长。",
+      "featuredRank": 124,
+      "color": "#080808"
+    },
+    {
+      "id": 25,
+      "name": "CarPlay Chilling",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/025.webp",
+      "trackCount": 33,
+      "picks": [
+        {
+          "title": "I Don't Wanna Love You Anymore",
+          "artist": "LANY",
+          "duration": "3:21",
+          "url": "https://music.apple.com/us/song/i-dont-wanna-love-you-anymore/1435482184"
+        },
+        {
+          "title": "Eat Your Young",
+          "artist": "Hozier",
+          "duration": "4:02",
+          "url": "https://music.apple.com/us/song/eat-your-young/1763072942"
+        },
+        {
+          "title": "sweet home",
+          "artist": "Christian French",
+          "duration": "2:46",
+          "url": "https://music.apple.com/us/song/sweet-home/6806053609"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "放松"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 125,
+      "color": "#b8c8b8"
+    },
+    {
+      "id": 26,
+      "name": "CarPlay Indie·节奏律动",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/026.webp",
+      "trackCount": 34,
+      "picks": [
+        {
+          "title": "Hang Glide",
+          "artist": "Rob Araujo, Anomalie",
+          "duration": "3:54",
+          "url": "https://music.apple.com/us/song/hang-glide/1666023572"
+        },
+        {
+          "title": "Ruby",
+          "artist": "Foster the People",
+          "duration": "5:09",
+          "url": "https://music.apple.com/us/song/ruby/1060287793"
+        },
+        {
+          "title": "Girlfriend",
+          "artist": "Charlie Puth",
+          "duration": "2:57",
+          "url": "https://music.apple.com/us/song/girlfriend/1519093800"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "独立"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 126,
+      "color": "#f8d8a8"
+    },
+    {
+      "id": 27,
+      "name": "CarPlay Inspiring",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/027.webp",
+      "trackCount": 14,
+      "picks": [
+        {
+          "title": "Eat Your Young",
+          "artist": "Hozier",
+          "duration": "4:02",
+          "url": "https://music.apple.com/us/song/eat-your-young/1763072942"
+        },
+        {
+          "title": "III",
+          "artist": "Foster the People",
+          "duration": "4:09",
+          "url": "https://music.apple.com/us/song/iii/1247003783"
+        },
+        {
+          "title": "Northern Attitude",
+          "artist": "Noah Kahan",
+          "duration": "4:27",
+          "url": "https://music.apple.com/us/song/northern-attitude/1728501023"
+        }
+      ],
+      "tags": [
+        "驾车"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 127,
+      "color": "#382808"
+    },
+    {
+      "id": 28,
+      "name": "CarPlay Jazz Club",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/028.webp",
+      "trackCount": 20,
+      "picks": [
+        {
+          "title": "Habits (feat. Haley Reinhart)",
+          "artist": "Postmodern Jukebox, Scott Bradlee's Postmodern Jukebox",
+          "duration": "3:35",
+          "url": "https://music.apple.com/us/song/habits-feat-haley-reinhart/956922156"
+        },
+        {
+          "title": "Love To Keep Me Warm",
+          "artist": "Laufey, dodie",
+          "duration": "2:38",
+          "url": "https://music.apple.com/us/song/love-to-keep-me-warm/1596504977"
+        },
+        {
+          "title": "It's Only Rain (feat. Chioma)",
+          "artist": "Euge Groove",
+          "duration": "6:19",
+          "url": "https://music.apple.com/us/song/its-only-rain-feat-chioma/1565901720"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "咖啡馆",
+        "爵士"
+      ],
+      "note": "把夜路开成一间爵士俱乐部。",
+      "featuredRank": 128,
+      "color": "#080808"
+    },
+    {
+      "id": 29,
+      "name": "CarPlay LOVE",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/029.webp",
+      "trackCount": 9,
+      "picks": [
+        {
+          "title": "Hey Girl",
+          "artist": "Stephen Sanchez",
+          "duration": "3:05",
+          "url": "https://music.apple.com/us/song/hey-girl/1638404481"
+        },
+        {
+          "title": "Creatures in Heaven",
+          "artist": "Glass Animals",
+          "duration": "3:41",
+          "url": "https://music.apple.com/us/song/creatures-in-heaven/1738536695"
+        },
+        {
+          "title": "What's Left",
+          "artist": "The Walters",
+          "duration": "3:24",
+          "url": "https://music.apple.com/us/song/whats-left/1768796307"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "心动"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 129,
+      "color": "#281818"
+    },
+    {
+      "id": 30,
+      "name": "Carplay Orange",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/030.webp",
+      "trackCount": 48,
+      "picks": [
+        {
+          "title": "Ride",
+          "artist": "HYBS",
+          "duration": "3:01",
+          "url": "https://music.apple.com/us/song/ride/1638156963"
+        },
+        {
+          "title": "Love Song",
+          "artist": "Schoolgirl byebye",
+          "duration": "5:57",
+          "url": "https://music.apple.com/us/song/love-song/1441632076"
+        },
+        {
+          "title": "Cocoon (feat. 鄭敬儒)",
+          "artist": "LINION",
+          "duration": "4:25",
+          "url": "https://music.apple.com/us/song/cocoon-feat-%E9%84%AD%E6%95%AC%E5%84%92/1532379982"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "明亮"
+      ],
+      "note": "在太阳落下去之前再兜一圈。",
+      "featuredRank": 130,
+      "color": "#282818"
+    },
+    {
+      "id": 31,
+      "name": "Carplay Red",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/031.webp",
+      "trackCount": 5,
+      "picks": [
+        {
+          "title": "Gimme Love",
+          "artist": "Joji",
+          "duration": "3:34",
+          "url": "https://music.apple.com/us/song/gimme-love/1724881300"
+        },
+        {
+          "title": "double take",
+          "artist": "Dhruv",
+          "duration": "2:51",
+          "url": "https://music.apple.com/us/song/double-take/1591684356"
+        },
+        {
+          "title": "Girl",
+          "artist": "Alexander 23",
+          "duration": "2:01",
+          "url": "https://music.apple.com/us/song/girl/1483152688"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "R&B"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 131,
+      "color": "#080808"
+    },
+    {
+      "id": 32,
+      "name": "CarPlay 昭和的小曲🇯🇵",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/032.webp",
+      "trackCount": 2,
+      "picks": [
+        {
+          "title": "Watashi Rashiku",
+          "artist": "Hiromi Iwasaki",
+          "duration": "4:31",
+          "url": "https://music.apple.com/us/song/watashi-rashiku/255407240"
+        },
+        {
+          "title": "Shihatsu Ga Michibiku Kouhukuron",
+          "artist": "OFFICIAL HIGE DANDISM",
+          "duration": "4:58",
+          "url": "https://music.apple.com/us/song/shihatsu-ga-michibiku-kouhukuron/1045474895"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "日系"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 132,
+      "color": "#78a8b8"
+    },
+    {
+      "id": 33,
+      "name": "Carr Chill & Ez",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/033.webp",
+      "trackCount": 4,
+      "picks": [
+        {
+          "title": "Candy Wrappers",
+          "artist": "Summer Salt",
+          "duration": "3:12",
+          "url": "https://music.apple.com/us/song/candy-wrappers/1845193971"
+        },
+        {
+          "title": "Damage Gets Done",
+          "artist": "Hozier, Brandi Carlile",
+          "duration": "4:28",
+          "url": "https://music.apple.com/us/song/damage-gets-done/1763072943"
+        },
+        {
+          "title": "Music For a Sushi Restaurant",
+          "artist": "Harry Styles",
+          "duration": "3:13",
+          "url": "https://music.apple.com/us/song/music-for-a-sushi-restaurant/1615585001"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "放松"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 133,
+      "color": "#f8e8d8"
+    },
+    {
+      "id": 34,
+      "name": "Car氛围",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/034.webp",
+      "trackCount": 11,
+      "picks": [
+        {
+          "title": "In My Room",
+          "artist": "Jacob Collier",
+          "duration": "4:49",
+          "url": "https://music.apple.com/us/song/in-my-room/6783757341"
+        },
+        {
+          "title": "When We Were Friends",
+          "artist": "Amaranth Cove",
+          "duration": "2:49",
+          "url": "https://music.apple.com/us/song/when-we-were-friends/1586622262"
+        },
+        {
+          "title": "Slow Down",
+          "artist": "Mac Ayres",
+          "duration": "3:54",
+          "url": "https://music.apple.com/us/song/slow-down/1267571124"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "夜晚"
+      ],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 134,
+      "color": "#382818"
+    },
+    {
+      "id": 35,
+      "name": "Chill House 2026",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/035.webp",
+      "trackCount": 155,
+      "picks": [
+        {
+          "title": "That's Where I Should Be",
+          "artist": "MA:RK",
+          "duration": "2:22",
+          "url": "https://music.apple.com/us/song/thats-where-i-should-be/1795691783"
+        },
+        {
+          "title": "find you once",
+          "artist": "kalm",
+          "duration": "3:40",
+          "url": "https://music.apple.com/us/song/find-you-once/6820997413"
+        },
+        {
+          "title": "Until We Leave the Ground (Steve James Remix)",
+          "artist": "Emmit Fenn",
+          "duration": "3:17",
+          "url": "https://music.apple.com/us/song/until-we-leave-the-ground-steve-james-remix/1677582904"
+        }
+      ],
+      "tags": [
+        "电子",
+        "放松"
+      ],
+      "note": "有拍子，也有松弛感。",
+      "featuredRank": 135,
+      "color": "#78b8b8"
+    },
+    {
+      "id": 36,
+      "name": "Chill Neo-Soul R&B: Mac Ayres & Friends",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/036.webp",
+      "trackCount": 25,
+      "picks": [
+        {
+          "title": "Get to You Again",
+          "artist": "Mac Ayres",
+          "duration": "4:27",
+          "url": "https://music.apple.com/us/song/get-to-you-again/1433318079"
+        },
+        {
+          "title": "Today Only Comes Once (feat. Sebastian Mikael & Najee Janey)",
+          "artist": "Flwr Chyld",
+          "duration": "3:19",
+          "url": "https://music.apple.com/us/song/today-only-comes-once-feat-sebastian-mikael-najee-janey/1646019265"
+        },
+        {
+          "title": "Easy",
+          "artist": "Mac Ayres",
+          "duration": "5:14",
+          "url": "https://music.apple.com/us/song/easy/1267571128"
+        }
+      ],
+      "tags": [
+        "咖啡馆",
+        "R&B",
+        "放松"
+      ],
+      "note": "暖一点的声线，软一点的鼓点。",
+      "featuredRank": 136,
+      "color": "#281808"
+    },
+    {
+      "id": 37,
+      "name": "City Pop",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/037.webp",
+      "trackCount": 41,
+      "picks": [
+        {
+          "title": "Last Summer Whisper",
+          "artist": "Anri",
+          "duration": "4:59",
+          "url": "https://music.apple.com/us/song/last-summer-whisper/834248226"
+        },
+        {
+          "title": "Plastic Love",
+          "artist": "Mariya Takeuchi",
+          "duration": "4:54",
+          "url": "https://music.apple.com/us/song/plastic-love/1541673399"
+        },
+        {
+          "title": "Midnight Express",
+          "artist": "Hitomi Tohyama",
+          "duration": "4:02",
+          "url": "https://music.apple.com/us/song/midnight-express/1518957399"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "日系"
+      ],
+      "note": "旧唱片里的海风与城市灯光。",
+      "featuredRank": 1,
+      "color": "#0898c8"
+    },
+    {
+      "id": 38,
+      "name": "Classical Christmas",
+      "category": "年代与节日",
+      "cover": "/music-prototype/covers/038.webp",
+      "trackCount": 130,
+      "picks": [
+        {
+          "title": "Holiday Flight",
+          "artist": "John Williams",
+          "duration": "0:58",
+          "url": "https://music.apple.com/us/song/holiday-flight/1049528932"
+        },
+        {
+          "title": "Christmas Time Is Here (Performed on Piano)",
+          "artist": "Eunike Tanzil",
+          "duration": "2:14",
+          "url": "https://music.apple.com/us/song/christmas-time-is-here-performed-on-piano/6826023388"
+        },
+        {
+          "title": "The Nutcracker, Op. 71: Miniature Overture",
+          "artist": "Berlin Philharmonic Orchestra, Sir Simon Rattle",
+          "duration": "3:11",
+          "url": "https://music.apple.com/us/song/the-nutcracker-op-71-miniature-overture/752036036"
+        }
+      ],
+      "tags": [
+        "爵士"
+      ],
+      "note": "属于某个年代，或某个特别的日子。",
+      "featuredRank": 138,
+      "color": "#280808"
+    },
+    {
+      "id": 39,
+      "name": "Coding",
+      "category": "日常与运动",
+      "cover": "/music-prototype/covers/039.webp",
+      "trackCount": 99,
+      "picks": [
+        {
+          "title": "Open Field",
+          "artist": "Kiln",
+          "duration": "3:25",
+          "url": "https://music.apple.com/us/song/open-field/1534660406"
+        },
+        {
+          "title": "The World You See",
+          "artist": "Cristoph, Franky Wah, Artche",
+          "duration": "3:37",
+          "url": "https://music.apple.com/us/song/the-world-you-see/1551706517"
+        },
+        {
+          "title": "Orchid",
+          "artist": "after noon, Kurt Stewart",
+          "duration": "2:33",
+          "url": "https://music.apple.com/us/song/orchid/1561984094"
+        }
+      ],
+      "tags": [
+        "专注",
+        "放松"
+      ],
+      "note": "留一点节奏给长时间的专注。",
+      "featuredRank": 6,
+      "color": "#081818"
+    },
+    {
+      "id": 40,
+      "name": "Cyberpunk Edgerunner",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/040.webp",
+      "trackCount": 10,
+      "picks": [
+        {
+          "title": "This Fire",
+          "artist": "Franz Ferdinand",
+          "duration": "4:14",
+          "url": "https://music.apple.com/us/song/this-fire/315844111"
+        },
+        {
+          "title": "Let You Down",
+          "artist": "Dawid Podsiadło",
+          "duration": "3:47",
+          "url": "https://music.apple.com/us/song/let-you-down/1643873399"
+        },
+        {
+          "title": "Who's Ready for Tomorrow",
+          "artist": "RAT BOY, IBDY",
+          "duration": "1:56",
+          "url": "https://music.apple.com/us/song/whos-ready-for-tomorrow/1540793076"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "电子",
+        "史诗"
+      ],
+      "note": "记得这个声音，也记得当时的画面。",
+      "featuredRank": 140,
+      "color": "#080808"
+    },
+    {
+      "id": 41,
+      "name": "CyberPunk-Edge Runner",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/041.webp",
+      "trackCount": 23,
+      "picks": [
+        {
+          "title": "I Really Want to Stay at Your House",
+          "artist": "Rosa Walton, Hallie Coggins",
+          "duration": "4:06",
+          "url": "https://music.apple.com/us/song/i-really-want-to-stay-at-your-house/1540793097"
+        },
+        {
+          "title": "Delicate Weapon",
+          "artist": "Grimes, Lizzy Wizzy",
+          "duration": "3:50",
+          "url": "https://music.apple.com/us/song/delicate-weapon/1540792924"
+        },
+        {
+          "title": "Who's Ready for Tomorrow",
+          "artist": "RAT BOY, IBDY",
+          "duration": "1:56",
+          "url": "https://music.apple.com/us/song/whos-ready-for-tomorrow/1540793076"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "电子",
+        "史诗"
+      ],
+      "note": "记得这个声音，也记得当时的画面。",
+      "featuredRank": 141,
+      "color": "#181838"
+    },
+    {
+      "id": 42,
+      "name": "Daft Punk",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/042.webp",
+      "trackCount": 7,
+      "picks": [
+        {
+          "title": "Get Lucky",
+          "artist": "Daft Punk, Pharrell Williams, Nile Rodgers",
+          "duration": "6:09",
+          "url": "https://music.apple.com/us/song/get-lucky/617154366"
+        },
+        {
+          "title": "Instant Crush",
+          "artist": "Daft Punk, Julian Casablancas",
+          "duration": "5:37",
+          "url": "https://music.apple.com/us/song/instant-crush/617154362"
+        },
+        {
+          "title": "Giorgio by Moroder",
+          "artist": "Daft Punk",
+          "duration": "9:04",
+          "url": "https://music.apple.com/us/song/giorgio-by-moroder/617154360"
+        }
+      ],
+      "tags": [
+        "电子"
+      ],
+      "note": "从迪斯科的舞池，走到电子的未来。",
+      "featuredRank": 142,
+      "color": "#180808"
+    },
+    {
+      "id": 43,
+      "name": "Daily Chilling",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/043.webp",
+      "trackCount": 119,
+      "picks": [
+        {
+          "title": "No Ordinary",
+          "artist": "Labrinth",
+          "duration": "3:04",
+          "url": "https://music.apple.com/us/song/no-ordinary/1534760447"
+        },
+        {
+          "title": "Jamirobeegees Mashup (Stayin' Alive / Virtual Insanity)",
+          "artist": "Pomplamoose",
+          "duration": "2:52",
+          "url": "https://music.apple.com/us/song/jamirobeegees-mashup-stayin-alive-virtual-insanity/1391520158"
+        },
+        {
+          "title": "Stay",
+          "artist": "Galdive",
+          "duration": "3:38",
+          "url": "https://music.apple.com/us/song/stay/1693856495"
+        }
+      ],
+      "tags": [
+        "日常",
+        "独立",
+        "放松"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 143,
+      "color": "#885828"
+    },
+    {
+      "id": 44,
+      "name": "Dance w the beat",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/044.webp",
+      "trackCount": 1,
+      "picks": [
+        {
+          "title": "Dreamers",
+          "artist": "Scavenger Hunt",
+          "duration": "4:02",
+          "url": "https://music.apple.com/us/song/dreamers/955729461"
+        }
+      ],
+      "tags": [],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 144,
+      "color": "#380848"
+    },
+    {
+      "id": 45,
+      "name": "DREAMpop",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/045.webp",
+      "trackCount": 15,
+      "picks": [
+        {
+          "title": "Nice Boys",
+          "artist": "TEMPOREX",
+          "duration": "3:00",
+          "url": "https://music.apple.com/us/song/nice-boys/1734344801"
+        },
+        {
+          "title": "Silk",
+          "artist": "Wolf Alice",
+          "duration": "4:03",
+          "url": "https://music.apple.com/us/song/silk/976388075"
+        },
+        {
+          "title": "Melody X",
+          "artist": "Bonaparte",
+          "duration": "4:04",
+          "url": "https://music.apple.com/us/song/melody-x/1203480964"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "独立"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 145,
+      "color": "#9878a8"
+    },
+    {
+      "id": 46,
+      "name": "Eason Chan Essentials",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/046.webp",
+      "trackCount": 28,
+      "picks": [
+        {
+          "title": "任我行",
+          "artist": "Eason Chan",
+          "duration": "4:38",
+          "url": "https://music.apple.com/us/song/%E4%BB%BB%E6%88%91%E8%A1%8C/1386714597"
+        },
+        {
+          "title": "沙龍",
+          "artist": "Eason Chan",
+          "duration": "4:38",
+          "url": "https://music.apple.com/us/song/%E6%B2%99%E9%BE%8D/1490822213"
+        },
+        {
+          "title": "夕陽無限好",
+          "artist": "Eason Chan",
+          "duration": "4:04",
+          "url": "https://music.apple.com/us/song/%E5%A4%95%E9%99%BD%E7%84%A1%E9%99%90%E5%A5%BD/1443375265"
+        }
+      ],
+      "tags": [
+        "粤语"
+      ],
+      "note": "听陈奕迅把没说出口的唱出来。",
+      "featuredRank": 146,
+      "color": "#787878"
+    },
+    {
+      "id": 47,
+      "name": "EDM",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/047.webp",
+      "trackCount": 9,
+      "picks": [
+        {
+          "title": "Just Can't Stop",
+          "artist": "Marshmello",
+          "duration": "2:33",
+          "url": "https://music.apple.com/us/song/just-cant-stop/6802331023"
+        },
+        {
+          "title": "Let's Rave (feat. Lili Pistorius)",
+          "artist": "Topic",
+          "duration": "2:51",
+          "url": "https://music.apple.com/us/song/lets-rave-feat-lili-pistorius/1462408366"
+        },
+        {
+          "title": "Born To Love (feat. SHELLS)",
+          "artist": "MEDUZA",
+          "duration": "2:42",
+          "url": "https://music.apple.com/us/song/born-to-love-feat-shells/1553178063"
+        }
+      ],
+      "tags": [
+        "运动",
+        "电子"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 147,
+      "color": "#080828"
+    },
+    {
+      "id": 48,
+      "name": "Electronic in Spatial Audio",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/048.webp",
+      "trackCount": 230,
+      "picks": [
+        {
+          "title": "ddr",
+          "artist": "Yaeji",
+          "duration": "4:37",
+          "url": "https://music.apple.com/us/song/ddr/6820471437"
+        },
+        {
+          "title": "Autobahn (2024 Single Edit)",
+          "artist": "Kraftwerk",
+          "duration": "4:31",
+          "url": "https://music.apple.com/us/song/autobahn-2024-single-edit/1792435362"
+        },
+        {
+          "title": "Treat Each Other Right",
+          "artist": "Jamie xx",
+          "duration": "4:00",
+          "url": "https://music.apple.com/us/song/treat-each-other-right/1746751168"
+        }
+      ],
+      "tags": [
+        "电子"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 148,
+      "color": "#080818"
+    },
+    {
+      "id": 49,
+      "name": "EMO",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/049.webp",
+      "trackCount": 30,
+      "picks": [
+        {
+          "title": "ILYSB",
+          "artist": "WOOSUNG, DPOLE, Mellow Kitchen, 김형우",
+          "duration": "3:53",
+          "url": "https://music.apple.com/us/song/ilysb/1649547684"
+        },
+        {
+          "title": "you were good to me",
+          "artist": "Jeremy Zucker, Chelsea Cutler",
+          "duration": "3:39",
+          "url": "https://music.apple.com/us/song/you-were-good-to-me/1460344173"
+        },
+        {
+          "title": "瞬",
+          "artist": "Zheng Runze",
+          "duration": "4:44",
+          "url": "https://music.apple.com/us/song/%E7%9E%AC/1862237576"
+        }
+      ],
+      "tags": [
+        "EMO"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 149,
+      "color": "#383848"
+    },
+    {
+      "id": 50,
+      "name": "Emotional",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/050.webp",
+      "trackCount": 34,
+      "picks": [
+        {
+          "title": "Wait",
+          "artist": "M83",
+          "duration": "5:43",
+          "url": "https://music.apple.com/us/song/wait/1674217581"
+        },
+        {
+          "title": "Heather",
+          "artist": "Conan Gray",
+          "duration": "3:18",
+          "url": "https://music.apple.com/us/song/heather/1491987867"
+        },
+        {
+          "title": "Make You Feel My Love",
+          "artist": "Adele",
+          "duration": "3:32",
+          "url": "https://music.apple.com/us/song/make-you-feel-my-love/1545382976"
+        }
+      ],
+      "tags": [
+        "EMO"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 150,
+      "color": "#b898a8"
+    },
+    {
+      "id": 51,
+      "name": "Feeling Blue",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/051.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "Control",
+          "artist": "Zoe Wees",
+          "duration": "3:50",
+          "url": "https://music.apple.com/us/song/control/1500820925"
+        },
+        {
+          "title": "Arcade (feat. FLETCHER)",
+          "artist": "Duncan Laurence",
+          "duration": "3:07",
+          "url": "https://music.apple.com/us/song/arcade-feat-fletcher/1540580799"
+        },
+        {
+          "title": "What Was I Made For? (From The Motion Picture \"Barbie\")",
+          "artist": "Billie Eilish",
+          "duration": "3:42",
+          "url": "https://music.apple.com/us/song/what-was-i-made-for-from-the-motion-picture-barbie/1696819855"
+        }
+      ],
+      "tags": [
+        "EMO"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 151,
+      "color": "#082858"
+    },
+    {
+      "id": 52,
+      "name": "Feeling Good",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/052.webp",
+      "trackCount": 128,
+      "picks": [
+        {
+          "title": "Sunflower (Spider-Man: Into the Spider-Verse)",
+          "artist": "Post Malone, Swae Lee",
+          "duration": "2:37",
+          "url": "https://music.apple.com/us/song/sunflower-spider-man-into-the-spider-verse/1477880764"
+        },
+        {
+          "title": "Fancy Like",
+          "artist": "Walker Hayes",
+          "duration": "2:41",
+          "url": "https://music.apple.com/us/song/fancy-like/1595928077"
+        },
+        {
+          "title": "Electricity (feat. Diplo & Mark Ronson)",
+          "artist": "Silk City, Dua Lipa",
+          "duration": "3:58",
+          "url": "https://music.apple.com/us/song/electricity-feat-diplo-mark-ronson/1434745795"
+        }
+      ],
+      "tags": [
+        "运动",
+        "明亮"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 152,
+      "color": "#f87848"
+    },
+    {
+      "id": 53,
+      "name": "Gaming Soundtracks",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/053.webp",
+      "trackCount": 106,
+      "picks": [
+        {
+          "title": "Cruel World",
+          "artist": "Willie Nelson",
+          "duration": "2:28",
+          "url": "https://music.apple.com/us/song/cruel-world/1466175657"
+        },
+        {
+          "title": "Color Your Night",
+          "artist": "Lotus Juice, Azumi Takahashi, ATLUS Sound Team, ATLUS GAME MUSIC",
+          "duration": "3:47",
+          "url": "https://music.apple.com/us/song/color-your-night/1733407782"
+        },
+        {
+          "title": "Pigstep (Stereo Mix)",
+          "artist": "Lena Raine, Minecraft",
+          "duration": "2:29",
+          "url": "https://music.apple.com/us/song/pigstep-stereo-mix/1517734594"
+        }
+      ],
+      "tags": [
+        "史诗"
+      ],
+      "note": "记得这个声音，也记得当时的画面。",
+      "featuredRank": 153,
+      "color": "#084848"
+    },
+    {
+      "id": 54,
+      "name": "Get Up!",
+      "category": "日常与运动",
+      "cover": "/music-prototype/covers/054.webp",
+      "trackCount": 25,
+      "picks": [
+        {
+          "title": "Last Shot",
+          "artist": "VALORANT Music, templuv, 347aidan",
+          "duration": "3:04",
+          "url": "https://music.apple.com/us/song/last-shot/1832097286"
+        },
+        {
+          "title": "Pump Up The Volume!",
+          "artist": "PLAVE",
+          "duration": "2:59",
+          "url": "https://music.apple.com/us/song/pump-up-the-volume/1762780956"
+        },
+        {
+          "title": "Fly By Day",
+          "artist": "Anri",
+          "duration": "4:33",
+          "url": "https://music.apple.com/us/song/fly-by-day/834248229"
+        }
+      ],
+      "tags": [
+        "运动",
+        "日常",
+        "明亮"
+      ],
+      "note": "给平凡的一天找一点节奏。",
+      "featuredRank": 154,
+      "color": "#582818"
+    },
+    {
+      "id": 55,
+      "name": "Green to blue",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/055.webp",
+      "trackCount": 24,
+      "picks": [
+        {
+          "title": "green to blue",
+          "artist": "daniel.mp3",
+          "duration": "3:09",
+          "url": "https://music.apple.com/us/song/green-to-blue/1630098087"
+        },
+        {
+          "title": "Aesthetic",
+          "artist": "Gaspar",
+          "duration": "4:04",
+          "url": "https://music.apple.com/us/song/aesthetic/6803771186"
+        },
+        {
+          "title": "Zeldas Lullaby",
+          "artist": "A L E X",
+          "duration": "2:59",
+          "url": "https://music.apple.com/us/song/zeldas-lullaby/1251157057"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "电子",
+        "EMO"
+      ],
+      "note": "从绿色慢慢落到蓝色。",
+      "featuredRank": 155,
+      "color": "#e8e8e8"
+    },
+    {
+      "id": 56,
+      "name": "GYM",
+      "category": "日常与运动",
+      "cover": "/music-prototype/covers/056.webp",
+      "trackCount": 11,
+      "picks": [
+        {
+          "title": "Famous Last Words",
+          "artist": "My Chemical Romance",
+          "duration": "4:59",
+          "url": "https://music.apple.com/us/song/famous-last-words/1156310786"
+        },
+        {
+          "title": "Welcome to the Black Parade",
+          "artist": "My Chemical Romance",
+          "duration": "5:11",
+          "url": "https://music.apple.com/us/song/welcome-to-the-black-parade/209388682"
+        },
+        {
+          "title": "Legend",
+          "artist": "Tevvez",
+          "duration": "3:09",
+          "url": "https://music.apple.com/us/song/legend/1543266908"
+        }
+      ],
+      "tags": [
+        "运动"
+      ],
+      "note": "再多一组，再听一首。",
+      "featuredRank": 156,
+      "color": "#080808"
+    },
+    {
+      "id": 57,
+      "name": "GYYYM VAL",
+      "category": "日常与运动",
+      "cover": "/music-prototype/covers/057.webp",
+      "trackCount": 48,
+      "picks": [
+        {
+          "title": "SUPERPOWER",
+          "artist": "VALORANT Music, KISS OF LIFE, Mark Tuan",
+          "duration": "3:02",
+          "url": "https://music.apple.com/us/song/superpower/1833385020"
+        },
+        {
+          "title": "Ticking Away",
+          "artist": "VALORANT Music, Grabbitz, bbno$",
+          "duration": "3:25",
+          "url": "https://music.apple.com/us/song/ticking-away/1833385238"
+        },
+        {
+          "title": "Villain (Take the Shot) [feat. Eytan Peled]",
+          "artist": "VALORANT Music, Barns Courtney, ARB4",
+          "duration": "3:09",
+          "url": "https://music.apple.com/us/song/villain-take-the-shot-feat-eytan-peled/1831859102"
+        }
+      ],
+      "tags": [
+        "运动",
+        "电子",
+        "史诗"
+      ],
+      "note": "把比赛前的肾上腺素带进健身房。",
+      "featuredRank": 157,
+      "color": "#181818"
+    },
+    {
+      "id": 58,
+      "name": "Heartache",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/058.webp",
+      "trackCount": 148,
+      "picks": [
+        {
+          "title": "I Love You, I'm Sorry",
+          "artist": "Gracie Abrams",
+          "duration": "2:37",
+          "url": "https://music.apple.com/us/song/i-love-you-im-sorry/1743054747"
+        },
+        {
+          "title": "Lose You To Love Me",
+          "artist": "Selena Gomez",
+          "duration": "3:26",
+          "url": "https://music.apple.com/us/song/lose-you-to-love-me/1484383177"
+        },
+        {
+          "title": "Nobody Gets Me",
+          "artist": "SZA",
+          "duration": "3:00",
+          "url": "https://music.apple.com/us/song/nobody-gets-me/1657869532"
+        }
+      ],
+      "tags": [
+        "EMO"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 158,
+      "color": "#484858"
+    },
+    {
+      "id": 59,
+      "name": "Heavy Rotation",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/059.webp",
+      "trackCount": 25,
+      "picks": [
+        {
+          "title": "2WORLDS",
+          "artist": "Madge, VALORANT Music",
+          "duration": "2:29",
+          "url": "https://music.apple.com/us/song/2worlds/1833372036"
+        },
+        {
+          "title": "于是 (等待黎明等待深爱的你)",
+          "artist": "不良人",
+          "duration": "3:17",
+          "url": "https://music.apple.com/us/song/%E4%BA%8E%E6%98%AF-%E7%AD%89%E5%BE%85%E9%BB%8E%E6%98%8E%E7%AD%89%E5%BE%85%E6%B7%B1%E7%88%B1%E7%9A%84%E4%BD%A0/1788530167"
+        },
+        {
+          "title": "Always",
+          "artist": "Daniel Caesar",
+          "duration": "3:45",
+          "url": "https://music.apple.com/us/song/always/1681323048"
+        }
+      ],
+      "tags": [
+        "日常"
+      ],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 159,
+      "color": "#080808"
+    },
+    {
+      "id": 60,
+      "name": "Hits Remixed",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/060.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "Love Again (Imanbek Remix)",
+          "artist": "Dua Lipa",
+          "duration": "3:34",
+          "url": "https://music.apple.com/us/song/love-again-imanbek-remix/1587010434"
+        },
+        {
+          "title": "golden hour (R3HAB Remix)",
+          "artist": "JVKE",
+          "duration": "2:34",
+          "url": "https://music.apple.com/us/song/golden-hour-r3hab-remix/1684640597"
+        },
+        {
+          "title": "Rush (Punctual Remix)",
+          "artist": "Troye Sivan",
+          "duration": "3:33",
+          "url": "https://music.apple.com/us/song/rush-punctual-remix/1701745969"
+        }
+      ],
+      "tags": [],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 160,
+      "color": "#088898"
+    },
+    {
+      "id": 61,
+      "name": "Hope",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/061.webp",
+      "trackCount": 4,
+      "picks": [
+        {
+          "title": "Damage Gets Done",
+          "artist": "Hozier, Brandi Carlile",
+          "duration": "4:28",
+          "url": "https://music.apple.com/us/song/damage-gets-done/1763072943"
+        },
+        {
+          "title": "Young Blood",
+          "artist": "Noah Kahan",
+          "duration": "3:28",
+          "url": "https://music.apple.com/us/song/young-blood/1459314970"
+        },
+        {
+          "title": "Midnight City",
+          "artist": "M83",
+          "duration": "4:03",
+          "url": "https://music.apple.com/us/song/midnight-city/1674599206"
+        }
+      ],
+      "tags": [
+        "独立",
+        "明亮"
+      ],
+      "note": "抬起头，天还没有黑。",
+      "featuredRank": 161,
+      "color": "#181808"
+    },
+    {
+      "id": 62,
+      "name": "In My Feelings",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/062.webp",
+      "trackCount": 101,
+      "picks": [
+        {
+          "title": "Heartbreak Anniversary",
+          "artist": "GIVĒON",
+          "duration": "3:18",
+          "url": "https://music.apple.com/us/song/heartbreak-anniversary/1556123056"
+        },
+        {
+          "title": "Stuck On You",
+          "artist": "GIVĒON",
+          "duration": "3:25",
+          "url": "https://music.apple.com/us/song/stuck-on-you/1556123269"
+        },
+        {
+          "title": "Bad Religion",
+          "artist": "Frank Ocean",
+          "duration": "2:55",
+          "url": "https://music.apple.com/us/song/bad-religion/1440766937"
+        }
+      ],
+      "tags": [
+        "R&B",
+        "EMO"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 162,
+      "color": "#080808"
+    },
+    {
+      "id": 63,
+      "name": "INDIEpop",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/063.webp",
+      "trackCount": 17,
+      "picks": [
+        {
+          "title": "Morning Coffee (bubble ver.)",
+          "artist": "Chevy, Nalba, Luxid",
+          "duration": "2:43",
+          "url": "https://music.apple.com/us/song/morning-coffee-bubble-ver/1545866310"
+        },
+        {
+          "title": "Malibu 1992",
+          "artist": "COIN",
+          "duration": "5:41",
+          "url": "https://music.apple.com/us/song/malibu-1992/1219455221"
+        },
+        {
+          "title": "Can I Call You Tonight?",
+          "artist": "Dayglow",
+          "duration": "4:38",
+          "url": "https://music.apple.com/us/song/can-i-call-you-tonight/1482950632"
+        }
+      ],
+      "tags": [
+        "独立"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 163,
+      "color": "#f8e8c8"
+    },
+    {
+      "id": 64,
+      "name": "IYASHI TRACKS",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/064.webp",
+      "trackCount": 179,
+      "picks": [
+        {
+          "title": "一日の終わりに (feat. Chawool)",
+          "artist": "Sakura Fujiwara, Gensuke Kanki",
+          "duration": "3:26",
+          "url": "https://music.apple.com/us/song/%E4%B8%80%E6%97%A5%E3%81%AE%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%AB-feat-chawool/6826236096"
+        },
+        {
+          "title": "bed",
+          "artist": "REJAY",
+          "duration": "3:14",
+          "url": "https://music.apple.com/us/song/bed/6812213081"
+        },
+        {
+          "title": "Summer",
+          "artist": "Gambs",
+          "duration": "3:53",
+          "url": "https://music.apple.com/us/song/summer/1572971913"
+        }
+      ],
+      "tags": [
+        "日系",
+        "放松"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 164,
+      "color": "#b8c898"
+    },
+    {
+      "id": 65,
+      "name": "J-Pop Now",
+      "category": "日韩",
+      "cover": "/music-prototype/covers/065.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "NAME CARD",
+          "artist": "Chanmina",
+          "duration": "2:33",
+          "url": "https://music.apple.com/us/song/name-card/6827473826"
+        },
+        {
+          "title": "Ikiru",
+          "artist": "LANA",
+          "duration": "2:55",
+          "url": "https://music.apple.com/us/song/ikiru/6825652636"
+        },
+        {
+          "title": "For Okinawa (feat. Awich, CHICO CARLITO, ONE OK ROCK & Paledusk)",
+          "artist": "YAO",
+          "duration": "3:54",
+          "url": "https://music.apple.com/us/song/for-okinawa-feat-awich-chico-carlito-one-ok-rock-paledusk/6803148739"
+        }
+      ],
+      "tags": [
+        "日系"
+      ],
+      "note": "旋律先把故事说出来。",
+      "featuredRank": 165,
+      "color": "#080808"
+    },
+    {
+      "id": 66,
+      "name": "Jazz Chill",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/066.webp",
+      "trackCount": 106,
+      "picks": [
+        {
+          "title": "I Wish I Knew (Remastered Stereo 2025 / Take 3)",
+          "artist": "Bill Evans Trio",
+          "duration": "4:59",
+          "url": "https://music.apple.com/us/song/i-wish-i-knew-remastered-stereo-2025-take-3/1827357697"
+        },
+        {
+          "title": "Windflower",
+          "artist": "Ayumi Tanaka, Thomas Morgan, Thomas Strønen",
+          "duration": "4:44",
+          "url": "https://music.apple.com/us/song/windflower/6787925944"
+        },
+        {
+          "title": "Glass Ring",
+          "artist": "Jim Snidero",
+          "duration": "7:08",
+          "url": "https://music.apple.com/us/song/glass-ring/6805981505"
+        }
+      ],
+      "tags": [
+        "咖啡馆",
+        "爵士",
+        "放松"
+      ],
+      "note": "让即兴留在背景，让时间慢一点。",
+      "featuredRank": 166,
+      "color": "#080808"
+    },
+    {
+      "id": 67,
+      "name": "Jazz Love Songs",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/067.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "I'm In the Mood for Love (feat. Barney Kessel & Ray Leatherwood)",
+          "artist": "Julie London",
+          "duration": "2:29",
+          "url": "https://music.apple.com/us/song/im-in-the-mood-for-love-feat-barney-kessel-ray-leatherwood/716358254"
+        },
+        {
+          "title": "Misty",
+          "artist": "Sarah Vaughan",
+          "duration": "3:02",
+          "url": "https://music.apple.com/us/song/misty/1437194539"
+        },
+        {
+          "title": "La Vie en rose",
+          "artist": "Melody Gardot",
+          "duration": "5:17",
+          "url": "https://music.apple.com/us/song/la-vie-en-rose/1440743153"
+        }
+      ],
+      "tags": [
+        "咖啡馆",
+        "爵士",
+        "心动"
+      ],
+      "note": "夜里放小声，也听得见的情话。",
+      "featuredRank": 5,
+      "color": "#280808"
+    },
+    {
+      "id": 68,
+      "name": "Jazz n Rhythm",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/068.webp",
+      "trackCount": 1,
+      "picks": [
+        {
+          "title": "Breathe",
+          "artist": "Emma Nissen",
+          "duration": "4:05",
+          "url": "https://music.apple.com/us/song/breathe/1750298708"
+        }
+      ],
+      "tags": [
+        "专注",
+        "爵士",
+        "放松"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 168,
+      "color": "#f8e8b8"
+    },
+    {
+      "id": 69,
+      "name": "Lo-Fi Lounge",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/069.webp",
+      "trackCount": 2,
+      "picks": [
+        {
+          "title": "One Day",
+          "artist": "Tonion, xander.",
+          "duration": "3:38",
+          "url": "https://music.apple.com/us/song/one-day/6770660833"
+        },
+        {
+          "title": "Moonlit Walk",
+          "artist": "Purrple Cat",
+          "duration": "3:30",
+          "url": "https://music.apple.com/us/song/moonlit-walk/6770626555"
+        }
+      ],
+      "tags": [
+        "咖啡馆",
+        "专注",
+        "放松"
+      ],
+      "note": "短短几首，给脑袋放个假。",
+      "featuredRank": 169,
+      "color": "#181828"
+    },
+    {
+      "id": 70,
+      "name": "Lo-Fi Sunday",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/070.webp",
+      "trackCount": 250,
+      "picks": [
+        {
+          "title": "Between Oceans",
+          "artist": "Hans Hu$tle, Brxvs",
+          "duration": "2:34",
+          "url": "https://music.apple.com/us/song/between-oceans/6812425215"
+        },
+        {
+          "title": "alpine",
+          "artist": "azayaka",
+          "duration": "2:31",
+          "url": "https://music.apple.com/us/song/alpine/1874069227"
+        },
+        {
+          "title": "she moves like summer",
+          "artist": "Trix.",
+          "duration": "2:34",
+          "url": "https://music.apple.com/us/song/she-moves-like-summer/1813020702"
+        }
+      ],
+      "tags": [
+        "咖啡馆",
+        "放松"
+      ],
+      "note": "星期天没有需要赶的地方。",
+      "featuredRank": 8,
+      "color": "#c89868"
+    },
+    {
+      "id": 71,
+      "name": "Modern City Pop Essentials",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/071.webp",
+      "trackCount": 44,
+      "picks": [
+        {
+          "title": "Kimiwa Ten-nen Shoku (Single Version)",
+          "artist": "Eiichi Otaki",
+          "duration": "4:44",
+          "url": "https://music.apple.com/us/song/kimiwa-ten-nen-shoku-single-version/1557459649"
+        },
+        {
+          "title": "Mayonaka No Door ~Stay with Me (2008 Remastered)",
+          "artist": "Miki Matsubara",
+          "duration": "5:11",
+          "url": "https://music.apple.com/us/song/mayonaka-no-door-stay-with-me-2008-remastered/1858846510"
+        },
+        {
+          "title": "Tokyo Flash",
+          "artist": "VAUNDY",
+          "duration": "4:18",
+          "url": "https://music.apple.com/us/song/tokyo-flash/1707015514"
+        }
+      ],
+      "tags": [
+        "日系"
+      ],
+      "note": "城市流行的旧日与今天。",
+      "featuredRank": 171,
+      "color": "#f89868"
+    },
+    {
+      "id": 72,
+      "name": "Mrs. GREEN APPLE Essentials",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/072.webp",
+      "trackCount": 45,
+      "picks": [
+        {
+          "title": "KUSUSHIKI",
+          "artist": "Mrs. GREEN APPLE",
+          "duration": "3:08",
+          "url": "https://music.apple.com/us/song/kusushiki/1804230388"
+        },
+        {
+          "title": "Bitter Vacances",
+          "artist": "Mrs. GREEN APPLE",
+          "duration": "3:18",
+          "url": "https://music.apple.com/us/song/bitter-vacances/1780452035"
+        },
+        {
+          "title": "Inferno",
+          "artist": "Mrs. GREEN APPLE",
+          "duration": "3:32",
+          "url": "https://music.apple.com/us/song/inferno/1716474341"
+        }
+      ],
+      "tags": [
+        "日系",
+        "明亮"
+      ],
+      "note": "记得这个声音，也记得当时的画面。",
+      "featuredRank": 172,
+      "color": "#f8f8d8"
+    },
+    {
+      "id": 73,
+      "name": "My Playlist（Phonk）",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/073.webp",
+      "trackCount": 65,
+      "picks": [
+        {
+          "title": "Sea Of Problems",
+          "artist": "Glichery",
+          "duration": "1:50",
+          "url": "https://music.apple.com/us/song/sea-of-problems/1678131281"
+        },
+        {
+          "title": "AIRCRAFT",
+          "artist": "Dxrk ダーク",
+          "duration": "2:21",
+          "url": "https://music.apple.com/us/song/aircraft/1641634271"
+        },
+        {
+          "title": "Close Eyes",
+          "artist": "DVRST",
+          "duration": "2:12",
+          "url": "https://music.apple.com/us/song/close-eyes/1573608260"
+        }
+      ],
+      "tags": [
+        "运动",
+        "电子"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 173,
+      "color": "#080808"
+    },
+    {
+      "id": 74,
+      "name": "My Playlist（日系）",
+      "category": "日韩",
+      "cover": "/music-prototype/covers/074.webp",
+      "trackCount": 3,
+      "picks": [
+        {
+          "title": "I Dont Like Mondays (Single)",
+          "artist": "I Dont Like Mondays",
+          "duration": "3:45",
+          "url": "https://music.apple.com/us/song/i-dont-like-mondays-single/849914244"
+        },
+        {
+          "title": "Lonely Night",
+          "artist": "Emi Aramaki",
+          "duration": "3:40",
+          "url": "https://music.apple.com/us/song/lonely-night/1574217346"
+        },
+        {
+          "title": "Funny Gold",
+          "artist": "Suchmos",
+          "duration": "5:25",
+          "url": "https://music.apple.com/us/song/funny-gold/1538172238"
+        }
+      ],
+      "tags": [
+        "日系"
+      ],
+      "note": "旋律先把故事说出来。",
+      "featuredRank": 174,
+      "color": "#282828"
+    },
+    {
+      "id": 75,
+      "name": "My Shazam Tracks",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/075.webp",
+      "trackCount": 154,
+      "picks": [
+        {
+          "title": "Midnight Special Theme",
+          "artist": "David Wingo",
+          "duration": "2:34",
+          "url": "https://music.apple.com/us/song/midnight-special-theme/1455886664"
+        },
+        {
+          "title": "My Tennessee Mountain Home",
+          "artist": "Dolly Parton",
+          "duration": "3:09",
+          "url": "https://music.apple.com/us/song/my-tennessee-mountain-home/1140702767"
+        },
+        {
+          "title": "Tadow (Extended Version)",
+          "artist": "Masego",
+          "duration": "8:05",
+          "url": "https://music.apple.com/us/song/tadow-extended-version/1794866432"
+        }
+      ],
+      "tags": [
+        "日常"
+      ],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 175,
+      "color": "#281818"
+    },
+    {
+      "id": 76,
+      "name": "New in K-Pop",
+      "category": "日韩",
+      "cover": "/music-prototype/covers/076.webp",
+      "trackCount": 410,
+      "picks": [
+        {
+          "title": "Angel Bite",
+          "artist": "TOMORROW X TOGETHER",
+          "duration": "2:33",
+          "url": "https://music.apple.com/us/song/angel-bite/6815062086"
+        },
+        {
+          "title": "BOOMPALA",
+          "artist": "LE SSERAFIM",
+          "duration": "2:56",
+          "url": "https://music.apple.com/us/song/boompala/1894802726"
+        },
+        {
+          "title": "PUSH BACK",
+          "artist": "IDID",
+          "duration": "2:42",
+          "url": "https://music.apple.com/us/song/push-back/1853021341"
+        }
+      ],
+      "tags": [],
+      "note": "旋律先把故事说出来。",
+      "featuredRank": 176,
+      "color": "#f8e8f8"
+    },
+    {
+      "id": 77,
+      "name": "New in R&B",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/077.webp",
+      "trackCount": 110,
+      "picks": [
+        {
+          "title": "Supernova",
+          "artist": "Snoh Aalegra",
+          "duration": "2:51",
+          "url": "https://music.apple.com/us/song/supernova/6819862111"
+        },
+        {
+          "title": "9 to 5",
+          "artist": "Jordan Adetunji",
+          "duration": "1:59",
+          "url": "https://music.apple.com/us/song/9-to-5/6819441716"
+        },
+        {
+          "title": "Honeymoon",
+          "artist": "54 Ultra",
+          "duration": "3:08",
+          "url": "https://music.apple.com/us/song/honeymoon/6832730101"
+        }
+      ],
+      "tags": [
+        "R&B"
+      ],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 177,
+      "color": "#280808"
+    },
+    {
+      "id": 78,
+      "name": "Phonk",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/078.webp",
+      "trackCount": 99,
+      "picks": [
+        {
+          "title": "AKAI (Slowed)",
+          "artist": "UdieNnx, HXVSAGE",
+          "duration": "1:36",
+          "url": "https://music.apple.com/us/song/akai-slowed/1819642140"
+        },
+        {
+          "title": "Manda Bala",
+          "artist": "Ariis",
+          "duration": "1:40",
+          "url": "https://music.apple.com/us/song/manda-bala/1714381715"
+        },
+        {
+          "title": "Montagem Mysterious Game",
+          "artist": "LXNGVX",
+          "duration": "1:43",
+          "url": "https://music.apple.com/us/song/montagem-mysterious-game/1761701934"
+        }
+      ],
+      "tags": [
+        "运动",
+        "电子"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 178,
+      "color": "#180808"
+    },
+    {
+      "id": 79,
+      "name": "RADWIMPS Essentials",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/079.webp",
+      "trackCount": 33,
+      "picks": [
+        {
+          "title": "Is There Still Anything That Love Can Do?",
+          "artist": "RADWIMPS",
+          "duration": "6:54",
+          "url": "https://music.apple.com/us/song/is-there-still-anything-that-love-can-do/1472727605"
+        },
+        {
+          "title": "Zenzenzense",
+          "artist": "RADWIMPS",
+          "duration": "4:35",
+          "url": "https://music.apple.com/us/song/zenzenzense/1523038457"
+        },
+        {
+          "title": "Suzume (feat. Toaka)",
+          "artist": "RADWIMPS",
+          "duration": "3:56",
+          "url": "https://music.apple.com/us/song/suzume-feat-toaka/1647112151"
+        }
+      ],
+      "tags": [
+        "日系",
+        "史诗"
+      ],
+      "note": "电影结束了，旋律还没有。",
+      "featuredRank": 179,
+      "color": "#0868b8"
+    },
+    {
+      "id": 80,
+      "name": "RELAXING",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/080.webp",
+      "trackCount": 1,
+      "picks": [
+        {
+          "title": "Childhood",
+          "artist": "The Rose",
+          "duration": "4:29",
+          "url": "https://music.apple.com/us/song/childhood/1869442222"
+        }
+      ],
+      "tags": [
+        "放松"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 180,
+      "color": "#483818"
+    },
+    {
+      "id": 81,
+      "name": "Retro Cafe",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/081.webp",
+      "trackCount": 13,
+      "picks": [
+        {
+          "title": "Dream",
+          "artist": "The Pied Pipers",
+          "duration": "3:07",
+          "url": "https://music.apple.com/us/song/dream/715699619"
+        },
+        {
+          "title": "To Be Loved By You",
+          "artist": "Kitty Kallen",
+          "duration": "2:59",
+          "url": "https://music.apple.com/us/song/to-be-loved-by-you/375991485"
+        },
+        {
+          "title": "(Sittin' on) The Dock of the Bay [2020 Remaster]",
+          "artist": "Otis Redding",
+          "duration": "2:40",
+          "url": "https://music.apple.com/us/song/sittin-on-the-dock-of-the-bay-2020-remaster/1530044226"
+        }
+      ],
+      "tags": [
+        "咖啡馆",
+        "爵士"
+      ],
+      "note": "老唱片、杯盘声，和一点旧时光。",
+      "featuredRank": 181,
+      "color": "#281808"
+    },
+    {
+      "id": 82,
+      "name": "rnb",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/082.webp",
+      "trackCount": 46,
+      "picks": [
+        {
+          "title": "Gravity",
+          "artist": "John Mayer",
+          "duration": "4:05",
+          "url": "https://music.apple.com/us/song/gravity/184335660"
+        },
+        {
+          "title": "Skyline",
+          "artist": "FKJ",
+          "duration": "4:09",
+          "url": "https://music.apple.com/us/song/skyline/1666672824"
+        },
+        {
+          "title": "Midnight Mischief",
+          "artist": "Jordan Rakei",
+          "duration": "5:22",
+          "url": "https://music.apple.com/us/song/midnight-mischief/1540037362"
+        }
+      ],
+      "tags": [
+        "R&B",
+        "放松"
+      ],
+      "note": "从一种声音，听到另一种心情。",
+      "featuredRank": 182,
+      "color": "#080808"
+    },
+    {
+      "id": 83,
+      "name": "Road Trip USA",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/083.webp",
+      "trackCount": 23,
+      "picks": [
+        {
+          "title": "Take Me Home, Country Roads (Original Version)",
+          "artist": "John Denver",
+          "duration": "3:13",
+          "url": "https://music.apple.com/us/song/take-me-home-country-roads-original-version/511074294"
+        },
+        {
+          "title": "High Noon (Do Not Forsake Me)",
+          "artist": "Silver Screen Sounds",
+          "duration": "2:21",
+          "url": "https://music.apple.com/us/song/high-noon-do-not-forsake-me/408566571"
+        },
+        {
+          "title": "From Eden",
+          "artist": "Hozier",
+          "duration": "4:43",
+          "url": "https://music.apple.com/us/song/from-eden/900672644"
+        }
+      ],
+      "tags": [
+        "驾车"
+      ],
+      "note": "公路很长，慢慢开回那首乡村歌。",
+      "featuredRank": 3,
+      "color": "#78a8c8"
+    },
+    {
+      "id": 84,
+      "name": "Rrrrnb",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/084.webp",
+      "trackCount": 13,
+      "picks": [
+        {
+          "title": "Losing My Way",
+          "artist": "FKJ, Tom Misch",
+          "duration": "4:19",
+          "url": "https://music.apple.com/us/song/losing-my-way/1524985941"
+        },
+        {
+          "title": "Pink + White",
+          "artist": "Frank Ocean",
+          "duration": "3:04",
+          "url": "https://music.apple.com/us/song/pink-white/1146195714"
+        },
+        {
+          "title": "Me & You ◑",
+          "artist": "HONNE",
+          "duration": "4:03",
+          "url": "https://music.apple.com/us/song/me-you/1426036285"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "R&B"
+      ],
+      "note": "夜深以后，节奏靠近一点。",
+      "featuredRank": 184,
+      "color": "#080808"
+    },
+    {
+      "id": 85,
+      "name": "Sad Face :(",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/085.webp",
+      "trackCount": 129,
+      "picks": [
+        {
+          "title": "bloodstream",
+          "artist": "Alyssa Grace",
+          "duration": "2:57",
+          "url": "https://music.apple.com/us/song/bloodstream/6783576167"
+        },
+        {
+          "title": "Sign of the Times",
+          "artist": "Harry Styles",
+          "duration": "5:40",
+          "url": "https://music.apple.com/us/song/sign-of-the-times/1226034393"
+        },
+        {
+          "title": "Without Me",
+          "artist": "Halsey",
+          "duration": "3:21",
+          "url": "https://music.apple.com/us/song/without-me/1533014937"
+        }
+      ],
+      "tags": [
+        "EMO"
+      ],
+      "note": "今天是什么心情，就拿哪一张。",
+      "featuredRank": 185,
+      "color": "#182838"
+    },
+    {
+      "id": 86,
+      "name": "Safe for Work",
+      "category": "日常与运动",
+      "cover": "/music-prototype/covers/086.webp",
+      "trackCount": 99,
+      "picks": [
+        {
+          "title": "Blueberry Faygo",
+          "artist": "Lil Mosey",
+          "duration": "2:42",
+          "url": "https://music.apple.com/us/song/blueberry-faygo/1497581631"
+        },
+        {
+          "title": "Tyler Herro",
+          "artist": "Jack Harlow",
+          "duration": "2:36",
+          "url": "https://music.apple.com/us/song/tyler-herro/1536651336"
+        },
+        {
+          "title": "FE!N (feat. Playboi Carti)",
+          "artist": "Travis Scott",
+          "duration": "3:11",
+          "url": "https://music.apple.com/us/song/fe-n-feat-playboi-carti/1708274783"
+        }
+      ],
+      "tags": [
+        "日常",
+        "说唱"
+      ],
+      "note": "给平凡的一天找一点节奏。",
+      "featuredRank": 186,
+      "color": "#181818"
+    },
+    {
+      "id": 87,
+      "name": "Summer Salt Top Tracks",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/087.webp",
+      "trackCount": 18,
+      "picks": [
+        {
+          "title": "Revvin' My CJ-7",
+          "artist": "Summer Salt",
+          "duration": "2:49",
+          "url": "https://music.apple.com/us/song/revvin-my-cj-7/1845193968"
+        },
+        {
+          "title": "Candy Wrappers",
+          "artist": "Summer Salt",
+          "duration": "3:12",
+          "url": "https://music.apple.com/us/song/candy-wrappers/1845193971"
+        },
+        {
+          "title": "Sweet to Me (Remastered 2024)",
+          "artist": "Summer Salt",
+          "duration": "3:24",
+          "url": "https://music.apple.com/us/song/sweet-to-me-remastered-2024/1760196192"
+        }
+      ],
+      "tags": [
+        "独立",
+        "放松",
+        "明亮"
+      ],
+      "note": "夏天快结束时，仍然想去海边。",
+      "featuredRank": 187,
+      "color": "#f8b878"
+    },
+    {
+      "id": 88,
+      "name": "Supper Moment Essentials",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/088.webp",
+      "trackCount": 35,
+      "picks": [
+        {
+          "title": "世界沒有因為你的悲傷落下雨水",
+          "artist": "Supper Moment",
+          "duration": "4:40",
+          "url": "https://music.apple.com/us/song/%E4%B8%96%E7%95%8C%E6%B2%92%E6%9C%89%E5%9B%A0%E7%82%BA%E4%BD%A0%E7%9A%84%E6%82%B2%E5%82%B7%E8%90%BD%E4%B8%8B%E9%9B%A8%E6%B0%B4/1820132228"
+        },
+        {
+          "title": "波板糖",
+          "artist": "Supper Moment",
+          "duration": "4:34",
+          "url": "https://music.apple.com/us/song/%E6%B3%A2%E6%9D%BF%E7%B3%96/1543833666"
+        },
+        {
+          "title": "煩擾中起舞",
+          "artist": "Supper Moment",
+          "duration": "3:46",
+          "url": "https://music.apple.com/us/song/%E7%85%A9%E6%93%BE%E4%B8%AD%E8%B5%B7%E8%88%9E/1080298259"
+        }
+      ],
+      "tags": [
+        "粤语"
+      ],
+      "note": "记得这个声音，也记得当时的画面。",
+      "featuredRank": 188,
+      "color": "#080808"
+    },
+    {
+      "id": 89,
+      "name": "Texas Road House",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/089.webp",
+      "trackCount": 29,
+      "picks": [
+        {
+          "title": "I Had Some Help (feat. Morgan Wallen)",
+          "artist": "Post Malone",
+          "duration": "2:58",
+          "url": "https://music.apple.com/us/song/i-had-some-help-feat-morgan-wallen/1744439049"
+        },
+        {
+          "title": "A Bar Song (Tipsy)",
+          "artist": "Shaboozey",
+          "duration": "2:51",
+          "url": "https://music.apple.com/us/song/a-bar-song-tipsy/1737085899"
+        },
+        {
+          "title": "Wind Up Missin’ You",
+          "artist": "Tucker Wetmore",
+          "duration": "2:46",
+          "url": "https://music.apple.com/us/song/wind-up-missin-you/1749600938"
+        }
+      ],
+      "tags": [],
+      "note": "推开酒吧的门，来一首乡村。",
+      "featuredRank": 189,
+      "color": "#180808"
+    },
+    {
+      "id": 90,
+      "name": "The 60s",
+      "category": "年代与节日",
+      "cover": "/music-prototype/covers/090.webp",
+      "trackCount": 23,
+      "picks": [
+        {
+          "title": "Beyond the Sea",
+          "artist": "Bobby Darin",
+          "duration": "2:52",
+          "url": "https://music.apple.com/us/song/beyond-the-sea/30393096"
+        },
+        {
+          "title": "Everybody Loves Somebody",
+          "artist": "Dean Martin",
+          "duration": "2:47",
+          "url": "https://music.apple.com/us/song/everybody-loves-somebody/806447979"
+        },
+        {
+          "title": "Yesterday",
+          "artist": "The Beatles",
+          "duration": "2:05",
+          "url": "https://music.apple.com/us/song/yesterday/1441164805"
+        }
+      ],
+      "tags": [],
+      "note": "旋律带人回到六十年代。",
+      "featuredRank": 190,
+      "color": "#181818"
+    },
+    {
+      "id": 91,
+      "name": "The A-List: Cantopop",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/091.webp",
+      "trackCount": 100,
+      "picks": [
+        {
+          "title": "天下無敵",
+          "artist": "On Chan",
+          "duration": "4:27",
+          "url": "https://music.apple.com/us/song/%E5%A4%A9%E4%B8%8B%E7%84%A1%E6%95%B5/6832408758"
+        },
+        {
+          "title": "不在場 (Are You There?) [feat. Amy Lo]",
+          "artist": "Jay Fung",
+          "duration": "3:36",
+          "url": "https://music.apple.com/us/song/%E4%B8%8D%E5%9C%A8%E5%A0%B4-are-you-there-feat-amy-lo/6831062156"
+        },
+        {
+          "title": "穿波鞋的惡魔",
+          "artist": "Kaho Hung",
+          "duration": "4:04",
+          "url": "https://music.apple.com/us/song/%E7%A9%BF%E6%B3%A2%E9%9E%8B%E7%9A%84%E6%83%A1%E9%AD%94/1883973607"
+        }
+      ],
+      "tags": [
+        "粤语"
+      ],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 191,
+      "color": "#980808"
+    },
+    {
+      "id": 92,
+      "name": "Today’s Hits",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/092.webp",
+      "trackCount": 50,
+      "picks": [
+        {
+          "title": "Housewife",
+          "artist": "Tate McRae",
+          "duration": "3:28",
+          "url": "https://music.apple.com/us/song/housewife/6822497774"
+        },
+        {
+          "title": "So Easy (To Fall In Love)",
+          "artist": "Olivia Dean",
+          "duration": "2:49",
+          "url": "https://music.apple.com/us/song/so-easy-to-fall-in-love/1817609507"
+        },
+        {
+          "title": "Die On This Hill",
+          "artist": "SIENNA SPIRO",
+          "duration": "3:37",
+          "url": "https://music.apple.com/us/song/die-on-this-hill/1841769602"
+        }
+      ],
+      "tags": [],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 192,
+      "color": "#68e8e8"
+    },
+    {
+      "id": 93,
+      "name": "USA",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/093.webp",
+      "trackCount": 9,
+      "picks": [
+        {
+          "title": "New York",
+          "artist": "Jake Isaac",
+          "duration": "3:21",
+          "url": "https://music.apple.com/us/song/new-york/1781033532"
+        },
+        {
+          "title": "Empire State Of Mind (feat. Alicia Keys)",
+          "artist": "JAŸ-Z",
+          "duration": "4:37",
+          "url": "https://music.apple.com/us/song/empire-state-of-mind-feat-alicia-keys/1440777015"
+        },
+        {
+          "title": "People Get Up and Drive Your Funky Soul (Remix)",
+          "artist": "James Brown, Fred Wesley, The J.B.'s",
+          "duration": "9:04",
+          "url": "https://music.apple.com/us/song/people-get-up-and-drive-your-funky-soul-remix/1445099629"
+        }
+      ],
+      "tags": [],
+      "note": "让路上的风景有一段配乐。",
+      "featuredRank": 193,
+      "color": "#181818"
+    },
+    {
+      "id": 94,
+      "name": "Valorant The Future Favs",
+      "category": "歌手与影视游戏",
+      "cover": "/music-prototype/covers/094.webp",
+      "trackCount": 27,
+      "picks": [
+        {
+          "title": "Ticking Away",
+          "artist": "VALORANT Music, Grabbitz, bbno$",
+          "duration": "3:25",
+          "url": "https://music.apple.com/us/song/ticking-away/1833385238"
+        },
+        {
+          "title": "Fire Again (feat. Ashnikko)",
+          "artist": "VALORANT Music",
+          "duration": "3:26",
+          "url": "https://music.apple.com/us/song/fire-again-feat-ashnikko/1833384526"
+        },
+        {
+          "title": "LIMITLESS",
+          "artist": "Shyloom, VALORANT Music",
+          "duration": "2:41",
+          "url": "https://music.apple.com/us/song/limitless/1833371565"
+        }
+      ],
+      "tags": [
+        "运动",
+        "电子",
+        "史诗"
+      ],
+      "note": "倒计时结束，下一回合开始。",
+      "featuredRank": 194,
+      "color": "#181818"
+    },
+    {
+      "id": 95,
+      "name": "Viral Hits",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/095.webp",
+      "trackCount": 50,
+      "picks": [
+        {
+          "title": "Stop The Wedding!",
+          "artist": "Ashe",
+          "duration": "3:18",
+          "url": "https://music.apple.com/us/song/stop-the-wedding/6805240960"
+        },
+        {
+          "title": "honeybee",
+          "artist": "Olivia Rodrigo",
+          "duration": "3:43",
+          "url": "https://music.apple.com/us/song/honeybee/1889992116"
+        },
+        {
+          "title": "Sports car",
+          "artist": "Tate McRae",
+          "duration": "2:45",
+          "url": "https://music.apple.com/us/song/sports-car/1779319634"
+        }
+      ],
+      "tags": [],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 195,
+      "color": "#f8f8f8"
+    },
+    {
+      "id": 96,
+      "name": "Waking Up",
+      "category": "日常与运动",
+      "cover": "/music-prototype/covers/096.webp",
+      "trackCount": 97,
+      "picks": [
+        {
+          "title": "Bad Habits",
+          "artist": "Ed Sheeran",
+          "duration": "3:50",
+          "url": "https://music.apple.com/us/song/bad-habits/1571330212"
+        },
+        {
+          "title": "Tongue Tied",
+          "artist": "GROUPLOVE",
+          "duration": "3:38",
+          "url": "https://music.apple.com/us/song/tongue-tied/453792997"
+        },
+        {
+          "title": "Happy (From \"Despicable Me 2\")",
+          "artist": "Pharrell Williams",
+          "duration": "3:53",
+          "url": "https://music.apple.com/us/song/happy-from-despicable-me-2/863835363"
+        }
+      ],
+      "tags": [
+        "日常",
+        "明亮"
+      ],
+      "note": "拉开窗帘，让今天动起来。",
+      "featuredRank": 196,
+      "color": "#e8c8a8"
+    },
+    {
+      "id": 97,
+      "name": "Walking to Class",
+      "category": "日常与运动",
+      "cover": "/music-prototype/covers/097.webp",
+      "trackCount": 99,
+      "picks": [
+        {
+          "title": "good 4 u",
+          "artist": "Olivia Rodrigo",
+          "duration": "2:58",
+          "url": "https://music.apple.com/us/song/good-4-u/1560735551"
+        },
+        {
+          "title": "Slide (feat. Frank Ocean & Migos)",
+          "artist": "Calvin Harris",
+          "duration": "3:50",
+          "url": "https://music.apple.com/us/song/slide-feat-frank-ocean-migos/1233869909"
+        },
+        {
+          "title": "Time to Pretend",
+          "artist": "MGMT",
+          "duration": "4:21",
+          "url": "https://music.apple.com/us/song/time-to-pretend/264720018"
+        }
+      ],
+      "tags": [
+        "日常",
+        "明亮"
+      ],
+      "note": "耳机戴好，慢慢走到教室。",
+      "featuredRank": 197,
+      "color": "#483838"
+    },
+    {
+      "id": 98,
+      "name": "にほんか",
+      "category": "日韩",
+      "cover": "/music-prototype/covers/098.webp",
+      "trackCount": 21,
+      "picks": [
+        {
+          "title": "Suzume (feat. Toaka)",
+          "artist": "RADWIMPS",
+          "duration": "3:56",
+          "url": "https://music.apple.com/us/song/suzume-feat-toaka/1647112151"
+        },
+        {
+          "title": "Nandemonaiya - Movie Ver.",
+          "artist": "RADWIMPS",
+          "duration": "5:44",
+          "url": "https://music.apple.com/us/song/nandemonaiya-movie-ver/1434005934"
+        },
+        {
+          "title": "悲しみがとまらない I CAN'T STOP THE LONELINESS",
+          "artist": "Anri",
+          "duration": "4:27",
+          "url": "https://music.apple.com/us/song/%E6%82%B2%E3%81%97%E3%81%BF%E3%81%8C%E3%81%A8%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84-i-cant-stop-the-loneliness/840719235"
+        }
+      ],
+      "tags": [
+        "日系"
+      ],
+      "note": "旋律先把故事说出来。",
+      "featuredRank": 198,
+      "color": "#384838"
+    },
+    {
+      "id": 99,
+      "name": "一隻巨蟹座的EMO歌單",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/099.webp",
+      "trackCount": 77,
+      "picks": [
+        {
+          "title": "snowfall (Slowed + Reverb)",
+          "artist": "Øneheart, reidenshi",
+          "duration": "2:30",
+          "url": "https://music.apple.com/us/song/snowfall-slowed-reverb/1615334560"
+        },
+        {
+          "title": "Season of Gold",
+          "artist": "Narrow Skies",
+          "duration": "3:02",
+          "url": "https://music.apple.com/us/song/season-of-gold/1704058350"
+        },
+        {
+          "title": "哪里都是你",
+          "artist": "Young Captain",
+          "duration": "3:42",
+          "url": "https://music.apple.com/us/song/%E5%93%AA%E9%87%8C%E9%83%BD%E6%98%AF%E4%BD%A0/1855424065"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "EMO"
+      ],
+      "note": "那些容易想太多的夜晚。",
+      "featuredRank": 199,
+      "color": "#083838"
+    },
+    {
+      "id": 100,
+      "name": "中文抒情hiphop",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/100.webp",
+      "trackCount": 75,
+      "picks": [
+        {
+          "title": "雪 Distance (feat. 罗言)",
+          "artist": "Capper",
+          "duration": "2:45",
+          "url": "https://music.apple.com/us/song/%E9%9B%AA-distance-feat-%E7%BD%97%E8%A8%80/1674697488"
+        },
+        {
+          "title": "飛躍經濟艙 (現場)",
+          "artist": "Kungfu-Pen, GAI, Bridge",
+          "duration": "3:33",
+          "url": "https://music.apple.com/us/song/%E9%A3%9B%E8%BA%8D%E7%B6%93%E6%BF%9F%E8%89%99-%E7%8F%BE%E5%A0%B4/1640856789"
+        },
+        {
+          "title": "飘向北方 (Live)",
+          "artist": "LIL-NW, Azora Chin",
+          "duration": "4:18",
+          "url": "https://music.apple.com/us/song/%E9%A3%98%E5%90%91%E5%8C%97%E6%96%B9-live/1852296027"
+        }
+      ],
+      "tags": [
+        "说唱"
+      ],
+      "note": "旋律先到，心事慢半拍。",
+      "featuredRank": 200,
+      "color": "#181818"
+    },
+    {
+      "id": 101,
+      "name": "伤感说唱 |走心旋律rap",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/101.webp",
+      "trackCount": 131,
+      "picks": [
+        {
+          "title": "你离开的事实",
+          "artist": "Gao Xu, Dracooo",
+          "duration": "3:21",
+          "url": "https://music.apple.com/us/song/%E4%BD%A0%E7%A6%BB%E5%BC%80%E7%9A%84%E4%BA%8B%E5%AE%9E/1806082199"
+        },
+        {
+          "title": "冬眠·2023",
+          "artist": "刘兆宇, YueYue",
+          "duration": "3:11",
+          "url": "https://music.apple.com/us/song/%E5%86%AC%E7%9C%A0-2023/1725265276"
+        },
+        {
+          "title": "星球坠落 (Live)",
+          "artist": "AIR, JelloRio",
+          "duration": "2:49",
+          "url": "https://music.apple.com/us/song/%E6%98%9F%E7%90%83%E5%9D%A0%E8%90%BD-live/1852300097"
+        }
+      ],
+      "tags": [
+        "说唱",
+        "EMO"
+      ],
+      "note": "把不好意思说的话藏进 verse。",
+      "featuredRank": 201,
+      "color": "#181818"
+    },
+    {
+      "id": 102,
+      "name": "劲歌金曲",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/102.webp",
+      "trackCount": 105,
+      "picks": [
+        {
+          "title": "飛女正傳",
+          "artist": "Miriam Yeung",
+          "duration": "4:07",
+          "url": "https://music.apple.com/us/song/%E9%A3%9B%E5%A5%B3%E6%AD%A3%E5%82%B3/1442768327"
+        },
+        {
+          "title": "午後紅茶",
+          "artist": "Leslie Cheung",
+          "duration": "5:13",
+          "url": "https://music.apple.com/us/song/%E5%8D%88%E5%BE%8C%E7%B4%85%E8%8C%B6/1442711306"
+        },
+        {
+          "title": "風再起時",
+          "artist": "Leslie Cheung",
+          "duration": "4:28",
+          "url": "https://music.apple.com/us/song/%E9%A2%A8%E5%86%8D%E8%B5%B7%E6%99%82/1443432644"
+        }
+      ],
+      "tags": [
+        "粤语"
+      ],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 202,
+      "color": "#180808"
+    },
+    {
+      "id": 103,
+      "name": "劲歌金曲-粤味情深",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/103.webp",
+      "trackCount": 127,
+      "picks": [
+        {
+          "title": "原始心態",
+          "artist": "Kwan Gor",
+          "duration": "4:57",
+          "url": "https://music.apple.com/us/song/%E5%8E%9F%E5%A7%8B%E5%BF%83%E6%85%8B/1673307461"
+        },
+        {
+          "title": "抱擁這分鐘 (Live)",
+          "artist": "Eason Chan",
+          "duration": "3:52",
+          "url": "https://music.apple.com/us/song/%E6%8A%B1%E6%93%81%E9%80%99%E5%88%86%E9%90%98-live/1442967339"
+        },
+        {
+          "title": "那邊見",
+          "artist": "SWING",
+          "duration": "4:13",
+          "url": "https://music.apple.com/us/song/%E9%82%A3%E9%82%8A%E8%A6%8B/1443713323"
+        }
+      ],
+      "tags": [
+        "粤语"
+      ],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 203,
+      "color": "#181808"
+    },
+    {
+      "id": 104,
+      "name": "单曲循环丨我猜你也想靠近吧",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/104.webp",
+      "trackCount": 191,
+      "picks": [
+        {
+          "title": "Dust and Ashes",
+          "artist": "JJ Lin",
+          "duration": "3:51",
+          "url": "https://music.apple.com/us/song/dust-and-ashes/1682457854"
+        },
+        {
+          "title": "Wonderful U (Demo Version)",
+          "artist": "AGA",
+          "duration": "4:06",
+          "url": "https://music.apple.com/us/song/wonderful-u-demo-version/1443220630"
+        },
+        {
+          "title": "一荤一素 (Ver.2)",
+          "artist": "Mao Bu Yi",
+          "duration": "4:25",
+          "url": "https://music.apple.com/us/song/%E4%B8%80%E8%8D%A4%E4%B8%80%E7%B4%A0-ver-2/1718657014"
+        }
+      ],
+      "tags": [],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 204,
+      "color": "#383848"
+    },
+    {
+      "id": 105,
+      "name": "好听",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/105.webp",
+      "trackCount": 15,
+      "picks": [
+        {
+          "title": "Heart and My Car",
+          "artist": "Summer Salt",
+          "duration": "3:25",
+          "url": "https://music.apple.com/us/song/heart-and-my-car/1845193967"
+        },
+        {
+          "title": "every part",
+          "artist": "Nightly",
+          "duration": "3:32",
+          "url": "https://music.apple.com/us/song/every-part/1763633803"
+        },
+        {
+          "title": "Someone New",
+          "artist": "Hozier",
+          "duration": "3:42",
+          "url": "https://music.apple.com/us/song/someone-new/900672613"
+        }
+      ],
+      "tags": [
+        "日常"
+      ],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 205,
+      "color": "#88b8d8"
+    },
+    {
+      "id": 106,
+      "name": "好听到湿",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/106.webp",
+      "trackCount": 16,
+      "picks": [
+        {
+          "title": "Show Pony",
+          "artist": "Glass Animals",
+          "duration": "4:15",
+          "url": "https://music.apple.com/us/song/show-pony/1738435903"
+        },
+        {
+          "title": "luther",
+          "artist": "Kendrick Lamar",
+          "duration": "2:57",
+          "url": "https://music.apple.com/us/song/luther/1781270323"
+        },
+        {
+          "title": "夏夜最后的浪漫",
+          "artist": "Default",
+          "duration": "3:48",
+          "url": "https://music.apple.com/us/song/%E5%A4%8F%E5%A4%9C%E6%9C%80%E5%90%8E%E7%9A%84%E6%B5%AA%E6%BC%AB/1526791728"
+        }
+      ],
+      "tags": [
+        "R&B"
+      ],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 206,
+      "color": "#181828"
+    },
+    {
+      "id": 107,
+      "name": "好听华语",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/107.webp",
+      "trackCount": 3,
+      "picks": [
+        {
+          "title": "我会等",
+          "artist": "承桓",
+          "duration": "3:15",
+          "url": "https://music.apple.com/us/song/%E6%88%91%E4%BC%9A%E7%AD%89/1678416852"
+        },
+        {
+          "title": "Jumping Machine (跳楼机)",
+          "artist": "LBI",
+          "duration": "3:21",
+          "url": "https://music.apple.com/us/song/jumping-machine-%E8%B7%B3%E6%A5%BC%E6%9C%BA/1790602218"
+        },
+        {
+          "title": "Let All This Heavy Rain Fall",
+          "artist": "Lulu, shut up",
+          "duration": "3:52",
+          "url": "https://music.apple.com/us/song/let-all-this-heavy-rain-fall/1686294889"
+        }
+      ],
+      "tags": [],
+      "note": "熟悉的语言，熟悉的旋律。",
+      "featuredRank": 207,
+      "color": "#182818"
+    },
+    {
+      "id": 108,
+      "name": "平静史诗感",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/108.webp",
+      "trackCount": 1,
+      "picks": [
+        {
+          "title": "Hideaway",
+          "artist": "Jacob Collier",
+          "duration": "6:52",
+          "url": "https://music.apple.com/us/song/hideaway/6783757345"
+        }
+      ],
+      "tags": [
+        "专注",
+        "史诗"
+      ],
+      "note": "平静里也可以有很大的画面。",
+      "featuredRank": 208,
+      "color": "#c8c8c8"
+    },
+    {
+      "id": 109,
+      "name": "我喜欢的音乐",
+      "category": "收藏与发现",
+      "cover": "/music-prototype/covers/109.webp",
+      "trackCount": 433,
+      "picks": [
+        {
+          "title": "Every Summertime",
+          "artist": "NIKI",
+          "duration": "3:35",
+          "url": "https://music.apple.com/us/song/every-summertime/1579788063"
+        },
+        {
+          "title": "You Never Can Tell",
+          "artist": "Chuck Berry",
+          "duration": "2:41",
+          "url": "https://music.apple.com/us/song/you-never-can-tell/1469583520"
+        },
+        {
+          "title": "How Deep Is Your Love",
+          "artist": "PJ Morton",
+          "duration": "3:17",
+          "url": "https://music.apple.com/us/song/how-deep-is-your-love/1221020876"
+        }
+      ],
+      "tags": [
+        "日常",
+        "明亮"
+      ],
+      "note": "听过以后，还想再听一次。",
+      "featuredRank": 209,
+      "color": "#181808"
+    },
+    {
+      "id": 110,
+      "name": "抒情～有点小喜欢",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/110.webp",
+      "trackCount": 12,
+      "picks": [
+        {
+          "title": "又到天黑",
+          "artist": "Accusefive",
+          "duration": "4:49",
+          "url": "https://music.apple.com/us/song/%E5%8F%88%E5%88%B0%E5%A4%A9%E9%BB%91/1670343370"
+        },
+        {
+          "title": "How Long Will I Love You",
+          "artist": "Ellie Goulding",
+          "duration": "2:34",
+          "url": "https://music.apple.com/us/song/how-long-will-i-love-you/1647425024"
+        },
+        {
+          "title": "披星戴月的想你",
+          "artist": "Accusefive",
+          "duration": "5:49",
+          "url": "https://music.apple.com/us/song/%E6%8A%AB%E6%98%9F%E6%88%B4%E6%9C%88%E7%9A%84%E6%83%B3%E4%BD%A0/1546062815"
+        }
+      ],
+      "tags": [
+        "心动"
+      ],
+      "note": "不是轰轰烈烈，是有点小喜欢。",
+      "featuredRank": 210,
+      "color": "#282828"
+    },
+    {
+      "id": 111,
+      "name": "橘色心情｜驾车飞驰在黄昏下的日落大道",
+      "category": "开车与旅行",
+      "cover": "/music-prototype/covers/111.webp",
+      "trackCount": 51,
+      "picks": [
+        {
+          "title": "Out of Time (feat. Pyxis & Jay Diggs)",
+          "artist": "Kalax",
+          "duration": "4:55",
+          "url": "https://music.apple.com/us/song/out-of-time-feat-pyxis-jay-diggs/1457459674"
+        },
+        {
+          "title": "Lauren",
+          "artist": "Men I Trust",
+          "duration": "3:38",
+          "url": "https://music.apple.com/us/song/lauren/1122750104"
+        },
+        {
+          "title": "Music For a Sushi Restaurant",
+          "artist": "Harry Styles",
+          "duration": "3:13",
+          "url": "https://music.apple.com/us/song/music-for-a-sushi-restaurant/1615585001"
+        }
+      ],
+      "tags": [
+        "驾车"
+      ],
+      "note": "沿着橘色的光，再开一段。",
+      "featuredRank": 9,
+      "color": "#080808"
+    },
+    {
+      "id": 112,
+      "name": "浪潮美学Synthwave",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/112.webp",
+      "trackCount": 106,
+      "picks": [
+        {
+          "title": "'80s Love (feat. King Protea)",
+          "artist": "Moonrunner83",
+          "duration": "3:30",
+          "url": "https://music.apple.com/us/song/80s-love-feat-king-protea/1648747740"
+        },
+        {
+          "title": "Through the Night",
+          "artist": "PRXZM",
+          "duration": "3:57",
+          "url": "https://music.apple.com/us/song/through-the-night/1463846421"
+        },
+        {
+          "title": "Nightwave (feat. Indigo)",
+          "artist": "W O L F C L U B",
+          "duration": "3:14",
+          "url": "https://music.apple.com/us/song/nightwave-feat-indigo/1233212540"
+        }
+      ],
+      "tags": [
+        "夜晚",
+        "电子"
+      ],
+      "note": "霓虹亮起来，回到想象中的八十年代。",
+      "featuredRank": 212,
+      "color": "#181838"
+    },
+    {
+      "id": 113,
+      "name": "白日飞行~",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/113.webp",
+      "trackCount": 33,
+      "picks": [
+        {
+          "title": "1984",
+          "artist": "Saffari",
+          "duration": "3:12",
+          "url": "https://music.apple.com/us/song/1984/1180235295"
+        },
+        {
+          "title": "日落大道",
+          "artist": "Bruce Liang",
+          "duration": "4:35",
+          "url": "https://music.apple.com/us/song/%E6%97%A5%E8%90%BD%E5%A4%A7%E9%81%93/1751782140"
+        },
+        {
+          "title": "Crystalline",
+          "artist": "The Midnight",
+          "duration": "6:02",
+          "url": "https://music.apple.com/us/song/crystalline/1758762014"
+        }
+      ],
+      "tags": [
+        "独立"
+      ],
+      "note": "把白日梦交给云层。",
+      "featuredRank": 213,
+      "color": "#3888a8"
+    },
+    {
+      "id": 114,
+      "name": "美式老酒吧",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/114.webp",
+      "trackCount": 37,
+      "picks": [
+        {
+          "title": "Sea of Love",
+          "artist": "Durand Jones & The Indications, Aaron Frazer",
+          "duration": "3:47",
+          "url": "https://music.apple.com/us/song/sea-of-love/1563802754"
+        },
+        {
+          "title": "Under Pressure",
+          "artist": "Jazzinuf",
+          "duration": "2:28",
+          "url": "https://music.apple.com/us/song/under-pressure/1588314833"
+        },
+        {
+          "title": "Disco Yes",
+          "artist": "Tom Misch, Poppy Ajudha",
+          "duration": "4:40",
+          "url": "https://music.apple.com/us/song/disco-yes/1327772861"
+        }
+      ],
+      "tags": [
+        "爵士"
+      ],
+      "note": "威士忌色的灯，旧木头的舞池。",
+      "featuredRank": 214,
+      "color": "#180808"
+    },
+    {
+      "id": 115,
+      "name": "落日Love Song",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/115.webp",
+      "trackCount": 40,
+      "picks": [
+        {
+          "title": "Dear Mary",
+          "artist": "MOONBAND",
+          "duration": "4:50",
+          "url": "https://music.apple.com/us/song/dear-mary/1484850112"
+        },
+        {
+          "title": "Lonestar",
+          "artist": "The Chairs",
+          "duration": "4:28",
+          "url": "https://music.apple.com/us/song/lonestar/1632142076"
+        },
+        {
+          "title": "Thirteen",
+          "artist": "Electric Youth",
+          "duration": "3:33",
+          "url": "https://music.apple.com/us/song/thirteen/1473600844"
+        }
+      ],
+      "tags": [
+        "心动"
+      ],
+      "note": "日落以前，把这首情歌听完。",
+      "featuredRank": 215,
+      "color": "#584838"
+    },
+    {
+      "id": 116,
+      "name": "落日飞车",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/116.webp",
+      "trackCount": 27,
+      "picks": [
+        {
+          "title": "The Color Violet",
+          "artist": "Tory Lanez",
+          "duration": "3:46",
+          "url": "https://music.apple.com/us/song/the-color-violet/1599010268"
+        },
+        {
+          "title": "III",
+          "artist": "Athletics",
+          "duration": "6:10",
+          "url": "https://music.apple.com/us/song/iii/853411964"
+        },
+        {
+          "title": "Tokyo (feat. Kinnie Lane)",
+          "artist": "Timecop1983",
+          "duration": "5:04",
+          "url": "https://music.apple.com/us/song/tokyo-feat-kinnie-lane/1373808777"
+        }
+      ],
+      "tags": [
+        "驾车",
+        "独立"
+      ],
+      "note": "窗外往后退，落日一直往前。",
+      "featuredRank": 216,
+      "color": "#281848"
+    },
+    {
+      "id": 117,
+      "name": "超级叙事感",
+      "category": "放松与情绪",
+      "cover": "/music-prototype/covers/117.webp",
+      "trackCount": 26,
+      "picks": [
+        {
+          "title": "Millie",
+          "artist": "Christophe Beck",
+          "duration": "2:23",
+          "url": "https://music.apple.com/us/song/millie/1579970539"
+        },
+        {
+          "title": "无由颂 the Unreasonable Song",
+          "artist": "Howie Lee",
+          "duration": "3:22",
+          "url": "https://music.apple.com/us/song/%E6%97%A0%E7%94%B1%E9%A2%82-the-unreasonable-song/1660017528"
+        },
+        {
+          "title": "The Rising Dawn Bellows Like Thunder",
+          "artist": "Melodysheep",
+          "duration": "4:12",
+          "url": "https://music.apple.com/us/song/the-rising-dawn-bellows-like-thunder/1458164349"
+        }
+      ],
+      "tags": [
+        "专注",
+        "史诗"
+      ],
+      "note": "闭上眼，就有一场电影。",
+      "featuredRank": 217,
+      "color": "#382818"
+    },
+    {
+      "id": 118,
+      "name": "Epic Choruses",
+      "category": "风格选集",
+      "cover": "/music-prototype/covers/118.webp",
+      "trackCount": 114,
+      "picks": [
+        {
+          "title": "Eye of the Tiger",
+          "artist": "Survivor",
+          "duration": "4:03",
+          "url": "https://music.apple.com/us/song/eye-of-the-tiger/254685026"
+        },
+        {
+          "title": "Take On Me (2015 Remastered Version)",
+          "artist": "a-ha",
+          "duration": "3:48",
+          "url": "https://music.apple.com/us/song/take-on-me-2015-remastered-version/1037562348"
+        },
+        {
+          "title": "Everybody Wants to Rule the World",
+          "artist": "Tears for Fears",
+          "duration": "4:11",
+          "url": "https://music.apple.com/us/song/everybody-wants-to-rule-the-world/1440813515"
+        }
+      ],
+      "tags": [
+        "运动",
+        "史诗"
+      ],
+      "note": "到了副歌，忍不住一起唱。",
+      "featuredRank": 11,
+      "color": "#080808"
+    },
+    {
+      "id": 119,
+      "name": "这些年很火的伤感中文歌[持续更新ing]",
+      "category": "华语与粤语",
+      "cover": "/music-prototype/covers/119.webp",
+      "trackCount": 203,
+      "picks": [
+        {
+          "title": "Haiyu, you (Please don't leave me)",
+          "artist": "Ma Ye_Crabbit",
+          "duration": "4:55",
+          "url": "https://music.apple.com/us/song/haiyu-you-please-dont-leave-me/6764489679"
+        },
+        {
+          "title": "甲乙丙丁Strangers (粵語版)",
+          "artist": "Jess Lee",
+          "duration": "3:29",
+          "url": "https://music.apple.com/us/song/%E7%94%B2%E4%B9%99%E4%B8%99%E4%B8%81strangers-%E7%B2%B5%E8%AA%9E%E7%89%88/6805033855"
+        },
+        {
+          "title": "篝火旁",
+          "artist": "吕大叶, 马子林Broma, 陈觅Lynne, Yinuo Wang",
+          "duration": "3:29",
+          "url": "https://music.apple.com/us/song/%E7%AF%9D%E7%81%AB%E6%97%81/1872960279"
+        }
+      ],
+      "tags": [
+        "EMO"
+      ],
+      "note": "城市入夜以后，还没有放下的歌。",
+      "featuredRank": 219,
+      "color": "#181818"
+    }
+  ],
+  "facets": {
+    "场景": [
+      "驾车",
+      "咖啡馆",
+      "专注",
+      "运动",
+      "夜晚",
+      "日常"
+    ],
+    "曲风": [
+      "R&B",
+      "粤语",
+      "日系",
+      "电子",
+      "爵士",
+      "独立",
+      "说唱"
+    ],
+    "心情": [
+      "放松",
+      "心动",
+      "EMO",
+      "明亮",
+      "史诗"
+    ]
+  },
+  "categoryNotes": {
+    "风格选集": "从一种声音，听到另一种心情。",
+    "放松与情绪": "今天是什么心情，就拿哪一张。",
+    "开车与旅行": "让路上的风景有一段配乐。",
+    "歌手与影视游戏": "记得这个声音，也记得当时的画面。",
+    "华语与粤语": "熟悉的语言，熟悉的旋律。",
+    "收藏与发现": "听过以后，还想再听一次。",
+    "日常与运动": "给平凡的一天找一点节奏。",
+    "日韩": "旋律先把故事说出来。",
+    "年代与节日": "属于某个年代，或某个特别的日子。"
+  }
+}

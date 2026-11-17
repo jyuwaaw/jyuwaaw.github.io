@@ -1,0 +1,9 @@
+---
+// PROTOTYPE: compare three physical record-shelf layouts with the same 119 playlists.
+import Base from '../../layouts/Base.astro';
+import RecordShelf from '../../components/music-prototype/RecordShelf.jsx';
+import catalogue from '../../data/prototypes/records.json';
+---
+<Base title="Music" description="A few songs from every corner of my record shelf." lang="zh-CN" noindex>
+  <RecordShelf client:load catalogue={catalogue} showSwitcher={import.meta.env.DEV} />
+</Base>
