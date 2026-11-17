@@ -5,6 +5,12 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="wrap foot">
     <span>{site.name} · © {year}</span>
+    <!-- On phones the header has no room for the theme menu, so it lives here. -->
+    <div class="theme-switch" role="group" aria-label="Color theme">
+      <button type="button" data-theme-choice="system">System</button>
+      <button type="button" data-theme-choice="light">Light</button>
+      <button type="button" data-theme-choice="dark">Dark</button>
+    </div>
     <ul>
       <li><a href={site.github}>GitHub</a></li>
       <li><a href={site.linkedin}>LinkedIn</a></li>

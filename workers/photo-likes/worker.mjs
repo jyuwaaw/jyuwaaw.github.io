@@ -43,7 +43,10 @@ export function createLikesWorker(catalog) {
       const path = new URL(request.url).pathname;
       const query = path === '/likes/query' && request.method === 'POST';
       const photoId = path.match(/^\/likes\/([a-f0-9]{32})$/)?.[1];
-      if (!query && !(photoId && request.method === 'PUT')) return reply({ error: 'Not found' }, 404);
+      // View counts: POST /views/<id> records one view, POST /views/query reads totals.
+      const viewsQuery = path === '/views/query' && request.method === 'POST';
+      const viewId = request.method === 'POST' ? path.match(/^\/views\/([a-f0-9]{32})$/)?.[1] : undefined;
+      if (!query && !(photoId && request.method === 'PUT') && !viewsQuery && !viewId) return reply({ error: 'Not found' }, 404);
       if (!env.VISITOR_SECRET || !env.DB || !env.RATE_LIMITER) return reply({ error: 'Likes unavailable' }, 503);
       try {
         const ipKey = await digest(`ip:${request.headers.get('CF-Connecting-IP') || 'local'}`, env.VISITOR_SECRET);
@@ -51,10 +54,32 @@ export function createLikesWorker(catalog) {
         if (!success) { headers['Retry-After'] = '60'; return reply({ error: 'Please try again later' }, 429); }
         let body;
         try { body = await readBody(request); } catch { return reply({ error: 'Invalid request' }, 400); }
+        const validIds = ids => Array.isArray(ids) && ids.length >= 1 && ids.length <= 80 && ids.every(id => typeof id === 'string' && /^[a-f0-9]{32}$/.test(id));
+        if (viewId) {
+          if (!known.has(viewId)) return reply({ error: 'Unknown item' }, 404);
+          // Counts are per item per UTC day; nothing about the visitor is stored.
+          const day = new Date().toISOString().slice(0, 10);
+          const results = await env.DB.batch([
+            env.DB.prepare('INSERT INTO views (item_id, day, count) VALUES (?, ?, 1) ON CONFLICT(item_id, day) DO UPDATE SET count = count + 1').bind(viewId, day),
+            env.DB.prepare('SELECT COALESCE(SUM(count), 0) AS views FROM views WHERE item_id = ?').bind(viewId),
+          ]);
+          return reply({ views: results[1].results[0].views });
+        }
+        if (viewsQuery) {
+          if (!body || !validIds(body.ids)) return reply({ error: 'Invalid items' }, 400);
+          const ids = [...new Set(body.ids)];
+          const supported = ids.filter(id => known.has(id));
+          let rows = [];
+          if (supported.length) {
+            const result = await env.DB.prepare(`SELECT item_id, SUM(count) AS views FROM views WHERE item_id IN (${supported.map(() => '?').join(',')}) GROUP BY item_id`).bind(...supported).all();
+            rows = result.results;
+          }
+          return reply({ views: Object.fromEntries(ids.map(id => [id, known.has(id) ? rows.find(r => r.item_id === id)?.views || 0 : null])) });
+        }
         if (!body || typeof body.visitor !== 'string' || !UUID.test(body.visitor)) return reply({ error: 'Invalid visitor' }, 400);
         const visitor = await digest(`visitor:${body.visitor}`, env.VISITOR_SECRET);
         if (query) {
-          if (!Array.isArray(body.ids) || body.ids.length < 1 || body.ids.length > 80 || body.ids.some(id => typeof id !== 'string' || !/^[a-f0-9]{32}$/.test(id))) return reply({ error: 'Invalid photographs' }, 400);
+          if (!validIds(body.ids)) return reply({ error: 'Invalid photographs' }, 400);
           const ids = [...new Set(body.ids)];
           // Leave newly published/removed photos unavailable until the catalog is deployed.
           const supported = ids.filter(id => known.has(id));

@@ -2,11 +2,12 @@
 import { site } from '../data/site';
 import ThemeMenu from './ThemeMenu.astro';
 
-// Four destinations. Garage lives under Photos; contact lives on About.
+// Five destinations. Garage lives under Photos; contact lives on About.
 const nav = [
-  { label: 'Projects', href: '/projects/', match: ['/projects/', '/roastmyhomescreen/'] },
+  { label: 'Projects', href: '/projects/', match: ['/projects/'] },
   { label: 'Writing', href: '/blog/', match: ['/blog/', '/zh/blog/'] },
   { label: 'Photos', href: '/photography/', match: ['/photography/', '/mechanic/'] },
+  { label: 'Play', href: '/play/', match: ['/play/', '/roastmyhomescreen/'] },
   { label: 'About', href: '/about/', match: ['/about/'] },
 ];
 const path = Astro.url.pathname;

@@ -6,6 +6,21 @@ Photography has anonymous shared likes in the grid and full-size viewer. Garage 
 
 `VISITOR_SECRET` on the live Worker was generated at random and piped straight to Cloudflare. No copy exists anywhere else. Day to day that does not matter: redeploying the Worker keeps it. It only matters if the Worker is deleted or moved to another account, where a new secret would make earlier visitors look new (totals stay, but they could not undo their old likes and could like again).
 
+## Toys: likes and view counts
+
+The same Worker serves the toys on `/play/`. Each toy in `lib/toys.mjs` gets an ID (`toyStatsId`), which `npm run likes:catalog` adds to the Worker's catalog next to the photographs. A toy's card and its own page show a like button, which works exactly like a photograph's, and a view count.
+
+Views are a plain counter. Opening a toy's page sends `POST /views/<id>` once per browser tab session, and the Worker adds one to that toy's row for the current UTC day (table `views`: `item_id`, `day`, `count`). Nothing about the visitor is stored. The Play page and the home page only read totals with `POST /views/query`. Treat the number as a rough signal: it counts page opens, not people, and anyone can add to it up to the rate limit.
+
+To see the trend by day:
+
+```sh
+npx wrangler d1 execute benji-photo-likes --remote --config workers/photo-likes/wrangler.jsonc \
+  --command "SELECT day, SUM(count) AS views FROM views GROUP BY day ORDER BY day DESC LIMIT 30"
+```
+
+Adding a toy: add it to `lib/toys.mjs`, run `npm run likes:catalog`, commit, and redeploy the Worker before the site deploys, the same as for new photographs.
+
 ## Set up a backend from scratch
 
 This is how the live backend was created, kept for a rebuild or a move. Use your personal Cloudflare account. All commands below run from the repository root with Node 22.13+ and `npm ci` installed. Wrangler is pinned in devDependencies. Never put tokens or the visitor secret in GitHub Pages variables, public source, or a `PUBLIC_` variable.

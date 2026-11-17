@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Homescreen from '../../components/roast/Homescreen.jsx';
+import { toyStatsId } from '@/lib/toys.mjs';
 ---
 <Base title="Roast My Homescreen" description="猜猜桌面的 MBTI，在分享给朋友前藏好私人 App。">
-  <Homescreen client:load />
+  <Homescreen client:load statsId={toyStatsId('roastmyhomescreen')} />
 </Base>

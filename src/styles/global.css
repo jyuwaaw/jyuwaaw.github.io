@@ -93,7 +93,11 @@ ul[role="list"],ol[role="list"]{ list-style:none; }
   .nav-links a{ padding:0 6px; }
   .nav-links a[aria-current="page"]::after{ left:6px; right:6px; }
 }
-@media (max-width:400px){
+/* Five links and the avatar fill a phone's width; the theme control moves to the footer. */
+@media (max-width:480px){
+  .site-header .theme-menu{ display:none; }
+}
+@media (max-width:380px){
   .nav-links a{ padding:0 5px; font-size:14px; }
   .nav-links a[aria-current="page"]::after{ left:5px; right:5px; }
 }
@@ -120,6 +124,11 @@ ul[role="list"],ol[role="list"]{ list-style:none; }
 .theme-popover button:hover{ background:var(--surface-2); color:var(--text); }
 .theme-popover button[aria-pressed="true"]{ color:var(--text); }
 .theme-popover button[aria-pressed="true"]::after{ content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+
+.theme-switch{ display:none; border:1px solid var(--border-2); border-radius:999px; overflow:hidden; }
+.theme-switch button{ padding:6px 14px; border:0; background:transparent; font-size:var(--t-meta); color:var(--muted); cursor:pointer; }
+.theme-switch button[aria-pressed="true"]{ background:var(--text); color:var(--bg); }
+@media (max-width:480px){ .theme-switch{ display:inline-flex; } }
 
 /* ── Display type ─────────────────────────────────────────────────── */
 .display{
@@ -281,6 +290,41 @@ ul[role="list"],ol[role="list"]{ list-style:none; }
 .strip img{ display:block; width:100%; height:100%; aspect-ratio:var(--ratio); object-fit:cover; transition:transform .65s cubic-bezier(.2,.65,.3,1); }
 @media (hover:hover) and (pointer:fine){ .strip a:hover img{ transform:scale(1.03); } }
 @media (max-width:720px){ .strip a:nth-child(n+3){ display:none; } }
+
+/* ── Play ─────────────────────────────────────────────────────────── */
+.toy-list{ display:grid; gap:28px; }
+.page-head + .toy-list{ padding-bottom:88px; }
+.toy-card{ border:1px solid var(--border-2); border-radius:10px; background:var(--surface); padding:clamp(22px,3.2vw,40px); }
+.toy-main{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,360px); gap:28px clamp(28px,5vw,64px); align-items:center; }
+.toy-title{ font-family:var(--display); font-weight:500; font-size:clamp(30px,4vw,46px); line-height:1.04; letter-spacing:-.012em; transition:color .15s; }
+.toy-text p{ margin-top:14px; max-width:44ch; color:var(--body-text); font-size:17px; line-height:1.6; }
+.toy-open{
+  display:inline-flex; align-items:center; gap:12px; margin-top:24px; padding:10px 20px; border-radius:999px;
+  background:var(--text); color:var(--bg); font-weight:500; transition:background .15s;
+}
+.toy-open small{ font-size:13px; font-weight:400; opacity:.72; }
+.toy-main:hover .toy-title{ color:var(--accent); }
+.toy-main:hover .toy-open{ background:var(--accent); color:var(--on-accent); }
+.toy-main:hover .roast-preview{ transform:rotate(0deg); }
+@media (max-width:760px){
+  .toy-main{ grid-template-columns:minmax(0,1fr); }
+  .toy-preview{ max-width:380px; }
+}
+/* Like button and view count. The row holds its height before the numbers
+   arrive, so the card does not grow. */
+.toy-stats{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; min-height:40px; font-size:var(--t-meta); color:var(--muted); }
+.toy-card > astro-island{ display:block; margin-top:26px; padding-top:20px; border-top:1px solid var(--border); min-height:61px; }
+.toy-stats .toy-like{
+  display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:7px 15px;
+  border:1px solid var(--border-2); border-radius:999px; background:transparent; color:var(--text);
+  font:inherit; font-variant-numeric:tabular-nums; cursor:pointer; transition:background .15s,color .15s,border-color .15s;
+}
+.toy-stats .toy-like svg{ width:18px; height:18px; flex:none; }
+.toy-stats .toy-like[aria-pressed="true"]{ color:var(--workshop-red); border-color:currentColor; }
+.toy-stats .toy-like:hover:not(:disabled){ background:var(--surface-2); border-color:var(--muted); }
+.toy-stats .toy-like:disabled{ opacity:.55; cursor:wait; }
+.toy-views{ font-variant-numeric:tabular-nums; }
+.toy-stats-status button{ padding:0; border:0; background:none; color:var(--text); text-decoration:underline; text-underline-offset:3px; cursor:pointer; font:inherit; }
 
 /* ── About ────────────────────────────────────────────────────────── */
 .about-head{ display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:56px; align-items:end; }
