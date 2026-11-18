@@ -1,6 +1,6 @@
 # Record shelf prototype
 
-Question: how should all 119 playlists feel like physical vinyl records on shelves, while each opens a small selection of songs?
+Question: how should all 119 playlists feel like physical vinyl records on shelves, while each opens its owner-selected songs?
 
 Run `npm run dev` and open `/music-prototype/`. This route has no navigation entry and is marked noindex. It is a local visual prototype, not a published Music page.
 
@@ -10,11 +10,11 @@ Run `npm run dev` and open `/music-prototype/`. This route has no navigation ent
 
 The development-only bottom switcher and left/right keys cycle layouts. `?variant=A`, `?variant=B`, and `?variant=C` preserve the choice in the URL.
 
-Content: all 119 actual playlist names, their existing custom covers, and 343 draft song selections. Each selection was chosen from tracks in the library backup and keeps its actual Apple Music song URL and recording version. Short playlists retain their actual one or two songs. This is an initial editorial selection, not a claim that the owner has approved every pick. No account identifiers, private library URLs, Apple credentials, or audio files are included.
+Content as of 2026-11-17: all 119 actual playlists and their custom covers. The owner selected every currently present song: 8,301 song appearances across playlists, with exact known recording links and explicitly marked search links where an ID is unavailable. Native duplicate occurrences share one selection. No account identifiers, private library URLs, Apple credentials, or audio files are included.
 
 Choosing a song opens its public Apple Music page. Audio streaming and complete-playlist sharing are outside this visual prototype. Production integration needs verified public links for the jyuwaaw playlists.
 
-The data is a snapshot from 2026-11-17. Preview state stays in memory and URL parameters only; it never changes Apple Music or a remote service.
+The static data is an exported snapshot. Shelf browsing stays in memory and URL parameters; selections persist through the separate local manager. Likes use the shared service. Neither browsing nor curation modifies Apple Music.
 
 The owner chose **A**. A separate, persistent local selection manager now lives
 in `tools/record-shelf/`; see its README. It reads the current Mac Music library,
@@ -36,3 +36,12 @@ same interruptible return path, with source visibility, body scrolling and focus
 restored on completion or unmount. Offscreen/random sources fade from the center
 instead of flying across the whole page. Reduced-motion preferences skip the
 flight and stagger. No playback or sound is triggered.
+
+Each existing cover has a “下载封面” link below its artwork, downloading a
+1254×1254 JPEG from `public/music-prototype/downloads/`. These full-size, high
+quality derivatives are about 70.5MB together and are requested only on download;
+the shelf still displays 640px WebPs. Original 1254px generated PNGs remain in the
+private source folder. Regenerate downloads with `scripts/prepare-record-downloads.mjs`
+and the original cover manifest path. The local installed service copies these
+files independently of the checkout. The download link sits outside the artwork
+box measured by the flight animation, preserving the existing motion.

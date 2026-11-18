@@ -7,8 +7,9 @@ buttons agree, and a recording appearing in several playlists shares one total.
 Song links remain separate controls; a like never opens a song or a record.
 
 The existing `benji-photo-likes` Worker and D1 database serve the votes with no
-schema changes. Its 2026-11-17 deployment adds 119 playlist IDs and 331 unique
-recording IDs (343 song appearances) to the previous 110 photo/toy IDs. All
+schema changes. Its 2026-11-17 all-selected snapshot registers 119 playlist IDs
+and 7,145 unique known recording IDs (8,301 selected song appearances, including
+two search links) alongside the previous 110 photo/toy IDs. All
 previous IDs remain accepted; their counters and the existing visitor secret are
 retained. No counts are initialized with fabricated likes.
 
@@ -32,6 +33,9 @@ Only a confirmed backend response shows a heart; zero counts are not printed.
 Pending clicks are disabled. A failure never claims success or invents a count;
 Retry reloads authoritative state in case a timed-out write actually succeeded.
 Requests are batched up to 80 unique IDs, including songs repeated in playlists.
+Playlist totals load once for the shelf; song totals load only for the open
+playlist. Independent hooks keep the shelf stable while changing playlists and
+avoid fetching thousands of song totals on initial page load.
 
 ## Preview and publishing
 

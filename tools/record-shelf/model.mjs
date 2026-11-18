@@ -143,7 +143,8 @@ export function setSelection(state, { playlistKey, trackId, selected, revision }
 export function publicCatalogue(state) {
   return { ...state.publicConfig, createdAt: state.source.lastSyncAt, records: state.playlists.filter(p => p.present).map(p => {
     const tracks = new Map(p.tracks.filter(t => t.present).map(t => [t.id, t]));
-    return { id: p.id, name: p.name, category: p.category, tags: p.tags, note: p.note, color: p.color, cover: p.cover, featuredRank: p.featuredRank, trackCount: p.sourceTrackCount, picks: p.selected.flatMap(id => {
+    const coverNumber = p.cover?.match(/^\/music-prototype\/covers\/(\d{3})\.webp$/)?.[1];
+    return { id: p.id, name: p.name, category: p.category, tags: p.tags, note: p.note, color: p.color, cover: p.cover, ...(coverNumber ? { coverDownload: `/music-prototype/downloads/${coverNumber}.jpg` } : {}), featuredRank: p.featuredRank, trackCount: p.sourceTrackCount, availableTrackCount: tracks.size, picks: p.selected.flatMap(id => {
       const t = tracks.get(id);
       return t ? [{ title: t.title, artist: t.artist, duration: t.duration, url: t.url || searchURL(t), linkType: t.url ? 'song' : 'search' }] : [];
     }) };

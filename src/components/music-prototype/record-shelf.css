@@ -109,6 +109,12 @@
 .rs-dialog-close { position:absolute; top:12px; right:17px; border:0; background:transparent; color:var(--room-muted); font-size:28px; line-height:1; width:32px; height:32px; }
 .rs-detail { display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:42px; align-items:start; }
 .rs-detail-art { position:relative; width:85%; aspect-ratio:1; margin:29px 15% 0 0; isolation:isolate; }
+.rs-detail-visual { min-width:0; }
+.rs-cover-download { display:flex; align-items:center; justify-content:center; gap:8px; width:85%; min-height:44px; margin-top:24px; color:var(--room-muted); font-size:12px; text-decoration:none; }
+.rs-cover-download > span { font:9px var(--data); opacity:.75; }
+.rs-cover-download:hover { color:var(--room-ink); text-decoration:underline; text-underline-offset:4px; }
+.rs-cover-download:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+@media(max-width:680px) { .rs-cover-download { width:100%; margin-top:19px; } }
 .rs-detail-art > .rs-vinyl,.rs-flight-art > .rs-vinyl { top:0; left:33%; width:99%; transform:rotate(15deg); }
 .rs-detail-cover { position:relative; z-index:2; width:100%; height:100%; object-fit:cover; box-shadow:2px 5px 8px #17221955, 0 25px 38px #17221924; transform:rotate(-3deg); }
 .rs-detail-category { font-size:11px; color:var(--room-muted); }

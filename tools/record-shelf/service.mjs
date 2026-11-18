@@ -19,6 +19,7 @@ if (action === 'install') {
   const installed = join(dataDirectory, 'service');
   const assets = join(dataDirectory, 'app');
   const covers = join(dataDirectory, 'covers');
+  const downloads = join(dataDirectory, 'downloads');
   try {
     const existing = await readFile(plistPath, 'utf8');
     if (!existing.includes(escape(join(repo, 'tools/record-shelf/server.mjs'))) && !existing.includes(escape(join(installed, 'server.mjs')))) throw new Error('An existing service points elsewhere. Review it before replacing.');
@@ -28,13 +29,14 @@ if (action === 'install') {
   await copyFile(join(repo, 'tools/record-shelf/collector.swift'), join(installed, 'collector.swift'));
   await build({ entryPoints: [join(repo, 'tools/record-shelf/server.mjs')], bundle: true, platform: 'node', format: 'esm', packages: 'external', outfile: join(installed, 'server.mjs') });
   await cp(join(repo, 'public/music-prototype/covers'), covers, { recursive: true });
+  await cp(join(repo, 'public/music-prototype/downloads'), downloads, { recursive: true });
   await build({ entryPoints: [join(repo, 'tools/record-shelf/client.jsx')], bundle: true, minify: true, jsx: 'automatic', outdir: assets, entryNames: 'app', define: { 'process.env.NODE_ENV': '"production"', 'import.meta.env.PUBLIC_PHOTO_LIKES_API': '""' } });
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict><key>Label</key><string>${label}</string>
 <key>ProgramArguments</key><array><string>/usr/bin/env</string><string>node</string><string>${escape(join(installed, 'server.mjs'))}</string></array>
 <key>WorkingDirectory</key><string>${escape(dataDirectory)}</string>
-<key>EnvironmentVariables</key><dict><key>RECORD_SHELF_DATA</key><string>${escape(dataDirectory)}</string><key>RECORD_SHELF_REPO</key><string>${escape(repo)}</string><key>RECORD_SHELF_ASSETS</key><string>${escape(assets)}</string><key>RECORD_SHELF_COVERS</key><string>${escape(covers)}</string><key>PATH</key><string>${escape(dirname(process.execPath))}:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string></dict>
+<key>EnvironmentVariables</key><dict><key>RECORD_SHELF_DATA</key><string>${escape(dataDirectory)}</string><key>RECORD_SHELF_REPO</key><string>${escape(repo)}</string><key>RECORD_SHELF_ASSETS</key><string>${escape(assets)}</string><key>RECORD_SHELF_COVERS</key><string>${escape(covers)}</string><key>RECORD_SHELF_DOWNLOADS</key><string>${escape(downloads)}</string><key>PATH</key><string>${escape(dirname(process.execPath))}:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string></dict>
 <key>RunAtLoad</key><true/><key>KeepAlive</key><true/><key>ThrottleInterval</key><integer>30</integer>
 <key>StandardOutPath</key><string>${escape(join(dataDirectory, 'service.log'))}</string>
 <key>StandardErrorPath</key><string>${escape(join(dataDirectory, 'service-error.log'))}</string>

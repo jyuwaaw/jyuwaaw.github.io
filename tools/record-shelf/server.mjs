@@ -44,6 +44,7 @@ export async function createShelfServer({ initialState, persist = saveState, col
         if (path === '/' || path === '/shelf/') return send(html, 200, 'text/html; charset=utf-8');
         if (path === '/app.js' || path === '/app.css') return send(await readFile(join(assets, path.slice(1))), 200, path.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'text/css; charset=utf-8');
         if (/^\/music-prototype\/covers\/\d{3}\.webp$/.test(path)) return send(await readFile(join(process.env.RECORD_SHELF_COVERS || join(repo, 'public/music-prototype/covers'), basename(path))), 200, 'image/webp');
+        if (/^\/music-prototype\/downloads\/\d{3}\.jpg$/.test(path)) return send(await readFile(join(process.env.RECORD_SHELF_DOWNLOADS || join(repo, 'public/music-prototype/downloads'), basename(path))), 200, 'image/jpeg');
         if (path === '/api/library') return send(clientState());
         if (path === '/api/catalogue') return send(withMusicLikeIds(publicCatalogue(state)));
         if (path === '/api/backup') { response.setHeader('Content-Disposition', 'attachment; filename="record-shelf-backup.json"'); return send(state); }
