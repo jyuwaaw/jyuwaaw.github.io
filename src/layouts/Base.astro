@@ -46,7 +46,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(site.avatar, Astro.site)} />
     <meta name="twitter:card" content="summary" />
-    {faces.map(face => <Font cssVariable={`--font-${face.id}`} preload={!proof} />)}
+    {faces.map(face => <Font cssVariable={`--font-${face.id}`} preload={proof ? false : [{ weight: 400, style: 'normal' }]} />)}
     {proof && <script is:inline define:vars={{ ids: typefaces.map(face => face.id) }}>
       const query = new URL(location.href).searchParams.get('type');
       let selected = query;
