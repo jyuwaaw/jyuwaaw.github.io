@@ -57,6 +57,7 @@
 .rs-sleeve { position:absolute; display:block; inset:0; z-index:2; background:#cfccbd; box-shadow:2px 3px 3px #1618154d,4px 13px 15px #201a154a; border-radius:1px; overflow:hidden; }
 .rs-sleeve::after { content:''; position:absolute; inset:0; box-shadow:inset 2px 0 1px #ffffff38,inset -2px 0 2px #0005; background:linear-gradient(115deg,#fff1,transparent 30% 72%,#0001); border:1px solid #0002; pointer-events:none; }
 .rs-sleeve img { display:block; width:100%; height:100%; object-fit:cover; }
+.rs-new-cover { display:grid; place-items:center; width:100%; height:100%; aspect-ratio:1; background:#c7d1bc; color:#4a6453; font:60px serif; }
 .rs-vinyl { position:absolute; display:block; width:99%; aspect-ratio:1; left:15%; top:1%; border-radius:50%; background:radial-gradient(circle,transparent 0 29%,#090d0b 30% 32%,transparent 33%),repeating-radial-gradient(circle,#151a17 0 1px,#42473e 1.2px 1.6px,#171d19 1.8px 3px),#141a16; box-shadow:1px 3px 4px #141b1470,inset 0 0 0 2px #080c0a; transition:transform .35s cubic-bezier(.2,.7,.2,1); }
 .rs-vinyl::after { content:''; position:absolute; inset:0; border-radius:50%; background:conic-gradient(from 27deg,transparent 0deg,#d3e0d82e 28deg,transparent 51deg 180deg,#d5dcd525 208deg,transparent 230deg); pointer-events:none; }
 .rs-label { position:absolute; inset:34%; display:block; border-radius:50%; background:#b88252; overflow:hidden; }

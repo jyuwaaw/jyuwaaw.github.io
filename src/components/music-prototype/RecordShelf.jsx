@@ -14,15 +14,19 @@ function Arrow({ direction = 'right' }) {
   return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={direction === 'left' ? { transform: 'rotate(180deg)' } : undefined}><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 
+function Cover({ record, ...props }) {
+  return record.cover ? <img src={record.cover} {...props} /> : <span className="rs-new-cover" aria-hidden="true">♫</span>;
+}
+
 function Disc({ record, className = '' }) {
-  return <span className={`rs-vinyl ${className}`} aria-hidden="true"><span className="rs-label"><img src={record.cover} alt="" loading="lazy" /><i /></span></span>;
+  return <span className={`rs-vinyl ${className}`} aria-hidden="true"><span className="rs-label"><Cover record={record} alt="" loading="lazy" /><i /></span></span>;
 }
 
 function Record({ record, onOpen, eager = false }) {
   return <button className="rs-record" onClick={() => onOpen(record.id)} aria-label={`抽出 ${record.name}，查看 ${record.picks.length} 首选曲`}>
     <span className="rs-object" style={{ '--label-color': record.color }}>
       <Disc record={record} />
-      <span className="rs-sleeve"><img src={record.cover} width="640" height="640" loading={eager ? 'eager' : 'lazy'} alt="" draggable="false" /></span>
+      <span className="rs-sleeve"><Cover record={record} width="640" height="640" loading={eager ? 'eager' : 'lazy'} alt="" draggable="false" /></span>
     </span>
     <span className="rs-record-title">{record.name}</span>
     <span className="rs-record-caption">{record.tags.slice(0, 2).join(' / ') || record.category} <span>· {record.picks.length} 首</span></span>
@@ -31,23 +35,23 @@ function Record({ record, onOpen, eager = false }) {
 
 function TrackList({ record }) {
   return <div className="rs-tracks">
-    <div className="rs-side"><span>A SIDE</span><h3>先听这{words[record.picks.length] || record.picks.length}首</h3></div>
+    <div className="rs-side"><span>A SIDE</span><h3>{record.picks.length ? `先听这${words[record.picks.length] || record.picks.length}首` : '选曲还在整理中'}</h3></div>
     <ol>
       {record.picks.map((track, index) => <li key={track.url}>
         <span className="rs-track-no">{String(index + 1).padStart(2, '0')}</span>
-        <a href={track.url} target="_blank" rel="noreferrer" aria-label={`在 Apple Music 听 ${track.title}`}>
+        <a href={track.url} target="_blank" rel="noreferrer" aria-label={`在 Apple Music ${track.linkType === 'search' ? '搜索' : '听'} ${track.title}`}>
           <span className="rs-track-copy"><strong>{track.title}</strong><small>{track.artist}</small></span>
-          <span className="rs-duration">{track.duration}</span><span className="rs-track-go" aria-hidden="true">↗</span>
+          <span className="rs-duration">{track.linkType === 'search' ? '搜索 ↗' : track.duration}</span><span className="rs-track-go" aria-hidden="true">↗</span>
         </a>
       </li>)}
     </ol>
-    <p className="rs-listen-note">点歌名，在 Apple Music 里听 <span>↗</span></p>
+    {record.picks.length > 0 && <p className="rs-listen-note">点歌名，在 Apple Music 里听 <span>↗</span></p>}
   </div>;
 }
 
 function RecordDetail({ record, inline = false }) {
   return <div className={`rs-detail ${inline ? 'rs-detail-inline' : ''}`}>
-    <div className="rs-detail-art"><Disc record={record} /><img className="rs-detail-cover" src={record.cover} width="640" height="640" alt={`${record.name} 的唱片封面`} /></div>
+    <div className="rs-detail-art"><Disc record={record} /><Cover record={record} className="rs-detail-cover" width="640" height="640" alt={`${record.name} 的唱片封面`} /></div>
     <div className="rs-detail-copy">
       <span className="rs-detail-category">{record.category}</span>
       <h2>{record.name}</h2><p className="rs-record-note">{record.note}</p>
@@ -132,7 +136,7 @@ export default function RecordShelf({ catalogue, showSwitcher = true }) {
 
   useEffect(() => {
     const key = new URL(window.location.href).searchParams.get('variant');
-    if (variants.some(item => item.key === key)) setVariant(key);
+    if (showSwitcher && variants.some(item => item.key === key)) setVariant(key);
     function resize() { setColumns(window.innerWidth < 580 ? 2 : window.innerWidth < 900 ? 4 : 6); }
     resize(); window.addEventListener('resize', resize); return () => window.removeEventListener('resize', resize);
   }, []);

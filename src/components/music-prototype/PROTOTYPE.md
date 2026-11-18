@@ -15,3 +15,9 @@ Content: all 119 actual playlist names, their existing custom covers, and 343 dr
 Choosing a song opens its public Apple Music page. Audio streaming and complete-playlist sharing are outside this visual prototype. Production integration needs verified public links for the jyuwaaw playlists.
 
 The data is a snapshot from 2026-11-17. Preview state stays in memory and URL parameters only; it never changes Apple Music or a remote service.
+
+The owner chose **A**. A separate, persistent local selection manager now lives
+in `tools/record-shelf/`; see its README. It reads the current Mac Music library,
+keeps manual choices across syncs, and serves its own A preview. It can explicitly
+export a curated public snapshot back to this Astro prototype. No private full
+library or management endpoint is part of this static route.
