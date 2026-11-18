@@ -15,18 +15,17 @@ import { example } from './example.js';
 </div>
 <style>
   .roast-preview{
-    --print:light-dark(#292331,#edeaf1); --sub:light-dark(#554e65,#c6c0d0); --mark:light-dark(#655275,#d0b7eb);
-    background:light-dark(#e9e5ee,#2d2835); color:var(--print); padding:clamp(19px,3vw,40px);
+    background:var(--surface-2); color:var(--text); padding:clamp(19px,3vw,40px);
   }
-  .caption{ display:block; color:var(--sub); font:400 12px/1.4 var(--sans); }
-  .input-strip{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 16px; padding-bottom:20px; border-bottom:1px solid color-mix(in srgb,var(--print) 24%,transparent); }
+  .caption{ display:block; color:var(--muted); font:400 12px/1.4 var(--sans); }
+  .input-strip{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 16px; padding-bottom:20px; border-bottom:1px solid var(--border-2); }
   .apps{ display:flex; gap:5px; }
-  .apps>span{ display:grid; place-items:center; position:relative; width:29px; height:29px; font:500 13px/1 var(--sans); background:light-dark(#d7cfdf,#484052); border-radius:6px; }
-  .apps>span:nth-child(2){ background:var(--print); color:light-dark(#fff,#2e2836); }
-  .apps>span:nth-child(3){ border:1px solid var(--sub); background:transparent; }
-  .mail b{ position:absolute; top:-7px; right:-7px; font:500 9px/1.2 var(--sans); padding:2px 4px; border-radius:6px; background:var(--mark); color:light-dark(white,#2b2332); }
+  .apps>span{ display:grid; place-items:center; position:relative; width:29px; height:29px; font:500 13px/1 var(--sans); background:var(--border); border-radius:6px; }
+  .apps>span:nth-child(2){ background:var(--text); color:var(--surface); }
+  .apps>span:nth-child(3){ border:1px solid var(--muted); background:transparent; }
+  .mail b{ position:absolute; top:-7px; right:-7px; font:500 9px/1.2 var(--sans); padding:2px 4px; border-radius:6px; background:var(--accent); color:var(--on-accent); }
   .reading{ padding-top:18px; }
   .reading-head strong{ display:block; margin:2px 0 14px; font:400 clamp(54px,6vw,84px)/.96 var(--display); letter-spacing:-.065em; }
   .quote b{ font-size:14px; font-weight:600; }
-  .quote p{ margin-top:5px; font-size:14px; line-height:1.6; color:var(--sub); }
+  .quote p{ margin-top:5px; font-size:14px; line-height:1.6; color:var(--body-text); }
 </style>
