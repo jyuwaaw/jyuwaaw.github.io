@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import RecordShelf from './music-prototype/RecordShelf.jsx';
+import source from '../data/prototypes/records.json';
+import { englishCatalogue } from '../data/playlist-english.js';
+import { withMusicLikeIds } from '@/lib/music-like-id.mjs';
+
+interface Props { language: 'en' | 'zh' }
+const { language } = Astro.props;
+const english = language === 'en';
+const catalogue = withMusicLikeIds(english ? englishCatalogue(source) : source);
+const editions = [{ lang: 'en', href: '/music/' }, { lang: 'zh-Hans', href: '/zh/music/' }];
+---
+<Base title={english ? 'Playlists' : '歌单'} lang={english ? 'en' : 'zh-Hans'}
+  description={english ? 'Playlists from Benji’s record shelf, with track lists, cover art and Apple Music links.' : 'Benji 收藏的歌单，附曲目、封面和 Apple Music 链接。'} alternates={editions}>
+  <RecordShelf client:load catalogue={catalogue} language={language} showSwitcher={false} editions={editions} />
+</Base>

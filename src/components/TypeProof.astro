@@ -1,0 +1,66 @@
+---
+import { typefaces } from '@/lib/type-proof.mjs';
+---
+<aside class="type-proof" lang="zh-CN" aria-label="本地字体预览">
+  <div class="proof-bar wrap">
+    <label for="proof-select">姓名与标题字体</label>
+    <select id="proof-select">
+      {typefaces.map(face => <option value={face.id}>{face.name}</option>)}
+    </select>
+    <div class="proof-options" role="group" aria-label="选择姓名与标题字体">
+      {typefaces.map(face => <button type="button" data-face={face.id}>{face.name}</button>)}
+    </div>
+  </div>
+</aside>
+
+<script>
+  const root = document.documentElement;
+  const select = document.querySelector<HTMLSelectElement>('#proof-select');
+  const choices = document.querySelectorAll<HTMLButtonElement>('.proof-options button');
+  function paint() {
+    const current = root.dataset.typeface;
+    if (select && current) select.value = current;
+    choices.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.face === current)));
+  }
+  function choose(face: string) {
+    const url = new URL(location.href);
+    url.searchParams.set('type', face);
+    history.replaceState(history.state, '', url);
+    root.dataset.typeface = face;
+    try { sessionStorage.setItem('portfolio-type-proof', face); } catch {}
+    paint();
+  }
+  if (select) {
+    select.addEventListener('change', () => choose(select.value));
+    choices.forEach(button => button.addEventListener('click', () => choose(button.dataset.face!)));
+    paint();
+  }
+</script>
+
+<style>
+  .type-proof{ background:var(--surface-2); color:var(--text); }
+  .proof-bar{ display:flex; align-items:center; justify-content:center; gap:20px; min-height:42px; }
+  .proof-bar label{ font-size:13px; color:var(--muted); }
+  .proof-options{ display:flex; gap:16px; }
+  .proof-options button,.proof-bar select{ font:inherit; font-size:15px; background:transparent; color:inherit; }
+  .proof-options button{ padding:8px 2px; border:0; cursor:pointer; }
+  .proof-options button[aria-pressed="true"]{ text-decoration:underline; text-underline-offset:4px; }
+  .proof-bar select{ display:none; max-width:100%; padding:4px 8px; border:1px solid var(--border-2); border-radius:3px; }
+  @media(max-width:660px){
+    .proof-bar{ justify-content:space-between; }
+    .proof-bar select{ display:block; }
+    .proof-options{ display:none; }
+  }
+</style>
+
+<style is:global>
+  :root[data-typeface="work-sans"]{
+    --display:var(--font-work-sans),Arial,sans-serif;
+  }
+  :root[data-typeface="old-standard"]{
+    --display:var(--font-old-standard),Georgia,serif;
+  }
+  :root[data-typeface="bricolage"]{
+    --display:var(--font-bricolage),Arial,sans-serif; --cover-weight:600;
+  }
+</style>

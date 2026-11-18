@@ -65,7 +65,8 @@ export async function saveReview(review, images) {
   const canvas = document.createElement('canvas');
   const width = 900;
   const ctx = canvas.getContext('2d');
-  const ink = '#2d2543', muted = '#514b60', violet = '#5842a6', lilac = '#e7e0ff';
+  // The exported PNG uses the site's light palette on every device.
+  const ink = '#1d2629', muted = '#354145', accent = '#315b68', paper = '#fafbfa', bubble = '#e8eceb';
   const font = (size, weight) => weight + ' ' + size + 'px system-ui, sans-serif';
   const inset = 52, content = width - inset * 2;
   let y = 0;
@@ -103,7 +104,7 @@ export async function saveReview(review, images) {
     for (const { key, label: name } of scoreDimensions) {
       const { value, evidence } = review.scores[key];
       const top = y;
-      paragraph(name + '  ' + (value === null ? '线索不足' : value + '/10'), inset, 224, 24, 38, violet, 650);
+      paragraph(name + '  ' + (value === null ? '线索不足' : value + '/10'), inset, 224, 24, 38, accent, 650);
       const leftBottom = y;
       y = top;
       paragraph(evidence, inset + 238, content - 238, 24, 38, muted);
@@ -155,15 +156,15 @@ export async function saveReview(review, images) {
     ctx.fillStyle = color;
     ctx.beginPath(); ctx.roundRect(x, top, w, h, radius); ctx.fill();
   }
-  ctx.fillStyle = '#fcfaff';
+  ctx.fillStyle = paper;
   ctx.fillRect(0, 0, width, canvas.height);
-  box(inset, 53, 44, 43, 12, violet);
-  box(inset, bubbleTop, content, bubbleBottom - bubbleTop, [30, 30, 30, 6], lilac);
+  box(inset, 53, 44, 43, 12, accent);
+  box(inset, bubbleTop, content, bubbleBottom - bubbleTop, [30, 30, 30, 6], bubble);
   ctx.beginPath(); ctx.moveTo(inset, bubbleBottom - 9); ctx.lineTo(inset + 30, bubbleBottom - 2);
   ctx.lineTo(inset, bubbleBottom + 15); ctx.fill();
-  box(inset + 147, badgeTop, badgeWidth, 46, 9, violet);
+  box(inset + 147, badgeTop, badgeWidth, 46, 9, accent);
   if (review.traits.length) {
-    ctx.fillStyle = '#ded9e7'; ctx.fillRect(inset, divider, content, 2);
+    ctx.fillStyle = '#d1d7d6'; ctx.fillRect(inset, divider, content, 2);
   }
   for (const t of textRuns) {
     ctx.font = t.font; ctx.fillStyle = t.color;

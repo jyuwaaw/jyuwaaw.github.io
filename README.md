@@ -182,9 +182,10 @@ System, Light and Dark; an explicit choice is remembered in
 `benji-appearance-v2`, and a small validated script restores it before first
 paint. Colors are defined once in `global.css` with `light-dark()`. Every page uses the same container width (`--maxw`), so the header sits in the same place on all of them.
 
-Type is the IBM Plex family, self-hosted through Astro's Fonts API: Plex Sans
-for reading, Plex Sans Condensed for page titles, Plex Mono for dates, labels
-and code.
+Astro self-hosts Cormorant Garamond for names and display headings and Source Sans 3
+for body text, navigation and captions. Code samples use the system monospace
+face. Run `PORTFOLIO_TYPE_PROOF=1 npm run build` to compare heading typefaces
+with the same body typography across pages.
 
 ### Photography likes
 
