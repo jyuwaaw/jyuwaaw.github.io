@@ -93,7 +93,14 @@ ul[role="list"],ol[role="list"]{ list-style:none; }
   .nav-links a{ padding:0 6px; }
   .nav-links a[aria-current="page"]::after{ left:6px; right:6px; }
 }
-/* Five links and the avatar fill a phone's width; the theme control moves to the footer. */
+/* Keep all six destinations reachable on phones. */
+@media (max-width:600px){
+  .brand span{ display:none; }
+  .site-nav{ height:auto; min-height:80px; gap:8px; }
+  .nav-links{ display:grid; grid-template-columns:repeat(3,auto); height:auto; gap:0; }
+  .nav-links a{ min-height:40px; justify-content:center; padding:0 8px; }
+}
+/* The theme control moves to the footer on narrow phones. */
 @media (max-width:480px){
   .site-header .theme-menu{ display:none; }
 }

@@ -48,7 +48,8 @@ unchanged; the proxy does not expose private admin actions.
 
 The static Astro route uses the existing `PUBLIC_PHOTO_LIKES_API` setting already
 provided by the GitHub Pages workflow. An empty setting disables likes, matching
-Photography's behavior. The Music page itself is still an unpublished prototype.
+Photography's behavior. `/music/` is the public A shelf linked in the site's
+navigation. `/music-prototype/` remains an unindexed comparison route.
 
 After exporting a new public music snapshot:
 

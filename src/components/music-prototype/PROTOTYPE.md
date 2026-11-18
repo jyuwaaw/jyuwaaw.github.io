@@ -4,6 +4,11 @@ Question: how should all 119 playlists feel like physical vinyl records on shelv
 
 Run `npm run dev` and open `/music-prototype/`. This route has no navigation entry and is marked noindex. It is a local visual prototype, not a published Music page.
 
+The selected A layout is published through `/music/`, linked in the main
+navigation with the standard site layout. Its variant switcher is disabled.
+The comparison route stays noindex and is excluded from the sitemap; private
+local management endpoints are not included in the static website.
+
 - A: front-facing sleeves on a full wooden cabinet; selecting one opens its inner sleeve and track picks.
 - B: nine thematic record crates, each browsed sideways.
 - C: dense spine-facing shelves beside an always-visible listening desk.
