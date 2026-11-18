@@ -22,7 +22,7 @@ const Heading = `h${level}` as 'h2' | 'h3';
     <div class="toy-text">
       <Heading class="toy-title">{toy.title}</Heading>
       <p>{toy.blurb}</p>
-      <span class="toy-open">Try it →{toy.language && <small lang="zh-CN">{toy.language}</small>}</span>
+      <span class="toy-open">Open toy →{toy.language && <small lang="zh-CN">{toy.language}</small>}</span>
     </div>
     {toy.preview === 'roast' && <div class="toy-preview"><RoastPreview /></div>}
   </a>

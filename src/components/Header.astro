@@ -7,7 +7,7 @@ const nav = [
   { label: 'Projects', href: '/projects/', match: ['/projects/'] },
   { label: 'Writing', href: '/blog/', match: ['/blog/', '/zh/blog/'] },
   { label: 'Photos', href: '/photography/', match: ['/photography/', '/mechanic/'] },
-  { label: 'Music', href: '/music/', match: ['/music/'] },
+  { label: 'Playlists', href: '/music/', match: ['/music/', '/zh/music/'] },
   { label: 'Play', href: '/play/', match: ['/play/', '/roastmyhomescreen/'] },
   { label: 'About', href: '/about/', match: ['/about/'] },
 ];
@@ -17,7 +17,6 @@ const path = Astro.url.pathname;
   <div class="wrap">
     <nav class="site-nav" aria-label="Main navigation">
       <a class="brand" href="/" aria-label={`${site.name} — home`}>
-        <img src={site.avatar} alt="" width="56" height="56" />
         <span>{site.name}</span>
       </a>
       <div class="nav-links">

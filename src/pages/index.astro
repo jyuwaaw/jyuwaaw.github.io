@@ -1,59 +1,74 @@
 ---
 import Base from '../layouts/Base.astro';
 import Waveform from '../components/Waveform.astro';
-import ProjectList from '../components/ProjectList.astro';
 import PostList from '../components/PostList.astro';
 import { site, links } from '../data/site';
-import { featuredProjects } from '../data/projects';
+import { featuredProjects, SHELVES } from '../data/projects';
 import { getPosts } from '../lib/posts';
 import ToyCard from '../components/ToyCard.astro';
 import { toys } from '@/lib/toys.mjs';
 import { getPhotographs } from '@/lib/photography.js';
-import { orderPhotographs } from '@/lib/gallery-order.mjs';
+import HomePhotos from '../components/HomePhotos.astro';
 
 const all = await getPosts();
 const essays = all.filter((p) => p.data.section === 'writing');
 const posts = (essays.length ? essays : all).slice(0, 3);
-const photos = orderPhotographs(await getPhotographs(), 'style').slice(0, 4);
+const archive = await getPhotographs();
+const cover = archive.find(photo => photo.id === 'IMG_0132.JPG');
+const work = ['silicon', 'agents'].map(id => ({
+  label: SHELVES.find(shelf => shelf.id === id)!.label,
+  projects: featuredProjects.filter(project => project.shelf === id),
+}));
 ---
 <Base>
-  <section class="hero wrap">
-    <p class="hello"><img src={site.avatar} alt="" width="192" height="192" /> Hi, I'm Benji.</p>
-    <h1 class="display display-xl"><span>I used to make chips run AI.</span> <span>Now I make AI run tools.</span></h1>
-    <div class="hero-body">
-      <p class="lede">
-        Digital design &amp; verification engineer (M.S. ECE, UC Irvine).
-        I architect and verify RTL — flexible-precision AI accelerators, UVM testbenches,
-        full RTL-to-GDSII — then build and ship the AI products that run on top of it.
-        I work the whole vertical: from the arithmetic inside an accelerator to the agents it ends up serving.
-      </p>
-      <ul class="link-row">
-        {links.slice(0, 3).map((l) => <li><a href={l.href}>{l.label}</a></li>)}
-      </ul>
+  <section class="cover wrap" aria-labelledby="cover-name">
+    <div class:list={['jacket', { 'with-art': cover }]}>
+      <p class="cover-role">{site.role}</p>
+      <h1 id="cover-name">Benji Huang</h1>
+      <div class="cover-note">
+        <p class="cover-intro">I used to make chips run AI.<br />Now I make AI run tools.</p>
+        <nav class="cover-links" aria-label="Introduction">
+          <a href="#projects-title">Selected projects ↓</a>
+          <a href="/about/">About me →</a>
+        </nav>
+      </div>
+      {cover && (
+        <figure class="cover-print">
+          <a class="print-image" href={`/photography/?photo=${cover.shareId}`} aria-label={`View photograph: ${cover.alt}`}>
+            <img src={cover.src} fetchpriority="high" width={cover.width} height={cover.height} alt={cover.alt} />
+          </a>
+          <figcaption>
+            <span>{cover.location}</span>
+            <time datetime={cover.date}>{new Date(cover.date + 'T12:00:00Z').toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' })}</time>
+          </figcaption>
+        </figure>
+      )}
     </div>
-    <Waveform>
-      The path so far, as a timing diagram: each line is high while that work was active.
-      <a class="inline-link" href="/about/">The long version →</a>
-    </Waveform>
   </section>
 
   <section class="band wrap row" aria-labelledby="projects-title">
-    <h2 class="section-title" id="projects-title">Selected projects</h2>
     <div>
-      <ProjectList projects={featuredProjects} />
+      <h2 class="section-title" id="projects-title">Selected projects</h2>
       <a class="more" href="/projects/">All projects →</a>
     </div>
+    <div class="work-shelves">
+      {work.map(shelf => (
+        <section class="work-shelf">
+          <h3 class="discipline">{shelf.label}</h3>
+          <ul role="list">
+            {shelf.projects.map((project, index) => (
+              <li>
+                <a href={project.href} target="_blank" rel="noopener noreferrer">
+                  <span>{project.title.split(' — ')[0]}</span><span class="work-arrow" aria-hidden="true">↗</span>
+                </a>
+                {index === 0 && <p>{project.title.split(' — ')[1]}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
   </section>
-
-  {toys.length > 0 && (
-    <section class="band wrap row" aria-labelledby="play-title">
-      <h2 class="section-title" id="play-title">Play</h2>
-      <div>
-        <div class="toy-list">{toys.slice(0, 2).map((toy) => <ToyCard toy={toy} level={3} />)}</div>
-        {toys.length > 2 && <a class="more" href="/play/">All toys →</a>}
-      </div>
-    </section>
-  )}
 
   {posts.length > 0 && (
     <section class="band wrap row" aria-labelledby="writing-title">
@@ -65,20 +80,91 @@ const photos = orderPhotographs(await getPhotographs(), 'style').slice(0, 4);
     </section>
   )}
 
-  {photos.length > 0 && (
-    <section class="band wrap row" aria-labelledby="photos-title">
-      <h2 class="section-title" id="photos-title">Photos</h2>
+  <HomePhotos photos={archive} />
+
+  {toys.length > 0 && (
+    <section class="band wrap row" aria-labelledby="play-title">
+      <h2 class="section-title" id="play-title">Play</h2>
       <div>
-        <div class="strip">
-          {photos.map((photo) => (
-            <a href={`/photography/?photo=${photo.shareId}`} style={`--ratio:${(photo.width / photo.height).toFixed(3)}`}>
-              <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
-            </a>
-          ))}
-        </div>
-        <a class="more" href="/photography/">Photography →</a>
-        <a class="more" href="/mechanic/">Benji’s Garage →</a>
+        <div class="toy-list">{toys.slice(0, 2).map((toy) => <ToyCard toy={toy} level={3} />)}</div>
+        {toys.length > 2 && <a class="more" href="/play/">All toys →</a>}
       </div>
     </section>
   )}
+
+  <section class="band wrap row" aria-labelledby="path-title">
+    <h2 class="section-title" id="path-title">Path so far</h2>
+    <div class="path-summary">
+      <p class="lede">
+        I’m a {site.role} with a background in digital design and verification (M.S. ECE, UC Irvine).
+        I architect and verify RTL — flexible-precision AI accelerators, UVM testbenches,
+        full RTL-to-GDSII — then build and ship the AI products that run on top of it.
+      </p>
+      <Waveform>
+        Each line is high while that work was active.
+        <a class="inline-link" href="/about/">The long version →</a>
+      </Waveform>
+      <ul class="link-row">
+        {links.slice(0, 3).map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+      </ul>
+    </div>
+  </section>
 </Base>
+
+<style>
+  .cover{ padding-block:clamp(30px,4.5vw,72px) clamp(40px,5.2vw,82px); }
+  .jacket{
+    --edge:35%; --caption-gap:36px;
+    display:grid; grid-template-columns:var(--edge) minmax(0,1fr);
+    grid-template-rows:1fr auto 1fr; isolation:isolate;
+  }
+  .cover-print{ grid-column:2; grid-row:1/4; min-width:0; }
+  .print-image{ display:block; position:relative; }
+  .print-image img{ display:block; width:100%; height:auto; }
+  .print-image::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,#061f302b,transparent 70%); pointer-events:none; }
+  .cover-print figcaption{ display:flex; justify-content:space-between; align-items:start; gap:10px; padding-top:8px; height:var(--caption-gap); font-size:14px; line-height:1.4; color:var(--muted); }
+  .cover-role{ grid-column:1; grid-row:1; align-self:end; padding-bottom:clamp(14px,2vw,32px); padding-right:18px; color:var(--muted); font-size:clamp(15px,1.4vw,20px); line-height:1.3; }
+  .jacket h1{
+    z-index:1; grid-column:1/-1; grid-row:2; width:100%; align-self:center;
+    font:var(--cover-weight,400) clamp(90px,10.6vw,160px)/1.24 var(--display); letter-spacing:-.055em; word-spacing:.045em; white-space:nowrap; pointer-events:none;
+  }
+  .with-art h1{
+    background-image:linear-gradient(90deg,var(--text) var(--edge),#fff var(--edge));
+    background-clip:text; -webkit-background-clip:text; color:transparent;
+  }
+  .cover-note{ grid-column:1; grid-row:3; padding:clamp(16px,1.7vw,28px) 16px var(--caption-gap) 0; }
+  .cover-intro{ font-size:clamp(18px,1.55vw,23px); line-height:1.32; }
+  .cover-links{ display:flex; flex-wrap:wrap; gap:4px 22px; margin-top:17px; }
+  .cover-links a{ font-size:15px; padding-block:4px; text-decoration:underline; text-decoration-color:var(--border-2); text-underline-offset:4px; }
+  .cover-links a:hover{ color:var(--accent); text-decoration-color:currentColor; }
+  .discipline{ font:500 15px/1.4 var(--sans); color:var(--muted); }
+  .work-shelves{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--gap); }
+  .work-shelf li{ border-top:1px solid var(--border); padding-block:12px; }
+  .work-shelf li:first-child{ border:0; padding-block:14px 20px; }
+  .work-shelf a{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; font-size:15px; line-height:1.4; }
+  .work-shelf a:hover{ color:var(--accent); }
+  .work-shelf li:first-child a{ font:400 clamp(30px,2.8vw,42px)/1.15 var(--display); letter-spacing:-.045em; }
+  .work-shelf li p{ margin-top:7px; font-size:15px; line-height:1.45; color:var(--muted); }
+  .work-arrow{ font:400 16px/1 var(--sans); color:var(--muted); }
+  .section-title{ scroll-margin-top:110px; }
+  .path-summary{ min-width:0; }
+  .path-summary > :global(.wave){ margin-block:32px; }
+  @media (max-width:760px){
+    .jacket{ grid-template-columns:1fr; grid-template-rows:repeat(4,auto); }
+    .cover{ padding-block:27px 36px; }
+    .cover-role{ grid-row:1; padding:0; font-size:16px; }
+    .jacket h1{ grid-column:1; grid-row:2; font-size:clamp(52px,14vw,92px); line-height:1.18; margin-top:5px; }
+    .with-art h1{ transform:translateY(34%); background-image:linear-gradient(180deg,var(--text) 66%,#fff 66%); }
+    .cover-print{ grid-column:1; grid-row:3; }
+    .print-image::after{ background:linear-gradient(180deg,#061f3038,transparent 42%); }
+    .cover-print figcaption{ height:auto; }
+    .cover-note{ grid-row:4; padding:20px 0 0; }
+    .cover-links{ margin-top:10px; }
+  }
+  @media (forced-colors:active){
+    .with-art h1{ background:Canvas; color:CanvasText; width:max-content; }
+  }
+  @media (max-width:540px){
+    .work-shelves{ grid-template-columns:1fr; gap:28px; }
+  }
+</style>

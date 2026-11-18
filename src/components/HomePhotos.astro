@@ -1,0 +1,55 @@
+---
+import { getPhotographs } from '@/lib/photography.js';
+import garageCaptions from '@/lib/mechanic.json';
+
+interface Props { photos: Awaited<ReturnType<typeof getPhotographs>> }
+const { photos } = Astro.props;
+const garage = await getPhotographs({ folder: 'Mechanic', captions: garageCaptions, defaultStyle: 'In the garage' });
+const selection = [
+  { photo: photos.find(photo => photo.id === 'BJW03759.jpg'), album: '/photography/' },
+  { photo: photos.find(photo => photo.id === 'BJW01225.jpg'), album: '/photography/' },
+  { photo: garage.find(photo => photo.id === 'IMG_1289.jpeg'), album: '/mechanic/' },
+];
+---
+<section class="band wrap home-photos" aria-labelledby="photos-title">
+  <div class="photo-index-head">
+    <h2 class="section-title" id="photos-title">Photos</h2>
+    <nav aria-label="Photo albums">
+      <a class="inline-link" href="/photography/">Photography →</a>
+      <a class="inline-link" href="/mechanic/">Benji’s Garage →</a>
+    </nav>
+  </div>
+  <div class="photo-spread">
+    {selection.map(({photo, album}) => photo && (
+      <figure>
+        <a href={`${album}?photo=${photo.shareId}`}>
+          <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+        </a>
+        <figcaption>
+          <span>{album === '/mechanic/' ? photo.label : photo.location}</span>
+          {photo.date && <time datetime={photo.date}>{photo.date.slice(0, 4)}</time>}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+<style>
+  .photo-index-head,.photo-index-head nav,.photo-spread figcaption{ display:flex; align-items:baseline; }
+  .photo-index-head{ justify-content:space-between; gap:14px 30px; flex-wrap:wrap; margin-bottom:clamp(22px,3vw,42px); }
+  #photos-title{ scroll-margin-top:110px; }
+  .photo-index-head nav{ flex-wrap:wrap; gap:10px 24px; font-size:15px; }
+  .photo-spread{ display:grid; grid-template-columns:minmax(0,2.35fr) minmax(0,.87fr) minmax(0,.94fr); gap:clamp(14px,2.4vw,38px); align-items:center; }
+  .photo-spread figure:nth-child(2){ align-self:start; margin-top:6%; }
+  .photo-spread figure:nth-child(3){ align-self:end; }
+  .photo-spread a{ display:block; overflow:hidden; }
+  .photo-spread img{ display:block; width:100%; height:auto; transition:transform .45s ease-out; }
+  .photo-spread figcaption{ justify-content:space-between; flex-wrap:wrap; gap:2px 8px; margin-top:9px; font-size:13px; line-height:1.5; color:var(--muted); }
+  @media (hover:hover) and (prefers-reduced-motion:no-preference){ .photo-spread a:hover img{ transform:scale(1.022); } }
+  @media(max-width:680px){
+    .photo-spread{ grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; row-gap:24px; }
+    .photo-spread figure:first-child{ grid-column:1/-1; }
+    .photo-spread figure:nth-child(2){ margin:0; }
+    .photo-spread figure:nth-child(3){ align-self:center; }
+    .photo-index-head nav{ gap:14px; font-size:14px; }
+  }
+</style>

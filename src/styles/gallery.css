@@ -9,7 +9,7 @@
 .photo-sort button:focus-visible,.photo-open:focus-visible{ outline:2px solid var(--text); outline-offset:4px; }
 .photo-groups{ display:flex; flex-direction:column; gap:48px; }
 .photo-group-heading{ display:flex; align-items:baseline; justify-content:space-between; padding:10px 0 16px; }
-.photo-group-heading h2{ font:500 17px/1.4 var(--sans); }
+.photo-group-heading h2{ font:400 24px/1.25 var(--display); letter-spacing:-.025em; }
 .photo-group-heading>span{ color:var(--muted); font:13px var(--data); }
 .photo-grid{ display:flex; flex-direction:column; gap:12px; }
 .photo-row{ display:flex; align-items:flex-start; gap:12px; }
@@ -157,13 +157,13 @@
    Both albums share this frame exactly. The tagline sits under the tabs and
    reserves the same number of lines on either page, so nothing below it moves
    when you switch. */
-.album-head{ padding-block:56px 30px; }
+.album-head{ padding-block:clamp(48px,6vw,86px) 32px; }
 .album-tabs{ display:flex; align-items:baseline; gap:clamp(18px,3.2vw,44px); }
 .album-tabs h1{ font:inherit; }
 .album-tabs a{
-  display:inline-block; padding-bottom:10px; border-bottom:4px solid transparent; white-space:nowrap;
-  font-family:var(--display); font-weight:500; font-size:clamp(21px,6.2vw,60px); line-height:1.04; letter-spacing:-.014em;
-  color:color-mix(in srgb,var(--text) 40%,var(--bg)); transition:color .18s,border-color .18s;
+  display:inline-block; padding-bottom:9px; border-bottom:1px solid transparent; white-space:nowrap;
+  font-family:var(--display); font-weight:400; font-size:clamp(19px,5.45vw,76px); line-height:1.1; letter-spacing:-.055em;
+  color:var(--muted); transition:color .18s,border-color .18s;
 }
 .album-tabs a:hover{ color:var(--text); border-color:var(--border-2); }
 .album-tabs a[aria-current="page"]{ color:var(--text); border-color:var(--accent); }
@@ -177,7 +177,7 @@
 .album-tagline strong{ color:var(--text); font-weight:500; }
 @media(max-width:900px){
   .album-head{ padding-block:40px 24px; }
-  .album-tabs a{ padding-bottom:8px; border-bottom-width:3px; }
+  .album-tabs a{ padding-bottom:6px; }
   .album-tagline{ min-height:3.2em; }
 }
 @media(max-width:480px){ .album-tagline{ min-height:4.8em; } }

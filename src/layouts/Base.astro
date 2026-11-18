@@ -5,6 +5,11 @@ import { site } from '../data/site';
 import { appearanceScript, THEME_COLORS } from '@/lib/appearance.mjs';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import TypeProof from '../components/TypeProof.astro';
+import { siteTypefaces, typefaces } from '@/lib/type-proof.mjs';
+
+const proof = process.env.PORTFOLIO_TYPE_PROOF === '1';
+const faces = siteTypefaces(proof);
 
 interface Props {
   title?: string;
@@ -41,13 +46,21 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(site.avatar, Astro.site)} />
     <meta name="twitter:card" content="summary" />
-    <Font cssVariable="--font-plex-sans" preload />
-    <Font cssVariable="--font-plex-condensed" preload />
-    <Font cssVariable="--font-plex-mono" />
+    {faces.map(face => <Font cssVariable={`--font-${face.id}`} preload={!proof} />)}
+    {proof && <script is:inline define:vars={{ ids: typefaces.map(face => face.id) }}>
+      const query = new URL(location.href).searchParams.get('type');
+      let selected = query;
+      try {
+        if (query === null) selected = sessionStorage.getItem('portfolio-type-proof');
+        if (ids.includes(query)) sessionStorage.setItem('portfolio-type-proof', query);
+      } catch {}
+      document.documentElement.dataset.typeface = ids.includes(selected) ? selected : ids[0];
+    </script>}
     <script is:inline set:html={appearanceScript} />
     <slot name="head" />
   </head>
   <body>
+    {proof && <TypeProof />}
     <Header />
     <main><slot /></main>
     <Footer />

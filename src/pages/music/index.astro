@@ -1,9 +1,4 @@
 ---
-import Base from '../../layouts/Base.astro';
-import RecordShelf from '../../components/music-prototype/RecordShelf.jsx';
-import catalogue from '../../data/prototypes/records.json';
-import { withMusicLikeIds } from '../../../lib/music-like-id.mjs';
+import PlaylistsPage from '../../components/PlaylistsPage.astro';
 ---
-<Base title="Music" description="Benji's record shelf: playlists, songs, and a cover to take home." lang="zh-CN">
-  <RecordShelf client:load catalogue={withMusicLikeIds(catalogue)} showSwitcher={false} />
-</Base>
+<PlaylistsPage language="en" />

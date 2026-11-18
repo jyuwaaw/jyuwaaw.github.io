@@ -1,6 +1,7 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import { siteTypefaces } from './lib/type-proof.mjs';
 
 // Static site for GitHub Pages (user site → no `base`).
 // Permalinks keep the trailing slash the old Next.js export used.
@@ -19,33 +20,13 @@ export default defineConfig({
       defaultColor: false,
     },
   },
-  fonts: [
-    {
-      provider: fontProviders.fontsource(),
-      name: 'IBM Plex Sans',
-      cssVariable: '--font-plex-sans',
-      weights: [400, 500, 600],
-      styles: ['normal', 'italic'],
-      subsets: ['latin'],
-      fallbacks: ['PingFang SC', 'Microsoft YaHei', 'sans-serif'],
-    },
-    {
-      provider: fontProviders.fontsource(),
-      name: 'IBM Plex Sans Condensed',
-      cssVariable: '--font-plex-condensed',
-      weights: [500, 600],
-      styles: ['normal'],
-      subsets: ['latin'],
-      fallbacks: ['PingFang SC', 'Microsoft YaHei', 'sans-serif'],
-    },
-    {
-      provider: fontProviders.fontsource(),
-      name: 'IBM Plex Mono',
-      cssVariable: '--font-plex-mono',
-      weights: [400, 500],
-      styles: ['normal'],
-      subsets: ['latin'],
-      fallbacks: ['ui-monospace', 'monospace'],
-    },
-  ],
+  fonts: siteTypefaces(process.env.PORTFOLIO_TYPE_PROOF === '1').map(face => ({
+    provider: fontProviders.fontsource(),
+    name: face.name,
+    cssVariable: `--font-${face.id}`,
+    weights: face.weights,
+    styles: face.styles,
+    subsets: ['latin'],
+    fallbacks: face.serif ? ['Songti SC', 'Georgia', 'serif'] : ['PingFang SC', 'Microsoft YaHei', 'Arial', 'sans-serif'],
+  })),
 });

@@ -16,7 +16,6 @@ import { APPEARANCE_KEY, THEME_COLORS } from '@/lib/appearance.mjs';
   const menu = document.querySelector<HTMLDetailsElement>('.theme-menu')!;
   const root = document.documentElement;
   const media = window.matchMedia('(prefers-color-scheme: dark)');
-  // Every theme control on the page, including the footer one phones use.
   const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-theme-choice]')];
 
   function paint() {

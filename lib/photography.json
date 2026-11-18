@@ -9,6 +9,7 @@
   },
   {
     "filename": "BJW01225.jpg",
+    "alt": "Late sunlight casts the shape of a window across a green and white wall.",
     "style": "Light & shadow",
     "order": 1,
     "light": "sunlit",
@@ -73,6 +74,7 @@
   },
   {
     "filename": "BJW03759.jpg",
+    "alt": "Headlights light up falling snow and two tire tracks on a street in Harbin.",
     "style": "Light & shadow",
     "order": 9,
     "light": "night",
@@ -138,6 +140,7 @@
   },
   {
     "filename": "IMG_0132.JPG",
+    "alt": "A small boat on open blue water under a hazy horizon.",
     "style": "Open skies",
     "order": 18,
     "light": "soft",
@@ -394,6 +397,7 @@
   },
   {
     "filename": "BJW00573.jpg",
+    "alt": "A lone figure sits in a wooden boat on still water beneath an overcast sky.",
     "style": "In passing",
     "order": 51,
     "light": "soft",

@@ -1,11 +1,13 @@
 // Name, role and links used across the site.
+const role = 'Founding AI Engineer';
+
 export const site = {
   name: 'Yuhua (Benji) Huang',
   shortName: 'Benji Huang',
   url: 'https://jyuwaaw.github.io',
   avatar: '/images/avatar.webp',
-  role: 'Digital Design & Verification Engineer',
-  description: 'Yuhua (Benji) Huang — engineer, builder, content creator.',
+  role,
+  description: `Yuhua (Benji) Huang — ${role}. Selected engineering projects, writing and photography.`,
   email: 'yuhuah2@uci.edu',
   github: 'https://github.com/jyuwaaw',
   linkedin: 'https://www.linkedin.com/in/yuhua-benji/',

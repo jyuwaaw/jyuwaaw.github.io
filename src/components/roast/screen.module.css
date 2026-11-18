@@ -1,5 +1,5 @@
 .page { padding-top:clamp(48px,7vw,96px); padding-bottom:80px }
-.page h1 { font-size:clamp(40px,7vw,76px); line-height:1.1; letter-spacing:-.06em }
+.page h1 { font:400 clamp(42px,6.6vw,88px)/1.04 var(--display); letter-spacing:-.052em }
 .page h1 span { color:#8270df }
 .intro { margin:18px 0 36px; color:var(--muted); max-width:36em }
 .panelTabs { display:flex; gap:8px; margin-bottom:24px; border-bottom:1px solid var(--border) }
@@ -38,8 +38,8 @@
 .card { --ink:#2d2543; --violet:#5842a6; --bubble:#e7e0ff; background:#fcfaff; color:var(--ink); padding:clamp(18px,2.8vw,32px); border:1px solid #dcd6e8; border-radius:22px; box-shadow:0 8px 30px #2314350a; overflow-wrap:anywhere }
 .cardHead { display:flex; align-items:center; gap:8px; margin-bottom:18px }
 .cardHead h2,.card h4 { font-size:.82rem; font-weight:650; line-height:1.45 }
-.notifIcon { display:grid; place-items:center; width:26px; height:26px; border-radius:8px; background:var(--violet); color:white; font:700 33px/1 Georgia,serif; padding-top:3px }
-.brand { margin-left:auto; color:#645d77; font:600 clamp(12px,1.2vw,15px)/1.2 'Barlow Condensed',sans-serif }
+.notifIcon { display:grid; place-items:center; width:26px; height:26px; border-radius:8px; background:var(--violet); color:white; font:700 33px/1 var(--display); padding-top:3px }
+.brand { margin-left:auto; color:#645d77; font:600 clamp(12px,1.2vw,15px)/1.2 var(--display) }
 .bubble { position:relative; border-radius:20px 20px 20px 5px; background:var(--bubble); padding:clamp(16px,2.4vw,28px) }
 .bubble::after { content:""; position:absolute; left:0; bottom:-8px; width:15px; height:10px; background:var(--bubble); clip-path:polygon(0 0,100% 0,0 100%) }
 .bubble h3 { font:700 clamp(23px,2.6vw,35px)/1.22 var(--sans); letter-spacing:-.045em; text-wrap:balance }
