@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import PhotoLikeButton from '../PhotoLikeButton.jsx';
 import usePhotoLikes from '../usePhotoLikes.js';
+import { openRecordDialog } from './record-motion.js';
 import './record-shelf.css';
 
 const variants = [
@@ -40,7 +41,7 @@ function Disc({ record, className = '' }) {
 }
 
 function Record({ record, onOpen, eager = false }) {
-  return <div className="rs-record-card"><button className="rs-record" onClick={() => onOpen(record.id)} aria-label={`抽出 ${record.name}，查看 ${record.picks.length} 首选曲`}>
+  return <div className="rs-record-card"><button className="rs-record" data-record-id={record.id} onClick={event => onOpen(record.id, event.currentTarget)} aria-label={`抽出 ${record.name}，查看 ${record.picks.length} 首选曲`}>
     <span className="rs-object" style={{ '--label-color': record.color }}>
       <Disc record={record} />
       <span className="rs-sleeve"><Cover record={record} width="640" height="640" loading={eager ? 'eager' : 'lazy'} alt="" draggable="false" /></span>
@@ -81,15 +82,22 @@ function RecordDetail({ record, inline = false }) {
   </div>;
 }
 
-function RecordDialog({ record, onClose }) {
+function RecordDialog({ record, origin, onClose }) {
   const dialog = useRef(null);
+  const motion = useRef(null);
+  const closeCallback = useRef(onClose);
+  closeCallback.current = onClose;
   useEffect(() => {
-    if (record && !dialog.current.open) dialog.current.showModal();
-    if (!record && dialog.current.open) dialog.current.close();
-  }, [record]);
-  return <dialog ref={dialog} className="rs-dialog" aria-label={record?.name || '唱片选曲'} onCancel={onClose} onClick={event => { if (event.target === event.currentTarget) onClose(); }}>
-    <button className="rs-dialog-close" onClick={onClose} aria-label="放回唱片，关闭选曲">×</button>
-    {record && <RecordDetail record={record} />}
+    if (!record) return;
+    motion.current = openRecordDialog(dialog.current, origin.current, () => closeCallback.current());
+    return () => { motion.current?.destroy(); motion.current = null; };
+  }, [record?.id]);
+  return <dialog ref={dialog} className="rs-dialog" aria-label={record?.name || '唱片选曲'} onCancel={event => { event.preventDefault(); motion.current?.close(); }} onClick={event => { if (event.target === event.currentTarget) motion.current?.close(); }}>
+    <div className="rs-dialog-sheet">
+      <button className="rs-dialog-close" onClick={() => motion.current?.close()} aria-label="放回唱片，关闭选曲">×</button>
+      {record && <RecordDetail record={record} />}
+    </div>
+    {record && <div className="rs-flight-art" aria-hidden="true"><Disc record={record} /><Cover record={record} className="rs-detail-cover" alt="" /></div>}
   </dialog>;
 }
 
@@ -133,6 +141,7 @@ export default function RecordShelf({ catalogue, showSwitcher = true, likesEndpo
   const [selected, setSelected] = useState(null);
   const [columns, setColumns] = useState(6);
   const search = useRef(null);
+  const origin = useRef(null);
   const likeItems = useMemo(() => catalogue.records.flatMap(record => [record, ...record.picks]), [catalogue]);
   const likes = usePhotoLikes(likeItems, true, likesEndpoint);
   const records = useMemo(() => [...catalogue.records].sort((a, b) => a.featuredRank - b.featuredRank), [catalogue]);
@@ -148,7 +157,9 @@ export default function RecordShelf({ catalogue, showSwitcher = true, likesEndpo
     const url = new URL(window.location.href); url.searchParams.set('variant', key); window.history.replaceState(null, '', url);
   }
   function cycle(direction) { changeVariant(variants[(variants.findIndex(item => item.key === variant) + direction + variants.length) % variants.length].key); }
-  function openRecord(id) {
+  function openRecord(id, trigger) {
+    const button = [...document.querySelectorAll('.rs-record[data-record-id]')].find(element => element.dataset.recordId === String(id));
+    origin.current = { trigger: trigger || button, button, art: button?.querySelector('.rs-object') };
     setSelected(id);
     if (variant === 'C' && window.innerWidth <= 680) {
       document.querySelector('.rs-listening-desk')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
@@ -173,7 +184,7 @@ export default function RecordShelf({ catalogue, showSwitcher = true, likesEndpo
     <div className="rs-room-wrap">
       <header className="rs-room-heading">
         <div><p className="rs-eyebrow">MUSIC / BENJI'S RECORD SHELF</p><h1>{current.title}</h1><p className="rs-intro">全部歌单都在这里。每张挑几首，慢慢翻。</p></div>
-        <button className="rs-draw" disabled={!visible.length} onClick={() => openRecord(visible[Math.floor(Math.random() * visible.length)].id)}><span className="rs-draw-disc" aria-hidden="true" /><span>替我抽一张<small>看看今天听什么</small></span><Arrow /></button>
+        <button className="rs-draw" disabled={!visible.length} onClick={event => openRecord(visible[Math.floor(Math.random() * visible.length)].id, event.currentTarget)}><span className="rs-draw-disc" aria-hidden="true" /><span>替我抽一张<small>看看今天听什么</small></span><Arrow /></button>
       </header>
 
       <div className="rs-finding">
@@ -188,7 +199,7 @@ export default function RecordShelf({ catalogue, showSwitcher = true, likesEndpo
 
       <p className="rs-bottom-note">把一张唱片抽出来，先听 A 面的几首。</p>
     </div>
-    {variant !== 'C' && <RecordDialog record={selectedRecord} onClose={() => setSelected(null)} />}
+    {variant !== 'C' && <RecordDialog record={selectedRecord} origin={origin} onClose={() => setSelected(null)} />}
     {showSwitcher && <div className="rs-prototype-switcher" aria-label="布局预览"><span className="rs-prototype-label">布局预览</span><button onClick={() => cycle(-1)} aria-label="上一种布局"><Arrow direction="left" /></button><span className="rs-variant-label" aria-live="polite">{current.key} · {current.name}</span><button onClick={() => cycle(1)} aria-label="下一种布局"><Arrow /></button></div>}
   </div></MusicLikes.Provider>;
 }

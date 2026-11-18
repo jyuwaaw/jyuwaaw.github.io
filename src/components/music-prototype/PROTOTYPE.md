@@ -26,3 +26,13 @@ Playlist and selected-song hearts now use the existing shared Photography likes
 service. A recording repeated across playlists has one total; playlist title and
 cover edits preserve its own total. See `docs/music-likes.md`. The music route is
 still a prototype, while the shared backend accepts its registered music IDs.
+
+Opening a record now transfers its sleeve from the shelf to the paper detail
+sheet, then slides out the vinyl and reveals the picks (about 740ms overall).
+Closing retracts and returns it in 460ms. The native fullscreen dialog owns the
+focus trap; a separate, non-interactive record inside its top layer performs the
+flight without clipping at the paper edge. Close, Escape and backdrop use the
+same interruptible return path, with source visibility, body scrolling and focus
+restored on completion or unmount. Offscreen/random sources fade from the center
+instead of flying across the whole page. Reduced-motion preferences skip the
+flight and stagger. No playback or sound is triggered.
