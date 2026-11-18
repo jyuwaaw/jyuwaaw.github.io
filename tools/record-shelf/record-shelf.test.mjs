@@ -7,6 +7,7 @@ import { request as httpRequest } from 'node:http';
 import { bindLibrary, reconcile, setSelection, publicCatalogue, isSyncDue } from './model.mjs';
 import { createShelfServer } from './server.mjs';
 import { atomicJSON } from './storage.mjs';
+import { playlistLikeId } from '../../lib/music-like-id.mjs';
 
 const song = (id, title = 'Song', artist = 'Artist') => ({ id, title, artist, album: 'Album', durationMs: 180500 });
 const playlist = (id, tracks, name = 'Playlist') => ({ id, name, kind: 0, distinguishedKind: 0, master: false, tracks });
@@ -95,4 +96,20 @@ test('server persists checkbox selections and rejects cross-site/host mutation',
     assert.equal((await fetch(`${base}/api/catalogue`).then(r => r.json())).records[0].picks.length, 0);
     assert.equal((await fetch(`${base}/api/selection`, { method: 'POST', headers, body: JSON.stringify(change) })).status, 409);
   } finally { await new Promise(resolve => app.server.close(resolve)); await rm(dir, { recursive: true }); }
+});
+test('local likes proxy accepts only public votes and cannot change private selections', async () => {
+  let votes = 0;
+  const app = await createShelfServer({ initialState: state(), persist: async () => {}, likesFetch: async (url, init) => { votes++; const body = JSON.parse(init.body); assert.equal(body.privateData, undefined); return Response.json({ count: 1, liked: true }); } });
+  await new Promise(resolve => app.server.listen(0, '127.0.0.1', resolve));
+  const base = `http://127.0.0.1:${app.server.address().port}`;
+  const headers = { Origin: base, 'Content-Type': 'application/json' };
+  const body = JSON.stringify({ visitor: '11111111-1111-4111-8111-111111111111', liked: true, privateData: 'do not forward' });
+  try {
+    const response = await fetch(`${base}/api/music-likes/likes/${playlistLikeId(1)}`, { method: 'PUT', headers, body });
+    assert.equal(response.status, 200);
+    assert.equal(votes, 1);
+    assert.equal((await fetch(`${base}/api/music-likes/likes/${playlistLikeId(1)}`, { method: 'PUT', headers: { ...headers, Origin: 'https://other.example' }, body })).status, 403);
+    assert.equal((await fetch(`${base}/api/selection`, { method: 'POST', headers, body })).status, 403);
+    assert.deepEqual(app.currentState().playlists[0].selected, ['mac:10']);
+  } finally { await new Promise(resolve => app.server.close(resolve)); }
 });

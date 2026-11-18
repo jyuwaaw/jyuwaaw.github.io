@@ -21,3 +21,8 @@ in `tools/record-shelf/`; see its README. It reads the current Mac Music library
 keeps manual choices across syncs, and serves its own A preview. It can explicitly
 export a curated public snapshot back to this Astro prototype. No private full
 library or management endpoint is part of this static route.
+
+Playlist and selected-song hearts now use the existing shared Photography likes
+service. A recording repeated across playlists has one total; playlist title and
+cover edits preserve its own total. See `docs/music-likes.md`. The music route is
+still a prototype, while the shared backend accepts its registered music IDs.

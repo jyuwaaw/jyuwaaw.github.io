@@ -74,7 +74,7 @@ function ShelfPreview() {
     load(); window.addEventListener('focus', load);
     return () => { abort.abort(); window.removeEventListener('focus', load); };
   }, []);
-  return <><nav className="rm-preview-nav"><a href="/">← 回到选曲</a><span>网站预览 · A 唱片墙</span></nav>{catalogue ? <RecordShelf catalogue={catalogue} showSwitcher={false} /> : <p className="rm-loading">{error || '正在打开唱片架…'}</p>}</>;
+  return <><nav className="rm-preview-nav"><a href="/">← 回到选曲</a><span>网站预览 · A 唱片墙</span></nav>{catalogue ? <RecordShelf catalogue={catalogue} showSwitcher={false} likesEndpoint="/api/music-likes" /> : <p className="rm-loading">{error || '正在打开唱片架…'}</p>}</>;
 }
 
 createRoot(document.getElementById('root')).render(window.location.pathname === '/shelf/' ? <ShelfPreview /> : <Manager />);

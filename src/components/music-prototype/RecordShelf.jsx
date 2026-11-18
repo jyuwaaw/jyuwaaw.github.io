@@ -1,5 +1,7 @@
 // PROTOTYPE: three different ways to browse the same real playlist collection.
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import PhotoLikeButton from '../PhotoLikeButton.jsx';
+import usePhotoLikes from '../usePhotoLikes.js';
 import './record-shelf.css';
 
 const variants = [
@@ -9,6 +11,21 @@ const variants = [
 ];
 const categoryOrder = ['开车与旅行', '放松与情绪', '风格选集', '华语与粤语', '日韩', '歌手与影视游戏', '日常与运动', '收藏与发现', '年代与节日'];
 const words = { 1: '一', 2: '两', 3: '三' };
+const MusicLikes = createContext(null);
+
+function Like({ item, noun = '歌单', className = '' }) {
+  const likes = useContext(MusicLikes);
+  const value = likes?.likes[item.likeId];
+  if (!value) return null;
+  return <PhotoLikeButton {...value} className={`rs-like ${className}`} disabled={Boolean(likes.pending[item.likeId])} onToggle={() => likes.toggle(item.likeId)} ariaLabel={`${value.liked ? '取消点赞' : '点赞'}${noun}：${item.name || item.title}，${value.count} 人喜欢`} />;
+}
+
+function LikeStatus() {
+  const likes = useContext(MusicLikes);
+  if (!likes?.error) return null;
+  const storage = likes.error.includes('storage');
+  return <p className="rs-like-status" role="status">{storage ? '需要允许浏览器保存数据，才能记住你的点赞。' : '暂时无法确认点赞状态。'}<button onClick={likes.retry}>重试</button></p>;
+}
 
 function Arrow({ direction = 'right' }) {
   return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={direction === 'left' ? { transform: 'rotate(180deg)' } : undefined}><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
@@ -23,14 +40,14 @@ function Disc({ record, className = '' }) {
 }
 
 function Record({ record, onOpen, eager = false }) {
-  return <button className="rs-record" onClick={() => onOpen(record.id)} aria-label={`抽出 ${record.name}，查看 ${record.picks.length} 首选曲`}>
+  return <div className="rs-record-card"><button className="rs-record" onClick={() => onOpen(record.id)} aria-label={`抽出 ${record.name}，查看 ${record.picks.length} 首选曲`}>
     <span className="rs-object" style={{ '--label-color': record.color }}>
       <Disc record={record} />
       <span className="rs-sleeve"><Cover record={record} width="640" height="640" loading={eager ? 'eager' : 'lazy'} alt="" draggable="false" /></span>
     </span>
     <span className="rs-record-title">{record.name}</span>
     <span className="rs-record-caption">{record.tags.slice(0, 2).join(' / ') || record.category} <span>· {record.picks.length} 首</span></span>
-  </button>;
+  </button><Like item={record} className="rs-record-like" /></div>;
 }
 
 function TrackList({ record }) {
@@ -43,6 +60,7 @@ function TrackList({ record }) {
           <span className="rs-track-copy"><strong>{track.title}</strong><small>{track.artist}</small></span>
           <span className="rs-duration">{track.linkType === 'search' ? '搜索 ↗' : track.duration}</span><span className="rs-track-go" aria-hidden="true">↗</span>
         </a>
+        <Like item={track} noun="歌曲" className="rs-song-like" />
       </li>)}
     </ol>
     {record.picks.length > 0 && <p className="rs-listen-note">点歌名，在 Apple Music 里听 <span>↗</span></p>}
@@ -54,10 +72,11 @@ function RecordDetail({ record, inline = false }) {
     <div className="rs-detail-art"><Disc record={record} /><Cover record={record} className="rs-detail-cover" width="640" height="640" alt={`${record.name} 的唱片封面`} /></div>
     <div className="rs-detail-copy">
       <span className="rs-detail-category">{record.category}</span>
-      <h2>{record.name}</h2><p className="rs-record-note">{record.note}</p>
+      <div className="rs-detail-title"><h2>{record.name}</h2><Like item={record} className="rs-detail-like" /></div><p className="rs-record-note">{record.note}</p>
       <div className="rs-detail-tags">{record.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
       <TrackList record={record} />
       <p className="rs-whole-count">从这张 {record.trackCount} 首的歌单里，先挑 {record.picks.length} 首。</p>
+      <LikeStatus />
     </div>
   </div>;
 }
@@ -106,7 +125,7 @@ function ListeningCorner({ groups, record, onOpen }) {
   </div>;
 }
 
-export default function RecordShelf({ catalogue, showSwitcher = true }) {
+export default function RecordShelf({ catalogue, showSwitcher = true, likesEndpoint }) {
   const [variant, setVariant] = useState('A');
   const [query, setQuery] = useState('');
   const [tag, setTag] = useState('全部');
@@ -114,6 +133,8 @@ export default function RecordShelf({ catalogue, showSwitcher = true }) {
   const [selected, setSelected] = useState(null);
   const [columns, setColumns] = useState(6);
   const search = useRef(null);
+  const likeItems = useMemo(() => catalogue.records.flatMap(record => [record, ...record.picks]), [catalogue]);
+  const likes = usePhotoLikes(likeItems, true, likesEndpoint);
   const records = useMemo(() => [...catalogue.records].sort((a, b) => a.featuredRank - b.featuredRank), [catalogue]);
   const visible = useMemo(() => records.filter(record => (tag === '全部' || record.tags.includes(tag) || record.category === tag) && `${record.name} ${record.tags.join(' ')} ${record.category} ${record.picks.map(t => `${t.title} ${t.artist}`).join(' ')}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())), [records, query, tag]);
   const groups = categoryOrder.map(category => [category, visible.filter(record => record.category === category)]).filter(([, records]) => records.length);
@@ -148,7 +169,7 @@ export default function RecordShelf({ catalogue, showSwitcher = true }) {
     window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey);
   }, [variant, showSwitcher]);
 
-  return <div className={`vinyl-room rs-variant-${variant}`}>
+  return <MusicLikes.Provider value={likes}><div className={`vinyl-room rs-variant-${variant}`}>
     <div className="rs-room-wrap">
       <header className="rs-room-heading">
         <div><p className="rs-eyebrow">MUSIC / BENJI'S RECORD SHELF</p><h1>{current.title}</h1><p className="rs-intro">全部歌单都在这里。每张挑几首，慢慢翻。</p></div>
@@ -161,6 +182,7 @@ export default function RecordShelf({ catalogue, showSwitcher = true }) {
       </div>
       {filtersOpen && <div className="rs-facets">{Object.entries(catalogue.facets).map(([facet, tags]) => <div key={facet}><span>{facet}</span>{tags.map(item => <button key={item} aria-pressed={tag === item} onClick={() => setTag(item)}>{item}</button>)}</div>)}</div>}
       <div className="rs-catalogue-line"><p aria-live="polite">{tag === '全部' ? '整架唱片' : tag} <span>{visible.length} 张</span>{tag !== '全部' && <button onClick={() => setTag('全部')}>查看全部 ×</button>}</p><span>{catalogue.records.length} 张歌单 / {pickCount} 首选曲</span></div>
+      <LikeStatus />
 
       {visible.length ? variant === 'A' ? <Wall records={visible} onOpen={openRecord} columns={columns} /> : variant === 'B' ? <Crates groups={groups} onOpen={openRecord} notes={catalogue.categoryNotes} /> : <ListeningCorner groups={groups} record={cornerRecord} onOpen={openRecord} /> : <div className="rs-empty"><p>这一格暂时没有找到。</p><button onClick={() => { setQuery(''); setTag('全部'); search.current.focus(); }}>回到整架唱片</button></div>}
 
@@ -168,5 +190,5 @@ export default function RecordShelf({ catalogue, showSwitcher = true }) {
     </div>
     {variant !== 'C' && <RecordDialog record={selectedRecord} onClose={() => setSelected(null)} />}
     {showSwitcher && <div className="rs-prototype-switcher" aria-label="布局预览"><span className="rs-prototype-label">布局预览</span><button onClick={() => cycle(-1)} aria-label="上一种布局"><Arrow direction="left" /></button><span className="rs-variant-label" aria-live="polite">{current.key} · {current.name}</span><button onClick={() => cycle(1)} aria-label="下一种布局"><Arrow /></button></div>}
-  </div>;
+  </div></MusicLikes.Provider>;
 }

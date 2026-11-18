@@ -25,9 +25,10 @@ if (action === 'install') {
     try { await exec('/bin/launchctl', ['bootout', `${domain}/${label}`]); } catch (e) { if (!String(e.stderr).includes('Could not find service') && !String(e.stderr).includes('No such process')) throw e; }
   } catch (e) { if (e.code !== 'ENOENT') throw e; }
   await mkdir(installed, { recursive: true, mode: 0o700 });
-  for (const file of ['server.mjs', 'storage.mjs', 'model.mjs', 'collector.swift']) await copyFile(join(repo, 'tools/record-shelf', file), join(installed, file));
+  await copyFile(join(repo, 'tools/record-shelf/collector.swift'), join(installed, 'collector.swift'));
+  await build({ entryPoints: [join(repo, 'tools/record-shelf/server.mjs')], bundle: true, platform: 'node', format: 'esm', packages: 'external', outfile: join(installed, 'server.mjs') });
   await cp(join(repo, 'public/music-prototype/covers'), covers, { recursive: true });
-  await build({ entryPoints: [join(repo, 'tools/record-shelf/client.jsx')], bundle: true, minify: true, jsx: 'automatic', outdir: assets, entryNames: 'app', define: { 'process.env.NODE_ENV': '"production"' } });
+  await build({ entryPoints: [join(repo, 'tools/record-shelf/client.jsx')], bundle: true, minify: true, jsx: 'automatic', outdir: assets, entryNames: 'app', define: { 'process.env.NODE_ENV': '"production"', 'import.meta.env.PUBLIC_PHOTO_LIKES_API': '""' } });
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict><key>Label</key><string>${label}</string>

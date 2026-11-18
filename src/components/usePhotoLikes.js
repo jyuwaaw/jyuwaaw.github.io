@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getVisitor, isLikeState, likesRequest } from '@/lib/photo-likes-client.mjs';
 
-const endpoint = (import.meta.env.PUBLIC_PHOTO_LIKES_API || '').trim();
+const defaultEndpoint = (import.meta.env.PUBLIC_PHOTO_LIKES_API || '').trim();
 
-export default function usePhotoLikes(photos, enabled) {
+export default function usePhotoLikes(photos, enabled, endpoint = defaultEndpoint) {
   const available = enabled && Boolean(endpoint);
   const [likes, setLikes] = useState({});
   const [pending, setPending] = useState({});
@@ -13,7 +13,7 @@ export default function usePhotoLikes(photos, enabled) {
   const locks = useRef(new Set());
   const visitor = useRef(null);
   const lifetime = useRef(null);
-  const idsKey = photos.map(p => p.likeId).filter(Boolean).join(',');
+  const idsKey = [...new Set(photos.map(p => p.likeId).filter(Boolean))].join(',');
 
   useEffect(() => {
     if (!available || !idsKey) return;
@@ -51,7 +51,7 @@ export default function usePhotoLikes(photos, enabled) {
     }
     load();
     return () => { controller.abort(); };
-  }, [available, idsKey, attempt]);
+  }, [available, endpoint, idsKey, attempt]);
 
   const toggle = useCallback(async (id) => {
     if (!likes[id] || locks.current.has(id) || loading || !visitor.current) return;
@@ -70,7 +70,7 @@ export default function usePhotoLikes(photos, enabled) {
       locks.current.delete(id);
       setPending(value => ({ ...value, [id]: false }));
     }
-  }, [likes, loading]);
+  }, [likes, loading, endpoint]);
 
   const retry = () => { if (!locks.current.size) setAttempt(n => n + 1); };
   return { available, likes, pending, error, loading, retry, toggle };

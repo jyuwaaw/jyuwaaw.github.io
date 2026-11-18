@@ -70,6 +70,21 @@ JSON plus a per-process session header. Host validation prevents DNS rebinding.
 The service binds only to 127.0.0.1 and is not a remotely authenticated admin.
 Remote management and publishing still need a separate deployment integration.
 
+## Shared likes
+
+The A preview now supports playlist and selected-song likes through the existing
+Photography Worker/D1 service. `/api/music-likes/likes/...` is a narrow local
+proxy, not local vote storage. It forwards only public music IDs and anonymous
+visitor votes; no private library metadata, account or admin token is forwarded.
+The admin selection endpoints retain their separate same-origin session checks.
+The installed server bundles these helpers so it still works away from this
+branch. The browser bundle uses an explicit local proxy endpoint; Astro uses
+the existing `PUBLIC_PHOTO_LIKES_API` build setting directly.
+
+See `docs/music-likes.md` for identities and deployment order. Updating the
+selection manager does not publish the Music page. New selected songs require
+a public snapshot/catalogue update and Worker deployment before receiving votes.
+
 ## Checks
 
 `npm run music:test` covers sync invariants, recording versions, removal/recovery,
