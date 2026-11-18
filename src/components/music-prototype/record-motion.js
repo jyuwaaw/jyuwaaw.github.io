@@ -52,6 +52,7 @@ export function openRecordDialog(dialog, source, onClosed) {
   if (scrollbar > 0) document.body.style.paddingRight = `${parseFloat(getComputedStyle(document.body).paddingRight) + scrollbar}px`;
   dialog.dataset.motion = 'opening';
   sheet.scrollTop = 0;
+  copy.scrollTop = 0;
   dialog.showModal();
   source?.button?.classList.add('rs-is-pulled');
   reduced.addEventListener('change', preferenceChanged);

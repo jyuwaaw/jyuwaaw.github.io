@@ -138,6 +138,14 @@
 .rs-listen-note { display:flex; align-items:center; justify-content:space-between; margin-top:11px; font-size:10px; color:var(--room-muted); }
 .rs-whole-count { margin-top:24px; font-size:10px; color:var(--room-muted); }
 
+/* Long track lists scroll inside the right column; the record stays on display. */
+@media(min-width:681px) {
+  .rs-dialog-sheet { overflow:clip; }
+  .rs-dialog .rs-detail-copy { max-height:calc(100dvh - 160px); overflow:auto; overscroll-behavior:contain; padding:0 12px 4px 3px; scrollbar-gutter:stable; }
+  .rs-dialog .rs-detail-art { width:min(85%,calc(100dvh - 270px)); }
+  .rs-dialog .rs-cover-download { width:min(85%,calc(100dvh - 270px)); }
+}
+
 /* B: long, shallow crates that can be thumbed through sideways. */
 .rs-crates { display:grid; grid-template-columns:minmax(0,1fr); gap:27px; }
 .rs-crate { min-width:0; }
