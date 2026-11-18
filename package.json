@@ -12,7 +12,11 @@
     "test": "node --test lib/*.test.mjs",
     "avatar:prepare": "node scripts/prepare-avatar.mjs",
     "likes:catalog": "node scripts/prepare-photo-likes.mjs",
-    "likes:check": "wrangler deploy --dry-run --config workers/photo-likes/wrangler.jsonc"
+    "likes:check": "wrangler deploy --dry-run --config workers/photo-likes/wrangler.jsonc",
+    "music:manage": "node tools/record-shelf/server.mjs",
+    "music:test": "node --test tools/record-shelf/record-shelf.test.mjs",
+    "music:service:install": "node tools/record-shelf/service.mjs install",
+    "music:service:remove": "node tools/record-shelf/service.mjs uninstall"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.7",
@@ -30,6 +34,7 @@
     "node": ">=22.12.0"
   },
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "wrangler": "^4.151.1"
   }
 }

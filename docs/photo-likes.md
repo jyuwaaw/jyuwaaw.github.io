@@ -23,6 +23,10 @@ Adding a toy: add it to `lib/toys.mjs`, run `npm run likes:catalog`, commit, and
 
 ## Set up a backend from scratch
 
+Music now uses the same service for playlist and selected-song likes. Its IDs
+have separate namespaces, with no schema or visitor-secret change. See
+[Music likes](music-likes.md) for the record shelf and local preview details.
+
 This is how the live backend was created, kept for a rebuild or a move. Use your personal Cloudflare account. All commands below run from the repository root with Node 22.13+ and `npm ci` installed. Wrangler is pinned in devDependencies. Never put tokens or the visitor secret in GitHub Pages variables, public source, or a `PUBLIC_` variable.
 
 1. Authenticate with `npx wrangler login`, verify the account with `npx wrangler whoami`, then create the database:

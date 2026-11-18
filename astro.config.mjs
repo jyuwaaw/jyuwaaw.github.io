@@ -10,7 +10,7 @@ export default defineConfig({
   // Same port the site has always used locally, so the homescreen Worker's
   // development ALLOWED_ORIGINS keeps matching.
   server: { port: 3000 },
-  integrations: [react(), sitemap()],
+  integrations: [react(), sitemap({ filter: page => !new URL(page).pathname.startsWith('/music-prototype/') })],
   // /writing/ used to be a second index over the same posts.
   redirects: { '/writing': '/blog/' },
   markdown: {
