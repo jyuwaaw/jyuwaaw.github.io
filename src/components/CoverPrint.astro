@@ -1,0 +1,79 @@
+---
+import type { getPhotographs } from '@/lib/photography.js';
+import { photoDisplayName } from '@/lib/gallery-metadata.mjs';
+
+interface Props { photos: Awaited<ReturnType<typeof getPhotographs>> }
+const { photos } = Astro.props;
+const formatter = new Intl.DateTimeFormat('en-GB', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' });
+const slides = photos.map(photo => ({
+  src: photo.src,
+  position: photo.coverPosition,
+  alt: photo.alt,
+  href: '/photography/?photo=' + photo.shareId,
+  caption: photo.location || (photo.title !== photoDisplayName(photo.id) ? photo.title : ''),
+  date: photo.date,
+  dateLabel: photo.date ? formatter.format(new Date(photo.date + 'T12:00:00Z')) : '',
+}));
+const first = slides[0];
+const multiple = slides.length > 1;
+---
+<section class="cover-print" aria-label="Selected photographs" data-slides={multiple ? JSON.stringify(slides) : undefined}>
+  <figure>
+    <a class="print-image" href={first.href} aria-label={'View photograph: ' + first.alt}>
+      <img src={first.src} alt={first.alt} style={{objectPosition:first.position}} width="1440" height="960" fetchpriority="high" />
+    </a>
+    <figcaption>
+      <div class="caption-space">
+        <div class="print-caption">
+          <span data-caption hidden={!first.caption}>{first.caption}</span>
+          <time datetime={first.date || undefined} hidden={!first.date}>{first.dateLabel}</time>
+        </div>
+        {multiple && slides.map(slide => <div class="print-caption caption-measure" aria-hidden="true">
+          {slide.caption && <span>{slide.caption}</span>}
+          {slide.dateLabel && <span class="date-label">{slide.dateLabel}</span>}
+        </div>)}
+      </div>
+      {multiple && <div class="print-controls" role="group" aria-label="Slideshow controls" hidden>
+        <button type="button" data-play aria-label="Pause slideshow" title="Pause slideshow">
+          <span data-pause-icon aria-hidden="true">Ⅱ</span><span data-play-icon aria-hidden="true" hidden>▷</span>
+        </button>
+        <button type="button" data-prev aria-label="Previous photograph" title="Previous photograph"><span aria-hidden="true">←</span></button>
+        <span class="print-count" aria-hidden="true"><span data-current>1</span> / {slides.length}</span>
+        <button type="button" data-next aria-label="Next photograph" title="Next photograph"><span aria-hidden="true">→</span></button>
+        <span data-announcement class="sr-only" role="status"></span>
+      </div>}
+    </figcaption>
+  </figure>
+</section>
+<script>
+  import { startCoverSlideshow } from '../scripts/cover-slideshow';
+  document.querySelectorAll<HTMLElement>('.cover-print[data-slides]').forEach(startCoverSlideshow);
+</script>
+<style>
+  .cover-print{grid-column:2;grid-row:1/4;min-width:0}
+  .print-image{display:block;position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--surface-2);touch-action:pan-y pinch-zoom}
+  .print-image img{width:100%;height:100%;display:block;object-fit:cover}
+  .print-image::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 68% 53% at 0% 56%,#07131e99 0%,#07131e75 41%,transparent 90%)}
+  figcaption{display:flex;align-items:center;justify-content:space-between;gap:4px 12px;min-height:var(--caption-gap);font-size:14px;line-height:1.4;color:var(--muted)}
+  [data-slides] figcaption{min-height:44px}
+  .caption-space{flex:1;min-width:0;display:grid}
+  .print-caption{grid-area:1/1;align-self:center;display:flex;align-items:baseline;flex-wrap:wrap;gap:0 12px;padding:5px 0;min-width:0;overflow-wrap:anywhere}
+  .print-caption time,.date-label{white-space:nowrap}
+  /* The longest caption sets the height for the whole sequence at this width. */
+  .caption-measure{visibility:hidden;pointer-events:none}
+  .print-controls{display:flex;align-items:center;flex:none}
+  .print-controls button{display:grid;place-items:center;min-width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--muted);line-height:1;cursor:pointer}
+  .print-controls button:hover,.print-controls button:focus-visible{color:var(--text)}
+  .print-controls button:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+  .print-controls button span{font-size:18px}
+  [data-play]{margin-right:3px}
+  .print-count{font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  @media(max-width:599px),(max-width:760px) and (orientation:portrait){
+    .cover-print{grid-column:1;grid-row:3}
+    .print-image::after{background:linear-gradient(180deg,#07131e80,transparent 34%)}
+    figcaption{font-size:13px}
+  }
+  @media(max-width:600px) and (orientation:portrait){
+    .print-image{aspect-ratio:4/5}
+  }
+</style>

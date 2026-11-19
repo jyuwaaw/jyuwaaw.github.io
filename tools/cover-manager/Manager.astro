@@ -1,0 +1,13 @@
+---
+import { getPhotographs } from '@/lib/photography.js';
+import { localRequest, readSelection, session } from './storage.mjs';
+import CoverEditor from './CoverEditor.jsx';
+if (!localRequest(Astro.request)) return new Response('仅限本机访问', {status:403});
+Astro.response.headers.set('Cache-Control','no-store');
+Astro.response.headers.set('X-Frame-Options','DENY');
+const [photos, selected] = await Promise.all([getPhotographs(), readSelection()]);
+const library = photos.map(({id,src,alt,location,date}) => ({id,src,alt,location,date}));
+---
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="robots" content="noindex,nofollow" /><title>首页头图 · Benji</title></head>
+<body><CoverEditor client:load library={library} selected={selected} session={session} /></body></html>

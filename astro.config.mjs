@@ -1,6 +1,7 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import coverManager from './tools/cover-manager/integration.mjs';
 import { siteTypefaces } from './lib/type-proof.mjs';
 
 // Static site for GitHub Pages (user site → no `base`).
@@ -11,7 +12,7 @@ export default defineConfig({
   // Same port the site has always used locally, so the homescreen Worker's
   // development ALLOWED_ORIGINS keeps matching.
   server: { port: 3000 },
-  integrations: [react(), sitemap({ filter: page => !new URL(page).pathname.startsWith('/music-prototype/') })],
+  integrations: [react(), coverManager(), sitemap({ filter: page => !new URL(page).pathname.startsWith('/music-prototype/') })],
   // /writing/ used to be a second index over the same posts.
   redirects: { '/writing': '/blog/' },
   markdown: {

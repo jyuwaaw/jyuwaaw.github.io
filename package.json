@@ -13,6 +13,7 @@
     "avatar:prepare": "node scripts/prepare-avatar.mjs",
     "likes:catalog": "node scripts/prepare-photo-likes.mjs",
     "likes:check": "wrangler deploy --dry-run --config workers/photo-likes/wrangler.jsonc",
+    "photos:manage": "PORTFOLIO_COVER_MANAGER=1 astro dev --ignore-lock --host 127.0.0.1 --port 4325",
     "music:manage": "node tools/record-shelf/server.mjs",
     "music:test": "node --test tools/record-shelf/record-shelf.test.mjs",
     "music:service:install": "node tools/record-shelf/service.mjs install",
