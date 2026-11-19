@@ -9,12 +9,17 @@ import ToyCard from '../components/ToyCard.astro';
 import { toys } from '@/lib/toys.mjs';
 import { getPhotographs } from '@/lib/photography.js';
 import HomePhotos from '../components/HomePhotos.astro';
+import CoverPrint from '../components/CoverPrint.astro';
+import coverIds from '../data/cover-photos.json';
 
 const all = await getPosts();
 const essays = all.filter((p) => p.data.section === 'writing');
 const posts = (essays.length ? essays : all).slice(0, 3);
 const archive = await getPhotographs();
-const cover = archive.find(photo => photo.id === 'IMG_0132.JPG');
+interface Props { coverPreview?: string[] }
+const selection = Astro.props.coverPreview ?? coverIds;
+const photosById = new Map(archive.map(photo => [photo.id,photo] as const));
+const covers = selection.map(id => photosById.get(id)).filter(photo => photo !== undefined);
 const work = ['silicon', 'agents'].map(id => ({
   label: SHELVES.find(shelf => shelf.id === id)!.label,
   projects: featuredProjects.filter(project => project.shelf === id),
@@ -22,7 +27,7 @@ const work = ['silicon', 'agents'].map(id => ({
 ---
 <Base>
   <section class="cover wrap" aria-labelledby="cover-name">
-    <div class:list={['jacket', { 'with-art': cover }]}>
+    <div class:list={['jacket', { 'with-art': covers.length > 0 }]}>
       <p class="cover-role">{site.role}</p>
       <h1 id="cover-name">Benji Huang</h1>
       <div class="cover-note">
@@ -32,17 +37,7 @@ const work = ['silicon', 'agents'].map(id => ({
           <a href="/about/">About me →</a>
         </nav>
       </div>
-      {cover && (
-        <figure class="cover-print">
-          <a class="print-image" href={`/photography/?photo=${cover.shareId}`} aria-label={`View photograph: ${cover.alt}`}>
-            <img src={cover.src} fetchpriority="high" width={cover.width} height={cover.height} alt={cover.alt} />
-          </a>
-          <figcaption>
-            <span>{cover.location}</span>
-            <time datetime={cover.date}>{new Date(cover.date + 'T12:00:00Z').toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' })}</time>
-          </figcaption>
-        </figure>
-      )}
+      {covers.length > 0 && <CoverPrint photos={covers} />}
     </div>
   </section>
 
@@ -118,11 +113,6 @@ const work = ['silicon', 'agents'].map(id => ({
     display:grid; grid-template-columns:var(--edge) minmax(0,1fr);
     grid-template-rows:1fr auto 1fr; isolation:isolate;
   }
-  .cover-print{ grid-column:2; grid-row:1/4; min-width:0; }
-  .print-image{ display:block; position:relative; }
-  .print-image img{ display:block; width:100%; height:auto; }
-  .print-image::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,#061f302b,transparent 70%); pointer-events:none; }
-  .cover-print figcaption{ display:flex; justify-content:space-between; align-items:start; gap:10px; padding-top:8px; height:var(--caption-gap); font-size:14px; line-height:1.4; color:var(--muted); }
   .cover-role{ grid-column:1; grid-row:1; align-self:end; padding-bottom:clamp(14px,2vw,32px); padding-right:18px; color:var(--muted); font-size:clamp(15px,1.4vw,20px); line-height:1.3; }
   .jacket h1{
     z-index:1; grid-column:1/-1; grid-row:2; width:100%; align-self:center;
@@ -149,17 +139,20 @@ const work = ['silicon', 'agents'].map(id => ({
   .section-title{ scroll-margin-top:110px; }
   .path-summary{ min-width:0; }
   .path-summary > :global(.wave){ margin-block:32px; }
-  @media (max-width:760px){
+  @media (max-width:599px),(max-width:760px) and (orientation:portrait){
     .jacket{ grid-template-columns:1fr; grid-template-rows:repeat(4,auto); }
     .cover{ padding-block:27px 36px; }
     .cover-role{ grid-row:1; padding:0; font-size:16px; }
     .jacket h1{ grid-column:1; grid-row:2; font-size:clamp(52px,14vw,92px); line-height:1.18; margin-top:5px; }
     .with-art h1{ transform:translateY(34%); background-image:linear-gradient(180deg,var(--text) 66%,#fff 66%); }
-    .cover-print{ grid-column:1; grid-row:3; }
-    .print-image::after{ background:linear-gradient(180deg,#061f3038,transparent 42%); }
-    .cover-print figcaption{ height:auto; }
     .cover-note{ grid-row:4; padding:20px 0 0; }
     .cover-links{ margin-top:10px; }
+  }
+  @media (min-width:600px) and (max-height:500px) and (orientation:landscape){
+    .cover{padding-block:12px 24px}
+    .jacket h1{font-size:clamp(64px,10vw,96px);line-height:1.12}
+    .cover-note{padding:8px 12px 0 0}
+    .cover-links{gap:2px 12px;margin-top:5px}
   }
   @media (forced-colors:active){
     .with-art h1{ background:Canvas; color:CanvasText; width:max-content; }

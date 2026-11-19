@@ -1,0 +1,9 @@
+---
+import Home from '../../src/pages/index.astro';
+import { localRequest } from './storage.mjs';
+if (!localRequest(Astro.request)) return new Response('仅限本机访问', {status:403});
+Astro.response.headers.set('Cache-Control','no-store');
+Astro.response.headers.set('X-Robots-Tag','noindex');
+const coverPreview = [...new Set(Astro.url.searchParams.getAll('cover'))];
+---
+<Home coverPreview={coverPreview} />

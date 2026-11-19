@@ -64,6 +64,23 @@ and `to: null` keeps the signal high up to the build date.
 
 ## Photography
 
+### Homepage cover selection
+
+Run `npm run photos:manage` and open <http://127.0.0.1:4325/manage/covers/>.
+Choose photographs from the published Photography album and arrange them in
+playback order. “预览首页” previews the slideshow with the current draft. “保存到本地首页”
+writes the selected filenames to `src/data/cover-photos.json` for the next site
+build and deployment. The editor and its save endpoint exist only in this local
+manager. The first photograph is the opening cover. When there are multiple
+photos, the slideshow advances every seven seconds and loops. Visitors can
+pause, step through the selection, or swipe on touchscreens. Reduced-motion
+visitors start paused. A single selection or a visit without JavaScript shows
+a static cover.
+
+Desktop and landscape layouts use a 3:2 print. Phones in portrait use a 4:5
+print. The optional `coverPosition` in `lib/photography.json` sets a photo’s
+CSS crop position in either frame. Opening the photo shows its full composition.
+
 Export selected photos into **`public/photography/`**. JPEG, PNG, WebP, and AVIF
 files appear automatically on `/photography/` when the site rebuilds; no code edits
 are needed. The default Style view follows the visitor’s local

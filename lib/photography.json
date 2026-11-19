@@ -140,6 +140,7 @@
   },
   {
     "filename": "IMG_0132.JPG",
+    "coverPosition": "70% 50%",
     "alt": "A small boat on open blue water under a hazy horizon.",
     "style": "Open skies",
     "order": 18,
@@ -158,6 +159,7 @@
   },
   {
     "filename": "IMG_3481.jpg",
+    "alt": "Pale cliffs rise above a rocky lakeshore, with sunlit mountains across the water.",
     "style": "Open skies",
     "order": 20,
     "light": "soft",
@@ -166,6 +168,7 @@
   },
   {
     "filename": "DSC04366.jpg",
+    "alt": "Thin lines of light trace a flight of snow-covered steps in blue shadow.",
     "style": "Open skies",
     "order": 21,
     "light": "soft",
@@ -214,6 +217,8 @@
   },
   {
     "filename": "IMG_1033.jpg",
+    "alt": "A gull crosses an orange sky above the setting sun and the Pacific horizon.",
+    "coverPosition": "50% 62%",
     "style": "Open skies",
     "order": 27,
     "light": "golden",
@@ -277,6 +282,8 @@
   },
   {
     "filename": "IMG_6887.jpg",
+    "coverPosition": "65% 50%",
+    "alt": "A small painted sign on a green table invites visitors to lean their phone against a rock for a selfie.",
     "style": "Everyday color",
     "order": 36,
     "light": "sunlit",
@@ -464,6 +471,7 @@
   },
   {
     "filename": "dji_mimo_20240617_202206_20240617202207_1718683032019_photo.jpg",
+    "alt": "A person stands on a coastal path with the Golden Gate Bridge behind them at sunset.",
     "style": "In passing",
     "order": 60,
     "light": "golden",
@@ -661,6 +669,8 @@
   },
   {
     "filename": "f256e8bd1i77f33d32cbd9e98d3fe68a.jpg",
+    "alt": "Two white gulls glide side by side against a clear blue sky.",
+    "coverPosition": "43% 50%",
     "location": "Mariner's Cove Marina, Australia",
     "locationSource": "User confirmed"
   },
@@ -746,6 +756,7 @@
   },
   {
     "filename": "BJW02464.jpg",
+    "coverPosition": "50% 9%",
     "style": "In passing",
     "light": "night",
     "alt": "A figure stands on a snow-covered street at night as snow falls in the streetlights."
@@ -755,6 +766,11 @@
     "style": "Everyday color",
     "light": "night",
     "alt": "A brightly lit cinema marquee lists films beneath red neon lettering."
+  },
+  {
+    "filename": "a82827e0dm6be716507b1555202164d2 2.jpg",
+    "alt": "A white gull banks against a blue sky, one wing raised and its yellow beak pointing down.",
+    "coverPosition": "50% 91%"
   },
   {
     "filename": "IMG_6937.jpeg",
