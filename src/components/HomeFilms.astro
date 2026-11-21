@@ -1,0 +1,30 @@
+---
+import { singularity as film } from '../data/singularity';
+---
+<section class="band wrap" aria-labelledby="films">
+  <h2 id="films" class="section-title">Films</h2>
+  <a class="film-feature" href={film.page}>
+    <img src={film.stills + 'at-the-desk.webp'} width="1120" height="630" loading="lazy" decoding="async" alt="A man typing by a rain-streaked window as fireworks light up the night." />
+    <div class="film-caption">
+      <p>{film.year} <span aria-hidden="true">·</span> {film.format}</p>
+      <h3>{film.title}</h3>
+      <span class="watch">Watch teaser <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</section>
+<style>
+  #films{scroll-margin-top:112px}
+  .film-feature{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,80px);margin-top:26px}
+  .film-feature img{display:block;width:100%;height:auto}
+  .film-caption p{font-size:15px;color:var(--muted)}
+  .film-caption p span{margin:0 4px}
+  .film-caption h3{margin:6px 0 22px;font:400 clamp(44px,5.7vw,84px)/1 var(--display);letter-spacing:-.055em}
+  .watch{display:inline-block;font-size:16px;border-bottom:1px solid var(--border-2);padding-bottom:2px}
+  .film-feature:hover .watch{color:var(--accent);border-color:currentColor}
+  @media(max-width:650px){
+    .film-feature{grid-template-columns:1fr;gap:14px;margin-top:18px}
+    .film-caption{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:12px}
+    .film-caption p{grid-column:1/-1}
+    .film-caption h3{margin:2px 0 0}
+  }
+</style>

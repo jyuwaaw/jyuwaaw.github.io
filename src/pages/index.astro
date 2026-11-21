@@ -9,6 +9,7 @@ import ToyCard from '../components/ToyCard.astro';
 import { toys } from '@/lib/toys.mjs';
 import { getPhotographs } from '@/lib/photography.js';
 import HomePhotos from '../components/HomePhotos.astro';
+import HomeFilms from '../components/HomeFilms.astro';
 import CoverPrint from '../components/CoverPrint.astro';
 import coverIds from '../data/cover-photos.json';
 
@@ -76,6 +77,7 @@ const work = ['silicon', 'agents'].map(id => ({
   )}
 
   <HomePhotos photos={archive} />
+  <HomeFilms />
 
   {toys.length > 0 && (
     <section class="band wrap row" aria-labelledby="play-title">
