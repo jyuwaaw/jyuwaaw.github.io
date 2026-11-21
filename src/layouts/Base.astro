@@ -14,12 +14,13 @@ const faces = siteTypefaces(proof);
 interface Props {
   title?: string;
   description?: string;
+  shareImage?: string;
   lang?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
   alternates?: { lang: string; href: string }[];
 }
-const { title, description = site.description, lang = 'en', type = 'website', noindex = false, alternates = [] } = Astro.props;
+const { title, description = site.description, shareImage, lang = 'en', type = 'website', noindex = false, alternates = [] } = Astro.props;
 const fullTitle = title ? `${title} — ${site.shortName}` : `${site.name} — ${site.role}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -44,8 +45,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(site.avatar, Astro.site)} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={new URL(shareImage ?? site.avatar, Astro.site)} />
+    <meta name="twitter:card" content={shareImage ? 'summary_large_image' : 'summary'} />
     {faces.map(face => <Font cssVariable={`--font-${face.id}`} preload={proof ? false : [{ weight: 400, style: 'normal' }]} />)}
     {proof && <script is:inline define:vars={{ ids: typefaces.map(face => face.id) }}>
       const query = new URL(location.href).searchParams.get('type');

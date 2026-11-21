@@ -1,0 +1,149 @@
+---
+import Base from '../../layouts/Base.astro';
+import { singularity as film } from '../../data/singularity';
+
+const notes = [
+  { seconds: 5.5, time: '0:05', still: 'keystrokes.webp', title: 'Who’s typing?',
+    alt: 'Pinyin syllables appear in a search field.',
+    text: 'The man types in pinyin. Each keypress draws on recordings of a real MacBook keyboard. When the AI takes over, the clicks get lighter.' },
+  { seconds: 26.5, time: '0:26', still: 'clock.webp', title: 'Inside a pixel',
+    alt: 'The digits 23:59 resolve into a grid of colored subpixels.',
+    text: 'Up close, the clock breaks into red, green and blue bars. The digits were drawn on a tiny canvas, then each pixel was split into its three colors.' },
+  { seconds: 29.5, time: '0:29', still: 'after-midnight.webp', title: 'A beat of silence',
+    alt: 'A thin ring of light emerges against a black field.',
+    text: 'The ticking stops at midnight. A short silence leaves room for a single low impact as the ring of light comes into view.' },
+];
+---
+<Base title={film.title} description={film.description} shareImage={film.stills + 'poster.webp'}>
+  <article class="wrap film">
+    <a class="back-link" href="/#films">← Films</a>
+    <header class="film-head">
+      <div>
+        <h1>{film.title}</h1>
+        <p class="film-meta">{film.year} <span>·</span> {film.format} <span>·</span> {film.filmLength} full film</p>
+      </div>
+      <p class="synopsis">{film.description}</p>
+    </header>
+
+    <figure id="screening">
+      <figcaption class="screen-caption">
+        <div>
+          <button type="button" id="play-teaser" aria-controls="teaser" hidden>Play teaser</button>
+          <span id="teaser-label">Teaser</span>
+          <span class="duration">· {film.teaserLength}</span>
+        </div>
+        <a class="inline-link" href={film.teaser}>Open MP4 <span aria-hidden="true">↗</span></a>
+      </figcaption>
+      <video id="teaser" controls playsinline preload="none" width="1280" height="720"
+             poster={film.stills + 'poster.webp'} tabindex="0" aria-label="Singularity teaser">
+        <source src={film.teaser} type="video/mp4" />
+        <track kind="subtitles" srclang="en" label="English · on-screen text" src={film.stills + 'screen-text.en.vtt'} />
+      </video>
+      <p id="player-status" role="status"></p>
+    </figure>
+
+    <section class="notes" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-title">Shot notes</h2>
+      <ol class="frames" role="list">
+        {notes.map(note => (
+          <li>
+            <a class="cue" data-seconds={note.seconds} href={film.teaser + '#t=' + note.seconds}
+               aria-label={'Play teaser at ' + note.time + ' — ' + note.title}>
+              <img src={film.stills + note.still} alt={note.alt} width="680" height="383" loading="lazy" decoding="async" />
+              <span class="cue-line"><span class="cue-time"><span aria-hidden="true">▷</span> {note.time}</span><span>{note.title}</span></span>
+            </a>
+            <p>{note.text}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="production" aria-labelledby="production-heading">
+      <h2 id="production-heading" class="section-title">Making <i>Singularity</i></h2>
+      <div>
+        <p>The first score made the discovery sound like a victory. In the final cut, the music stays with the man at the desk. As the windows multiply, he has less and less to do.</p>
+        <p>The film was made with CoreSpeed’s Agent Ensemble. The shot list, sound decisions and rendering template are collected in the <a class="inline-link" href="https://github.com/jyuwaaw/lumiere">Lumière playbook</a>.</p>
+        <nav aria-label="Film resources">
+          {film.links.map(link => <a class="inline-link" href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
+        </nav>
+      </div>
+    </section>
+  </article>
+</Base>
+
+<script>
+  const video = document.querySelector<HTMLVideoElement>('#teaser')!;
+  const button = document.querySelector<HTMLButtonElement>('#play-teaser')!;
+  const status = document.getElementById('player-status')!;
+  document.getElementById('teaser-label')!.hidden = true;
+  button.hidden = false;
+
+  function updateButton() {
+    button.textContent = video.ended ? 'Replay teaser' : video.paused ? 'Play teaser' : 'Pause teaser';
+  }
+  function showError() {
+    status.textContent = 'The teaser couldn’t play here. Use the MP4 link to open it directly.';
+  }
+  function playTeaser() {
+    video.play().catch(error => { if (error.name !== 'AbortError') showError(); });
+  }
+  video.addEventListener('play', updateButton);
+  video.addEventListener('playing', () => { status.textContent = ''; });
+  video.addEventListener('pause', updateButton);
+  video.addEventListener('ended', updateButton);
+  video.addEventListener('error', showError);
+  button.addEventListener('click', () => {
+    if (video.paused) playTeaser();
+    else video.pause();
+  });
+  document.querySelectorAll<HTMLAnchorElement>('.cue').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      video.currentTime = Number(link.dataset.seconds);
+      playTeaser();
+      video.focus({preventScroll:true});
+      document.getElementById('screening')!.scrollIntoView({block:'start'});
+    });
+  });
+</script>
+
+<style>
+  .film{max-width:1220px;padding-block:clamp(24px,3vw,44px) clamp(56px,8vw,110px)}
+  .back-link,.film-meta,.duration,.cue-time{color:var(--muted);font-size:15px}
+  .back-link:hover{color:var(--accent)}
+  .film-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--gap);align-items:end;margin:12px 0 26px}
+  h1{font:400 clamp(66px,8.4vw,122px)/.98 var(--display);letter-spacing:-.055em}
+  .film-meta{margin-top:10px}
+  .film-meta span{margin-inline:5px}
+  .synopsis{color:var(--body-text);font-size:clamp(17px,1.55vw,21px);line-height:1.42;max-width:34ch;justify-self:end}
+  #screening{scroll-margin-top:90px}
+  video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#101314}
+  .screen-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--border);font-size:15px}
+  .duration,.cue-time{font-variant-numeric:tabular-nums}
+  .duration{margin-left:4px}
+  #play-teaser{border:0;background:none;padding:5px 0;cursor:pointer;font-weight:600}
+  #play-teaser:hover{color:var(--accent)}
+  #player-status:not(:empty){margin-top:8px;color:var(--body-text)}
+  .notes,.production{border-top:1px solid var(--border);padding-top:23px;margin-top:clamp(44px,5.6vw,78px)}
+  .frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2vw,32px);margin-top:20px}
+  .cue{display:block}
+  .cue img{display:block;width:100%;height:auto;aspect-ratio:16/9}
+  .cue-line{display:flex;align-items:baseline;gap:12px;margin-top:12px;font:500 20px/1.25 var(--display)}
+  .cue-time{flex:none;font:400 14px/1.4 var(--sans);font-variant-numeric:tabular-nums}
+  .cue:hover .cue-time,.cue:focus-visible .cue-time{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .frames p,.production p{color:var(--body-text);font-size:16px;line-height:1.55}
+  .frames p{margin-top:6px}
+  .production{display:grid;grid-template-columns:minmax(190px,1fr) minmax(0,2fr);gap:var(--gap)}
+  .production p{max-width:58ch;font-size:18px}
+  .production p+p{margin-top:12px}
+  .production nav{display:flex;gap:10px 24px;flex-wrap:wrap;margin-top:18px}
+  @media(max-width:700px){
+    .film-head,.production{grid-template-columns:1fr;gap:14px}
+    .film-head{margin:12px 0 18px}
+    .synopsis{justify-self:start;max-width:50ch}
+    #screening{scroll-margin-top:112px}
+    .frames{grid-template-columns:1fr;gap:30px}
+    .cue-line{margin-top:9px}
+  }
+</style>
