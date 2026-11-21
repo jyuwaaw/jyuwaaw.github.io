@@ -6,14 +6,23 @@ import { site, links } from '../data/site';
 import { timeline, skills } from '../data/timeline';
 import graduation from '../assets/graduation.png';
 ---
-<Base title="About">
+<Base title="About" description="Yuhua (Benji) Huang builds tools for AI agents and studies how they behave on real Macs. His background is in ASIC design and verification at UC Irvine.">
   <section class="page-head wrap about-head">
     <div>
       <h1 class="display">Hi, I'm Benji. Nice to meet you.</h1>
       <p class="lede">
-        {site.roleIntro} I have an M.S. in ECE from UC Irvine.
-        I build UVM testbenches, design RTL, and ship production AI systems.
-        Trilingual (Mandarin, Cantonese, English) — I learn fastest by shipping.
+        {site.roleIntro} Before that, I earned my M.S. in ECE at UC Irvine, where I designed
+        and verified arithmetic units for AI accelerators. These days I build software that
+        lets an AI agent use someone’s tools with their permission.
+      </p>
+      <p class="lede">
+        I work on OAuth for <a class="inline-link" href="https://corespeed.io/docs/connectors">CoreSpeed connectors</a>
+        and test tool calls against the apps people connect.
+        On the Mac side, I test whether a remote agent can open the right browser tab
+        and hand control back when it’s done.
+      </p>
+      <p class="lede">
+        I speak Mandarin, Cantonese, and English.
       </p>
     </div>
     <figure>

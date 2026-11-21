@@ -7,7 +7,7 @@ export const SHELVES = [
   {
     id: 'agents',
     label: 'AI & Agents',
-    blurb: 'MCP servers, Claude Code skills, and agent-first product work — teaching AI tools to reach the software people actually use.',
+    blurb: 'I build tools that let agents work with the software people already use, from a browser on a Mac to a mind map on disk.',
   },
   {
     id: 'silicon',
@@ -45,6 +45,16 @@ export const projects: Project[] = [
   {
     shelf: 'agents',
     featured: true,
+    tag: 'Team project',
+    title: 'CoreSpeed Tie — giving a remote agent access to a Mac',
+    tracks: ['mcp', 'ai'],
+    desc: 'I worked on how people see, pause, and share connected devices. In one end-to-end test, a remote agent opened a Chrome tab on my Mac, followed a link, took a screenshot, and released the tab.',
+    meta: ['macOS', 'Chrome extension', 'MCP'],
+    href: 'https://corespeed.io/docs/cli/tie',
+  },
+  {
+    shelf: 'agents',
+    featured: true,
     tag: 'MCP',
     title: 'mindnode-mcp — MCP server for MindNode',
     tracks: ['mcp'],
@@ -64,7 +74,6 @@ export const projects: Project[] = [
   },
   {
     shelf: 'agents',
-    featured: true,
     tag: 'Pipeline',
     title: 'learnlog — daily notes to bilingual posts',
     tracks: ['mcp'],
