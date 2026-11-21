@@ -21,7 +21,7 @@ Those two surfaces had different jobs. The web view needed to reveal the materia
 
 After installing the material, we gave the native window a solid background and marked it opaque. The web view kept its transparency. We added a check that opened both the main window and a standalone session window and verified that each reported `isOpaque == true`. Checking both mattered because they were created separately.
 
-That check answers a precise question about the fix. The remaining question is how many watts it saves. I don’t have a post-change power reading from the same MacBook. For that comparison I’d hold the open sessions, window dimensions, and display brightness steady, let both builds settle, and record whole-machine power and GPU activity over the same interval.
+The window check leaves one question open. Did whole-machine power draw change, and by how much? I don’t have a post-change reading from the same MacBook. For that comparison I’d hold the open sessions, window dimensions, and display brightness steady, let both builds settle, and record whole-machine power and GPU activity over the same interval.
 
 <!-- zh -->
 
@@ -31,10 +31,10 @@ That check answers a precise question about the fix. The remaining question is h
 
 侧栏用了一层 macOS 原生材质。Tauri 开启透明后，内层 WebKit 视图能透出底下的 AppKit 材质，侧栏的效果就出来了。顺着这条设置再往下看，外层的 `NSWindow` 也用了透明背景，`isOpaque` 是 `false`。
 
-我需要的透明只发生在窗口里面，网页要露出下面那层材质。材质已经铺满了整个窗口，外层完全可以有实色背景。把外层也标成透明，意味着窗口每次更新，系统合成画面时都得考虑它背后的内容。[Apple 对 NSWindow.isOpaque 的说明](https://developer.apple.com/documentation/appkit/nswindow/isopaque)
+我需要的透明只发生在窗口里面，网页要露出下面那层材质。材质已经铺满了整个窗口，外层完全可以有实色背景。把外层也标成透明，系统合成画面时就可能需要考虑窗口背后的内容。[Apple 对 NSWindow.isOpaque 的说明](https://developer.apple.com/documentation/appkit/nswindow/isopaque)
 
 ## 这次改动验证到了哪一步
 
 我们在材质就位后，给原生窗口设了实色背景，并把它标成不透明。里面的网页依然可以透出侧栏材质。主窗口和独立会话窗口是分别创建的，所以自动检查会把两个都打开，逐一确认 `isOpaque == true`。
 
-现在能确认的是两个窗口都拿到了预期的属性。至于实际省下多少瓦，我手里还缺同一台 MacBook 改完后的读数。下次测量，我会固定打开的会话、窗口大小和屏幕亮度，让两个版本分别稳定下来，再取相同时长的整机功耗和 GPU 占用来比较。
+现在能确认的是两个窗口都拿到了预期的属性。整机功耗有没有变化、变了多少，还得在同一台 MacBook 上复测。下次测量，我会固定打开的会话、窗口大小和屏幕亮度，让两个版本分别稳定下来，再取相同时长的整机功耗和 GPU 占用来比较。
