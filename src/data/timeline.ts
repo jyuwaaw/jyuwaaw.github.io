@@ -80,6 +80,14 @@ export const signals: Signal[] = [
 
 export const skills = [
   {
+    group: 'Agent infrastructure',
+    items: 'Model Context Protocol (MCP), OAuth, credential refresh and revocation, provider integration testing, browser automation',
+  },
+  {
+    group: 'macOS apps',
+    items: 'SwiftUI, AppKit, WKWebView, Tauri',
+  },
+  {
     group: 'Verification',
     items: 'UVM, SystemVerilog testbenches, constrained-random stimulus, functional coverage, SVA assertions, self-checking scoreboards, C++ golden models, CDC checks, protocol compliance',
   },

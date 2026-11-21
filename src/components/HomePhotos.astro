@@ -8,7 +8,7 @@ const garage = await getPhotographs({ folder: 'Mechanic', captions: garageCaptio
 const selection = [
   { photo: photos.find(photo => photo.id === 'BJW03759.jpg'), album: '/photography/' },
   { photo: photos.find(photo => photo.id === 'BJW01225.jpg'), album: '/photography/' },
-  { photo: garage.find(photo => photo.id === 'IMG_1289.jpeg'), album: '/mechanic/' },
+  { photo: garage.find(photo => photo.id === '16DA1953-B47B-4FE8-A42A-BAE56681C434.jpg'), album: '/mechanic/' },
 ];
 ---
 <section class="band wrap home-photos" aria-labelledby="photos-title">
@@ -26,7 +26,7 @@ const selection = [
           <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
         </a>
         <figcaption>
-          <span>{album === '/mechanic/' ? photo.label : photo.location}</span>
+          <span>{album === '/mechanic/' ? 'Benji’s Garage' : photo.location}</span>
           {photo.date && <time datetime={photo.date}>{photo.date.slice(0, 4)}</time>}
         </figcaption>
       </figure>
